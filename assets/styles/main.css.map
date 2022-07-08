@@ -2,11 +2,13 @@
 	"version": 3,
 	"file": "main.css",
 	"sources": [
-		"main.scss"
+		"main.scss",
+		"assets/styles/_reset.scss"
 	],
 	"sourcesContent": [
-		"body {\n\tpadding: 1em;\n}\n"
+		"@import 'reset';\n\n\n\nbody {\n\tpadding: 1em;\n}\n",
+		"*:where(:not(audio, canvas, iframe, img, svg, video):not(svg *, symbol *)) {\n\tall:     unset;\n\tdisplay: revert;\n}\n\n*,\n*::before,\n*::after {\n\tbox-sizing: border-box;\n}\n\na {\n\ttext-decoration: none;\n}\n\na,\nbutton {\n\tcursor: revert;\n}\n\ndetails summary,\nmenu,\nol,\nul {\n\tlist-style: none;\n}\n\nimg {\n\tmax-width: 100%;\n}\n\ntable {\n\tborder-collapse: collapse;\n}\n\ntextarea {\n\twhite-space: revert;\n}\n\n::placeholder {\n\tall: unset;\n}\n\n\n\n/* Disclosure triangles. */\ndetails ::marker,\ndetails ::-webkit-details-marker {\n\tdisplay: none;\n}\n"
 	],
 	"names": [],
-	"mappings": "AAAA,AAAA,IAAI,CAAC,EACJ,OAAO,EAAE,GAAG,GACZ"
+	"mappings": "ACAA,AAAA,CAAC,CAAC,KAAM,CAAA,IAAI,AAAA,CAAC,AAAA,sCAAsC,AAAA,CAAC,AAAA,IAAI,AAAA,CAAC,AAAA,eAAe,AAAA,CAAC,EAAE,EAC1E,GAAG,EAAM,KAAK,EACd,OAAO,EAAE,MAAM,GACf;;AAED,AAAA,CAAC,EACD,CAAC,EAAE,MAAM,EACT,CAAC,EAAE,KAAK,CAAC,EACR,UAAU,EAAE,UAAU,GACtB;;AAED,AAAA,CAAC,CAAC,EACD,eAAe,EAAE,IAAI,GACrB;;AAED,AAAA,CAAC,EACD,MAAM,CAAC,EACN,MAAM,EAAE,MAAM,GACd;;AAED,AAAA,OAAO,CAAC,OAAO,EACf,IAAI,EACJ,EAAE,EACF,EAAE,CAAC,EACF,UAAU,EAAE,IAAI,GAChB;;AAED,AAAA,GAAG,CAAC,EACH,SAAS,EAAE,IAAI,GACf;;AAED,AAAA,KAAK,CAAC,EACL,eAAe,EAAE,QAAQ,GACzB;;AAED,AAAA,QAAQ,CAAC,EACR,WAAW,EAAE,MAAM,GACnB;;EAEC,AAAF,WAAa,CAAC,EACb,GAAG,EAAE,KAAK,GACV;;AAID,2BAA2B;AAC3B,AAAA,OAAO,GAAG,MAAM,EAChB,OAAO,GAAG,sBAAsB,CAAC,EAChC,OAAO,EAAE,IAAI,GACb;;AD7CD,AAAA,IAAI,CAAC,EACJ,OAAO,EAAE,GAAG,GACZ"
 }

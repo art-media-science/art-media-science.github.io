@@ -1,3 +1,5 @@
 livereload: true
+sass:
+  sass_dir: assets
 theme: null
 title: Art, Media, Science

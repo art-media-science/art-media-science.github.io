@@ -4,9 +4,10 @@
 
 
 
-@import 'reset';
-@import 'typography';
-@import 'fonts';
+// Basic reset and typography.
+@use 'reset';
+@use 'fonts';
+@use 'typography';
 
 
 

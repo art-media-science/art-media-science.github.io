@@ -1,5 +1,7 @@
 livereload: true
 sass:
-  sass_dir: assets/styles
+  implementation: sass-embedded
+  sass_dir:       assets/styles
+  sourcemap:      never
 theme: null
 title: Art, Media, Science

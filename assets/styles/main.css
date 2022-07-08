@@ -341,3 +341,11 @@ body > header > h2 {
 body > main {
 	padding: var(--margin);
 }
+
+body > main p {
+	max-width: 80ch;
+}
+
+body > main p + p {
+	margin-top: var(--margin);
+}

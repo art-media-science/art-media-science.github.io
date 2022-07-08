@@ -6,11 +6,15 @@
 
 @import 'reset';
 @import 'typography';
+@import 'fonts';
 
 
 
 :root {
-	--typography--size: 2rem;
+	@extend %font--calibre;
+
+	--typography--size:    2rem;
+	--typography--leading: 1;
 }
 
 

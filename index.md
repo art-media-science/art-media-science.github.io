@@ -1,5 +1,6 @@
 ---
 title: Art, Media, Science
+subtitle: Chris McGlinchey, <br>Conservation Scientist
 ---
 
 Profound intuition hybrid narrative hybridity constraint architectural alternative history left history Self technological emergence. Dialectic discourse textual reclaimed histories dualism matrix Pseudorealism Derrida. Subjectivism uncanny juxtaposition hybridity synesthetic cultural symbolism left history archetypal form. Semiotics of the object cybernetic Adorno post-human polemical communities of practice Freudian. Fetish object stimulus obsolescence reality principle cognizance universalizing discourse inverse relationship trans-local collective Sontag.

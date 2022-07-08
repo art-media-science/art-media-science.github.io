@@ -257,6 +257,11 @@ p + p {
 }
 
 :root {
+	--typography--shoulder: calc(1 - var(--typography--cap-height));
+	--typography--shoulder--top: calc(var(--typography--shoulder) - var(--typography--shoulder--bottom));
+}
+
+:root {
 	--typography--cap-height: 0.614;
 	--typography--x-height: 0.444;
 	--typography--shoulder--bottom: 0.154;
@@ -264,8 +269,12 @@ p + p {
 }
 
 :root {
-	--typography--shoulder: calc(1 - var(--typography--cap-height));
-	--typography--shoulder--top: calc(var(--typography--shoulder) - var(--typography--shoulder--bottom));
+	--typography--weight: 400;
+}
+
+:root {
+	--typography--inset--left: -0.073;
+	--typography--inset--right: -0.061;
 }
 
 :root {

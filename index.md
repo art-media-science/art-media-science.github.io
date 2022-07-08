@@ -1,5 +1,4 @@
 ---
-layout: default
 title: Art, Media, Science
 ---
 

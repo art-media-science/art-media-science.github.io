@@ -47,6 +47,232 @@ details ::-webkit-details-marker {
 	display: none;
 }
 
+:root {
+	/* Our base size is 10/16, so that 1rem = 10px. Easy maths. */
+	font-size: 62.5%;
+}
+
+:root * {
+	/* Type rendering. */
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-size-adjust: none;
+	font-feature-settings: 'liga', 'kern';
+	font-kerning: normal;
+	text-rendering: optimizeLegibility;
+}
+
+em,
+em em em {
+	font-style: italic;
+}
+
+em em {
+	font-style: normal;
+}
+
+del {
+	font-style: line-through;
+}
+
+nobr,
+.nowrap {
+	white-space: nowrap;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	--typography--tracking--override: var(--typography--tracking);
+	--typography--letter-spacing: calc(var(--typography--tracking--override, var(--typography--tracking, 0)) * 1em);
+	--typography--margin--left: calc(var(--typography--inset--left) * 1em);
+	--typography--margin--right: calc(var(--typography--inset--right) * 1em);
+	--typography--text-shadow: calc(var(--typography--underline--skip) * 1em);
+	--typography--decoration-thickness: calc(var(--typography--underline) * 1em);
+	--typography--underline-offset: calc(var(--typography--underline--shift) * 1em);
+	font-weight: var(--typography--weight);
+	letter-spacing: var(--typography--letter-spacing);
+	--typography--font-size: calc(var(--typography--scale, 1) * var(--typography--size--override, var(--typography--size)));
+	--typography--line-height: calc(var(--typography--leading) * var(--typography--size--override, var(--typography--size)));
+	--typography--leading--remainder: calc((var(--typography--leading) - 1) / 2);
+	--typography--shift: calc((var(--typography--shoulder) + var(--typography--shoulder--top)) * (1 - var(--typography--scale, 1)));
+	--typography--leading--bottom: calc(var(--typography--shoulder--bottom) + var(--typography--leading--remainder) + var(--typography--shift, 0));
+	--typography--leading--top: calc(var(--typography--shoulder--top) + var(--typography--leading--remainder) - var(--typography--shift, 0));
+	--typography--margin--bottom: calc(-1 * var(--typography--leading--bottom) * var(--typography--size--override, var(--typography--size)));
+	--typography--margin--top: calc(-1 * var(--typography--leading--top) * var(--typography--size--override, var(--typography--size)));
+	color: var(--color);
+	display: block;
+	font-size: var(--typography--font-size);
+	line-height: var(--typography--line-height);
+	margin-left: var(--typography--margin--left);
+	margin-right: var(--typography--margin--right);
+	max-width: calc(100% - var(--typography--margin--left) - var(--typography--margin--right) + 1px);
+	overflow-wrap: break-word;
+}
+
+@supports (display: flow-root) {
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p {
+		display: flow-root;
+	}
+}
+
+h1:before,
+h1:after,
+h2:before,
+h2:after,
+h3:before,
+h3:after,
+h4:before,
+h4:after,
+h5:before,
+h5:after,
+h6:before,
+h6:after,
+p:before,
+p:after {
+	content: '';
+	display: block;
+	visibility: hidden;
+}
+
+h1:before,
+h2:before,
+h3:before,
+h4:before,
+h5:before,
+h6:before,
+p:before {
+	margin-top: calc(var(--typography--margin--top) - (var(--typography--margin--top--shift, 0) * var(--typography--size--override, var(--typography--size))));
+}
+
+h1:after,
+h2:after,
+h3:after,
+h4:after,
+h5:after,
+h6:after,
+p:after {
+	margin-bottom: var(--typography--margin--bottom);
+}
+
+h1 + h1,
+h1 + h2,
+h1 + h3,
+h1 + h4,
+h1 + h5,
+h1 + h6,
+h1 + p,
+h2 + h1,
+h2 + h2,
+h2 + h3,
+h2 + h4,
+h2 + h5,
+h2 + h6,
+h2 + p,
+h3 + h1,
+h3 + h2,
+h3 + h3,
+h3 + h4,
+h3 + h5,
+h3 + h6,
+h3 + p,
+h4 + h1,
+h4 + h2,
+h4 + h3,
+h4 + h4,
+h4 + h5,
+h4 + h6,
+h4 + p,
+h5 + h1,
+h5 + h2,
+h5 + h3,
+h5 + h4,
+h5 + h5,
+h5 + h6,
+h5 + p,
+h6 + h1,
+h6 + h2,
+h6 + h3,
+h6 + h4,
+h6 + h5,
+h6 + h6,
+h6 + p,
+p + h1,
+p + h2,
+p + h3,
+p + h4,
+p + h5,
+p + h6,
+p + p {
+	--layout--typography--font-size: var(--layout--typography--size, var(--typography--size--override, var(--typography--size)));
+	--layout--typography--line-height: var(--layout--typography--leading, var(--typography--leading)) * var(--layout--typography--font-size);
+	--layout--typography--extra-lines: var(--layout--typography--line-height) * var(--typography--extra-lines, 0);
+	--layout--typography--leading--between: var(--layout--typography--font-size) * (var(--layout--typography--leading, var(--typography--leading)) - 1);
+	--layout--typography--shoulder: var(--layout--typography--font-size) * var(--typography--shoulder);
+	--layout--typography--leading-shoulder: calc(var(--layout--typography--extra-lines) + var(--layout--typography--leading--between) + var(--layout--typography--shoulder));
+	margin-top: var(--layout--typography--leading-shoulder);
+}
+
+@font-face {
+	font-family: 'Calibre';
+	font-stretch: normal;
+	font-style: normal;
+	font-weight: 400;
+	src: url("../fonts/calibre--regular.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: 'Calibre';
+	font-stretch: normal;
+	font-style: italic;
+	font-weight: 400;
+	src: url("../fonts/calibre--regular--italic.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: 'Heldane';
+	font-stretch: normal;
+	font-style: normal;
+	font-weight: 400;
+	src: url("../fonts/heldane--regular.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: 'Heldane';
+	font-stretch: normal;
+	font-style: italic;
+	font-weight: 400;
+	src: url("../fonts/heldane--regular--italic.woff2") format("woff2");
+}
+
+:root {
+	--typography--cap-height: 0.614;
+	--typography--x-height: 0.444;
+	--typography--shoulder--bottom: 0.154;
+	font-family: "Calibre", sans-serif;
+}
+
+:root {
+	--typography--shoulder: calc(1 - var(--typography--cap-height));
+	--typography--shoulder--top: calc(var(--typography--shoulder) - var(--typography--shoulder--bottom));
+}
+
+:root {
+	--typography--size: 2rem;
+	--typography--leading: 1;
+}
+
 body {
 	padding: 1em;
 }

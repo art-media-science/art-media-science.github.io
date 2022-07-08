@@ -22,9 +22,9 @@ $--default-font-fize: 16;
 	@if index($browsers, 'safari--iphone') {
 		@supports (-webkit-hyphens: none) and (-webkit-touch-callout: none) and (-webkit-overflow-scrolling: touch) { // Just iPhones.
 			@media // iPad “slide over” matches the overflow condition, so size-based queries.
-				(-webkit-min-device-pixel-ratio: 2) and (max-height: #{526 / $--default-font-fize}em), // Lil’ iPhone SE.
-				(-webkit-min-device-pixel-ratio: 2) and (min-width: #{375 / $--default-font-fize}em) and (max-height: #{616 / $--default-font-fize}em), // Bigger iPhone SE / 8.
-				(-webkit-min-device-pixel-ratio: 2) and (min-width: #{414 / $--default-font-fize}em), // iPhones 11 / XR.
+				(-webkit-min-device-pixel-ratio: 2) and (max-height: #{calc(526 / $--default-font-fize)}em), // Lil’ iPhone SE.
+				(-webkit-min-device-pixel-ratio: 2) and (min-width: #{calc(375 / $--default-font-fize)}em) and (max-height: #{calc(616 / $--default-font-fize)}em), // Bigger iPhone SE / 8.
+				(-webkit-min-device-pixel-ratio: 2) and (min-width: #{calc(414 / $--default-font-fize)}em), // iPhones 11 / XR.
 				(-webkit-min-device-pixel-ratio: 2) and (orientation: landscape), // All these in landscape.
 				(-webkit-min-device-pixel-ratio: 3) // iPhones after 2020 or so, no iPads are @3x yet.
 				{
@@ -38,7 +38,7 @@ $--default-font-fize: 16;
 		}
 	}
 	@if index($browsers, 'chrome--mobile') {
-		@media (-webkit-min-device-pixel-ratio: 0) and (min-resolution: .001dpcm) and (max-width: #{767 / $--default-font-fize}em) {
+		@media (-webkit-min-device-pixel-ratio: 0) and (min-resolution: .001dpcm) and (max-width: #{calc(767 / $--default-font-fize)}em) {
 			@content;
 		}
 	}
@@ -49,17 +49,17 @@ $--default-font-fize: 16;
 // Flexible breaks.
 @mixin breakpoint($break) {
 	@if $break == 320 { // These are sadly the exception, now.
-		@media (max-width: #{374 / $--default-font-fize}em) {
+		@media (max-width: #{calc(374 / $--default-font-fize)}em) {
 			@content;
 		}
 	}
 	@else if $break == 768 {
-		@media (min-width: #{$break / $--default-font-fize}em) and (min-height: #{480 / $--default-font-fize}em), (min-width: #{930 / $--default-font-fize}em) { // Clear landscape iPhones.
+		@media (min-width: #{calc($break / $--default-font-fize)}em) and (min-height: #{calc(480 / $--default-font-fize)}em), (min-width: #{calc(930 / $--default-font-fize)}em) { // Clear landscape iPhones.
 			@content;
 		}
 	}
 	@else {
-		@media (min-width: #{$break / $--default-font-fize}em) {
+		@media (min-width: #{calc($break / $--default-font-fize)}em) {
 			@content;
 		}
 	}
@@ -67,15 +67,15 @@ $--default-font-fize: 16;
 
 @mixin landscape($break: false) {
 	@if $break {
-		@media (orientation: landscape), (min-width: #{$break / $--default-font-fize}em) {
+		@media (orientation: landscape), (min-width: #{calc($break / $--default-font-fize)}em) {
 			@content;
 		}
 	}
 	@else {
 		@media
 			(orientation: landscape), // Actually landscape.
-			(min-width: #{568 / $--default-font-fize}em) and (min-height: #{480 / $--default-font-fize}em), // Clear landscape iPhones.
-			(min-width: #{930 / $--default-font-fize}em) {
+			(min-width: #{calc(568 / $--default-font-fize)}em) and (min-height: #{calc(480 / $--default-font-fize)}em), // Clear landscape iPhones.
+			(min-width: #{calc(930 / $--default-font-fize)}em) {
 			@content;
 		}
 	}

@@ -1,0 +1,127 @@
+:root {
+	/* Our base size is 10/16, so that 1rem = 10px. Easy maths. */
+	font-size: 62.5%;
+}
+
+:root * {
+	/* Type rendering. */
+	-moz-osx-font-smoothing:  grayscale;
+	-webkit-font-smoothing:   antialiased;
+	-webkit-text-size-adjust: none;
+	font-feature-settings:    'liga', 'kern';
+	font-kerning:             normal;
+	text-rendering:           optimizeLegibility;
+}
+
+
+
+em,
+em em em {
+	font-style: italic;
+}
+
+em em {
+	font-style: normal;
+}
+
+del {
+	font-style: line-through;
+}
+
+nobr,
+.nowrap {
+	white-space: nowrap;
+}
+
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	// Face/weight.
+	--typography--tracking--override: var(--typography--tracking); // Allows reset/clear.
+	--typography--letter-spacing:     calc(var(--typography--tracking--override, var(--typography--tracking, 0)) * 1em); // Render the actual values.
+
+	--typography--margin--left:  calc(var(--typography--inset--left) * 1em);
+	--typography--margin--right: calc(var(--typography--inset--right) * 1em);
+
+	--typography--text-shadow:          calc(var(--typography--underline--skip) * 1em);
+	--typography--decoration-thickness: calc(var(--typography--underline) * 1em);
+	--typography--underline-offset:     calc(var(--typography--underline--shift) * 1em);
+
+	font-weight:    var(--typography--weight);
+	letter-spacing: var(--typography--letter-spacing);
+
+
+
+	// Size/spacing.
+	--typography--font-size:   calc(var(--typography--scale, 1) * var(--typography--size--override, var(--typography--size))); // Map to property.
+	--typography--line-height: calc(var(--typography--leading) * var(--typography--size--override, var(--typography--size)));	 // Calculated exactly (not em/relative) to allow for scaled/super/subscript type sizes.
+
+	--typography--leading--remainder: calc((var(--typography--leading) - 1) / 2); // Internal variables to keep things tidy.
+	--typography--shift:              calc((var(--typography--shoulder) + var(--typography--shoulder--top)) * (1 - var(--typography--scale, 1))); // Hard to grok, but basically pushes down the remainder of the scale. Zeroes out at 1x.
+
+	--typography--leading--bottom: calc(var(--typography--shoulder--bottom) + var(--typography--leading--remainder) + var(--typography--shift, 0));
+	--typography--leading--top:    calc(var(--typography--shoulder--top) +    var(--typography--leading--remainder) - var(--typography--shift, 0));
+
+	--typography--margin--bottom: calc(-1 * var(--typography--leading--bottom) * var(--typography--size--override, var(--typography--size))); // Total space below—also rendered exactly for scaling.
+	--typography--margin--top:    calc(-1 * var(--typography--leading--top) *    var(--typography--size--override, var(--typography--size))); // And above.
+
+	color:         var(--color);
+	display:       block; // Fallback in lieu of `flow-root` support.
+	font-size:     var(--typography--font-size);
+	line-height:   var(--typography--line-height);
+	margin-left:   var(--typography--margin--left);
+	margin-right:  var(--typography--margin--right);
+	max-width:     calc(100% - var(--typography--margin--left) - var(--typography--margin--right) + 1px); // Forces wrapping in flex containers, with a pixel for rounding cover.
+	overflow-wrap: break-word; // Prevent container-breaking.
+
+	@supports (display: flow-root) {
+		display: flow-root; // For the negative margins to work without flex parents, in recent browsers.
+	}
+
+	// Pseudo-elements to negate the shoulders.
+	&:before,
+	&:after {
+		content:    '';
+		display:    block;
+		visibility: hidden;
+	}
+
+	&:before {
+		// Pulls bounding box down to cap-height, unless there is a shift.
+		margin-top: calc(var(--typography--margin--top) - (var(--typography--margin--top--shift, 0) * var(--typography--size--override, var(--typography--size))));
+	}
+
+	&:after {
+		margin-bottom: var(--typography--margin--bottom); // Pulls bounding box up to baseline.
+	}
+}
+
+
+
+// For sequential type elements.
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	& + & {
+		--layout--typography--font-size: var(--layout--typography--size, var(--typography--size--override, var(--typography--size))); // Separate internal calculations for spacing.
+
+		--layout--typography--line-height:      var(--layout--typography--leading, var(--typography--leading)) * var(--layout--typography--font-size); // Same.
+		--layout--typography--extra-lines:      var(--layout--typography--line-height) * var(--typography--extra-lines, 0);
+		--layout--typography--leading--between: var(--layout--typography--font-size) * (var(--layout--typography--leading, var(--typography--leading)) - 1); // Same.
+		--layout--typography--shoulder:         var(--layout--typography--font-size) * var(--typography--shoulder); // Same.
+
+		--layout--typography--leading-shoulder: calc(var(--layout--typography--extra-lines) + var(--layout--typography--leading--between) + var(--layout--typography--shoulder));
+
+		margin-top: var(--layout--typography--leading-shoulder);
+	}
+}

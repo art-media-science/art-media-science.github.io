@@ -4,4 +4,3 @@ sass:
   sass_dir:       assets/styles
   sourcemap:      never
 theme: null
-title: Art, Media, Science

@@ -34,7 +34,12 @@
 
 
 // Typefaces.
-%font--calibre {
+%--shoulders {
+	--typography--shoulder:      calc(1 - var(--typography--cap-height)); // Remainder/overhang.
+	--typography--shoulder--top: calc(var(--typography--shoulder) - var(--typography--shoulder--bottom));
+}
+
+%--calibre {
 	@extend %--shoulders;
 
 	--typography--cap-height:       0.614; // In em.
@@ -44,7 +49,7 @@
 	font-family: "Calibre", sans-serif;
 }
 
-%font--heldane {
+%--heldane {
 	@extend %--shoulders;
 
 	--typography--cap-height:       0.642;
@@ -56,7 +61,23 @@
 
 
 
-%--shoulders {
-	--typography--shoulder:      calc(1 - var(--typography--cap-height)); // Remainder/overhang.
-	--typography--shoulder--top: calc(var(--typography--shoulder) - var(--typography--shoulder--bottom));
+// Weights.
+%--regular {
+	--typography--weight: 400;
+}
+
+%font--calibre--regular {
+	@extend %--calibre;
+	@extend %--regular;
+
+	--typography--inset--left:  -0.073; // Optical insets, left edge of capital "M".
+	--typography--inset--right: -0.061; // Right edge of lowercase “m” (since lines tend to end lowercase).
+}
+
+%font--heldane--regular {
+	@extend %--heldane;
+	@extend %--regular;
+
+	--typography--inset--left:  -0.019;
+	--typography--inset--right: -0.014;
 }

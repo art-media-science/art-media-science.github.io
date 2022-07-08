@@ -8,6 +8,9 @@
 		<script src="{{ '/assets/scripts/main.js' | relative_path }}"></script>
 	</head>
 	<body>
-		{{ content }}
+		{% include header.html %}
+		<main>
+			{{ content }}
+		</main>
 	</body>
 </html>

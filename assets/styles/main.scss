@@ -46,6 +46,10 @@ body {
 			display:        flex;
 			flex-direction: column;
 
+			@include breakpoint(320) {
+				--typography--size: 8rem;
+			}
+
 			@include breakpoint(768) {
 				--typography--size: 14.4rem;
 			}

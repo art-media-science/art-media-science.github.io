@@ -32,12 +32,14 @@ body {
 	> header {
 		display:         flex;
 		flex-direction:  column;
-		gap:             calc(2 * var(--margin));
 		height:          var(--vh--initial, 100vh);
 		padding:         var(--margin);
 
 		div:first-child {
-			flex-grow: 1;
+			align-items: center;
+			display:     flex;
+			flex-grow:   1;
+
 
 			> h1 {
 				@extend %font--heldane--regular;
@@ -48,6 +50,7 @@ body {
 				align-items:    start;
 				display:        flex;
 				flex-direction: column;
+				margin-bottom:  calc(2 * var(--margin));
 				position:       sticky;
 				top:            var(--margin);
 

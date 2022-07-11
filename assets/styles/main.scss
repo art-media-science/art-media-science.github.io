@@ -32,35 +32,43 @@ body {
 	> header {
 		display:         flex;
 		flex-direction:  column;
+		gap:             calc(2 * var(--margin));
 		height:          var(--vh--initial, 100vh);
-		justify-content: space-between;
 		padding:         var(--margin);
 
-		> h1 {
-			@extend %font--heldane--regular;
+		div:first-child {
+			flex-grow: 1;
 
-			--typography--leading: calc(5/6);
-			--typography--size:    9.6rem;
+			> h1 {
+				@extend %font--heldane--regular;
 
-			align-items:    start;
-			display:        flex;
-			flex-direction: column;
+				--typography--leading: calc(5/6);
+				--typography--size:    9.6rem;
 
-			@include breakpoint(320) {
-				--typography--size: 8rem;
-			}
+				align-items:    start;
+				display:        flex;
+				flex-direction: column;
+				position:       sticky;
+				top:            var(--margin);
 
-			@include breakpoint(768) {
-				--typography--size: 14.4rem;
+				@include breakpoint(320) {
+					--typography--size: 8rem;
+				}
+
+				@include breakpoint(768) {
+					--typography--size: 14.4rem;
+				}
 			}
 		}
 
-		> h2 {
-			--typography--size:    2.4rem;
-			--typography--leading: 1;
+		> div:last-child {
+			> p {
+				--typography--size:    2.4rem;
+				--typography--leading: 1;
 
-			@include breakpoint(768) {
-				--typography--size: 3.6rem;
+				@include breakpoint(768) {
+					--typography--size: 3.6rem;
+				}
 			}
 		}
 	}

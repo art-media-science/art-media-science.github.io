@@ -36,15 +36,17 @@ body {
 		display:         flex;
 		flex-direction:  column;
 		height:          var(--vh--initial, 100vh);
+		gap:             calc(2 * var(--margin));
 		padding:         var(--margin);
 		position:        sticky;
 		top:             var(--header--collapsed);
 
 		div:first-child {
-			align-items: center;
-			display:     flex;
-			flex-grow:   1;
-
+			align-items:   center;
+			display:       flex;
+			flex-grow:     1;
+			margin-bottom: calc(-2 * var(--margin));
+			margin-top:    calc(-1 * var(--margin));
 
 			> h1 {
 				@extend %font--heldane--regular;
@@ -55,7 +57,6 @@ body {
 				align-items:    start;
 				display:        flex;
 				flex-direction: column;
-				margin-bottom:  calc(2 * var(--margin));
 				position:       sticky;
 				top:            var(--margin);
 

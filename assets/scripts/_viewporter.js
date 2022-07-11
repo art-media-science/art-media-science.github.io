@@ -1,4 +1,4 @@
-const viewporter = () => {
+(() => {
 	let orientationChanged = false
 	let vhOffset = 0
 
@@ -73,8 +73,4 @@ const viewporter = () => {
 
 		if (orientationChanged) updateVhOffset()
 	})
-}
-
-
-
-viewporter()
+})()

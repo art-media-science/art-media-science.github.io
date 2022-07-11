@@ -32,7 +32,7 @@ body {
 	> header {
 		display:         flex;
 		flex-direction:  column;
-		height:          100vh;
+		height:          var(--vh--initial, 100vh);
 		justify-content: space-between;
 		padding:         var(--margin);
 

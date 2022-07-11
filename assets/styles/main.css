@@ -305,10 +305,14 @@ p + p {
 }
 
 body > header {
+	--header--collapsed: calc(-1 * (100vh - 35.6rem));
+	background: white;
 	display: flex;
 	flex-direction: column;
 	height: var(--vh--initial, 100vh);
 	padding: var(--margin);
+	position: sticky;
+	top: var(--header--collapsed);
 }
 
 body > header div:first-child {

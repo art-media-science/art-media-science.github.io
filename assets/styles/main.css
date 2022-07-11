@@ -79,7 +79,7 @@ details ::-webkit-details-marker {
 	src: url("../fonts/heldane--regular--italic.woff2") format("woff2");
 }
 
-body > header > h1,
+body > header div:first-child > h1,
 :root {
 	--typography--shoulder: calc(1 - var(--typography--cap-height));
 	--typography--shoulder--top: calc(var(--typography--shoulder) - var(--typography--shoulder--bottom));
@@ -92,14 +92,14 @@ body > header > h1,
 	font-family: "Calibre", sans-serif;
 }
 
-body > header > h1 {
+body > header div:first-child > h1 {
 	--typography--cap-height: 0.642;
 	--typography--x-height: 0.446;
 	--typography--shoulder--bottom: 0.184;
 	font-family: "Heldane", serif;
 }
 
-body > header > h1,
+body > header div:first-child > h1,
 :root {
 	--typography--weight: 400;
 }
@@ -109,7 +109,7 @@ body > header > h1,
 	--typography--inset--right: -0.061;
 }
 
-body > header > h1 {
+body > header div:first-child > h1 {
 	--typography--inset--left: -0.019;
 	--typography--inset--right: -0.014;
 }
@@ -306,34 +306,46 @@ p + p {
 body > header {
 	display: flex;
 	flex-direction: column;
+	gap: calc(2 * var(--margin));
 	height: var(--vh--initial, 100vh);
-	justify-content: space-between;
 	padding: var(--margin);
 }
 
-body > header > h1 {
+body > header div:first-child {
+	flex-grow: 1;
+}
+
+body > header div:first-child > h1 {
 	--typography--leading: calc(5/6);
 	--typography--size: 9.6rem;
 	align-items: start;
 	display: flex;
 	flex-direction: column;
+	position: sticky;
+	top: var(--margin);
+}
+
+@media (max-width: 23.375em) {
+	body > header div:first-child > h1 {
+		--typography--size: 8rem;
+	}
 }
 
 @media (min-width: 48em) and (min-height: 30em),
 (min-width: 58.125em) {
-	body > header > h1 {
+	body > header div:first-child > h1 {
 		--typography--size: 14.4rem;
 	}
 }
 
-body > header > h2 {
+body > header > div:last-child > p {
 	--typography--size: 2.4rem;
 	--typography--leading: 1;
 }
 
 @media (min-width: 48em) and (min-height: 30em),
 (min-width: 58.125em) {
-	body > header > h2 {
+	body > header > div:last-child > p {
 		--typography--size: 3.6rem;
 	}
 }

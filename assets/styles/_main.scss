@@ -1,0 +1,11 @@
+> main {
+	padding: var(--margin);
+
+	p {
+		max-width: 80ch;
+
+		+ p {
+			margin-top: var(--margin);
+		}
+	}
+}

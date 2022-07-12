@@ -361,6 +361,30 @@ body > header section:first-child > figure > h1 {
 	}
 }
 
+body > header section:first-child > figure > h1 #art--header .a {
+	letter-spacing: -0.04em;
+}
+
+body > header section:first-child > figure > h1 #media--header .m {
+	letter-spacing: -0.03em;
+}
+
+body > header section:first-child > figure > h1 #media--header .d {
+	letter-spacing: 0.02em;
+}
+
+body > header section:first-child > figure > h1 #science--header .s {
+	letter-spacing: -0.01em;
+}
+
+body > header section:first-child > figure > h1 #science--header .i {
+	letter-spacing: -0.01em;
+}
+
+body > header section:first-child > figure > h1 #science--header .n {
+	letter-spacing: -0.01em;
+}
+
 body > header > section:last-child {
 	bottom: var(--margin);
 	position: sticky;

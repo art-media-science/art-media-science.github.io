@@ -309,20 +309,30 @@ body > header {
 	--logo--height--scroll: calc(var(--logo--height) * var(--logo--scale, 1));
 	--tagline--height: 3.875rem;
 	--header--scroll--offset: calc(-1 * var(--vh--initial, 100vh) + var(--logo--height--scroll) + var(--tagline--height) + var(--margin) * 4);
+	--header--scroll--extra: calc((100vh + var(--vh--offset, 0rem) - var(--logo--height) - var(--tagline--height) - var(--margin) * 3) / 2);
 	background: white;
 	display: flex;
 	flex-direction: column;
 	gap: calc(2 * var(--margin));
-	height: var(--vh--initial, 100vh);
+	height: calc(var(--vh--initial, 100vh) + var(--header--scroll--extra));
 	padding: var(--margin);
 	position: sticky;
-	top: var(--header--scroll--offset);
+	top: calc(var(--header--scroll--offset) - var(--header--scroll--extra));
+}
+
+@media (min-width: 48em) and (min-height: 30em),
+(min-width: 58.125em) {
+	body > header {
+		--logo--height: 33.247rem;
+		--tagline--height: 5.813rem;
+	}
 }
 
 body > header div:first-child {
 	align-items: center;
 	display: flex;
 	flex-grow: 1;
+	margin-top: calc(-1 * var(--header--scroll--extra));
 	padding-top: var(--margin);
 }
 
@@ -347,6 +357,11 @@ body > header div:first-child > h1 {
 	body > header div:first-child > h1 {
 		--typography--size: 14.4rem;
 	}
+}
+
+body > header > div:last-child {
+	bottom: var(--margin);
+	position: sticky;
 }
 
 body > header > div:last-child > p {

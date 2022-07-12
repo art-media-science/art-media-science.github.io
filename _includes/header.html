@@ -27,7 +27,12 @@
 		id="tagline"
 		>
 		<p>
-			{{- page.subtitle -}}
+			<a
+				href="#about"
+				id="about--header"
+				>
+				{{- page.subtitle | markdownify | newline_to_br -}}
+			</a>
 		</p>
 	</section>
 </header>

@@ -1,6 +1,8 @@
 ---
 title: Art, Media, Science
-subtitle: Chris McGlinchey, <br>Conservation Scientist
+subtitle: |
+  Chris McGlinchey,
+  Conservation Scientist
 ---
 
 

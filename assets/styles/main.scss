@@ -46,7 +46,7 @@ body {
 				-1 * var(--vh--initial, 100vh)
 				+ var(--logo--height--scroll)
 				+ var(--tagline--height)
-				+ var(--margin) * 4
+				+ var(--margin) * 3
 			);
 
 		// The distance from the initial, centered logo until it is “stuck”.
@@ -61,21 +61,20 @@ body {
 				/ 2
 			);
 
-		background:      white; // For now.
-		display:         flex;
-		flex-direction:  column;
-		gap:             calc(2 * var(--margin));
-		height:          calc(var(--vh--initial, 100vh) + var(--header--scroll--extra));
-		padding:         var(--margin);
-		position:        sticky;
-		top:             calc(var(--header--scroll--offset) - var(--header--scroll--extra));
+		background:     white; // For now.
+		display:        flex;
+		flex-direction: column;
+		gap:            var(--margin);
+		height:         calc(var(--vh--initial, 100vh) + var(--header--scroll--extra));
+		padding:        var(--margin);
+		position:       sticky;
+		top:            calc(var(--header--scroll--offset) - var(--header--scroll--extra));
 
 		div:first-child {
 			align-items:   center;
 			display:       flex;
 			flex-grow:     1;
 			margin-top:    calc(-1 * var(--header--scroll--extra));
-			padding-top:   var(--margin); // Optical centering, with two below on scroll.
 
 			> h1 {
 				@extend %font--heldane--regular;

@@ -336,14 +336,8 @@ body > header section:first-child {
 }
 
 body > header section:first-child > figure {
-	height: var(--logo--height--scroll);
 	position: sticky;
 	top: var(--margin);
-	transform-origin: bottom left;
-	transform: scale(var(--logo--scale, 1));
-	transition-duration: 200ms;
-	transition-property: transform;
-	transition-timing-function: ease-in-out;
 }
 
 body > header section:first-child > figure > h1 {
@@ -382,10 +376,6 @@ body > header > section:last-child > p {
 	body > header > section:last-child > p {
 		--typography--size: 3.6rem;
 	}
-}
-
-body.main--visible {
-	--logo--scale: 0.618;
 }
 
 body > main {

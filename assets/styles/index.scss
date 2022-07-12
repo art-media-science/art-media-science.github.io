@@ -31,6 +31,6 @@
 html {
 	body {
 		@import 'header';
-		@import '_main'; // Make it get the partial.
+		@import 'main';
 	}
 }

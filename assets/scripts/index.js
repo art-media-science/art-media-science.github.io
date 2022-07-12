@@ -10,7 +10,7 @@
 
 const getHeaderDimensions = () => {
 	const body = document.body.style
-	const logo = document.getElementById('logo').firstElementChild
+	const logo = document.getElementById('logo')
 	const tagline = document.getElementById('tagline')
 
 	const logoHeightVar = '--logo--height'

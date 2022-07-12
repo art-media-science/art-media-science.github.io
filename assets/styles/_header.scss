@@ -21,73 +21,68 @@
 			/ 2
 		);
 
-	background:     white; // For now.
-	display:        flex;
-	flex-direction: column;
-	gap:            var(--margin);
-	height:         calc(var(--vh--initial, 100vh) + var(--header--scroll--extra));
-	padding:        var(--margin);
-	position:       sticky;
-	top:            calc(var(--header--scroll--offset) - var(--header--scroll--extra));
+	background:      white; // For now.
+	display:         flex;
+	justify-content: space-between;
+	flex-direction:  column;
+	gap:             var(--margin);
+	height:          calc(var(--vh--initial, 100vh) + var(--header--scroll--extra));
+	padding:         var(--margin);
+	position:        sticky;
+	top:             calc(var(--header--scroll--offset) - var(--header--scroll--extra));
 
 	section:first-child {
-		align-items:   center;
-		display:       flex;
-		flex-grow:     1;
-		margin-top:    calc(-1 * var(--header--scroll--extra));
+		margin-top: var(--header--scroll--extra);
+		position:   sticky;
+		top:        var(--margin);
 
-		> figure {
-			position: sticky;
-			top:      var(--margin);
+		> h1 {
+			@extend %font--heldane--regular;
 
-			> h1 {
-				@extend %font--heldane--regular;
+			--typography--leading: calc(5/6);
+			--typography--size:    9.6rem;
 
-				--typography--leading: calc(5/6);
-				--typography--size:    9.6rem;
+			align-items:    start;
+			display:        flex;
+			flex-direction: column;
 
-				align-items:    start;
-				display:        flex;
-				flex-direction: column;
+			@include breakpoint(320) {
+				--typography--size: 8rem;
+			}
 
-				@include breakpoint(320) {
-					--typography--size: 8rem;
+			@include breakpoint(768) {
+				--typography--size: 14.4rem;
+			}
+
+
+
+			#art--header {
+				.a {
+					letter-spacing: -0.04em; // Tighten the “Ar”.
+				}
+			}
+
+			#media--header {
+				.m {
+					letter-spacing: -0.03em; // “Me”.
 				}
 
-				@include breakpoint(768) {
-					--typography--size: 14.4rem;
+				.d {
+					letter-spacing: 0.02em; // “di“.
+				}
+			}
+
+			#science--header {
+				.s {
+					letter-spacing: -0.01em; // “Sc“.
 				}
 
-
-
-				#art--header {
-					.a {
-						letter-spacing: -0.04em; // Tighten the “Ar”.
-					}
+				.i {
+					letter-spacing: -0.01em; // “ie“.
 				}
 
-				#media--header {
-					.m {
-						letter-spacing: -0.03em; // “Me”.
-					}
-
-					.d {
-						letter-spacing: 0.02em; // “di“.
-					}
-				}
-
-				#science--header {
-					.s {
-						letter-spacing: -0.01em; // “Sc“.
-					}
-
-					.i {
-						letter-spacing: -0.01em; // “ie“.
-					}
-
-					.n {
-						letter-spacing: -0.01em; // “nc“.
-					}
+				.n {
+					letter-spacing: -0.01em; // “nc“.
 				}
 			}
 		}

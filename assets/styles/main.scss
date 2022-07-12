@@ -104,6 +104,38 @@ body {
 					@include breakpoint(768) {
 						--typography--size: 14.4rem;
 					}
+
+
+
+					#art--header {
+						.a {
+							letter-spacing: -0.04em; // Tighten the “Ar”.
+						}
+					}
+
+					#media--header {
+						.m {
+							letter-spacing: -0.03em; // “Me”.
+						}
+
+						.d {
+							letter-spacing: 0.02em; // “di“.
+						}
+					}
+
+					#science--header {
+						.s {
+							letter-spacing: -0.01em; // “Sc“.
+						}
+
+						.i {
+							letter-spacing: -0.01em; // “ie“.
+						}
+
+						.n {
+							letter-spacing: -0.01em; // “nc“.
+						}
+					}
 				}
 			}
 		}

@@ -1,14 +1,5 @@
 > header {
-	--logo--height:         22.164rem; // TODO Calc these in JS.
 	--logo--height--scroll: calc(var(--logo--height) * var(--logo--scale, 1));
-
-	--tagline--height: 3.875rem; // TODO Same here.
-
-	@include breakpoint(768) {
-		--logo--height: 33.247rem; // TODO Then these aren’t necessary.
-
-		--tagline--height: 5.813rem;
-	}
 
 	// The collapsed/scrolled header offset.
 	--header--scroll--offset: calc(

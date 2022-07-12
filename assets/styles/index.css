@@ -79,7 +79,7 @@ details ::-webkit-details-marker {
 	src: url("../fonts/heldane--regular--italic.woff2") format("woff2");
 }
 
-body > header section:first-child > figure > h1,
+html body > header section:first-child > figure > h1,
 :root {
 	--typography--shoulder: calc(1 - var(--typography--cap-height));
 	--typography--shoulder--top: calc(var(--typography--shoulder) - var(--typography--shoulder--bottom));
@@ -92,14 +92,14 @@ body > header section:first-child > figure > h1,
 	font-family: "Calibre", sans-serif;
 }
 
-body > header section:first-child > figure > h1 {
+html body > header section:first-child > figure > h1 {
 	--typography--cap-height: 0.642;
 	--typography--x-height: 0.446;
 	--typography--shoulder--bottom: 0.184;
 	font-family: "Heldane", serif;
 }
 
-body > header section:first-child > figure > h1,
+html body > header section:first-child > figure > h1,
 :root {
 	--typography--weight: 400;
 }
@@ -109,7 +109,7 @@ body > header section:first-child > figure > h1,
 	--typography--inset--right: -0.061;
 }
 
-body > header section:first-child > figure > h1 {
+html body > header section:first-child > figure > h1 {
 	--typography--inset--left: -0.019;
 	--typography--inset--right: -0.014;
 }
@@ -304,7 +304,7 @@ p + p {
 	}
 }
 
-body > header {
+html body > header {
 	--logo--height: 22.164rem;
 	--logo--height--scroll: calc(var(--logo--height) * var(--logo--scale, 1));
 	--tagline--height: 3.875rem;
@@ -322,25 +322,25 @@ body > header {
 
 @media (min-width: 48em) and (min-height: 30em),
 (min-width: 58.125em) {
-	body > header {
+	html body > header {
 		--logo--height: 33.247rem;
 		--tagline--height: 5.813rem;
 	}
 }
 
-body > header section:first-child {
+html body > header section:first-child {
 	align-items: center;
 	display: flex;
 	flex-grow: 1;
 	margin-top: calc(-1 * var(--header--scroll--extra));
 }
 
-body > header section:first-child > figure {
+html body > header section:first-child > figure {
 	position: sticky;
 	top: var(--margin);
 }
 
-body > header section:first-child > figure > h1 {
+html body > header section:first-child > figure > h1 {
 	--typography--leading: calc(5/6);
 	--typography--size: 9.6rem;
 	align-items: start;
@@ -349,67 +349,67 @@ body > header section:first-child > figure > h1 {
 }
 
 @media (max-width: 23.375em) {
-	body > header section:first-child > figure > h1 {
+	html body > header section:first-child > figure > h1 {
 		--typography--size: 8rem;
 	}
 }
 
 @media (min-width: 48em) and (min-height: 30em),
 (min-width: 58.125em) {
-	body > header section:first-child > figure > h1 {
+	html body > header section:first-child > figure > h1 {
 		--typography--size: 14.4rem;
 	}
 }
 
-body > header section:first-child > figure > h1 #art--header .a {
+html body > header section:first-child > figure > h1 #art--header .a {
 	letter-spacing: -0.04em;
 }
 
-body > header section:first-child > figure > h1 #media--header .m {
+html body > header section:first-child > figure > h1 #media--header .m {
 	letter-spacing: -0.03em;
 }
 
-body > header section:first-child > figure > h1 #media--header .d {
+html body > header section:first-child > figure > h1 #media--header .d {
 	letter-spacing: 0.02em;
 }
 
-body > header section:first-child > figure > h1 #science--header .s {
+html body > header section:first-child > figure > h1 #science--header .s {
 	letter-spacing: -0.01em;
 }
 
-body > header section:first-child > figure > h1 #science--header .i {
+html body > header section:first-child > figure > h1 #science--header .i {
 	letter-spacing: -0.01em;
 }
 
-body > header section:first-child > figure > h1 #science--header .n {
+html body > header section:first-child > figure > h1 #science--header .n {
 	letter-spacing: -0.01em;
 }
 
-body > header > section:last-child {
+html body > header > section:last-child {
 	bottom: var(--margin);
 	position: sticky;
 }
 
-body > header > section:last-child > p {
+html body > header > section:last-child > p {
 	--typography--size: 2.4rem;
 	--typography--leading: 1;
 }
 
 @media (min-width: 48em) and (min-height: 30em),
 (min-width: 58.125em) {
-	body > header > section:last-child > p {
+	html body > header > section:last-child > p {
 		--typography--size: 3.6rem;
 	}
 }
 
-body > main {
+html body > main {
 	padding: var(--margin);
 }
 
-body > main p {
+html body > main p {
 	max-width: 80ch;
 }
 
-body > main p + p {
+html body > main p + p {
 	margin-top: var(--margin);
 }

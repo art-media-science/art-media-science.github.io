@@ -79,7 +79,7 @@ details ::-webkit-details-marker {
 	src: url("../fonts/heldane--regular--italic.woff2") format("woff2");
 }
 
-html body > header section:first-child > figure > h1,
+html body > header section:first-child > h1,
 :root {
 	--typography--shoulder: calc(1 - var(--typography--cap-height));
 	--typography--shoulder--top: calc(var(--typography--shoulder) - var(--typography--shoulder--bottom));
@@ -92,14 +92,14 @@ html body > header section:first-child > figure > h1,
 	font-family: "Calibre", sans-serif;
 }
 
-html body > header section:first-child > figure > h1 {
+html body > header section:first-child > h1 {
 	--typography--cap-height: 0.642;
 	--typography--x-height: 0.446;
 	--typography--shoulder--bottom: 0.184;
 	font-family: "Heldane", serif;
 }
 
-html body > header section:first-child > figure > h1,
+html body > header section:first-child > h1,
 :root {
 	--typography--weight: 400;
 }
@@ -109,7 +109,7 @@ html body > header section:first-child > figure > h1,
 	--typography--inset--right: -0.061;
 }
 
-html body > header section:first-child > figure > h1 {
+html body > header section:first-child > h1 {
 	--typography--inset--left: -0.019;
 	--typography--inset--right: -0.014;
 }
@@ -304,84 +304,79 @@ p + p {
 	}
 }
 
-html body > header {
-	--logo--height: 22.164rem;
-	--logo--height--scroll: calc(var(--logo--height) * var(--logo--scale, 1));
-	--tagline--height: 3.875rem;
-	--header--scroll--offset: calc(-1 * var(--vh--initial, 100vh) + var(--logo--height--scroll) + var(--tagline--height) + var(--margin) * 3);
-	--header--scroll--extra: calc((100vh + var(--vh--offset, 0rem) - var(--logo--height) - var(--tagline--height) - var(--margin) * 3) / 2);
-	background: white;
-	display: flex;
-	flex-direction: column;
-	gap: var(--margin);
-	height: calc(var(--vh--initial, 100vh) + var(--header--scroll--extra));
-	padding: var(--margin);
-	position: sticky;
-	top: calc(var(--header--scroll--offset) - var(--header--scroll--extra));
+html body.main--visible {
+	--logo--scale: 0.618;
 }
 
-@media (min-width: 48em) and (min-height: 30em),
-(min-width: 58.125em) {
-	html body > header {
-		--logo--height: 33.247rem;
-		--tagline--height: 5.813rem;
-	}
+html body > header {
+	--logo--height--scroll: calc(var(--logo--height) * var(--logo--scale, 1));
+	--header--scroll: calc((var(--vh--initial, 100vh) - var(--logo--height) - var(--tagline--height) - var(--margin) * 3) / 2);
+	--header--scroll--offset: calc(-1 * var(--vh--initial, 100vh) + var(--logo--height--scroll) + var(--tagline--height));
+	background: white;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	gap: var(--margin);
+	height: calc(var(--vh--initial, 100vh) + var(--header--scroll) + var(--margin) * 3);
+	padding: var(--margin);
+	position: sticky;
+	top: calc(var(--header--scroll--offset) - var(--header--scroll));
 }
 
 html body > header section:first-child {
-	align-items: center;
-	display: flex;
-	flex-grow: 1;
-	margin-top: calc(-1 * var(--header--scroll--extra));
-}
-
-html body > header section:first-child > figure {
+	margin-top: var(--header--scroll);
 	position: sticky;
 	top: var(--margin);
 }
 
-html body > header section:first-child > figure > h1 {
+html body > header section:first-child > h1 {
 	--typography--leading: calc(5/6);
 	--typography--size: 9.6rem;
 	align-items: start;
 	display: flex;
 	flex-direction: column;
+	position: absolute;
+	transform-origin: top left;
+	transform: scale(var(--logo--scale, 1));
+	transition-duration: 200ms;
+	transition-property: transform;
+	transition-timing-function: linear;
 }
 
 @media (max-width: 23.375em) {
-	html body > header section:first-child > figure > h1 {
+	html body > header section:first-child > h1 {
 		--typography--size: 8rem;
 	}
 }
 
 @media (min-width: 48em) and (min-height: 30em),
 (min-width: 58.125em) {
-	html body > header section:first-child > figure > h1 {
+	html body > header section:first-child > h1 {
 		--typography--size: 14.4rem;
 	}
 }
 
-html body > header section:first-child > figure > h1 #art--header .a {
+html body > header section:first-child > h1 #art--header .a {
 	letter-spacing: -0.04em;
 }
 
-html body > header section:first-child > figure > h1 #media--header .m {
+html body > header section:first-child > h1 #media--header .m {
 	letter-spacing: -0.03em;
 }
 
-html body > header section:first-child > figure > h1 #media--header .d {
+html body > header section:first-child > h1 #media--header .d {
 	letter-spacing: 0.02em;
 }
 
-html body > header section:first-child > figure > h1 #science--header .s {
+html body > header section:first-child > h1 #science--header .s {
 	letter-spacing: -0.01em;
 }
 
-html body > header section:first-child > figure > h1 #science--header .i {
+html body > header section:first-child > h1 #science--header .i {
 	letter-spacing: -0.01em;
 }
 
-html body > header section:first-child > figure > h1 #science--header .n {
+html body > header section:first-child > h1 #science--header .n {
 	letter-spacing: -0.01em;
 }
 

@@ -29,7 +29,30 @@
 
 
 html {
+	scroll-behavior: smooth;
+
 	body {
+		--logo--height--scaled: calc(var(--logo--height) * var(--logo--scale, 1));
+
+		// For anchor offset.
+		--scroll--offset: calc(
+				var(--logo--height--scaled)
+				+ var(--tagline--height)
+				+ var(--margin) * 3
+			);
+
+		@include breakpoint(768) {
+			--scroll--offset: var(--margin);
+		}
+
+		#art,
+		#media,
+		#science {
+			scroll-margin-top: var(--scroll--offset);
+		}
+
+
+
 		@import 'header';
 		@import 'main';
 	}

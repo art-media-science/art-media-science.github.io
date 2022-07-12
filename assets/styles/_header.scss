@@ -6,8 +6,6 @@
 
 
 > header {
-	--logo--height--scroll: calc(var(--logo--height) * var(--logo--scale, 1));
-
 	// The distance from the initial, centered logo until it is “stuck”.
 	--header--scroll: calc(
 			(
@@ -22,7 +20,7 @@
 	// The collapsed/scrolled header offset.
 	--header--scroll--offset: calc(
 			-1 * var(--vh--initial, 100vh)
-			+ var(--logo--height--scroll)
+			+ var(--logo--height--scaled)
 			+ var(--tagline--height)
 		);
 

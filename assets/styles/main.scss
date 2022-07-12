@@ -77,15 +77,8 @@ body {
 			margin-top:    calc(-1 * var(--header--scroll--extra));
 
 			> figure {
-				// height:                     var(--logo--height--scroll);
-				position:                   sticky;
-				top:                        var(--margin);
-				// transform-origin:           top left;
-				// transform:                  scale(var(--logo--scale, 1));
-				// transition-delay:           100ms, 0ms; // TODO The height should be on `transitionend`.
-				// transition-duration:        200ms;
-				// transition-property:        height, transform;
-				// transition-timing-function: ease-in-out;
+				position: sticky;
+				top:      var(--margin);
 
 				> h1 {
 					@extend %font--heldane--regular;
@@ -154,13 +147,6 @@ body {
 			}
 		}
 	}
-
-
-
-	// // From the JS.
-	// &.main--visible {
-	// 	--logo--scale: 0.618; // Golden.
-	// }
 
 
 

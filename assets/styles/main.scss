@@ -77,6 +77,7 @@ body {
 			margin-top:    calc(-1 * var(--header--scroll--extra));
 
 			> figure {
+				height:                     var(--logo--height--scroll);
 				position:                   sticky;
 				top:                        var(--margin);
 				transform-origin:           bottom left;
@@ -120,6 +121,15 @@ body {
 			}
 		}
 	}
+
+
+
+	// From the JS.
+	&.main--visible {
+		--logo--scale: 0.618; // Golden.
+	}
+
+
 
 	> main {
 		padding: var(--margin);

@@ -308,12 +308,12 @@ body > header {
 	--logo--height: 22.164rem;
 	--logo--height--scroll: calc(var(--logo--height) * var(--logo--scale, 1));
 	--tagline--height: 3.875rem;
-	--header--scroll--offset: calc(-1 * var(--vh--initial, 100vh) + var(--logo--height--scroll) + var(--tagline--height) + var(--margin) * 4);
+	--header--scroll--offset: calc(-1 * var(--vh--initial, 100vh) + var(--logo--height--scroll) + var(--tagline--height) + var(--margin) * 3);
 	--header--scroll--extra: calc((100vh + var(--vh--offset, 0rem) - var(--logo--height) - var(--tagline--height) - var(--margin) * 3) / 2);
 	background: white;
 	display: flex;
 	flex-direction: column;
-	gap: calc(2 * var(--margin));
+	gap: var(--margin);
 	height: calc(var(--vh--initial, 100vh) + var(--header--scroll--extra));
 	padding: var(--margin);
 	position: sticky;
@@ -333,7 +333,6 @@ body > header div:first-child {
 	display: flex;
 	flex-grow: 1;
 	margin-top: calc(-1 * var(--header--scroll--extra));
-	padding-top: var(--margin);
 }
 
 body > header div:first-child > h1 {

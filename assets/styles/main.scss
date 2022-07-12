@@ -30,23 +30,32 @@
 
 body {
 	> header {
-		--header--collapsed: calc(-1 * (100vh - 35.6rem)); // TODO Calculate this offset with JS.
+		--logo--height:         22.164rem; // TODO Calc these in JS.
+		--logo--height--scroll: calc(var(--logo--height) * var(--logo--scale, 1));
+
+		--tagline--height: 3.875rem; // TODO Same here.
+
+		--header--scroll--offset: calc(
+				-1 * var(--vh--initial, 100vh)
+				+ var(--logo--height--scroll)
+				+ var(--tagline--height)
+				+ var(--margin) * 4
+			);
 
 		background:      white; // For now.
 		display:         flex;
 		flex-direction:  column;
-		height:          var(--vh--initial, 100vh);
 		gap:             calc(2 * var(--margin));
+		height:          var(--vh--initial, 100vh);
 		padding:         var(--margin);
 		position:        sticky;
-		top:             var(--header--collapsed);
+		top:             var(--header--scroll--offset);
 
 		div:first-child {
 			align-items:   center;
 			display:       flex;
 			flex-grow:     1;
-			margin-bottom: calc(-2 * var(--margin));
-			margin-top:    calc(-1 * var(--margin));
+			padding-top:   var(--margin); // Optical centering, with two below on scroll.
 
 			> h1 {
 				@extend %font--heldane--regular;

@@ -10,7 +10,7 @@
 
 const getHeaderDimensions = () => {
 	const body = document.body.style
-	const logo = document.getElementById('logo')
+	const logo = document.getElementById('logo').firstElementChild
 	const tagline = document.getElementById('tagline')
 
 	const logoHeightVar = '--logo--height'
@@ -31,8 +31,21 @@ const getHeaderDimensions = () => {
 	})
 }
 
+const scrollHeaderScale = () => {
+	const main = document.querySelector('main')
+	const mainClass = 'main--visible'
+
+	const mainVisible = new IntersectionObserver(entries => {
+		const [entry] = entries
+		entry.isIntersecting ? document.body.classList.add(mainClass) : document.body.classList.remove(mainClass);
+	})
+
+	mainVisible.observe(main)
+}
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
-	getHeaderDimensions();
+	getHeaderDimensions()
+	scrollHeaderScale()
 })

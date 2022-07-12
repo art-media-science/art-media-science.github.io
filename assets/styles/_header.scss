@@ -1,19 +1,17 @@
+// From the JS.
+&.main--visible {
+	--logo--scale: 0.618; // Golden.
+}
+
+
+
 > header {
 	--logo--height--scroll: calc(var(--logo--height) * var(--logo--scale, 1));
 
-	// The collapsed/scrolled header offset.
-	--header--scroll--offset: calc(
-			-1 * var(--vh--initial, 100vh)
-			+ var(--logo--height--scroll)
-			+ var(--tagline--height)
-			+ var(--margin) * 3
-		);
-
 	// The distance from the initial, centered logo until it is “stuck”.
-	--header--scroll--extra: calc(
+	--header--scroll: calc(
 			(
-				100vh
-				+ var(--vh--offset, 0rem)
+				var(--vh--initial, 100vh)
 				- var(--logo--height)
 				- var(--tagline--height)
 				- var(--margin) * 3
@@ -21,18 +19,25 @@
 			/ 2
 		);
 
+	// The collapsed/scrolled header offset.
+	--header--scroll--offset: calc(
+			-1 * var(--vh--initial, 100vh)
+			+ var(--logo--height--scroll)
+			+ var(--tagline--height)
+		);
+
 	background:      white; // For now.
 	display:         flex;
 	justify-content: space-between;
 	flex-direction:  column;
 	gap:             var(--margin);
-	height:          calc(var(--vh--initial, 100vh) + var(--header--scroll--extra));
+	height:          calc(var(--vh--initial, 100vh) + var(--header--scroll) + var(--margin) * 3);
 	padding:         var(--margin);
 	position:        sticky;
-	top:             calc(var(--header--scroll--offset) - var(--header--scroll--extra));
+	top:             calc(var(--header--scroll--offset) - var(--header--scroll));
 
 	section:first-child {
-		margin-top: var(--header--scroll--extra);
+		margin-top: var(--header--scroll);
 		position:   sticky;
 		top:        var(--margin);
 
@@ -42,9 +47,15 @@
 			--typography--leading: calc(5/6);
 			--typography--size:    9.6rem;
 
-			align-items:    start;
-			display:        flex;
-			flex-direction: column;
+			align-items:                start;
+			display:                    flex;
+			flex-direction:             column;
+			position:                   absolute;
+			transform-origin:           top left;
+			transform:                  scale(var(--logo--scale, 1));
+			transition-duration:        200ms;
+			transition-property:        transform;
+			transition-timing-function: linear;
 
 			@include breakpoint(320) {
 				--typography--size: 8rem;

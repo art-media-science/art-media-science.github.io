@@ -344,6 +344,11 @@ html body.main--visible {
 	--color--background: white;
 }
 
+html body.footer--visible {
+	--color: white;
+	--color--background: var(--color--accent);
+}
+
 html body,
 html body > header {
 	--color--transition: 200ms;

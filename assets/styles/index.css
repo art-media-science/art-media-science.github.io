@@ -351,13 +351,14 @@ html body > header section:first-child {
 html body > header section:first-child > h1 {
 	--typography--leading: calc(5/6);
 	--typography--size: 9.6rem;
+	--transition--duration: 100ms;
 	align-items: start;
 	display: flex;
 	flex-direction: column;
 	position: absolute;
 	transform-origin: 0px -0.025em;
 	transform: scale(calc(1 - (1 - var(--logo--scale)) * var(--logo--scroll)));
-	transition-duration: 100ms;
+	transition-duration: var(--transition--duration);
 	transition-property: transform;
 	transition-timing-function: linear;
 	will-change: transform;
@@ -373,6 +374,7 @@ html body > header section:first-child > h1 {
 (min-width: 58.125em) {
 	html body > header section:first-child > h1 {
 		--typography--size: 14.4rem;
+		--transition--duration: 50ms;
 	}
 }
 

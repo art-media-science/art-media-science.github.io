@@ -322,7 +322,8 @@ html body {
 
 html body #art,
 html body #media,
-html body #science {
+html body #science,
+html body #about {
 	scroll-margin-top: var(--scroll--offset);
 }
 
@@ -428,4 +429,10 @@ html body > main p {
 
 html body > main p + p {
 	margin-top: var(--margin);
+}
+
+html body > footer {
+	background: black;
+	color: white;
+	padding: var(--margin);
 }

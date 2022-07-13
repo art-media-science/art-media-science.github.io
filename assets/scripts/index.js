@@ -12,21 +12,23 @@ const logoHeightVar =    '--logo--height'
 const taglineHeightVar = '--tagline--height'
 const scrollVar =        '--logo--scroll'
 
+const mainVisibleClass = 'main--visible'
+
 
 
 const getHeaderDimensions = (body, logo, tagline) => {
 	let logoHeight = logo.offsetHeight
 	let taglineHeight = tagline.offsetHeight
 
-	body.setProperty(logoHeightVar, ` ${logoHeight / 10}rem`)
-	body.setProperty(taglineHeightVar, ` ${taglineHeight / 10}rem`)
+	body.style.setProperty(logoHeightVar, ` ${logoHeight / 10}rem`)
+	body.style.setProperty(taglineHeightVar, ` ${taglineHeight / 10}rem`)
 
 	window.addEventListener('resize', () => {
 		logoHeight = logo.offsetHeight
 		taglineHeight = tagline.offsetHeight
 
-		body.setProperty(logoHeightVar, ` ${logoHeight / 10}rem`)
-		body.setProperty(taglineHeightVar, ` ${taglineHeight / 10}rem`)
+		body.style.setProperty(logoHeightVar, ` ${logoHeight / 10}rem`)
+		body.style.setProperty(taglineHeightVar, ` ${taglineHeight / 10}rem`)
 	})
 }
 
@@ -41,7 +43,7 @@ const getHeaderScroll = (body, logo) => {
 		// The extra/early 10px “softens” the transition a bit.
 		scroll = clamp(((window.scrollY - scrollDistance + 10) / scrollDistance).toFixed(6), 0, 1)
 
-		body.setProperty(scrollVar, ` ${scroll}`)
+		body.style.setProperty(scrollVar, ` ${scroll}`)
 	}
 
 	window.addEventListener('load', () => {
@@ -63,11 +65,39 @@ const getHeaderScroll = (body, logo) => {
 
 
 
+const mainVisible = (body, main) => {
+	let viewport = window.innerHeight
+	let mainTop = main.getBoundingClientRect().top
+
+	const checkTop = () => {
+		viewport = window.innerHeight
+		mainTop = main.getBoundingClientRect().top; // Ternary gets angry without this semicolon?
+
+		(mainTop <= viewport) ? body.classList.add(mainVisibleClass) : body.classList.remove(mainVisibleClass)
+	}
+
+	window.addEventListener('load', () => {
+		checkTop()
+	})
+
+	window.addEventListener('resize', () => {
+		checkTop()
+	})
+
+	window.addEventListener('scroll', () => {
+		checkTop()
+	})
+}
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
-	const body = document.body.style
+	const body = document.body
 	const logo = document.getElementById('logo').firstElementChild
 	const tagline = document.getElementById('tagline')
+	const main = document.querySelector('main')
 
 	getHeaderDimensions(body, logo, tagline)
 	getHeaderScroll(body, logo)
+	mainVisible(body, main)
 })

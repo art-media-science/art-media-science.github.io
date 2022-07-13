@@ -292,6 +292,8 @@ p + p {
 }
 
 :root {
+	--color: white;
+	--color--background: firebrick;
 	--logo--scale: 0.618;
 	--margin: 2.4rem;
 	--typography--size: 2rem;
@@ -328,10 +330,30 @@ html body #about {
 	scroll-margin-top: var(--scroll--offset);
 }
 
+html body.main--visible {
+	--color: black;
+	--color--background: white;
+}
+
+html body > header,
+html body > main {
+	--color--transition: 200ms;
+	background: var(--color--background);
+	transition-duration: var(--color--transition);
+	transition-property: background;
+	transition-timing-function: linear;
+}
+
+html body > header p,
+html body > main p {
+	transition-duration: var(--color--transition);
+	transition-property: color;
+	transition-timing-function: linear;
+}
+
 html body > header {
 	--header--scroll: calc((var(--vh--initial, 100vh) - var(--logo--height) - var(--tagline--height) - var(--margin) * 3) / 2);
 	--header--scroll--offset: calc(-100vh + var(--logo--height--scaled) + var(--tagline--height) + var(--margin) * 3);
-	background: white;
 	display: flex;
 	justify-content: space-between;
 	flex-direction: column;
@@ -358,8 +380,8 @@ html body > header section:first-child > h1 {
 	position: absolute;
 	transform-origin: 0px -0.025em;
 	transform: scale(calc(1 - (1 - var(--logo--scale)) * var(--logo--scroll)));
-	transition-duration: var(--transition--duration);
-	transition-property: transform;
+	transition-duration: var(--color--transition), var(--transition--duration);
+	transition-property: color, transform;
 	transition-timing-function: linear;
 	will-change: transform;
 }

@@ -47,7 +47,8 @@
 			position:                   absolute;
 			transform-origin:           0px -0.025em; // Optical shift down, for “A“ overshoot.
 			transform:                  scale(calc(1 - (1 - var(--logo--scale)) * var(--logo--scroll)));
-			transition-duration:        var(--color--transition), var(--transition--duration);
+			transition-delay:           calc(var(--color--transition) / 4), 0ms;
+			transition-duration:        calc(var(--color--transition) / 2), var(--transition--duration);
 			transition-property:        color, transform;
 			transition-timing-function: linear;
 			will-change:                transform;

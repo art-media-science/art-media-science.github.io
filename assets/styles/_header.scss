@@ -19,13 +19,22 @@
 		);
 
 	display:         flex;
-	justify-content: space-between;
 	flex-direction:  column;
 	gap:             var(--margin);
+	grid-area:       header;
 	height:          calc(100vh + var(--header--scroll));
+	justify-content: space-between;
 	padding:         var(--margin);
 	position:        sticky;
 	top:             calc(var(--header--scroll--offset) - var(--header--scroll));
+
+	@include landscape {
+		padding-left:  initial; // Grid gaps take over.
+		padding-right: initial;
+		top:           calc(-1 * var(--header--scroll));
+	}
+
+
 
 	// The “logo”.
 	section:first-child {
@@ -53,15 +62,16 @@
 			transition-timing-function: linear;
 			will-change:                transform;
 
-			@include breakpoint(320) {
-				--typography--size: 8rem;
-			}
+			@include breakpoint(320) { --typography--size: 8rem; }
+			@include breakpoint(568) { --typography--size: 7.2rem; }
 
 			@include breakpoint(768) {
-				--typography--size: 13.2rem;
+				--typography--size: 12.4rem;
 
-				--transition--duration: 50ms;
+				--transition--duration: 50ms; // Can go faster on desktop.
 			}
+
+			@include breakpoint(1024) { --typography--size: 13.2rem; }
 
 
 
@@ -82,6 +92,8 @@
 			}
 		}
 	}
+
+
 
 	// The “tagline”.
 	> section:last-child {

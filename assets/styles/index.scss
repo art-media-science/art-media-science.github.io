@@ -39,7 +39,6 @@ html {
 	scroll-behavior: smooth;
 
 	body {
-		// Scrolley stuff.
 		--logo--height--scaled: calc(var(--logo--height) * var(--logo--scale, 1));
 
 		--scroll--offset: calc(
@@ -48,8 +47,24 @@ html {
 				+ var(--margin) * 3
 			);
 
-		@include breakpoint(768) {
+		// Main layout.
+		display: grid;
+		grid-template-areas:
+			"header"
+			"main"
+			"footer";
+
+		@include landscape {
 			--scroll--offset: var(--margin);
+
+			column-gap:        var(--margin);
+			grid-auto-columns: 0.382fr 0.618fr; // Golden.
+			grid-template-areas:
+				"header ."
+				".      main"
+				"footer footer";
+			margin-left:  var(--margin);
+			margin-right: var(--margin);
 		}
 
 		#art,

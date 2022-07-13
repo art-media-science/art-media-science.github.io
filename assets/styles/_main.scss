@@ -1,11 +1,23 @@
 > main {
-	padding: var(--margin);
+	grid-area:     main;
+	padding-left:  var(--margin);
+	padding-right: var(--margin);
+	margin-top:    calc(var(--margin) * 4);
 
+	@include landscape {
+		margin-top:    initial;
+		padding-left:  initial; // Grid gaps take over.
+		padding-right: initial;
+	}
+
+
+
+	// Temp.
 	p {
 		max-width: 80ch;
 
 		+ p {
-			margin-top: var(--margin);
+			margin-top: calc(var(--margin) * 4);
 		}
 	}
 }

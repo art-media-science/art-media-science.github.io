@@ -1,7 +1,40 @@
 > footer {
-	--color:             white;
-	--color--background: var(--color--accent);
+	display:   grid;
+	grid-area: footer;
+	grid-template-areas:
+		"header"
+		"section";
+	margin-top:    calc(var(--margin) * 4);
+	padding-left:  var(--margin);
+	padding-right: var(--margin);
+	padding-bottom: var(--margin);
 
-	background: var(--color--background);
-	padding:    var(--margin);
+	@include landscape {
+		column-gap:        var(--margin);
+		grid-auto-columns: 0.382fr 0.618fr;
+		grid-template-areas:
+			"header section";
+		padding-left:  initial; // Grid gaps take over.
+		padding-right: initial;
+	}
+
+	> header {
+		grid-area: header;
+	}
+
+	> section {
+		grid-area: section;
+	}
+
+
+
+	// Temp.
+	p {
+		font-style: italic;
+		max-width:  80ch;
+
+		+ p {
+			margin-top: var(--margin);
+		}
+	}
 }

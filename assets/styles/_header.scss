@@ -37,7 +37,7 @@
 			@extend %font--heldane--regular;
 
 			--typography--leading: calc(5/6);
-			--typography--size:    9.6rem;
+			--typography--size:    8.8rem;
 
 			--transition--duration: 100ms;
 
@@ -58,7 +58,7 @@
 			}
 
 			@include breakpoint(768) {
-				--typography--size: 14.4rem;
+				--typography--size: 13.2rem;
 
 				--transition--duration: 50ms;
 			}

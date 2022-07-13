@@ -82,6 +82,11 @@ html {
 			--color--background: white;
 		}
 
+		&.footer--visible {
+			--color:             white;
+			--color--background: var(--color--accent);
+		}
+
 		&, // Body itself.
 		> header {
 			--color--transition: 200ms;

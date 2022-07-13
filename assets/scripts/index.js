@@ -12,7 +12,8 @@ const logoHeightVar =    '--logo--height'
 const taglineHeightVar = '--tagline--height'
 const scrollVar =        '--logo--scroll'
 
-const mainVisibleClass = 'main--visible'
+const mainVisibleClass =   'main--visible'
+const footerVisibleClass = 'footer--visible'
 
 
 
@@ -66,15 +67,15 @@ const getHeaderScroll = (body, logo) => {
 
 
 
-const mainVisible = (body, main) => {
+const isVisible = (body, element, classname) => {
 	let viewport = window.innerHeight
-	let mainTop = main.getBoundingClientRect().top
+	let elementTop = element.getBoundingClientRect().top
 
 	const checkTop = () => {
 		viewport = window.innerHeight
-		mainTop = main.getBoundingClientRect().top; // Ternary gets angry without this semicolon?
+		elementTop = element.getBoundingClientRect().top; // Ternary gets angry without this semicolon?
 
-		(mainTop <= viewport) ? body.classList.add(mainVisibleClass) : body.classList.remove(mainVisibleClass)
+		(elementTop <= viewport) ? body.classList.add(classname) : body.classList.remove(classname)
 	}
 
 	window.addEventListener('load', checkTop)
@@ -89,8 +90,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	const logo =    document.getElementById('logo').firstElementChild
 	const tagline = document.getElementById('tagline')
 	const main =    document.querySelector('main')
+	const footer =    document.querySelector('footer')
 
 	getHeaderDimensions(body, logo, tagline)
 	getHeaderScroll(body, logo)
-	mainVisible(body, main)
+	isVisible(body, main, mainVisibleClass)
+	isVisible(body, footer, footerVisibleClass)
 })

@@ -17,6 +17,9 @@
 :root {
 	@extend %font--calibre--regular;
 
+	--color:             white;
+	--color--background: firebrick;
+
 	--logo--scale: 0.618; // Golden.
 
 	--margin:           2.4rem;
@@ -34,9 +37,9 @@ html {
 	scroll-behavior: smooth;
 
 	body {
+		// Scrolley stuff.
 		--logo--height--scaled: calc(var(--logo--height) * var(--logo--scale, 1));
 
-		// For anchor offset.
 		--scroll--offset: calc(
 				var(--logo--height--scaled)
 				+ var(--tagline--height)
@@ -53,6 +56,33 @@ html {
 		#about {
 			scroll-margin-top: var(--scroll--offset);
 		}
+
+
+
+		// Color transitions.
+		&.main--visible {
+			--color:             black;
+			--color--background: white;
+		}
+
+		> header,
+		> main {
+			--color--transition: 200ms;
+
+			background:                 var(--color--background);
+			transition-duration:        var(--color--transition);
+			transition-property:        background;
+			transition-timing-function: linear;
+
+			// h1 combo (with transform) in the header doc.
+			p {
+				transition-duration:        var(--color--transition);
+				transition-property:        color;
+				transition-timing-function: linear;
+			}
+		}
+
+
 
 
 

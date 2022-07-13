@@ -18,7 +18,6 @@
 			+ var(--margin) * 3
 		);
 
-	background:      white; // For now.
 	display:         flex;
 	justify-content: space-between;
 	flex-direction:  column;
@@ -48,8 +47,8 @@
 			position:                   absolute;
 			transform-origin:           0px -0.025em; // Optical shift down, for “A“ overshoot.
 			transform:                  scale(calc(1 - (1 - var(--logo--scale)) * var(--logo--scroll)));
-			transition-duration:        var(--transition--duration);
-			transition-property:        transform;
+			transition-duration:        var(--color--transition), var(--transition--duration);
+			transition-property:        color, transform;
 			transition-timing-function: linear;
 			will-change:                transform;
 

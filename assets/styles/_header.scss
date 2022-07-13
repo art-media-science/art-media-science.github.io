@@ -22,7 +22,7 @@
 	justify-content: space-between;
 	flex-direction:  column;
 	gap:             var(--margin);
-	height:          calc(var(--vh--initial, 100vh) + var(--header--scroll) + var(--margin) * 3);
+	height:          calc(var(--vh--initial, 100vh) + var(--header--scroll));
 	padding:         var(--margin);
 	position:        sticky;
 	top:             calc(var(--header--scroll--offset) - var(--header--scroll));

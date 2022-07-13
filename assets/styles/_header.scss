@@ -15,6 +15,7 @@
 			-1 * var(--vh--initial, 100vh)
 			+ var(--logo--height--scaled)
 			+ var(--tagline--height)
+			+ var(--margin) * 3
 		);
 
 	background:      white; // For now.

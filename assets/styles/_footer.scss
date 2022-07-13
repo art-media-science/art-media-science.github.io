@@ -1,4 +1,7 @@
 > footer {
+	--color:             white;
+	--color--background: var(--color--accent);
+
 	background: var(--color--background);
 	padding:    var(--margin);
 }

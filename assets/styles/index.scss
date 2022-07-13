@@ -17,8 +17,10 @@
 :root {
 	@extend %font--calibre--regular;
 
+	--color--accent: firebrick;
+
 	--color:             white;
-	--color--background: firebrick;
+	--color--background: var(--color--accent);
 
 	--logo--scale: 0.618; // Golden.
 
@@ -61,16 +63,12 @@ html {
 
 		// Color transitions.
 		&.main--visible {
-			> header,
-			> main {
-				--color:             black;
-				--color--background: white;
-			}
+			--color:             black;
+			--color--background: white;
 		}
 
-		> header,
-		> main,
-		> footer {
+		&, // Body itself.
+		> header {
 			--color--transition: 200ms;
 
 			background:                 var(--color--background);

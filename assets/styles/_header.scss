@@ -17,7 +17,7 @@
 			/ 2
 		);
 
-	// The collapsed/scrolled header offset.
+	// The collapsed/scrolled header sticky offset.
 	--header--scroll--offset: calc(
 			-1 * var(--vh--initial, 100vh)
 			+ var(--logo--height--scaled)
@@ -34,6 +34,7 @@
 	position:        sticky;
 	top:             calc(var(--header--scroll--offset) - var(--header--scroll));
 
+	// The “logo”.
 	section:first-child {
 		margin-top: var(--header--scroll);
 		position:   sticky;
@@ -65,38 +66,25 @@
 
 
 
+			// Logo kerning tweaks.
 			#art--header {
-				.a {
-					letter-spacing: -0.04em; // Tighten the “Ar”.
-				}
+				.a { letter-spacing: -0.04em; } // Tighten the “Ar”.
 			}
 
 			#media--header {
-				.m {
-					letter-spacing: -0.03em; // “Me”.
-				}
-
-				.d {
-					letter-spacing: 0.02em; // “di“.
-				}
+				.m { letter-spacing: -0.04em; } // “Me”.
+				.d { letter-spacing:  0.02em; } // “di“.
 			}
 
 			#science--header {
-				.s {
-					letter-spacing: -0.01em; // “Sc“.
-				}
-
-				.i {
-					letter-spacing: -0.01em; // “ie“.
-				}
-
-				.n {
-					letter-spacing: -0.01em; // “nc“.
-				}
+				.s { letter-spacing: -0.01em; } // “Sc“.
+				.i { letter-spacing: -0.01em; } // “ie“.
+				.n { letter-spacing: -0.01em; } // “nc“.
 			}
 		}
 	}
 
+	// The “tagline”.
 	> section:last-child {
 		bottom:   var(--margin);
 		position: sticky;

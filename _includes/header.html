@@ -31,7 +31,7 @@
 				href="#about"
 				id="about--header"
 				>
-				{{- page.subtitle | markdownify | newline_to_br -}}
+				{{- page.subtitle | newline_to_br | markdownify | remove: '<p>' | remove: '</p>' -}}
 			</a>
 		</p>
 	</section>

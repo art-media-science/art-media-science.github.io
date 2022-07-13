@@ -61,12 +61,16 @@ html {
 
 		// Color transitions.
 		&.main--visible {
-			--color:             black;
-			--color--background: white;
+			> header,
+			> main {
+				--color:             black;
+				--color--background: white;
+			}
 		}
 
 		> header,
-		> main {
+		> main,
+		> footer {
 			--color--transition: 200ms;
 
 			background:                 var(--color--background);
@@ -82,8 +86,6 @@ html {
 				transition-timing-function: linear;
 			}
 		}
-
-
 
 
 

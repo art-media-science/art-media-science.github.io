@@ -47,7 +47,8 @@ html {
 
 		#art,
 		#media,
-		#science {
+		#science,
+		#about {
 			scroll-margin-top: var(--scroll--offset);
 		}
 
@@ -55,5 +56,6 @@ html {
 
 		@import 'header';
 		@import 'main';
+		@import 'footer';
 	}
 }

@@ -12,7 +12,7 @@
 
 	// The collapsed/scrolled header sticky offset.
 	--header--scroll--offset: calc(
-			-1 * var(--vh--initial, 100vh)
+			-100vh
 			+ var(--logo--height--scaled)
 			+ var(--tagline--height)
 			+ var(--margin) * 3
@@ -23,7 +23,7 @@
 	justify-content: space-between;
 	flex-direction:  column;
 	gap:             var(--margin);
-	height:          calc(var(--vh--initial, 100vh) + var(--header--scroll));
+	height:          calc(100vh + var(--header--scroll));
 	padding:         var(--margin);
 	position:        sticky;
 	top:             calc(var(--header--scroll--offset) - var(--header--scroll));

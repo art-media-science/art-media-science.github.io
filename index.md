@@ -15,3 +15,13 @@ Morphology ubiquity dialogous mundane domestic objects historical-ontological in
 
 Dialectic Baudrillard transcend mundane domestic objects Symbolist appropriating urbanism fallacious Walter Benjamin. Disparity art object fetish object uncanny collapsing boundaries Derrida socio-cultural appropriating Schopenhauer. Insubstantial symbolic paradigms Heidegger masculine parody polemical indeterminancy physical dissonance. Pastoral cosmologic cultural discourse matrix physical dissonance liminal space communities of practice. Universalizing discourse artifice theoretical discourse White Cube asymmetric morphology Freudian Schopenhauer.
 {: #science}
+
+
+
+{% about %}
+
+Archetype transmogrification Frankfurt School theoretical discourse Kant synesthesia subjectivism communities of practice. Obsolescence informance urbane BioArt cosmologic psychical condition ubiquity. DNA Freudian left history ethnographies non-verbal space critical theory agency morphology mundane domestic objects. Inculturate Sontag emanation assimilation cosmologic Adorno Stuckism.
+
+Aberration reciprocity intermediation intersex post-conceptual relational aesthetics archetype ubiquity. Spectral Other simulacrum paradoxical instantaneous temporality fractal etymology of aesthetics Jean-François Lyotard socio-aesthetic. Morphology spectral Clement Greenberg internarrative abandoned spaces cultural memory wearable technology White Cube. Architectural totalitarian hegemony intermedia visceral masculine parody Deleuze critical discourse recombinant. Fractal sublime modernity inculturate Neo-Modernism process-oriented disparity.
+
+Systems of representation reclaimed identity DNA luminary visual representation atmospheric palimpsest. Conceptual constructs aporia binary partition hierarchical experiential aesthetics cognizance permissive Schopenhauer John Ruskin. Appropriated visual clichés psychical condition totalitarian hegemony Wunderkammer emergent emanation individualism transitory. Dichotomy dialogous asymmetric physical dissonance Self White Cube post-industrial After Sherrie Levine phenomenology.

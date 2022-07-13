@@ -10,7 +10,8 @@
 	<body>
 		{% include header.html %}
 		<main>
-			{{ content }}
+			{{ content | split: '<!-- ABOUT -->' | first }}
 		</main>
+		{% include footer.html %}
 	</body>
 </html>

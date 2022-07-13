@@ -116,7 +116,11 @@ const getHeaderScroll = (body, logo) => {
 		body.setProperty(scrollVar, ` ${scroll}`)
 	}
 
-	updateScroll()
+	window.addEventListener('load', () => {
+		scrollDistance = parseFloat(getComputedStyle(logo.parentElement).marginTop)
+
+		updateScroll()
+	})
 
 	window.addEventListener('resize', () => {
 		scrollDistance = parseFloat(getComputedStyle(logo.parentElement).marginTop)

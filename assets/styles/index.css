@@ -292,6 +292,7 @@ p + p {
 }
 
 :root {
+	--logo--scale: 0.618;
 	--margin: 2.4rem;
 	--typography--size: 2rem;
 }
@@ -327,10 +328,6 @@ html body #about {
 	scroll-margin-top: var(--scroll--offset);
 }
 
-html body.main--visible {
-	--logo--scale: 0.618;
-}
-
 html body > header {
 	--header--scroll: calc((var(--vh--initial, 100vh) - var(--logo--height) - var(--tagline--height) - var(--margin) * 3) / 2);
 	--header--scroll--offset: calc(-1 * var(--vh--initial, 100vh) + var(--logo--height--scaled) + var(--tagline--height));
@@ -359,10 +356,11 @@ html body > header section:first-child > h1 {
 	flex-direction: column;
 	position: absolute;
 	transform-origin: 0px -0.025em;
-	transform: scale(var(--logo--scale, 1));
+	transform: scale(calc(1 - (1 - var(--logo--scale)) * var(--logo--scroll)));
 	transition-duration: 200ms;
 	transition-property: transform;
 	transition-timing-function: linear;
+	will-change: transform;
 }
 
 @media (max-width: 23.375em) {

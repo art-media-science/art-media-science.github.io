@@ -330,7 +330,7 @@ html body #about {
 
 html body > header {
 	--header--scroll: calc((var(--vh--initial, 100vh) - var(--logo--height) - var(--tagline--height) - var(--margin) * 3) / 2);
-	--header--scroll--offset: calc(-1 * var(--vh--initial, 100vh) + var(--logo--height--scaled) + var(--tagline--height));
+	--header--scroll--offset: calc(-1 * var(--vh--initial, 100vh) + var(--logo--height--scaled) + var(--tagline--height) + var(--margin) * 3);
 	background: white;
 	display: flex;
 	justify-content: space-between;

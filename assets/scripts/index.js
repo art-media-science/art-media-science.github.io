@@ -81,14 +81,13 @@
 
 
 
-const getHeaderDimensions = () => {
-	const body = document.body.style
-	const logo = document.getElementById('logo').firstElementChild
-	const tagline = document.getElementById('tagline')
+const logoHeightVar = '--logo--height'
+const taglineHeightVar = '--tagline--height'
+const scrollVar = '--logo--scroll'
 
-	const logoHeightVar = '--logo--height'
-	const taglineHeightVar = '--tagline--height'
 
+
+const getHeaderDimensions = (body, logo, tagline) => {
 	let logoHeight = logo.offsetHeight
 	let taglineHeight = tagline.offsetHeight
 
@@ -104,21 +103,39 @@ const getHeaderDimensions = () => {
 	})
 }
 
-const scrollHeaderScale = () => {
-	const main = document.querySelector('main')
-	const mainClass = 'main--visible'
 
-	const mainVisible = new IntersectionObserver(entries => {
-		const [entry] = entries
-		entry.isIntersecting ? document.body.classList.add(mainClass) : document.body.classList.remove(mainClass);
+
+const getHeaderScroll = (body, logo) => {
+	let scrollDistance = parseFloat(getComputedStyle(logo.parentElement).marginTop)
+
+	const clamp = (num, min, max) => Math.min(Math.max(num, min), max)
+
+	const updateScroll = () => {
+		scroll = clamp((1 - (scrollDistance - window.scrollY) / scrollDistance).toFixed(6), 0, 1)
+
+		body.setProperty(scrollVar, ` ${scroll}`)
+	}
+
+	updateScroll()
+
+	window.addEventListener('resize', () => {
+		scrollDistance = parseFloat(getComputedStyle(logo.parentElement).marginTop)
+
+		updateScroll()
 	})
 
-	mainVisible.observe(main)
+	window.addEventListener('scroll', () => {
+		updateScroll()
+	})
 }
 
 
 
 document.addEventListener('DOMContentLoaded', () => {
-	getHeaderDimensions()
-	scrollHeaderScale()
+	const body = document.body.style
+	const logo = document.getElementById('logo').firstElementChild
+	const tagline = document.getElementById('tagline')
+
+	getHeaderDimensions(body, logo, tagline)
+	getHeaderScroll(body, logo)
 })

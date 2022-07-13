@@ -20,15 +20,18 @@ const getHeaderDimensions = (body, logo, tagline) => {
 	let logoHeight = logo.offsetHeight
 	let taglineHeight = tagline.offsetHeight
 
-	body.style.setProperty(logoHeightVar, ` ${logoHeight / 10}rem`)
-	body.style.setProperty(taglineHeightVar, ` ${taglineHeight / 10}rem`)
+	const updateVars = () => {
+		body.style.setProperty(logoHeightVar, ` ${logoHeight / 10}rem`)
+		body.style.setProperty(taglineHeightVar, ` ${taglineHeight / 10}rem`)
+	}
+
+	updateVars()
 
 	window.addEventListener('resize', () => {
 		logoHeight = logo.offsetHeight
 		taglineHeight = tagline.offsetHeight
 
-		body.style.setProperty(logoHeightVar, ` ${logoHeight / 10}rem`)
-		body.style.setProperty(taglineHeightVar, ` ${taglineHeight / 10}rem`)
+		updateVars()
 	})
 }
 

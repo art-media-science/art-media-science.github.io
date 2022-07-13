@@ -1,10 +1,3 @@
-// From the JS.
-&.main--visible {
-	--logo--scale: 0.618; // Golden.
-}
-
-
-
 > header {
 	// The distance from the initial, centered logo until it is “stuck”.
 	--header--scroll: calc(
@@ -51,10 +44,11 @@
 			flex-direction:             column;
 			position:                   absolute;
 			transform-origin:           0px -0.025em; // Optical shift down, for “A“ overshoot.
-			transform:                  scale(var(--logo--scale, 1));
+			transform:                  scale(calc(1 - (1 - var(--logo--scale)) * var(--logo--scroll)));
 			transition-duration:        200ms;
 			transition-property:        transform;
 			transition-timing-function: linear;
+			will-change:                transform;
 
 			@include breakpoint(320) {
 				--typography--size: 8rem;

@@ -17,6 +17,8 @@
 :root {
 	@extend %font--calibre--regular;
 
+	--logo--scale: 0.618; // Golden.
+
 	--margin:           2.4rem;
 	--typography--size: 2rem;
 

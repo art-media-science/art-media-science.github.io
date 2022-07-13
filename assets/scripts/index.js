@@ -31,21 +31,38 @@ const getHeaderDimensions = () => {
 	})
 }
 
-const scrollHeaderScale = () => {
-	const main = document.querySelector('main')
-	const mainClass = 'main--visible'
+const getHeaderScroll = () => {
+	const body = document.body.style
+	const logo = document.getElementById('logo')
 
-	const mainVisible = new IntersectionObserver(entries => {
-		const [entry] = entries
-		entry.isIntersecting ? document.body.classList.add(mainClass) : document.body.classList.remove(mainClass);
+	const scrollVariable = '--logo--scroll'
+
+	let scrollDistance = parseFloat(getComputedStyle(logo).marginTop)
+
+	const clamp = (num, min, max) => Math.min(Math.max(num, min), max)
+
+	const updateScroll = () => {
+		scroll = clamp((1 - (scrollDistance - window.scrollY) / scrollDistance).toFixed(6), 0, 1)
+
+		body.setProperty(scrollVariable, ` ${scroll}`)
+	}
+
+	updateScroll()
+
+	window.addEventListener('resize', () => {
+		scrollDistance = parseFloat(getComputedStyle(logo).marginTop)
+
+		updateScroll()
 	})
 
-	mainVisible.observe(main)
+	window.addEventListener('scroll', () => {
+		updateScroll()
+	})
 }
 
 
 
 document.addEventListener('DOMContentLoaded', () => {
 	getHeaderDimensions()
-	scrollHeaderScale()
+	getHeaderScroll()
 })

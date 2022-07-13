@@ -292,8 +292,9 @@ p + p {
 }
 
 :root {
+	--color--accent: firebrick;
 	--color: white;
-	--color--background: firebrick;
+	--color--background: var(--color--accent);
 	--logo--scale: 0.618;
 	--margin: 2.4rem;
 	--typography--size: 2rem;
@@ -314,12 +315,20 @@ html {
 html body {
 	--logo--height--scaled: calc(var(--logo--height) * var(--logo--scale, 1));
 	--scroll--offset: calc(var(--logo--height--scaled) + var(--tagline--height) + var(--margin) * 3);
+	display: grid;
+	grid-template-areas: "header""main""footer";
 }
 
-@media (min-width: 48em) and (min-height: 30em),
+@media (orientation: landscape),
+(min-width: 35.5em) and (min-height: 30em),
 (min-width: 58.125em) {
 	html body {
 		--scroll--offset: var(--margin);
+		column-gap: var(--margin);
+		grid-auto-columns: 0.382fr 0.618fr;
+		grid-template-areas: "header ."".      main""footer footer";
+		margin-left: var(--margin);
+		margin-right: var(--margin);
 	}
 }
 
@@ -335,8 +344,8 @@ html body.main--visible {
 	--color--background: white;
 }
 
-html body > header,
-html body > main {
+html body,
+html body > header {
 	--color--transition: 200ms;
 	background: var(--color--background);
 	transition-duration: var(--color--transition);
@@ -344,9 +353,10 @@ html body > main {
 	transition-timing-function: linear;
 }
 
-html body > header p,
-html body > main p {
-	transition-duration: var(--color--transition);
+html body p,
+html body > header p {
+	transition-delay: calc(var(--color--transition) / 4);
+	transition-duration: calc(var(--color--transition) / 2);
 	transition-property: color;
 	transition-timing-function: linear;
 }
@@ -355,13 +365,24 @@ html body > header {
 	--header--scroll: calc((var(--vh--initial, 100vh) - var(--logo--height) - var(--tagline--height) - var(--margin) * 3) / 2);
 	--header--scroll--offset: calc(-100vh + var(--logo--height--scaled) + var(--tagline--height) + var(--margin) * 3);
 	display: flex;
-	justify-content: space-between;
 	flex-direction: column;
 	gap: var(--margin);
+	grid-area: header;
 	height: calc(100vh + var(--header--scroll));
+	justify-content: space-between;
 	padding: var(--margin);
 	position: sticky;
 	top: calc(var(--header--scroll--offset) - var(--header--scroll));
+}
+
+@media (orientation: landscape),
+(min-width: 35.5em) and (min-height: 30em),
+(min-width: 58.125em) {
+	html body > header {
+		padding-left: initial;
+		padding-right: initial;
+		top: calc(-1 * var(--header--scroll));
+	}
 }
 
 html body > header section:first-child {
@@ -372,7 +393,7 @@ html body > header section:first-child {
 
 html body > header section:first-child > h1 {
 	--typography--leading: calc(5/6);
-	--typography--size: 9.6rem;
+	--typography--size: 8.8rem;
 	--transition--duration: 100ms;
 	align-items: start;
 	display: flex;
@@ -380,7 +401,8 @@ html body > header section:first-child > h1 {
 	position: absolute;
 	transform-origin: 0px -0.025em;
 	transform: scale(calc(1 - (1 - var(--logo--scale)) * var(--logo--scroll)));
-	transition-duration: var(--color--transition), var(--transition--duration);
+	transition-delay: calc(var(--color--transition) / 4), 0ms;
+	transition-duration: calc(var(--color--transition) / 2), var(--transition--duration);
 	transition-property: color, transform;
 	transition-timing-function: linear;
 	will-change: transform;
@@ -392,11 +414,23 @@ html body > header section:first-child > h1 {
 	}
 }
 
+@media (min-width: 35.5em) {
+	html body > header section:first-child > h1 {
+		--typography--size: 7.2rem;
+	}
+}
+
 @media (min-width: 48em) and (min-height: 30em),
 (min-width: 58.125em) {
 	html body > header section:first-child > h1 {
-		--typography--size: 14.4rem;
+		--typography--size: 12.4rem;
 		--transition--duration: 50ms;
+	}
+}
+
+@media (min-width: 64em) {
+	html body > header section:first-child > h1 {
+		--typography--size: 13.2rem;
 	}
 }
 
@@ -442,7 +476,20 @@ html body > header > section:last-child > p {
 }
 
 html body > main {
-	padding: var(--margin);
+	grid-area: main;
+	padding-left: var(--margin);
+	padding-right: var(--margin);
+	margin-top: calc(var(--margin) * 4);
+}
+
+@media (orientation: landscape),
+(min-width: 35.5em) and (min-height: 30em),
+(min-width: 58.125em) {
+	html body > main {
+		margin-top: initial;
+		padding-left: initial;
+		padding-right: initial;
+	}
 }
 
 html body > main p {
@@ -450,11 +497,44 @@ html body > main p {
 }
 
 html body > main p + p {
-	margin-top: var(--margin);
+	margin-top: calc(var(--margin) * 4);
 }
 
 html body > footer {
-	background: black;
-	color: white;
-	padding: var(--margin);
+	display: grid;
+	grid-area: footer;
+	grid-template-areas: "header""section";
+	margin-top: calc(var(--margin) * 4);
+	padding-left: var(--margin);
+	padding-right: var(--margin);
+	padding-bottom: var(--margin);
+}
+
+@media (orientation: landscape),
+(min-width: 35.5em) and (min-height: 30em),
+(min-width: 58.125em) {
+	html body > footer {
+		column-gap: var(--margin);
+		grid-auto-columns: 0.382fr 0.618fr;
+		grid-template-areas: "header section";
+		padding-left: initial;
+		padding-right: initial;
+	}
+}
+
+html body > footer > header {
+	grid-area: header;
+}
+
+html body > footer > section {
+	grid-area: section;
+}
+
+html body > footer p {
+	font-style: italic;
+	max-width: 80ch;
+}
+
+html body > footer p + p {
+	margin-top: var(--margin);
 }

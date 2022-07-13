@@ -58,9 +58,7 @@ const getHeaderScroll = (body, logo) => {
 		updateScroll()
 	})
 
-	window.addEventListener('scroll', () => {
-		updateScroll()
-	})
+	window.addEventListener('scroll', updateScroll)
 }
 
 
@@ -76,26 +74,18 @@ const mainVisible = (body, main) => {
 		(mainTop <= viewport) ? body.classList.add(mainVisibleClass) : body.classList.remove(mainVisibleClass)
 	}
 
-	window.addEventListener('load', () => {
-		checkTop()
-	})
-
-	window.addEventListener('resize', () => {
-		checkTop()
-	})
-
-	window.addEventListener('scroll', () => {
-		checkTop()
-	})
+	window.addEventListener('load', checkTop)
+	window.addEventListener('resize', checkTop)
+	window.addEventListener('scroll', checkTop)
 }
 
 
 
 document.addEventListener('DOMContentLoaded', () => {
-	const body = document.body
-	const logo = document.getElementById('logo').firstElementChild
+	const body =    document.body
+	const logo =    document.getElementById('logo').firstElementChild
 	const tagline = document.getElementById('tagline')
-	const main = document.querySelector('main')
+	const main =    document.querySelector('main')
 
 	getHeaderDimensions(body, logo, tagline)
 	getHeaderScroll(body, logo)

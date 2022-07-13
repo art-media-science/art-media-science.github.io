@@ -111,7 +111,8 @@ const getHeaderScroll = (body, logo) => {
 	const clamp = (num, min, max) => Math.min(Math.max(num, min), max)
 
 	const updateScroll = () => {
-		scroll = clamp((1 - (scrollDistance - window.scrollY) / scrollDistance).toFixed(6), 0, 1)
+		// The extra/early 10px “softens” the transition a bit.
+		scroll = clamp(((window.scrollY - scrollDistance + 10) / scrollDistance).toFixed(6), 0, 1)
 
 		body.setProperty(scrollVar, ` ${scroll}`)
 	}

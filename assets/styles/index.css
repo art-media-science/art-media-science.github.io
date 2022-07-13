@@ -304,14 +304,35 @@ p + p {
 	}
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
+html body {
+	--logo--height--scaled: calc(var(--logo--height) * var(--logo--scale, 1));
+	--scroll--offset: calc(var(--logo--height--scaled) + var(--tagline--height) + var(--margin) * 3);
+}
+
+@media (min-width: 48em) and (min-height: 30em),
+(min-width: 58.125em) {
+	html body {
+		--scroll--offset: var(--margin);
+	}
+}
+
+html body #art,
+html body #media,
+html body #science {
+	scroll-margin-top: var(--scroll--offset);
+}
+
 html body.main--visible {
 	--logo--scale: 0.618;
 }
 
 html body > header {
-	--logo--height--scroll: calc(var(--logo--height) * var(--logo--scale, 1));
 	--header--scroll: calc((var(--vh--initial, 100vh) - var(--logo--height) - var(--tagline--height) - var(--margin) * 3) / 2);
-	--header--scroll--offset: calc(-1 * var(--vh--initial, 100vh) + var(--logo--height--scroll) + var(--tagline--height));
+	--header--scroll--offset: calc(-1 * var(--vh--initial, 100vh) + var(--logo--height--scaled) + var(--tagline--height));
 	background: white;
 	display: flex;
 	justify-content: space-between;

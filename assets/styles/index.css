@@ -363,7 +363,9 @@ body > header > section:first-child > h1 > a:active {
 :root {
 	--logo--scale: 0.618;
 	--margin: 2.4rem;
+	--typography--leading: 1.2;
 	--typography--size: 2rem;
+	--column--ratio: 0.382fr 0.618fr;
 	--color--accent: firebrick;
 	--color: white;
 	--color--background: var(--color--accent);
@@ -393,7 +395,7 @@ body > header > section:first-child > h1 > a:active {
 
 body {
 	--logo--height--scaled: calc(var(--logo--height) * var(--logo--scale, 1));
-	--scroll--offset: calc(var(--logo--height--scaled) + var(--tagline--height) + var(--margin) * 3);
+	--scroll--offset: calc(var(--logo--height--scaled) + var(--tagline--height) + var(--margin) * 4);
 	display: grid;
 	grid-template-areas: "header""main""footer";
 }
@@ -404,7 +406,7 @@ body {
 	body {
 		--scroll--offset: var(--margin);
 		column-gap: var(--margin);
-		grid-auto-columns: 0.382fr 0.618fr;
+		grid-auto-columns: var(--column--ratio);
 		grid-template-areas: "header ."".      main""footer footer";
 		margin-left: var(--margin);
 		margin-right: var(--margin);
@@ -556,11 +558,11 @@ body > header > section:first-child > h1 #science--header .s {
 }
 
 body > header > section:first-child > h1 #science--header .i {
-	letter-spacing: -0.01em;
+	letter-spacing: -0.015em;
 }
 
 body > header > section:first-child > h1 #science--header .n {
-	letter-spacing: -0.01em;
+	letter-spacing: -0.02em;
 }
 
 body > header > section:last-child {
@@ -581,17 +583,18 @@ body > header > section:last-child > a > p {
 }
 
 body > main {
+	--main--spacing: calc((100vh - var(--logo--height--scaled) - var(--tagline--height) - var(--margin) * 3) / 2);
 	grid-area: main;
 	padding-left: var(--margin);
 	padding-right: var(--margin);
-	margin-top: calc(var(--margin) * 4);
+	padding-top: var(--main--spacing);
 }
 
 @media (orientation: landscape),
 (min-width: 35.5em) and (min-height: 30em),
 (min-width: 58.125em) {
 	body > main {
-		margin-top: initial;
+		--main--spacing: calc(var(--logo--height) - var(--logo--height--scaled) + var(--margin) / 2);
 		padding-left: initial;
 		padding-right: initial;
 	}
@@ -620,7 +623,7 @@ body > footer {
 (min-width: 58.125em) {
 	body > footer {
 		column-gap: var(--margin);
-		grid-auto-columns: 0.382fr 0.618fr;
+		grid-auto-columns: var(--column--ratio);
 		grid-template-areas: "header section";
 		padding-left: initial;
 		padding-right: initial;

@@ -73,4 +73,4 @@
 
 		if (orientationChanged) updateVhOffset()
 	})
-})()
+})();

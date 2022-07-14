@@ -4,10 +4,11 @@
 	grid-template-areas:
 		"header"
 		"section";
-	margin-top:    calc(var(--margin) * 4);
-	padding-left:  var(--margin);
-	padding-right: var(--margin);
+	margin-top:     calc(var(--margin) * 4);
 	padding-bottom: var(--margin);
+	padding-left:   var(--margin);
+	padding-right:  var(--margin);
+	row-gap:        calc(var(--margin) * 4);
 
 	@include landscape {
 		column-gap:        var(--margin);
@@ -20,21 +21,43 @@
 
 	> header {
 		grid-area: header;
+
+		> ul {
+			@extend %type--layout;
+
+			align-items:    start;
+			display:        flex;
+			flex-direction: column;
+			gap:            var(--typography--between);
+
+			--typography--size:    2.4rem;
+			--typography--leading: 1;
+
+			@include breakpoint(768) {
+				--typography--size: 3.6rem;
+			}
+
+			> li {
+				> a {
+					@extend %link--element;
+				}
+			}
+		}
 	}
 
 	> section {
 		grid-area: section;
-	}
 
 
 
-	// Temp.
-	p {
-		font-style: italic;
-		max-width:  80ch;
+		// Temp.
+		p {
+			font-style: italic;
+			max-width:  80ch;
 
-		+ p {
-			margin-top: var(--margin);
+			+ p {
+				margin-top: var(--margin);
+			}
 		}
 	}
 }

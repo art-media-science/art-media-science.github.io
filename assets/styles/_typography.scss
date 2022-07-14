@@ -125,3 +125,16 @@ p {
 		margin-top: var(--layout--typography--leading-shoulder);
 	}
 }
+
+
+
+%type--layout {
+	--typography--font-size:      calc(var(--typography--scale, 1) * var(--typography--size--override, var(--typography--size))); // Map to property.
+	--typography--line-height:    calc(var(--typography--leading) * var(--typography--size--override, var(--typography--size))); // Calculated exactly (not em/relative) to allow for scaled/super/subscript type sizes.
+
+	--typography--cap:     calc(var(--typography--cap-height) * 1em);
+	--typography--between: calc(var(--typography--font-size) * (var(--typography--leading) + var(--typography--shoulder) - 1));
+
+	line-height: var(--typography--line-height);
+	font-size:   var(--typography--font-size);
+}

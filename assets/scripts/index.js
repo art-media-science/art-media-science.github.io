@@ -14,7 +14,6 @@ const taglineHeightVar = '--tagline--height'
 const scrollVar =        '--logo--scroll'
 
 const mainVisibleClass =   'main--visible'
-const footerVisibleClass = 'footer--visible'
 
 
 
@@ -68,7 +67,7 @@ const getHeaderScroll = (body, logo) => {
 
 
 
-const isVisible = (body, element, classname) => {
+const mainVisible = (body, element, classname) => {
 	let viewport = window.innerHeight
 	let elementTop = element.getBoundingClientRect().top
 
@@ -91,10 +90,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	const logo =    document.getElementById('logo').firstElementChild
 	const tagline = document.getElementById('tagline')
 	const main =    document.querySelector('main')
-	const footer =    document.querySelector('footer')
 
 	getHeaderDimensions(body, logo, tagline)
 	getHeaderScroll(body, logo)
-	isVisible(body, main, mainVisibleClass)
-	isVisible(body, footer, footerVisibleClass)
+	mainVisible(body, main, mainVisibleClass)
 })

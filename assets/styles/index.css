@@ -79,7 +79,7 @@ details ::-webkit-details-marker {
 	src: url("../fonts/heldane--regular--italic.woff2") format("woff2");
 }
 
-html body > header section:first-child > h1,
+body > header section:first-child > h1,
 :root {
 	--typography--shoulder: calc(1 - var(--typography--cap-height));
 	--typography--shoulder--top: calc(var(--typography--shoulder) - var(--typography--shoulder--bottom));
@@ -92,14 +92,14 @@ html body > header section:first-child > h1,
 	font-family: "Calibre", sans-serif;
 }
 
-html body > header section:first-child > h1 {
+body > header section:first-child > h1 {
 	--typography--cap-height: 0.642;
 	--typography--x-height: 0.446;
 	--typography--shoulder--bottom: 0.184;
 	font-family: "Heldane", serif;
 }
 
-html body > header section:first-child > h1,
+body > header section:first-child > h1,
 :root {
 	--typography--weight: 400;
 }
@@ -109,7 +109,7 @@ html body > header section:first-child > h1,
 	--typography--inset--right: -0.061;
 }
 
-html body > header section:first-child > h1 {
+body > header section:first-child > h1 {
 	--typography--inset--left: -0.019;
 	--typography--inset--right: -0.014;
 }
@@ -298,6 +298,7 @@ p + p {
 	--logo--scale: 0.618;
 	--margin: 2.4rem;
 	--typography--size: 2rem;
+	scroll-behavior: smooth;
 }
 
 @media (min-width: 48em) and (min-height: 30em),
@@ -308,11 +309,7 @@ p + p {
 	}
 }
 
-html {
-	scroll-behavior: smooth;
-}
-
-html body {
+body {
 	--logo--height--scaled: calc(var(--logo--height) * var(--logo--scale, 1));
 	--scroll--offset: calc(var(--logo--height--scaled) + var(--tagline--height) + var(--margin) * 3);
 	display: grid;
@@ -322,7 +319,7 @@ html body {
 @media (orientation: landscape),
 (min-width: 35.5em) and (min-height: 30em),
 (min-width: 58.125em) {
-	html body {
+	body {
 		--scroll--offset: var(--margin);
 		column-gap: var(--margin);
 		grid-auto-columns: 0.382fr 0.618fr;
@@ -332,25 +329,25 @@ html body {
 	}
 }
 
-html body #art,
-html body #media,
-html body #science,
-html body #about {
+body #art,
+body #media,
+body #science,
+body #about {
 	scroll-margin-top: var(--scroll--offset);
 }
 
-html body.main--visible {
+body.main--visible {
 	--color: black;
 	--color--background: white;
 }
 
-html body.footer--visible {
+body.footer--visible {
 	--color: white;
 	--color--background: var(--color--accent);
 }
 
-html body,
-html body > header {
+body,
+body > header {
 	--color--transition: 200ms;
 	background: var(--color--background);
 	transition-duration: var(--color--transition);
@@ -358,15 +355,15 @@ html body > header {
 	transition-timing-function: linear;
 }
 
-html body p,
-html body > header p {
+body p,
+body > header p {
 	transition-delay: calc(var(--color--transition) / 4);
 	transition-duration: calc(var(--color--transition) / 2);
 	transition-property: color;
 	transition-timing-function: linear;
 }
 
-html body > header {
+body > header {
 	--header--scroll: calc((var(--vh--initial, 100vh) - var(--logo--height) - var(--tagline--height) - var(--margin) * 3) / 2);
 	--header--scroll--offset: calc(-100vh + var(--logo--height--scaled) + var(--tagline--height) + var(--margin) * 3);
 	display: flex;
@@ -383,20 +380,20 @@ html body > header {
 @media (orientation: landscape),
 (min-width: 35.5em) and (min-height: 30em),
 (min-width: 58.125em) {
-	html body > header {
+	body > header {
 		padding-left: initial;
 		padding-right: initial;
 		top: calc(-1 * var(--header--scroll));
 	}
 }
 
-html body > header section:first-child {
+body > header section:first-child {
 	margin-top: var(--header--scroll);
 	position: sticky;
 	top: var(--margin);
 }
 
-html body > header section:first-child > h1 {
+body > header section:first-child > h1 {
 	--typography--leading: calc(5/6);
 	--typography--size: 8.8rem;
 	--transition--duration: 100ms;
@@ -414,73 +411,73 @@ html body > header section:first-child > h1 {
 }
 
 @media (max-width: 23.375em) {
-	html body > header section:first-child > h1 {
+	body > header section:first-child > h1 {
 		--typography--size: 8rem;
 	}
 }
 
 @media (min-width: 35.5em) {
-	html body > header section:first-child > h1 {
+	body > header section:first-child > h1 {
 		--typography--size: 7.2rem;
 	}
 }
 
 @media (min-width: 48em) and (min-height: 30em),
 (min-width: 58.125em) {
-	html body > header section:first-child > h1 {
+	body > header section:first-child > h1 {
 		--typography--size: 12.4rem;
 		--transition--duration: 50ms;
 	}
 }
 
 @media (min-width: 64em) {
-	html body > header section:first-child > h1 {
+	body > header section:first-child > h1 {
 		--typography--size: 13.2rem;
 	}
 }
 
-html body > header section:first-child > h1 #art--header .a {
+body > header section:first-child > h1 #art--header .a {
 	letter-spacing: -0.04em;
 }
 
-html body > header section:first-child > h1 #media--header .m {
+body > header section:first-child > h1 #media--header .m {
 	letter-spacing: -0.04em;
 }
 
-html body > header section:first-child > h1 #media--header .d {
+body > header section:first-child > h1 #media--header .d {
 	letter-spacing: 0.02em;
 }
 
-html body > header section:first-child > h1 #science--header .s {
+body > header section:first-child > h1 #science--header .s {
 	letter-spacing: -0.01em;
 }
 
-html body > header section:first-child > h1 #science--header .i {
+body > header section:first-child > h1 #science--header .i {
 	letter-spacing: -0.01em;
 }
 
-html body > header section:first-child > h1 #science--header .n {
+body > header section:first-child > h1 #science--header .n {
 	letter-spacing: -0.01em;
 }
 
-html body > header > section:last-child {
+body > header > section:last-child {
 	bottom: var(--margin);
 	position: sticky;
 }
 
-html body > header > section:last-child > p {
+body > header > section:last-child > p {
 	--typography--size: 2.4rem;
 	--typography--leading: 1;
 }
 
 @media (min-width: 48em) and (min-height: 30em),
 (min-width: 58.125em) {
-	html body > header > section:last-child > p {
+	body > header > section:last-child > p {
 		--typography--size: 3.6rem;
 	}
 }
 
-html body > main {
+body > main {
 	grid-area: main;
 	padding-left: var(--margin);
 	padding-right: var(--margin);
@@ -490,22 +487,22 @@ html body > main {
 @media (orientation: landscape),
 (min-width: 35.5em) and (min-height: 30em),
 (min-width: 58.125em) {
-	html body > main {
+	body > main {
 		margin-top: initial;
 		padding-left: initial;
 		padding-right: initial;
 	}
 }
 
-html body > main p {
+body > main p {
 	max-width: 80ch;
 }
 
-html body > main p + p {
+body > main p + p {
 	margin-top: calc(var(--margin) * 4);
 }
 
-html body > footer {
+body > footer {
 	display: grid;
 	grid-area: footer;
 	grid-template-areas: "header""section";
@@ -518,7 +515,7 @@ html body > footer {
 @media (orientation: landscape),
 (min-width: 35.5em) and (min-height: 30em),
 (min-width: 58.125em) {
-	html body > footer {
+	body > footer {
 		column-gap: var(--margin);
 		grid-auto-columns: 0.382fr 0.618fr;
 		grid-template-areas: "header section";
@@ -527,19 +524,19 @@ html body > footer {
 	}
 }
 
-html body > footer > header {
+body > footer > header {
 	grid-area: header;
 }
 
-html body > footer > section {
+body > footer > section {
 	grid-area: section;
 }
 
-html body > footer p {
+body > footer p {
 	font-style: italic;
 	max-width: 80ch;
 }
 
-html body > footer p + p {
+body > footer p + p {
 	margin-top: var(--margin);
 }

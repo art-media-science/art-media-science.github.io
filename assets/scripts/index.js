@@ -107,19 +107,22 @@
 
 const logoHeightVar = '--logo--height'
 const taglineHeightVar = '--tagline--height'
+const linksHeightVar = '--links--height'
 const scrollVar = '--logo--scroll'
 
 const mainVisibleClass = 'main--visible'
 
 
 
-const getHeaderDimensions = (body, logo, tagline) => {
+const getHeights = (body, logo, tagline, links) => {
 	let logoHeight = logo.offsetHeight
 	let taglineHeight = tagline.offsetHeight
+	let linksHeight = links.offsetHeight
 
 	const updateVars = () => {
 		body.style.setProperty(logoHeightVar, ` ${logoHeight / 10}rem`)
 		body.style.setProperty(taglineHeightVar, ` ${taglineHeight / 10}rem`)
+		body.style.setProperty(linksHeightVar, ` ${linksHeight / 10}rem`)
 	}
 
 	updateVars()
@@ -127,6 +130,7 @@ const getHeaderDimensions = (body, logo, tagline) => {
 	window.addEventListener('resize', () => {
 		logoHeight = logo.offsetHeight
 		taglineHeight = tagline.offsetHeight
+		linksHeight = links.offsetHeight
 
 		updateVars()
 	})
@@ -134,7 +138,7 @@ const getHeaderDimensions = (body, logo, tagline) => {
 
 
 
-const getHeaderScroll = (body, logo) => {
+headerScrollScale = (body, logo) => {
 	let scrollDistance = parseFloat(getComputedStyle(logo.parentElement).marginTop)
 
 	const clamp = (num, min, max) => Math.min(Math.max(num, min), max)
@@ -186,8 +190,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	const logo = document.getElementById('logo').firstElementChild
 	const tagline = document.getElementById('tagline')
 	const main = document.querySelector('main')
+	const footer = document.querySelector('footer')
+	const links = document.getElementById('links')
 
-	getHeaderDimensions(body, logo, tagline)
-	getHeaderScroll(body, logo)
+	getHeights(body, logo, tagline, links)
+	headerScrollScale(body, logo)
 	mainVisible(body, main, mainVisibleClass)
 })

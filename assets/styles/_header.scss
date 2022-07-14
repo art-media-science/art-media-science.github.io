@@ -73,6 +73,10 @@
 
 			@include breakpoint(1024) { --typography--size: 13.2rem; }
 
+			> a {
+				@extend %link--text;
+			}
+
 
 
 			// Logo kerning tweaks.
@@ -101,6 +105,7 @@
 		position: sticky;
 
 		> a {
+			@extend %link--element;
 
 			> p {
 				--typography--size:    2.4rem;

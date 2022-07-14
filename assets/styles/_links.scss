@@ -1,0 +1,70 @@
+%--outline {
+	outline-color:  var(--color);
+	outline-style:  solid;
+	outline-width:  var(--link--outline--override, var(--link--outline));
+}
+
+%--focus {
+	-webkit-tap-highlight-color: var(--link--highlight);
+	cursor:              pointer;
+	transition-duration: 50ms, var(--hover--duration);
+	transition-property: background-color, text-decoration-color;
+
+	&:active {
+		background-color: var(--link--highlight);
+		border-radius:    calc(var(--link--enlargement) / 3);
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		p {
+			--color--background: transparent; // Hide the text skip shadow.
+
+			transition-duration: 0s;
+		}
+	}
+
+	&:focus {
+		outline: none;
+		z-index: 1;
+	}
+
+	.focus &:not(:disabled):focus {
+		@extend %--outline;
+	}
+}
+
+
+
+%link--enlargement {
+	margin:  calc(var(--link--enlargement) * -1);
+	padding: var(--link--enlargement);
+}
+
+%link--element {
+	@extend %--focus;
+	@extend %link--enlargement;
+
+	display:        flex;
+	flex-direction: column;
+	width:          fit-content;
+}
+
+%link--text {
+	@extend %--focus;
+
+	border-color: transparent;
+	border-style: solid;
+	border-width: var(--link--enlargement);
+	margin:       calc(-1 * var(--link--enlargement));
+
+	border-bottom-width: calc(var(--link--enlargement) / 2); // Clear underlines.
+	margin-bottom:       calc(-1 * var(--link--enlargement) / 2);
+
+	&:active {
+		--color--background: transparent; // Hide the text skip shadow.
+	}
+}

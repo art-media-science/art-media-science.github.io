@@ -4,8 +4,7 @@
 	grid-template-areas:
 		"header"
 		"section";
-	margin-top:     calc(var(--margin) * 4);
-	row-gap:        calc(var(--margin) * 4);
+	row-gap: calc(var(--margin) * 4);
 
 	@include landscape {
 		column-gap:        var(--margin);

@@ -584,6 +584,8 @@ body > header > section:last-child > a > p {
 
 body > main {
 	--main--spacing: calc((100vh - var(--logo--height--scaled) - var(--tagline--height) - var(--margin) * 3) / 2);
+	--section--spacing: calc(var(--margin) * 4);
+	--section--height: calc(100vh - var(--logo--height--scaled) - var(--tagline--height) - var(--margin) * 5 - var(--section--spacing) - 0.8rem);
 	grid-area: main;
 	padding-left: var(--margin);
 	padding-right: var(--margin);
@@ -595,17 +597,21 @@ body > main {
 (min-width: 58.125em) {
 	body > main {
 		--main--spacing: calc(var(--logo--height) - var(--logo--height--scaled) + var(--margin) / 2);
+		--section--height: calc(100vh - var(--tagline--height) - var(--margin) * 2 - var(--section--spacing));
 		padding-left: initial;
 		padding-right: initial;
 	}
 }
 
-body > main p {
-	max-width: 80ch;
+body > main #art,
+body > main #media,
+body > main #science {
+	min-height: var(--section--height);
 }
 
-body > main p + p {
-	margin-top: calc(var(--margin) * 4);
+body > main #media,
+body > main #science {
+	margin-top: var(--section--spacing);
 }
 
 body > footer {

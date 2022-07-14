@@ -1,8 +1,8 @@
-<footer
-	id="about"
-	>
+<footer>
 	<header>
-		<ul>
+		<ul
+			id="links"
+			>
 			{% for link in page.links %}
 				<li>
 					<a href="{{ link.url }}">
@@ -14,7 +14,9 @@
 			{% endfor %}
 		</ul>
 	</header>
-	<section>
+	<section
+		id="about"
+		>
 		{{ content | split: '<!-- ABOUT -->' | last }}
 	</section>
 </footer>

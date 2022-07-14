@@ -64,6 +64,13 @@ body {
 			+ var(--margin) * 4
 		);
 
+	--scroll--offset--about: calc(
+			var(--tagline--height)
+			+ var(--links--height)
+			+ var(--margin) * 4
+		);
+
+
 	// Main layout.
 	display: grid;
 	grid-template-areas:
@@ -72,7 +79,8 @@ body {
 		"footer";
 
 	@include landscape {
-		--scroll--offset: var(--margin);
+		--scroll--offset:        var(--margin);
+		--scroll--offset--about: var(--margin);
 
 		column-gap:        var(--margin);
 		grid-auto-columns: var(--column--ratio); // Golden.
@@ -86,9 +94,12 @@ body {
 
 	#art,
 	#media,
-	#science,
-	#about {
+	#science {
 		scroll-margin-top: var(--scroll--offset);
+	}
+
+	#about {
+		scroll-margin-top: var(--scroll--offset--about);
 	}
 
 

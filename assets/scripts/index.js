@@ -11,26 +11,30 @@
 
 const logoHeightVar =    '--logo--height'
 const taglineHeightVar = '--tagline--height'
+const linksHeightVar =   '--links--height'
 const scrollVar =        '--logo--scroll'
 
 const mainVisibleClass =   'main--visible'
 
 
 
-const headerDimensions = (body, logo, tagline) => {
-	let logoHeight = logo.offsetHeight
+const getHeights = (body, logo, tagline, links) => {
+	let logoHeight =    logo.offsetHeight
 	let taglineHeight = tagline.offsetHeight
+	let linksHeight =   links.offsetHeight
 
 	const updateVars = () => {
 		body.style.setProperty(logoHeightVar, ` ${logoHeight / 10}rem`)
 		body.style.setProperty(taglineHeightVar, ` ${taglineHeight / 10}rem`)
+		body.style.setProperty(linksHeightVar, ` ${linksHeight / 10}rem`)
 	}
 
 	updateVars()
 
 	window.addEventListener('resize', () => {
-		logoHeight = logo.offsetHeight
+		logoHeight =    logo.offsetHeight
 		taglineHeight = tagline.offsetHeight
+		linksHeight =   links.offsetHeight
 
 		updateVars()
 	})
@@ -90,8 +94,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	const logo =    document.getElementById('logo').firstElementChild
 	const tagline = document.getElementById('tagline')
 	const main =    document.querySelector('main')
+	const footer =  document.querySelector('footer')
+	const links =   document.getElementById('links')
 
-	headerDimensions(body, logo, tagline)
+	getHeights(body, logo, tagline, links)
 	headerScrollScale(body, logo)
 	mainVisible(body, main, mainVisibleClass)
 })

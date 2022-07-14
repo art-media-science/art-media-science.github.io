@@ -9,10 +9,25 @@
 			/ 2
 		);
 
+	--section--spacing: calc(var(--margin) * 4);
+
+	--section--height: calc(
+			100vh
+			- var(--logo--height--scaled)
+			- var(--tagline--height)
+			- var(--margin) * 5
+			- var(--section--spacing)
+			- 0.8rem
+		);
+
+
+
 	grid-area:     main;
 	padding-left:  var(--margin);
 	padding-right: var(--margin);
 	padding-top:   var(--main--spacing);
+
+
 
 	@include landscape {
 		--main--spacing: calc(
@@ -21,18 +36,27 @@
 				+ var(--margin) / 2
 			);
 
+		--section--height: calc(
+				100vh
+				- var(--tagline--height)
+				- var(--margin) * 2
+				- var(--section--spacing)
+			);
+
 		padding-left:  initial; // Grid gaps take over.
 		padding-right: initial;
 	}
 
 
 
-	// Temp.
-	p {
-		max-width: 80ch;
+	#art,
+	#media,
+	#science {
+		min-height: var(--section--height);
+	}
 
-		+ p {
-			margin-top: calc(var(--margin) * 4);
-		}
+	#media,
+	#science {
+		margin-top: var(--section--spacing);
 	}
 }

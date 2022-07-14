@@ -100,13 +100,17 @@
 		bottom:   var(--margin);
 		position: sticky;
 
-		> p {
-			--typography--size:    2.4rem;
-			--typography--leading: 1;
+		> a {
 
-			@include breakpoint(768) {
-				--typography--size: 3.6rem;
+			> p {
+				--typography--size:    2.4rem;
+				--typography--leading: 1;
+
+				@include breakpoint(768) {
+					--typography--size: 3.6rem;
+				}
 			}
 		}
+
 	}
 }

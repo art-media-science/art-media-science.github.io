@@ -101,29 +101,28 @@ body {
 		--link--highlight: var(--color--link);
 	}
 
-	&.footer--visible {
-		--color:             white;
-		--color--background: var(--color--accent);
-
-		--link--highlight: var(--color--link--reverse);
-	}
-
-	&, // Body itself.
-	> header {
+	&,
+	header {
 		--color--transition: 200ms;
 
 		background:                 var(--color--background);
 		transition-duration:        var(--color--transition);
 		transition-property:        background;
 		transition-timing-function: linear;
+	}
 
-		// Logo/h1 combo (with transform) in the header doc.
-		p {
-			transition-delay:           calc(var(--color--transition) / 4);
-			transition-duration:        calc(var(--color--transition) / 2);
-			transition-property:        color;
-			transition-timing-function: linear;
+	@include landscape {
+		header {
+			background: initial;
 		}
+	}
+
+	// Logo/h1 combo (with transform) in the header doc.
+	p {
+		transition-delay:           calc(var(--color--transition) / 4);
+		transition-duration:        calc(var(--color--transition) / 2);
+		transition-property:        color;
+		transition-timing-function: linear;
 	}
 
 

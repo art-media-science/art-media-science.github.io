@@ -27,6 +27,8 @@
 	--margin:           2.4rem;
 	--typography--size: 2rem;
 
+	scroll-behavior: smooth;
+
 	@include breakpoint(768) {
 		--margin:           4.8rem;
 		--typography--size: 2.4rem;
@@ -35,80 +37,78 @@
 
 
 
-html {
-	scroll-behavior: smooth;
+body {
+	--logo--height--scaled: calc(var(--logo--height) * var(--logo--scale, 1));
 
-	body {
-		--logo--height--scaled: calc(var(--logo--height) * var(--logo--scale, 1));
+	--scroll--offset: calc(
+			var(--logo--height--scaled)
+			+ var(--tagline--height)
+			+ var(--margin) * 3
+		);
 
-		--scroll--offset: calc(
-				var(--logo--height--scaled)
-				+ var(--tagline--height)
-				+ var(--margin) * 3
-			);
+	// Main layout.
+	display: grid;
+	grid-template-areas:
+		"header"
+		"main"
+		"footer";
 
-		// Main layout.
-		display: grid;
+	@include landscape {
+		--scroll--offset: var(--margin);
+
+		column-gap:        var(--margin);
+		grid-auto-columns: 0.382fr 0.618fr; // Golden.
 		grid-template-areas:
-			"header"
-			"main"
-			"footer";
-
-		@include landscape {
-			--scroll--offset: var(--margin);
-
-			column-gap:        var(--margin);
-			grid-auto-columns: 0.382fr 0.618fr; // Golden.
-			grid-template-areas:
-				"header ."
-				".      main"
-				"footer footer";
-			margin-left:  var(--margin);
-			margin-right: var(--margin);
-		}
-
-		#art,
-		#media,
-		#science,
-		#about {
-			scroll-margin-top: var(--scroll--offset);
-		}
-
-
-
-		// Color transitions.
-		&.main--visible {
-			--color:             black;
-			--color--background: white;
-		}
-
-		&.footer--visible {
-			--color:             white;
-			--color--background: var(--color--accent);
-		}
-
-		&, // Body itself.
-		> header {
-			--color--transition: 200ms;
-
-			background:                 var(--color--background);
-			transition-duration:        var(--color--transition);
-			transition-property:        background;
-			transition-timing-function: linear;
-
-			// h1 combo (with transform) in the header doc.
-			p {
-				transition-delay:           calc(var(--color--transition) / 4);
-				transition-duration:        calc(var(--color--transition) / 2);
-				transition-property:        color;
-				transition-timing-function: linear;
-			}
-		}
-
-
-
-		@import 'header';
-		@import 'main';
-		@import 'footer';
+			"header ."
+			".      main"
+			"footer footer";
+		margin-left:  var(--margin);
+		margin-right: var(--margin);
 	}
+
+	#art,
+	#media,
+	#science,
+	#about {
+		scroll-margin-top: var(--scroll--offset);
+	}
+
+
+
+	// Color transitions.
+	&.main--visible {
+		--color:             black;
+		--color--background: white;
+
+	}
+
+	&.footer--visible {
+		--color:             white;
+		--color--background: var(--color--accent);
+
+	}
+
+	&, // Body itself.
+	> header {
+		--color--transition: 200ms;
+
+		background:                 var(--color--background);
+		transition-duration:        var(--color--transition);
+		transition-property:        background;
+		transition-timing-function: linear;
+
+		// Logo/h1 combo (with transform) in the header doc.
+		p {
+			transition-delay:           calc(var(--color--transition) / 4);
+			transition-duration:        calc(var(--color--transition) / 2);
+			transition-property:        color;
+			transition-timing-function: linear;
+		}
+	}
+
+
+
+	@import 'header';
+	@import 'main';
+	@import 'footer';
 }

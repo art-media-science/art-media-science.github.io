@@ -24,6 +24,8 @@
 	--typography--leading: 1.2;
 	--typography--size:    2rem;
 
+	--column--ratio: 0.382fr 0.618fr; // Golden.
+
 	--color--accent: firebrick; // For now.
 
 	--color:             white;
@@ -73,7 +75,7 @@ body {
 		--scroll--offset: var(--margin);
 
 		column-gap:        var(--margin);
-		grid-auto-columns: 0.382fr 0.618fr; // Golden.
+		grid-auto-columns: var(--column--ratio); // Golden.
 		grid-template-areas:
 			"header ."
 			".      main"

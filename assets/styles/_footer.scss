@@ -11,7 +11,7 @@
 
 	@include landscape {
 		column-gap:        var(--margin);
-		grid-auto-columns: 0.382fr 0.618fr;
+		grid-auto-columns: var(--column--ratio);
 		grid-template-areas:
 			"header section";
 		padding-left:  initial; // Grid gaps take over.

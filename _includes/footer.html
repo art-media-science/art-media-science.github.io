@@ -2,6 +2,17 @@
 	id="about"
 	>
 	<header>
+		<ul>
+			{% for link in page.links %}
+				<li>
+					<a href="{{ link.url }}">
+						<p>
+							{{ link.name }}
+						</p>
+					</a>
+				</li>
+			{% endfor %}
+		</ul>
 	</header>
 	<section>
 		{{ content | split: '<!-- ABOUT -->' | last }}

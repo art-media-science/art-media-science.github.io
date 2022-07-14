@@ -3,6 +3,15 @@ title: Art, Media, Science
 subtitle: |
   Chris McGlinchey,
   Conservation Scientist
+links:
+  - name: Email
+    url:  mailto:cwmcglinchey@gmail.com
+  - name: LinkedIn
+    url:  https://www.linkedin.com/in/chris-mcglinchey-93896b20a/
+  - name: Medium
+    url:  https://medium.com/@chris_mcglinchey
+  - name: CV
+    url:
 ---
 
 

@@ -16,12 +16,14 @@
 	}
 
 	> header {
-		--header--scroll--offset: calc(var(--tagline--height) + var(--margin));
+		--header--scroll--offset: calc(var(--tagline--height) + var(--margin) * 2);
 
-		grid-area: header;
-		padding:   var(--margin);
-		position:  sticky;
-		top:       var(--header--scroll--offset);
+		grid-area:      header;
+		padding-bottom: var(--margin);
+		padding-left:   var(--margin);
+		padding-right:  var(--margin);
+		position:       sticky;
+		top:            var(--header--scroll--offset);
 
 		@include landscape {
 			display:         flex;

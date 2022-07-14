@@ -37,7 +37,7 @@
 
 
 	// The “logo”.
-	section:first-child {
+	> section:first-child {
 		margin-top: var(--header--scroll);
 		position:   sticky;
 		top:        var(--margin);

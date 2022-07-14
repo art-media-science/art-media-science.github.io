@@ -5,9 +5,6 @@
 		"header"
 		"section";
 	margin-top:     calc(var(--margin) * 4);
-	padding-bottom: var(--margin);
-	padding-left:   var(--margin);
-	padding-right:  var(--margin);
 	row-gap:        calc(var(--margin) * 4);
 
 	@include landscape {
@@ -20,18 +17,38 @@
 	}
 
 	> header {
+		--header--scroll--offset: calc(var(--tagline--height) + var(--margin));
+
 		grid-area: header;
+		padding:   var(--margin);
+		position:  sticky;
+		top:       var(--header--scroll--offset);
+
+		@include landscape {
+			display:         flex;
+			flex-direction:  column;
+			justify-content: end;
+			padding:         initial; // Grid gaps take over.
+			position:        initial;
+			top:             initial;
+		}
 
 		> ul {
 			@extend %type--layout;
+
+			--typography--size:    2.4rem;
+			--typography--leading: 1;
 
 			align-items:    start;
 			display:        flex;
 			flex-direction: column;
 			gap:            var(--typography--between);
 
-			--typography--size:    2.4rem;
-			--typography--leading: 1;
+			@include landscape {
+				bottom:     var(--margin);
+				margin-top: var(--header--scroll--offset);
+				position:   sticky;
+			}
 
 			@include breakpoint(768) {
 				--typography--size: 3.6rem;
@@ -46,7 +63,15 @@
 	}
 
 	> section {
-		grid-area: section;
+		grid-area:      section;
+		padding-bottom: var(--margin);
+		padding-left:   var(--margin);
+		padding-right:  var(--margin);
+
+		@include landscape {
+			padding-left:  initial; // Grid gaps take over.
+			padding-right: initial;
+		}
 
 
 

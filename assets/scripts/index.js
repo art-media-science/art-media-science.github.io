@@ -17,7 +17,7 @@ const mainVisibleClass =   'main--visible'
 
 
 
-const getHeaderDimensions = (body, logo, tagline) => {
+const headerDimensions = (body, logo, tagline) => {
 	let logoHeight = logo.offsetHeight
 	let taglineHeight = tagline.offsetHeight
 
@@ -38,7 +38,7 @@ const getHeaderDimensions = (body, logo, tagline) => {
 
 
 
-const getHeaderScroll = (body, logo) => {
+headerScrollScale = (body, logo) => {
 	let scrollDistance = parseFloat(getComputedStyle(logo.parentElement).marginTop)
 
 	const clamp = (num, min, max) => Math.min(Math.max(num, min), max)
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const tagline = document.getElementById('tagline')
 	const main =    document.querySelector('main')
 
-	getHeaderDimensions(body, logo, tagline)
-	getHeaderScroll(body, logo)
+	headerDimensions(body, logo, tagline)
+	headerScrollScale(body, logo)
 	mainVisible(body, main, mainVisibleClass)
 })

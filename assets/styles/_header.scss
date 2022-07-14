@@ -75,6 +75,26 @@
 
 			> a {
 				@extend %link--text;
+
+				// Counteract the scaling on the focus outline.
+				--link--outline--override: calc((1 + (var(--logo--scale) * var(--logo--scroll))) * var(--link--outline));
+
+				border-bottom:  initial; // Fix overlaps.
+				border-top:     initial;
+				margin-bottom:  initial;
+				margin-top:     initial;
+				pointer-events: none;
+				position:       relative;
+
+				// Better click/tap target.
+				&:before {
+					content:        '';
+					display:        block;
+					height:         100%;
+					pointer-events: auto;
+					position:       absolute;
+					width:          100%;
+				}
 			}
 
 

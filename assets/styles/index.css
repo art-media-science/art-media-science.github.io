@@ -79,7 +79,7 @@ details ::-webkit-details-marker {
 	src: url("../fonts/heldane--regular--italic.woff2") format("woff2");
 }
 
-body > header section:first-child > h1,
+body > header > section:first-child > h1,
 :root {
 	--typography--shoulder: calc(1 - var(--typography--cap-height));
 	--typography--shoulder--top: calc(var(--typography--shoulder) - var(--typography--shoulder--bottom));
@@ -92,14 +92,14 @@ body > header section:first-child > h1,
 	font-family: "Calibre", sans-serif;
 }
 
-body > header section:first-child > h1 {
+body > header > section:first-child > h1 {
 	--typography--cap-height: 0.642;
 	--typography--x-height: 0.446;
 	--typography--shoulder--bottom: 0.184;
 	font-family: "Heldane", serif;
 }
 
-body > header section:first-child > h1,
+body > header > section:first-child > h1,
 :root {
 	--typography--weight: 400;
 }
@@ -109,7 +109,7 @@ body > header section:first-child > h1,
 	--typography--inset--right: -0.061;
 }
 
-body > header section:first-child > h1 {
+body > header > section:first-child > h1 {
 	--typography--inset--left: -0.019;
 	--typography--inset--right: -0.014;
 }
@@ -291,13 +291,87 @@ p + p {
 	margin-top: var(--layout--typography--leading-shoulder);
 }
 
+.focus body > header > section:first-child > h1 > a:not(:disabled):focus,
+.focus body > header > section:last-child > a:not(:disabled):focus {
+	outline-color: var(--color);
+	outline-style: solid;
+	outline-width: var(--link--outline--override, var(--link--outline));
+}
+
+body > header > section:first-child > h1 > a,
+body > header > section:last-child > a {
+	-webkit-tap-highlight-color: var(--link--highlight);
+	cursor: pointer;
+	transition-duration: 50ms, var(--hover--duration);
+	transition-property: background-color, text-decoration-color;
+}
+
+body > header > section:first-child > h1 > a:active,
+body > header > section:last-child > a:active {
+	background-color: var(--link--highlight);
+	border-radius: calc(var(--link--enlargement) / 3);
+}
+
+body > header > section:first-child > h1 > a:active h1,
+body > header > section:last-child > a:active h1,
+body > header > section:first-child > h1 > a:active h2,
+body > header > section:last-child > a:active h2,
+body > header > section:first-child > h1 > a:active h3,
+body > header > section:last-child > a:active h3,
+body > header > section:first-child > h1 > a:active h4,
+body > header > section:last-child > a:active h4,
+body > header > section:first-child > h1 > a:active h5,
+body > header > section:last-child > a:active h5,
+body > header > section:first-child > h1 > a:active h6,
+body > header > section:last-child > a:active h6,
+body > header > section:first-child > h1 > a:active p,
+body > header > section:last-child > a:active p {
+	--color--background: transparent;
+	transition-duration: 0s;
+}
+
+body > header > section:first-child > h1 > a:focus,
+body > header > section:last-child > a:focus {
+	outline: none;
+	z-index: 1;
+}
+
+body > header > section:last-child > a {
+	margin: calc(var(--link--enlargement) * -1);
+	padding: var(--link--enlargement);
+}
+
+body > header > section:last-child > a {
+	display: flex;
+	flex-direction: column;
+	width: fit-content;
+}
+
+body > header > section:first-child > h1 > a {
+	border-color: transparent;
+	border-style: solid;
+	border-width: var(--link--enlargement);
+	margin: calc(-1 * var(--link--enlargement));
+	border-bottom-width: calc(var(--link--enlargement) / 2);
+	margin-bottom: calc(-1 * var(--link--enlargement) / 2);
+}
+
+body > header > section:first-child > h1 > a:active {
+	--color--background: transparent;
+}
+
 :root {
-	--color--accent: firebrick;
-	--color: white;
-	--color--background: var(--color--accent);
 	--logo--scale: 0.618;
 	--margin: 2.4rem;
 	--typography--size: 2rem;
+	--color--accent: firebrick;
+	--color: white;
+	--color--background: var(--color--accent);
+	--color--link: rgba(0, 0, 0, 0.033);
+	--color--link--reverse: rgba(255, 255, 255, 0.066);
+	--link--enlargement: 0.4rem;
+	--link--highlight: var(--color--link--reverse);
+	--link--outline: 0.2rem;
 	scroll-behavior: smooth;
 }
 
@@ -306,6 +380,14 @@ p + p {
 	:root {
 		--margin: 4.8rem;
 		--typography--size: 2.4rem;
+		--link--enlargement: 0.8rem;
+	}
+}
+
+@supports (-webkit-hyphens: none) and (-webkit-touch-callout: none) {
+	:root {
+		--color--link: rgba(0, 0, 0, 0.1);
+		--color--link--reverse: rgba(255, 255, 255, 0.2);
 	}
 }
 
@@ -339,11 +421,13 @@ body #about {
 body.main--visible {
 	--color: black;
 	--color--background: white;
+	--link--highlight: var(--color--link);
 }
 
 body.footer--visible {
 	--color: white;
 	--color--background: var(--color--accent);
+	--link--highlight: var(--color--link--reverse);
 }
 
 body,
@@ -387,13 +471,13 @@ body > header {
 	}
 }
 
-body > header section:first-child {
+body > header > section:first-child {
 	margin-top: var(--header--scroll);
 	position: sticky;
 	top: var(--margin);
 }
 
-body > header section:first-child > h1 {
+body > header > section:first-child > h1 {
 	--typography--leading: calc(5/6);
 	--typography--size: 8.8rem;
 	--transition--duration: 100ms;
@@ -411,52 +495,71 @@ body > header section:first-child > h1 {
 }
 
 @media (max-width: 23.375em) {
-	body > header section:first-child > h1 {
+	body > header > section:first-child > h1 {
 		--typography--size: 8rem;
 	}
 }
 
 @media (min-width: 35.5em) {
-	body > header section:first-child > h1 {
+	body > header > section:first-child > h1 {
 		--typography--size: 7.2rem;
 	}
 }
 
 @media (min-width: 48em) and (min-height: 30em),
 (min-width: 58.125em) {
-	body > header section:first-child > h1 {
+	body > header > section:first-child > h1 {
 		--typography--size: 12.4rem;
 		--transition--duration: 50ms;
 	}
 }
 
 @media (min-width: 64em) {
-	body > header section:first-child > h1 {
+	body > header > section:first-child > h1 {
 		--typography--size: 13.2rem;
 	}
 }
 
-body > header section:first-child > h1 #art--header .a {
+body > header > section:first-child > h1 > a {
+	--link--outline--override: calc((1 + (var(--logo--scale) * var(--logo--scroll))) * var(--link--outline));
+	border-bottom: initial;
+	border-top: initial;
+	margin-bottom: initial;
+	margin-top: initial;
+	pointer-events: none;
+	position: relative;
+}
+
+body > header > section:first-child > h1 > a:before {
+	content: "";
+	display: block;
+	height: 100%;
+	pointer-events: auto;
+	position: absolute;
+	width: 100%;
+}
+
+body > header > section:first-child > h1 #art--header .a {
 	letter-spacing: -0.04em;
 }
 
-body > header section:first-child > h1 #media--header .m {
+body > header > section:first-child > h1 #media--header .m {
 	letter-spacing: -0.04em;
 }
 
-body > header section:first-child > h1 #media--header .d {
+body > header > section:first-child > h1 #media--header .d {
 	letter-spacing: 0.02em;
 }
 
-body > header section:first-child > h1 #science--header .s {
+body > header > section:first-child > h1 #science--header .s {
 	letter-spacing: -0.01em;
 }
 
-body > header section:first-child > h1 #science--header .i {
+body > header > section:first-child > h1 #science--header .i {
 	letter-spacing: -0.01em;
 }
 
-body > header section:first-child > h1 #science--header .n {
+body > header > section:first-child > h1 #science--header .n {
 	letter-spacing: -0.01em;
 }
 
@@ -465,14 +568,14 @@ body > header > section:last-child {
 	position: sticky;
 }
 
-body > header > section:last-child > p {
+body > header > section:last-child > a > p {
 	--typography--size: 2.4rem;
 	--typography--leading: 1;
 }
 
 @media (min-width: 48em) and (min-height: 30em),
 (min-width: 58.125em) {
-	body > header > section:last-child > p {
+	body > header > section:last-child > a > p {
 		--typography--size: 3.6rem;
 	}
 }

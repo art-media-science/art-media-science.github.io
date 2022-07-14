@@ -43,6 +43,11 @@
 
 		--link--enlargement: 0.8rem;
 	}
+
+	@include browser-specific(safari--mobile) {
+		--color--link:          rgba(0, 0, 0, 0.1);
+		--color--link--reverse: rgba(255, 255, 255, 0.2);
+	}
 }
 
 

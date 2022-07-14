@@ -291,15 +291,26 @@ p + p {
 	margin-top: var(--layout--typography--leading-shoulder);
 }
 
+body > footer > header > ul {
+	--typography--font-size: calc(var(--typography--scale, 1) * var(--typography--size--override, var(--typography--size)));
+	--typography--line-height: calc(var(--typography--leading) * var(--typography--size--override, var(--typography--size)));
+	--typography--cap: calc(var(--typography--cap-height) * 1em);
+	--typography--between: calc(var(--typography--font-size) * (var(--typography--leading) + var(--typography--shoulder) - 1));
+	line-height: var(--typography--line-height);
+	font-size: var(--typography--font-size);
+}
+
 .focus body > header > section:first-child > h1 > a:not(:disabled):focus,
-.focus body > header > section:last-child > a:not(:disabled):focus {
+.focus body > header > section:last-child > a:not(:disabled):focus,
+.focus body > footer > header > ul > li > a:not(:disabled):focus {
 	outline-color: var(--color);
 	outline-style: solid;
 	outline-width: var(--link--outline--override, var(--link--outline));
 }
 
 body > header > section:first-child > h1 > a,
-body > header > section:last-child > a {
+body > header > section:last-child > a,
+body > footer > header > ul > li > a {
 	-webkit-tap-highlight-color: var(--link--highlight);
 	cursor: pointer;
 	transition-duration: 50ms, var(--hover--duration);
@@ -307,41 +318,52 @@ body > header > section:last-child > a {
 }
 
 body > header > section:first-child > h1 > a:active,
-body > header > section:last-child > a:active {
+body > header > section:last-child > a:active,
+body > footer > header > ul > li > a:active {
 	background-color: var(--link--highlight);
 	border-radius: calc(var(--link--enlargement) / 3);
 }
 
 body > header > section:first-child > h1 > a:active h1,
 body > header > section:last-child > a:active h1,
+body > footer > header > ul > li > a:active h1,
 body > header > section:first-child > h1 > a:active h2,
 body > header > section:last-child > a:active h2,
+body > footer > header > ul > li > a:active h2,
 body > header > section:first-child > h1 > a:active h3,
 body > header > section:last-child > a:active h3,
+body > footer > header > ul > li > a:active h3,
 body > header > section:first-child > h1 > a:active h4,
 body > header > section:last-child > a:active h4,
+body > footer > header > ul > li > a:active h4,
 body > header > section:first-child > h1 > a:active h5,
 body > header > section:last-child > a:active h5,
+body > footer > header > ul > li > a:active h5,
 body > header > section:first-child > h1 > a:active h6,
 body > header > section:last-child > a:active h6,
+body > footer > header > ul > li > a:active h6,
 body > header > section:first-child > h1 > a:active p,
-body > header > section:last-child > a:active p {
+body > header > section:last-child > a:active p,
+body > footer > header > ul > li > a:active p {
 	--color--background: transparent;
 	transition-duration: 0s;
 }
 
 body > header > section:first-child > h1 > a:focus,
-body > header > section:last-child > a:focus {
+body > header > section:last-child > a:focus,
+body > footer > header > ul > li > a:focus {
 	outline: none;
 	z-index: 1;
 }
 
-body > header > section:last-child > a {
+body > header > section:last-child > a,
+body > footer > header > ul > li > a {
 	margin: calc(var(--link--enlargement) * -1);
 	padding: var(--link--enlargement);
 }
 
-body > header > section:last-child > a {
+body > header > section:last-child > a,
+body > footer > header > ul > li > a {
 	display: flex;
 	flex-direction: column;
 	width: fit-content;
@@ -426,14 +448,8 @@ body.main--visible {
 	--link--highlight: var(--color--link);
 }
 
-body.footer--visible {
-	--color: white;
-	--color--background: var(--color--accent);
-	--link--highlight: var(--color--link--reverse);
-}
-
 body,
-body > header {
+body header {
 	--color--transition: 200ms;
 	background: var(--color--background);
 	transition-duration: var(--color--transition);
@@ -441,8 +457,15 @@ body > header {
 	transition-timing-function: linear;
 }
 
-body p,
-body > header p {
+@media (orientation: landscape),
+(min-width: 35.5em) and (min-height: 30em),
+(min-width: 58.125em) {
+	body header {
+		background: initial;
+	}
+}
+
+body p {
 	transition-delay: calc(var(--color--transition) / 4);
 	transition-duration: calc(var(--color--transition) / 2);
 	transition-property: color;
@@ -619,9 +642,7 @@ body > footer {
 	grid-area: footer;
 	grid-template-areas: "header""section";
 	margin-top: calc(var(--margin) * 4);
-	padding-left: var(--margin);
-	padding-right: var(--margin);
-	padding-bottom: var(--margin);
+	row-gap: calc(var(--margin) * 4);
 }
 
 @media (orientation: landscape),
@@ -637,18 +658,73 @@ body > footer {
 }
 
 body > footer > header {
+	--header--scroll--offset: calc(var(--tagline--height) + var(--margin));
 	grid-area: header;
+	padding: var(--margin);
+	position: sticky;
+	top: var(--header--scroll--offset);
+}
+
+@media (orientation: landscape),
+(min-width: 35.5em) and (min-height: 30em),
+(min-width: 58.125em) {
+	body > footer > header {
+		display: flex;
+		flex-direction: column;
+		justify-content: end;
+		padding: initial;
+		position: initial;
+		top: initial;
+	}
+}
+
+body > footer > header > ul {
+	--typography--size: 2.4rem;
+	--typography--leading: 1;
+	align-items: start;
+	display: flex;
+	flex-direction: column;
+	gap: var(--typography--between);
+}
+
+@media (orientation: landscape),
+(min-width: 35.5em) and (min-height: 30em),
+(min-width: 58.125em) {
+	body > footer > header > ul {
+		bottom: var(--margin);
+		margin-top: var(--header--scroll--offset);
+		position: sticky;
+	}
+}
+
+@media (min-width: 48em) and (min-height: 30em),
+(min-width: 58.125em) {
+	body > footer > header > ul {
+		--typography--size: 3.6rem;
+	}
 }
 
 body > footer > section {
 	grid-area: section;
+	padding-bottom: var(--margin);
+	padding-left: var(--margin);
+	padding-right: var(--margin);
 }
 
-body > footer p {
+@media (orientation: landscape),
+(min-width: 35.5em) and (min-height: 30em),
+(min-width: 58.125em) {
+	body > footer > section {
+		padding-left: initial;
+		padding-right: initial;
+	}
+}
+
+body > footer > section p {
 	font-style: italic;
 	max-width: 80ch;
 }
 
-body > footer p + p {
+body > footer > section p + p {
 	margin-top: var(--margin);
 }

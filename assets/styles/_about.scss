@@ -1,11 +1,10 @@
 > section {
-	padding-bottom: var(--margin);
-	padding-left:   var(--margin);
-	padding-right:  var(--margin);
+	padding: var(--margin);
 
 	@include landscape {
 		padding-left:  initial; // Grid gaps take over.
 		padding-right: initial;
+		padding-top:   initial;
 	}
 
 

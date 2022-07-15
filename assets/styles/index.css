@@ -653,6 +653,7 @@ body > header > section {
 		--nouns--height: calc(100vh - var(--tagline--height) - var(--margin) * 2 - var(--nouns--spacing));
 		grid-column: 2;
 		grid-row: 2;
+		padding-bottom: calc(var(--nouns--spacing) + var(--tagline--height) + var(--margin));
 		padding-left: initial;
 		padding-right: initial;
 	}

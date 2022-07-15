@@ -37,7 +37,7 @@ const getHeights = (body, header, logo, tagline, links) => {
 
 
 logoScrollScale = (body, logo) => {
-	let scrollDistance = parseFloat(getComputedStyle(logo.parentElement).marginTop)
+	let scrollDistance
 
 	const clamp = (num, min, max) => Math.min(Math.max(num, min), max)
 
@@ -66,9 +66,6 @@ logoScrollScale = (body, logo) => {
 
 
 const invertBackground = (body, nouns, className) => {
-	let viewport = window.innerHeight
-	let nounsTop = nouns.getBoundingClientRect().top
-
 	const checkTop = () => {
 		viewport = window.innerHeight
 		nounsTop = nouns.getBoundingClientRect().top; // Ternary gets angry without this semicolon?

@@ -26,7 +26,7 @@
 
 	--column--ratio: 0.382fr 0.618fr; // Golden.
 
-	--color--accent: firebrick; // For now.
+	--color--accent: #d31919; // For now.
 
 	--color:             white;
 	--color--background: var(--color--accent);
@@ -85,6 +85,11 @@ body {
 		--color--background: white;
 
 		--link--highlight: var(--color--link);
+
+		// Current section, from JS.
+		.active {
+			--color: var(--color--accent);
+		}
 	}
 
 	&,

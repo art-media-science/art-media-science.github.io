@@ -87,10 +87,12 @@
 
 				border-bottom:  initial; // Fix overlaps.
 				border-top:     initial;
+				color:          var(--color);
 				margin-bottom:  initial;
 				margin-top:     initial;
 				pointer-events: none;
 				position:       relative;
+				transition:     color calc(var(--color--transition) / 2) linear;
 
 				// Better click/tap target.
 				&:before {

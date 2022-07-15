@@ -16,6 +16,7 @@ const linksHeightVar =   '--links--height'
 const scrollVar =        '--logo--scroll'
 
 const invertClass =   'invert'
+const activeClass =   'active'
 
 
 
@@ -81,6 +82,32 @@ const invertBackground = (body, nouns, links, invertClass) => {
 
 
 
+const activeSection = (logo, activeClass) => {
+	const links = logo.querySelectorAll('a')
+
+	links.forEach((link) => {
+		// const section = document.getElementById(link.getAttribute('href'))
+		const section = document.getElementById(link.getAttribute('href').replace('#', ''))
+
+		const observer = new IntersectionObserver(entries => {
+			const [entry] = entries
+			if (entry.isIntersecting) {
+				links.forEach((link) => link.classList.remove(activeClass))
+				link.classList.add(activeClass)
+			} else {
+				link.classList.remove(activeClass)
+			}
+		}, {
+			rootMargin: '-50% 0px -33% 0px',
+		})
+
+		window.addEventListener('load', observer.observe(section))
+
+		// window.addEventListener('load', () => {
+		// 	observer.observe(section)
+		// })
+	})
+}
 document.addEventListener('DOMContentLoaded', () => {
 	const body =    document.body
 	const header =  document.querySelector('[data-header]')
@@ -92,4 +119,5 @@ document.addEventListener('DOMContentLoaded', () => {
 	getHeights(body, header, logo, tagline, links)
 	logoScrollScale(body, logo)
 	invertBackground(body, nouns, links, invertClass)
+	activeSection(logo, activeClass)
 })

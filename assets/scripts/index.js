@@ -20,24 +20,14 @@ const invertClass =   'invert'
 
 
 const getHeights = (body, header, logo, tagline, links) => {
-	let logoHeight =    logo.offsetHeight
-	let taglineHeight = tagline.offsetHeight
-	let linksHeight =   links.offsetHeight
-	let headerHeight =  header.offsetHeight
-
 	const updateVars = () => {
-		logoHeight =    logo.offsetHeight
-		taglineHeight = tagline.offsetHeight
-		linksHeight =   links.offsetHeight
-
-		body.style.setProperty(logoHeightVar,    ` ${logoHeight / 10}rem`)
-		body.style.setProperty(taglineHeightVar, ` ${taglineHeight / 10}rem`)
-		body.style.setProperty(linksHeightVar,   ` ${linksHeight / 10}rem`)
+		body.style.setProperty(logoHeightVar,    ` ${logo.offsetHeight / 10}rem`)
+		body.style.setProperty(taglineHeightVar, ` ${tagline.offsetHeight / 10}rem`)
+		body.style.setProperty(linksHeightVar,   ` ${links.offsetHeight / 10}rem`)
 
 		setTimeout(() => { // Since it depends on the other heights.
-			headerHeight = header.offsetHeight
-			body.style.setProperty(headerHeightVar,  ` ${headerHeight / 10}rem`)
-		}, 100)
+			body.style.setProperty(headerHeightVar, ` ${header.offsetHeight / 10}rem`)
+		}, 10)
 	}
 
 	window.addEventListener('load', updateVars)

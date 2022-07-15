@@ -30,7 +30,7 @@
 
 		@include landscape {
 			bottom:     var(--margin);
-			margin-top: calc(var(--margin) * 3);
+			margin-top: 0.3rem; // Hide overshoots.
 			position:   sticky;
 		}
 

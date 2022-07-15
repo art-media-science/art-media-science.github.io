@@ -65,17 +65,18 @@ logoScrollScale = (body, logo) => {
 
 
 
-const invertBackground = (body, nouns, className) => {
-	const checkTop = () => {
+const invertBackground = (body, nouns, links, invertClass) => {
+	const checkBounds = () => {
 		viewport = window.innerHeight
-		nounsTop = nouns.getBoundingClientRect().top; // Ternary gets angry without this semicolon?
+		nounsTop = nouns.getBoundingClientRect().top
+		linksBottom = links.getBoundingClientRect().bottom; // Ternary gets angry without this semicolon?
 
-		(nounsTop <= viewport) ? body.classList.add(className) : body.classList.remove(className)
+		(nounsTop <= viewport &&  viewport <= linksBottom) ? body.classList.add(invertClass) : body.classList.remove(invertClass)
 	}
 
-	window.addEventListener('load', checkTop)
-	window.addEventListener('resize', checkTop)
-	window.addEventListener('scroll', checkTop)
+	window.addEventListener('load', checkBounds)
+	window.addEventListener('resize', checkBounds)
+	window.addEventListener('scroll', checkBounds)
 }
 
 
@@ -90,5 +91,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	getHeights(body, header, logo, tagline, links)
 	logoScrollScale(body, logo)
-	invertBackground(body, nouns, invertClass)
+	invertBackground(body, nouns, links, invertClass)
 })

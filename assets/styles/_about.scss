@@ -5,8 +5,10 @@
 	padding-right:  var(--margin);
 
 	@include landscape {
-		padding-left:  initial; // Grid gaps take over.
-		padding-right: initial;
+		margin-top:     calc(-1 * var(--tagline--height) - var(--margin));
+		padding-bottom: calc(var(--tagline--height) + var(--margin));
+		padding-left:   initial; // Grid gaps take over.
+		padding-right:  initial;
 	}
 
 

@@ -37,11 +37,16 @@
 
 	// The “logo”.
 	> section:first-child {
+		flex-shrink:   0;
 		height:        var(--logo--height--scaled);
 		margin-bottom: calc(var(--tagline--height) + var(--margin));
 		margin-top:    var(--nav--scroll);
 		position:      sticky;
 		top:           var(--margin);
+
+		@include landscape {
+			margin-bottom: calc(100vh - var(--logo--height--scaled) - var(--tagline--height) - var(--margin) * 3);
+		}
 
 		> h1 {
 			@extend %font--heldane--regular;

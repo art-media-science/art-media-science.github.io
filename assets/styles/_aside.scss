@@ -1,5 +1,5 @@
 > aside {
-	--nav--scroll--offset: calc(var(--tagline--height) + var(--margin) * 2);
+	--nav--scroll--offset: calc(var(--tagline--height) + var(--margin) * 2 - 0.2rem);
 
 	margin-bottom:  calc(-1 * var(--margin));
 	padding-bottom: var(--margin);
@@ -30,7 +30,7 @@
 
 		@include landscape {
 			bottom:     var(--margin);
-			margin-top: var(--nav--scroll--offset);
+			margin-top: calc(var(--margin) * 3);
 			position:   sticky;
 		}
 

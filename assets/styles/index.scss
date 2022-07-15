@@ -64,7 +64,7 @@ body {
 
 	@include landscape {
 		--scroll--offset:        var(--margin);
-		--scroll--offset--about: var(--margin);
+		--scroll--offset--about: calc(var(--margin) - 0.1rem); // Hide overshoots.
 	}
 
 	#art,
@@ -129,6 +129,9 @@ body {
 
 	// The “Art, Science, Media” nav and nouns area.
 	> header {
+		position: sticky;
+		top:      calc(-1 * var(--header--height) + var(--tagline--height) + var(--margin) * 2 - 0.1rem); // Hide overshoots.
+
 		@import 'nav';
 		@import 'nouns';
 	}

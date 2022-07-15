@@ -79,7 +79,7 @@ details ::-webkit-details-marker {
 	src: url("../fonts/heldane--regular--italic.woff2") format("woff2");
 }
 
-body > header > section:first-child > h1,
+body > header > nav > section:first-child > h1,
 :root {
 	--typography--shoulder: calc(1 - var(--typography--cap-height));
 	--typography--shoulder--top: calc(var(--typography--shoulder) - var(--typography--shoulder--bottom));
@@ -92,14 +92,14 @@ body > header > section:first-child > h1,
 	font-family: "Calibre", sans-serif;
 }
 
-body > header > section:first-child > h1 {
+body > header > nav > section:first-child > h1 {
 	--typography--cap-height: 0.642;
 	--typography--x-height: 0.446;
 	--typography--shoulder--bottom: 0.184;
 	font-family: "Heldane", serif;
 }
 
-body > header > section:first-child > h1,
+body > header > nav > section:first-child > h1,
 :root {
 	--typography--weight: 400;
 }
@@ -109,7 +109,7 @@ body > header > section:first-child > h1,
 	--typography--inset--right: -0.061;
 }
 
-body > header > section:first-child > h1 {
+body > header > nav > section:first-child > h1 {
 	--typography--inset--left: -0.019;
 	--typography--inset--right: -0.014;
 }
@@ -291,7 +291,7 @@ p + p {
 	margin-top: var(--layout--typography--leading-shoulder);
 }
 
-body > footer > header > ul {
+body > main > aside > ul {
 	--typography--font-size: calc(var(--typography--scale, 1) * var(--typography--size--override, var(--typography--size)));
 	--typography--line-height: calc(var(--typography--leading) * var(--typography--size--override, var(--typography--size)));
 	--typography--cap: calc(var(--typography--cap-height) * 1em);
@@ -300,76 +300,76 @@ body > footer > header > ul {
 	font-size: var(--typography--font-size);
 }
 
-.focus body > header > section:first-child > h1 > a:not(:disabled):focus,
-.focus body > header > section:last-child > a:not(:disabled):focus,
-.focus body > footer > header > ul > li > a:not(:disabled):focus {
+.focus body > header > nav > section:first-child > h1 > a:not(:disabled):focus,
+.focus body > header > nav > section:last-child > a:not(:disabled):focus,
+.focus body > main > aside > ul > li > a:not(:disabled):focus {
 	outline-color: var(--color);
 	outline-style: solid;
 	outline-width: var(--link--outline--override, var(--link--outline));
 }
 
-body > header > section:first-child > h1 > a,
-body > header > section:last-child > a,
-body > footer > header > ul > li > a {
+body > header > nav > section:first-child > h1 > a,
+body > header > nav > section:last-child > a,
+body > main > aside > ul > li > a {
 	-webkit-tap-highlight-color: var(--link--highlight);
 	cursor: pointer;
 	transition-duration: 50ms, var(--hover--duration);
 	transition-property: background-color, text-decoration-color;
 }
 
-body > header > section:first-child > h1 > a:active,
-body > header > section:last-child > a:active,
-body > footer > header > ul > li > a:active {
+body > header > nav > section:first-child > h1 > a:active,
+body > header > nav > section:last-child > a:active,
+body > main > aside > ul > li > a:active {
 	background-color: var(--link--highlight);
 	border-radius: calc(var(--link--enlargement) / 3);
 }
 
-body > header > section:first-child > h1 > a:active h1,
-body > header > section:last-child > a:active h1,
-body > footer > header > ul > li > a:active h1,
-body > header > section:first-child > h1 > a:active h2,
-body > header > section:last-child > a:active h2,
-body > footer > header > ul > li > a:active h2,
-body > header > section:first-child > h1 > a:active h3,
-body > header > section:last-child > a:active h3,
-body > footer > header > ul > li > a:active h3,
-body > header > section:first-child > h1 > a:active h4,
-body > header > section:last-child > a:active h4,
-body > footer > header > ul > li > a:active h4,
-body > header > section:first-child > h1 > a:active h5,
-body > header > section:last-child > a:active h5,
-body > footer > header > ul > li > a:active h5,
-body > header > section:first-child > h1 > a:active h6,
-body > header > section:last-child > a:active h6,
-body > footer > header > ul > li > a:active h6,
-body > header > section:first-child > h1 > a:active p,
-body > header > section:last-child > a:active p,
-body > footer > header > ul > li > a:active p {
+body > header > nav > section:first-child > h1 > a:active h1,
+body > header > nav > section:last-child > a:active h1,
+body > main > aside > ul > li > a:active h1,
+body > header > nav > section:first-child > h1 > a:active h2,
+body > header > nav > section:last-child > a:active h2,
+body > main > aside > ul > li > a:active h2,
+body > header > nav > section:first-child > h1 > a:active h3,
+body > header > nav > section:last-child > a:active h3,
+body > main > aside > ul > li > a:active h3,
+body > header > nav > section:first-child > h1 > a:active h4,
+body > header > nav > section:last-child > a:active h4,
+body > main > aside > ul > li > a:active h4,
+body > header > nav > section:first-child > h1 > a:active h5,
+body > header > nav > section:last-child > a:active h5,
+body > main > aside > ul > li > a:active h5,
+body > header > nav > section:first-child > h1 > a:active h6,
+body > header > nav > section:last-child > a:active h6,
+body > main > aside > ul > li > a:active h6,
+body > header > nav > section:first-child > h1 > a:active p,
+body > header > nav > section:last-child > a:active p,
+body > main > aside > ul > li > a:active p {
 	--color--background: transparent;
 	transition-duration: 0s;
 }
 
-body > header > section:first-child > h1 > a:focus,
-body > header > section:last-child > a:focus,
-body > footer > header > ul > li > a:focus {
+body > header > nav > section:first-child > h1 > a:focus,
+body > header > nav > section:last-child > a:focus,
+body > main > aside > ul > li > a:focus {
 	outline: none;
 	z-index: 1;
 }
 
-body > header > section:last-child > a,
-body > footer > header > ul > li > a {
+body > header > nav > section:last-child > a,
+body > main > aside > ul > li > a {
 	margin: calc(var(--link--enlargement) * -1);
 	padding: var(--link--enlargement);
 }
 
-body > header > section:last-child > a,
-body > footer > header > ul > li > a {
+body > header > nav > section:last-child > a,
+body > main > aside > ul > li > a {
 	display: flex;
 	flex-direction: column;
 	width: fit-content;
 }
 
-body > header > section:first-child > h1 > a {
+body > header > nav > section:first-child > h1 > a {
 	border-color: transparent;
 	border-style: solid;
 	border-width: var(--link--enlargement);
@@ -378,7 +378,7 @@ body > header > section:first-child > h1 > a {
 	margin-bottom: calc(-1 * var(--link--enlargement) / 2);
 }
 
-body > header > section:first-child > h1 > a:active {
+body > header > nav > section:first-child > h1 > a:active {
 	--color--background: transparent;
 }
 
@@ -419,8 +419,6 @@ body {
 	--logo--height--scaled: calc(var(--logo--height) * var(--logo--scale, 1));
 	--scroll--offset: calc(var(--logo--height--scaled) + var(--tagline--height) + var(--margin) * 4);
 	--scroll--offset--about: calc(var(--tagline--height) + var(--links--height) + var(--margin) * 4);
-	display: grid;
-	grid-template-areas: "header""main""footer";
 }
 
 @media (orientation: landscape),
@@ -428,12 +426,7 @@ body {
 (min-width: 58.125em) {
 	body {
 		--scroll--offset: var(--margin);
-		--scroll--offset--about: var(--margin);
-		column-gap: var(--margin);
-		grid-auto-columns: var(--column--ratio);
-		grid-template-areas: "header ."".      main""footer footer";
-		margin-left: var(--margin);
-		margin-right: var(--margin);
+		--scroll--offset--about: calc(var(--margin) - 0.1rem);
 	}
 }
 
@@ -447,14 +440,15 @@ body #about {
 	scroll-margin-top: var(--scroll--offset--about);
 }
 
-body.main--visible {
+body.invert {
 	--color: black;
 	--color--background: white;
 	--link--highlight: var(--color--link);
 }
 
 body,
-body header {
+body nav,
+body aside {
 	--color--transition: 200ms;
 	background: var(--color--background);
 	transition-duration: var(--color--transition);
@@ -465,7 +459,9 @@ body header {
 @media (orientation: landscape),
 (min-width: 35.5em) and (min-height: 30em),
 (min-width: 58.125em) {
-	body header {
+
+	body nav,
+	body aside {
 		background: initial;
 	}
 }
@@ -477,37 +473,66 @@ body p {
 	transition-timing-function: linear;
 }
 
+@media (orientation: landscape),
+(min-width: 35.5em) and (min-height: 30em),
+(min-width: 58.125em) {
+
+	body > header,
+	body > main {
+		column-gap: var(--margin);
+		display: grid;
+		grid-template-columns: var(--column--ratio);
+		padding-left: var(--margin);
+		padding-right: var(--margin);
+	}
+}
+
 body > header {
-	--header--scroll: calc((var(--vh--initial, 100vh) - var(--logo--height) - var(--tagline--height) - var(--margin) * 3) / 2);
-	--header--scroll--offset: calc(-100vh + var(--logo--height--scaled) + var(--tagline--height) + var(--margin) * 3);
+	position: sticky;
+	top: calc(-1 * var(--header--height) + var(--tagline--height) + var(--margin) * 2 - 0.1rem);
+}
+
+body > header > nav {
+	--nav--scroll: calc((var(--vh--initial, 100vh) - var(--logo--height) - var(--tagline--height) - var(--margin) * 3) / 2);
+	--nav--scroll--offset: calc(-100vh + var(--logo--height--scaled) + var(--tagline--height) + var(--margin) * 3);
 	display: flex;
 	flex-direction: column;
 	gap: var(--margin);
-	grid-area: header;
-	height: calc(100vh + var(--header--scroll));
+	height: calc(100vh + var(--nav--scroll));
 	justify-content: space-between;
 	padding: var(--margin);
 	position: sticky;
-	top: calc(var(--header--scroll--offset) - var(--header--scroll));
+	top: calc(var(--nav--scroll--offset) - var(--nav--scroll));
 }
 
 @media (orientation: landscape),
 (min-width: 35.5em) and (min-height: 30em),
 (min-width: 58.125em) {
-	body > header {
+	body > header > nav {
 		padding-left: initial;
 		padding-right: initial;
-		top: calc(-1 * var(--header--scroll));
+		top: calc(-1 * var(--nav--scroll));
 	}
 }
 
-body > header > section:first-child {
-	margin-top: var(--header--scroll);
+body > header > nav > section:first-child {
+	flex-shrink: 0;
+	height: var(--logo--height--scaled);
+	margin-bottom: calc(var(--tagline--height) + var(--margin));
+	margin-top: var(--nav--scroll);
 	position: sticky;
 	top: var(--margin);
 }
 
-body > header > section:first-child > h1 {
+@media (orientation: landscape),
+(min-width: 35.5em) and (min-height: 30em),
+(min-width: 58.125em) {
+	body > header > nav > section:first-child {
+		margin-bottom: calc(100vh - var(--logo--height--scaled) - var(--tagline--height) - var(--margin) * 3);
+	}
+}
+
+body > header > nav > section:first-child > h1 {
 	--typography--leading: calc(5/6);
 	--typography--size: 8.8rem;
 	--transition--duration: 100ms;
@@ -525,32 +550,32 @@ body > header > section:first-child > h1 {
 }
 
 @media (max-width: 23.375em) {
-	body > header > section:first-child > h1 {
+	body > header > nav > section:first-child > h1 {
 		--typography--size: 8rem;
 	}
 }
 
 @media (min-width: 35.5em) {
-	body > header > section:first-child > h1 {
+	body > header > nav > section:first-child > h1 {
 		--typography--size: 7.2rem;
 	}
 }
 
 @media (min-width: 48em) and (min-height: 30em),
 (min-width: 58.125em) {
-	body > header > section:first-child > h1 {
+	body > header > nav > section:first-child > h1 {
 		--typography--size: 12.4rem;
 		--transition--duration: 50ms;
 	}
 }
 
 @media (min-width: 64em) {
-	body > header > section:first-child > h1 {
+	body > header > nav > section:first-child > h1 {
 		--typography--size: 13.2rem;
 	}
 }
 
-body > header > section:first-child > h1 > a {
+body > header > nav > section:first-child > h1 > a {
 	--link--outline--override: calc((1 + (var(--logo--scale) * var(--logo--scroll))) * var(--link--outline));
 	border-bottom: initial;
 	border-top: initial;
@@ -560,7 +585,7 @@ body > header > section:first-child > h1 > a {
 	position: relative;
 }
 
-body > header > section:first-child > h1 > a:before {
+body > header > nav > section:first-child > h1 > a:before {
 	content: "";
 	display: block;
 	height: 100%;
@@ -569,113 +594,95 @@ body > header > section:first-child > h1 > a:before {
 	width: 100%;
 }
 
-body > header > section:first-child > h1 #art--header .a {
+body > header > nav > section:first-child > h1 [href="#art"] .a {
 	letter-spacing: -0.04em;
 }
 
-body > header > section:first-child > h1 #media--header .m {
+body > header > nav > section:first-child > h1 [href="#media"] .m {
 	letter-spacing: -0.04em;
 }
 
-body > header > section:first-child > h1 #media--header .d {
+body > header > nav > section:first-child > h1 [href="#media"] .d {
 	letter-spacing: 0.02em;
 }
 
-body > header > section:first-child > h1 #science--header .s {
+body > header > nav > section:first-child > h1 [href="#science"] .s {
 	letter-spacing: -0.01em;
 }
 
-body > header > section:first-child > h1 #science--header .i {
+body > header > nav > section:first-child > h1 [href="#science"] .i {
 	letter-spacing: -0.015em;
 }
 
-body > header > section:first-child > h1 #science--header .n {
+body > header > nav > section:first-child > h1 [href="#science"] .n {
 	letter-spacing: -0.02em;
 }
 
-body > header > section:last-child {
+body > header > nav > section:last-child {
 	bottom: var(--margin);
 	position: sticky;
 }
 
-body > header > section:last-child > a > p {
+body > header > nav > section:last-child > a > p {
 	--typography--size: 2.4rem;
 	--typography--leading: 1;
 }
 
 @media (min-width: 48em) and (min-height: 30em),
 (min-width: 58.125em) {
-	body > header > section:last-child > a > p {
+	body > header > nav > section:last-child > a > p {
 		--typography--size: 3.6rem;
 	}
 }
 
-body > main {
-	--main--spacing: calc((100vh - var(--logo--height--scaled) - var(--tagline--height) - var(--margin) * 3) / 2);
-	--section--spacing: calc(var(--margin) * 4);
-	--section--height: calc(100vh - var(--logo--height--scaled) - var(--tagline--height) - var(--margin) * 5 - var(--section--spacing) - 0.8rem);
-	grid-area: main;
-	padding-bottom: var(--section--spacing);
+body > header > section {
+	--section--spacing: calc((100vh - var(--logo--height--scaled) - var(--tagline--height) - var(--margin) * 3) / 2);
+	--nouns--spacing: calc(var(--margin) * 4);
+	--nouns--height: calc(100vh - var(--logo--height--scaled) - var(--tagline--height) - var(--margin) * 5 - var(--nouns--spacing) - 0.8rem);
+	padding-bottom: var(--nouns--spacing);
 	padding-left: var(--margin);
 	padding-right: var(--margin);
-	padding-top: var(--main--spacing);
+	padding-top: var(--section--spacing);
 }
 
 @media (orientation: landscape),
 (min-width: 35.5em) and (min-height: 30em),
 (min-width: 58.125em) {
-	body > main {
-		--main--spacing: calc(var(--logo--height) - var(--logo--height--scaled) + var(--margin) / 2);
-		--section--height: calc(100vh - var(--tagline--height) - var(--margin) * 2 - var(--section--spacing));
+	body > header > section {
+		--section--spacing: calc(var(--logo--height) - var(--logo--height--scaled) + var(--margin) / 2);
+		--nouns--height: calc(100vh - var(--tagline--height) - var(--margin) * 2 - var(--nouns--spacing));
+		grid-column: 2;
+		grid-row: 2;
 		padding-left: initial;
 		padding-right: initial;
 	}
 }
 
-body > main #art,
-body > main #media,
-body > main #science {
-	min-height: var(--section--height);
+body > header > section #art,
+body > header > section #media,
+body > header > section #science {
+	min-height: var(--nouns--height);
 }
 
-body > main #media,
-body > main #science {
-	margin-top: var(--section--spacing);
+body > header > section #media,
+body > header > section #science {
+	margin-top: var(--nouns--spacing);
 }
 
-body > footer {
-	display: grid;
-	grid-area: footer;
-	grid-template-areas: "header""section";
-	row-gap: calc(var(--margin) * 4);
-}
-
-@media (orientation: landscape),
-(min-width: 35.5em) and (min-height: 30em),
-(min-width: 58.125em) {
-	body > footer {
-		column-gap: var(--margin);
-		grid-auto-columns: var(--column--ratio);
-		grid-template-areas: "header section";
-		padding-left: initial;
-		padding-right: initial;
-	}
-}
-
-body > footer > header {
-	--header--scroll--offset: calc(var(--tagline--height) + var(--margin) * 2);
-	grid-area: header;
+body > main > aside {
+	--nav--scroll--offset: calc(var(--tagline--height) + var(--margin) * 2 - 0.2rem);
+	margin-bottom: calc(-1 * var(--margin));
 	padding-bottom: var(--margin);
 	padding-left: var(--margin);
 	padding-right: var(--margin);
 	position: sticky;
-	top: var(--header--scroll--offset);
+	top: var(--nav--scroll--offset);
 }
 
 @media (orientation: landscape),
 (min-width: 35.5em) and (min-height: 30em),
 (min-width: 58.125em) {
-	body > footer > header {
+	body > main > aside {
 		display: flex;
 		flex-direction: column;
 		justify-content: end;
@@ -685,7 +692,7 @@ body > footer > header {
 	}
 }
 
-body > footer > header > ul {
+body > main > aside > ul {
 	--typography--size: 2.4rem;
 	--typography--leading: 1;
 	align-items: start;
@@ -697,22 +704,22 @@ body > footer > header > ul {
 @media (orientation: landscape),
 (min-width: 35.5em) and (min-height: 30em),
 (min-width: 58.125em) {
-	body > footer > header > ul {
+	body > main > aside > ul {
 		bottom: var(--margin);
-		margin-top: var(--header--scroll--offset);
+		margin-top: calc(var(--margin) * 3);
 		position: sticky;
 	}
 }
 
 @media (min-width: 48em) and (min-height: 30em),
 (min-width: 58.125em) {
-	body > footer > header > ul {
+	body > main > aside > ul {
 		--typography--size: 3.6rem;
 	}
 }
 
-body > footer > section {
-	grid-area: section;
+body > main > section {
+	margin-top: calc(var(--margin) * 4);
 	padding-bottom: var(--margin);
 	padding-left: var(--margin);
 	padding-right: var(--margin);
@@ -721,17 +728,19 @@ body > footer > section {
 @media (orientation: landscape),
 (min-width: 35.5em) and (min-height: 30em),
 (min-width: 58.125em) {
-	body > footer > section {
+	body > main > section {
+		margin-top: calc(-1 * var(--tagline--height) - var(--margin));
+		padding-bottom: calc(var(--tagline--height) + var(--margin));
 		padding-left: initial;
 		padding-right: initial;
 	}
 }
 
-body > footer > section p {
+body > main > section p {
 	font-style: italic;
 	max-width: 80ch;
 }
 
-body > footer > section p + p {
+body > main > section p + p {
 	margin-top: var(--margin);
 }

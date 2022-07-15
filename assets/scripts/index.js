@@ -105,41 +105,35 @@
 
 
 
+const headerHeightVar = '--header--height'
 const logoHeightVar = '--logo--height'
 const taglineHeightVar = '--tagline--height'
 const linksHeightVar = '--links--height'
 const scrollVar = '--logo--scroll'
 
-const mainVisibleClass = 'main--visible'
+const invertClass = 'invert'
 
 
 
-const getHeights = (body, logo, tagline, links) => {
-	let logoHeight = logo.offsetHeight
-	let taglineHeight = tagline.offsetHeight
-	let linksHeight = links.offsetHeight
-
+const getHeights = (body, header, logo, tagline, links) => {
 	const updateVars = () => {
-		body.style.setProperty(logoHeightVar, ` ${logoHeight / 10}rem`)
-		body.style.setProperty(taglineHeightVar, ` ${taglineHeight / 10}rem`)
-		body.style.setProperty(linksHeightVar, ` ${linksHeight / 10}rem`)
+		body.style.setProperty(logoHeightVar, ` ${logo.offsetHeight / 10}rem`)
+		body.style.setProperty(taglineHeightVar, ` ${tagline.offsetHeight / 10}rem`)
+		body.style.setProperty(linksHeightVar, ` ${links.offsetHeight / 10}rem`)
+
+		setTimeout(() => { // Since it depends on the other heights.
+			body.style.setProperty(headerHeightVar, ` ${header.offsetHeight / 10}rem`)
+		}, 10)
 	}
 
-	updateVars()
-
-	window.addEventListener('resize', () => {
-		logoHeight = logo.offsetHeight
-		taglineHeight = tagline.offsetHeight
-		linksHeight = links.offsetHeight
-
-		updateVars()
-	})
+	window.addEventListener('load', updateVars)
+	window.addEventListener('resize', updateVars)
 }
 
 
 
-headerScrollScale = (body, logo) => {
-	let scrollDistance = parseFloat(getComputedStyle(logo.parentElement).marginTop)
+logoScrollScale = (body, logo) => {
+	let scrollDistance
 
 	const clamp = (num, min, max) => Math.min(Math.max(num, min), max)
 
@@ -167,15 +161,12 @@ headerScrollScale = (body, logo) => {
 
 
 
-const mainVisible = (body, element, classname) => {
-	let viewport = window.innerHeight
-	let elementTop = element.getBoundingClientRect().top
-
+const invertBackground = (body, nouns, className) => {
 	const checkTop = () => {
 		viewport = window.innerHeight
-		elementTop = element.getBoundingClientRect().top; // Ternary gets angry without this semicolon?
+		nounsTop = nouns.getBoundingClientRect().top; // Ternary gets angry without this semicolon?
 
-		(elementTop <= viewport) ? body.classList.add(classname): body.classList.remove(classname)
+		(nounsTop <= viewport) ? body.classList.add(className): body.classList.remove(className)
 	}
 
 	window.addEventListener('load', checkTop)
@@ -187,13 +178,13 @@ const mainVisible = (body, element, classname) => {
 
 document.addEventListener('DOMContentLoaded', () => {
 	const body = document.body
-	const logo = document.getElementById('logo').firstElementChild
-	const tagline = document.getElementById('tagline')
-	const main = document.querySelector('main')
-	const footer = document.querySelector('footer')
-	const links = document.getElementById('links')
+	const header = document.querySelector('[data-header]')
+	const logo = document.querySelector('[data-logo]')
+	const tagline = document.querySelector('[data-tagline]')
+	const nouns = document.querySelector('[data-nouns]')
+	const links = document.querySelector('[data-links]')
 
-	getHeights(body, logo, tagline, links)
-	headerScrollScale(body, logo)
-	mainVisible(body, main, mainVisibleClass)
+	getHeights(body, header, logo, tagline, links)
+	logoScrollScale(body, logo)
+	invertBackground(body, nouns, invertClass)
 })

@@ -60,7 +60,7 @@ body {
 	--logo--height--scaled: calc(var(--logo--height) * var(--logo--scale, 1));
 
 	--scroll--offset:        calc(var(--logo--height--scaled) + var(--tagline--height) + var(--margin) * 4);
-	--scroll--offset--about: calc(var(--tagline--height) + var(--links--height) + var(--margin) * 3);
+	--scroll--offset--about: calc(var(--tagline--height) + var(--links--height) + var(--margin) * 4);
 
 	@include landscape {
 		--scroll--offset:        var(--margin);

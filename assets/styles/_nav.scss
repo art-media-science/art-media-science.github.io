@@ -37,9 +37,11 @@
 
 	// The “logo”.
 	> section:first-child {
-		margin-top: var(--nav--scroll);
-		position:   sticky;
-		top:        var(--margin);
+		height:        var(--logo--height--scaled);
+		margin-bottom: calc(var(--tagline--height) + var(--margin));
+		margin-top:    var(--nav--scroll);
+		position:      sticky;
+		top:           var(--margin);
 
 		> h1 {
 			@extend %font--heldane--regular;

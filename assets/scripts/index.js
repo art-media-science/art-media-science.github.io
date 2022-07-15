@@ -102,12 +102,11 @@ const activeSection = (logo, activeClass) => {
 		})
 
 		window.addEventListener('load', observer.observe(section))
-
-		// window.addEventListener('load', () => {
-		// 	observer.observe(section)
-		// })
 	})
 }
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
 	const body =    document.body
 	const header =  document.querySelector('[data-header]')

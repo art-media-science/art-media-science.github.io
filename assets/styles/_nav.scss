@@ -28,6 +28,7 @@
 	top:             calc(var(--nav--scroll--offset) - var(--nav--scroll));
 
 	@include landscape {
+		grid-column:   span 2;
 		padding-left:  initial; // Grid gaps take over.
 		padding-right: initial;
 		top:           calc(-1 * var(--nav--scroll));

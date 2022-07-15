@@ -388,7 +388,7 @@ body > header > nav > section:first-child > h1 > a:active {
 	--typography--leading: 1.2;
 	--typography--size: 2rem;
 	--column--ratio: 0.382fr 0.618fr;
-	--color--accent: firebrick;
+	--color--accent: #d31919;
 	--color: white;
 	--color--background: var(--color--accent);
 	--color--link: rgba(0, 0, 0, 0.033);
@@ -444,6 +444,10 @@ body.invert {
 	--color: black;
 	--color--background: white;
 	--link--highlight: var(--color--link);
+}
+
+body.invert .active {
+	--color: var(--color--accent);
 }
 
 body,
@@ -579,10 +583,12 @@ body > header > nav > section:first-child > h1 > a {
 	--link--outline--override: calc((1 + (var(--logo--scale) * var(--logo--scroll))) * var(--link--outline));
 	border-bottom: initial;
 	border-top: initial;
+	color: var(--color);
 	margin-bottom: initial;
 	margin-top: initial;
 	pointer-events: none;
 	position: relative;
+	transition: color calc(var(--color--transition) / 2) linear;
 }
 
 body > header > nav > section:first-child > h1 > a:before {

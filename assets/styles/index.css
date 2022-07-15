@@ -624,6 +624,10 @@ body > header > nav > section:first-child > h1 [href="#science"] .n {
 	letter-spacing: -0.02em;
 }
 
+body > header > nav > section:first-child > h1 [href="#science"] .e {
+	letter-spacing: -0.02em;
+}
+
 body > header > nav > section:last-child {
 	bottom: var(--margin);
 	position: sticky;
@@ -713,7 +717,7 @@ body > main > aside > ul {
 (min-width: 58.125em) {
 	body > main > aside > ul {
 		bottom: var(--margin);
-		margin-top: 0.3rem;
+		margin-top: var(--margin);
 		position: sticky;
 	}
 }

@@ -8,7 +8,7 @@
 		<script src="{{ '/assets/scripts/index.js' | relative_path }}"></script>
 	</head>
 	<body>
-		<header>
+		<header data-header>
 			{% include nav.html %}
 			<section data-nouns>
 				{{ content | split: '<!-- ABOUT -->' | first }}

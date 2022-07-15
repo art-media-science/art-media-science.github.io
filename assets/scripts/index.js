@@ -9,6 +9,7 @@
 
 
 
+const headerHeightVar =  '--header--height'
 const logoHeightVar =    '--logo--height'
 const taglineHeightVar = '--tagline--height'
 const linksHeightVar =   '--links--height'
@@ -22,22 +23,25 @@ const getHeights = (body, header, logo, tagline, links) => {
 	let logoHeight =    logo.offsetHeight
 	let taglineHeight = tagline.offsetHeight
 	let linksHeight =   links.offsetHeight
+	let headerHeight =  header.offsetHeight
 
 	const updateVars = () => {
-		body.style.setProperty(logoHeightVar, ` ${logoHeight / 10}rem`)
-		body.style.setProperty(taglineHeightVar, ` ${taglineHeight / 10}rem`)
-		body.style.setProperty(linksHeightVar, ` ${linksHeight / 10}rem`)
-	}
-
-	updateVars()
-
-	window.addEventListener('resize', () => {
 		logoHeight =    logo.offsetHeight
 		taglineHeight = tagline.offsetHeight
 		linksHeight =   links.offsetHeight
 
-		updateVars()
-	})
+		body.style.setProperty(logoHeightVar,    ` ${logoHeight / 10}rem`)
+		body.style.setProperty(taglineHeightVar, ` ${taglineHeight / 10}rem`)
+		body.style.setProperty(linksHeightVar,   ` ${linksHeight / 10}rem`)
+
+		setTimeout(() => { // Since it depends on the other heights.
+			headerHeight = header.offsetHeight
+			body.style.setProperty(headerHeightVar,  ` ${headerHeight / 10}rem`)
+		}, 100)
+	}
+
+	window.addEventListener('load', updateVars)
+	window.addEventListener('resize', updateVars)
 }
 
 
@@ -91,6 +95,7 @@ const invertBackground = (body, nouns, className) => {
 
 document.addEventListener('DOMContentLoaded', () => {
 	const body =    document.body
+	const header =  document.querySelector('[data-header]')
 	const logo =    document.querySelector('[data-logo]')
 	const tagline = document.querySelector('[data-tagline]')
 	const nouns =   document.querySelector('[data-nouns]')

@@ -1,5 +1,6 @@
-> main {
-	--main--spacing: calc(
+> section {
+	// These need revising.
+	--section--spacing: calc(
 			(
 				100vh
 				- var(--logo--height--scaled)
@@ -9,41 +10,37 @@
 			/ 2
 		);
 
-	--section--spacing: calc(var(--margin) * 4);
+	--nouns--spacing: calc(var(--margin) * 4);
 
-	--section--height: calc(
+	--nouns--height: calc(
 			100vh
 			- var(--logo--height--scaled)
 			- var(--tagline--height)
 			- var(--margin) * 5
-			- var(--section--spacing)
+			- var(--nouns--spacing)
 			- 0.8rem
 		);
 
-
-
-	grid-area:      main;
-	padding-bottom: var(--section--spacing);
+	padding-bottom: var(--nouns--spacing);
 	padding-left:   var(--margin);
 	padding-right:  var(--margin);
-	padding-top:    var(--main--spacing);
-
-
+	padding-top:    var(--section--spacing);
 
 	@include landscape {
-		--main--spacing: calc(
+		--section--spacing: calc(
 				var(--logo--height)
 				- var(--logo--height--scaled)
 				+ var(--margin) / 2
 			);
 
-		--section--height: calc(
+		--nouns--height: calc(
 				100vh
 				- var(--tagline--height)
 				- var(--margin) * 2
-				- var(--section--spacing)
+				- var(--nouns--spacing)
 			);
 
+		margin-top:    100vh;
 		padding-left:  initial; // Grid gaps take over.
 		padding-right: initial;
 	}
@@ -53,11 +50,11 @@
 	#art,
 	#media,
 	#science {
-		min-height: var(--section--height);
+		min-height: var(--nouns--height);
 	}
 
 	#media,
 	#science {
-		margin-top: var(--section--spacing);
+		margin-top: var(--nouns--spacing);
 	}
 }

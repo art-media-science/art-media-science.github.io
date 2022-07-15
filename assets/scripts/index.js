@@ -14,7 +14,7 @@ const taglineHeightVar = '--tagline--height'
 const linksHeightVar =   '--links--height'
 const scrollVar =        '--logo--scroll'
 
-const mainVisibleClass =   'main--visible'
+const invertClass =   'invert'
 
 
 
@@ -71,15 +71,15 @@ headerScrollScale = (body, logo) => {
 
 
 
-const mainVisible = (body, element, classname) => {
+const invertBackground = (body, nouns, className) => {
 	let viewport = window.innerHeight
-	let elementTop = element.getBoundingClientRect().top
+	let nounsTop = nouns.getBoundingClientRect().top
 
 	const checkTop = () => {
 		viewport = window.innerHeight
-		elementTop = element.getBoundingClientRect().top; // Ternary gets angry without this semicolon?
+		nounsTop = nouns.getBoundingClientRect().top; // Ternary gets angry without this semicolon?
 
-		(elementTop <= viewport) ? body.classList.add(classname) : body.classList.remove(classname)
+		(nounsTop <= viewport) ? body.classList.add(className) : body.classList.remove(className)
 	}
 
 	window.addEventListener('load', checkTop)
@@ -91,13 +91,12 @@ const mainVisible = (body, element, classname) => {
 
 document.addEventListener('DOMContentLoaded', () => {
 	const body =    document.body
-	const logo =    document.getElementById('logo').firstElementChild
-	const tagline = document.getElementById('tagline')
-	const main =    document.querySelector('main')
-	const footer =  document.querySelector('footer')
-	const links =   document.getElementById('links')
+	const logo =    document.querySelector('[data-logo]')
+	const tagline = document.querySelector('[data-tagline]')
+	const nouns =   document.querySelector('[data-nouns]')
+	const links =   document.querySelector('[data-links]')
 
 	getHeights(body, logo, tagline, links)
 	headerScrollScale(body, logo)
-	mainVisible(body, main, mainVisibleClass)
+	invertBackground(body, nouns, invertClass)
 })

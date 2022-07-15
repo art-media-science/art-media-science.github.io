@@ -1,0 +1,13 @@
+<aside>
+	<ul data-links>
+		{% for link in page.links %}
+			<li>
+				<a href="{{ link.url }}">
+					<p>
+						{{ link.name }}
+					</p>
+				</a>
+			</li>
+		{% endfor %}
+	</ul>
+</aside>

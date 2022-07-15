@@ -1,6 +1,6 @@
-> header {
+> nav {
 	// The distance from the initial, centered logo until it is “stuck”.
-	--header--scroll: calc(
+	--nav--scroll: calc(
 			(
 				var(--vh--initial, 100vh)
 				- var(--logo--height)
@@ -11,7 +11,7 @@
 		);
 
 	// The collapsed/scrolled header sticky offset.
-	--header--scroll--offset: calc(
+	--nav--scroll--offset: calc(
 			-100vh
 			+ var(--logo--height--scaled)
 			+ var(--tagline--height)
@@ -21,24 +21,23 @@
 	display:         flex;
 	flex-direction:  column;
 	gap:             var(--margin);
-	grid-area:       header;
-	height:          calc(100vh + var(--header--scroll));
+	height:          calc(100vh + var(--nav--scroll));
 	justify-content: space-between;
 	padding:         var(--margin);
 	position:        sticky;
-	top:             calc(var(--header--scroll--offset) - var(--header--scroll));
+	top:             calc(var(--nav--scroll--offset) - var(--nav--scroll));
 
 	@include landscape {
 		padding-left:  initial; // Grid gaps take over.
 		padding-right: initial;
-		top:           calc(-1 * var(--header--scroll));
+		top:           calc(-1 * var(--nav--scroll));
 	}
 
 
 
 	// The “logo”.
 	> section:first-child {
-		margin-top: var(--header--scroll);
+		margin-top: var(--nav--scroll);
 		position:   sticky;
 		top:        var(--margin);
 
@@ -100,16 +99,16 @@
 
 
 			// Logo kerning tweaks.
-			#art--header {
+			[href="#art"] {
 				.a { letter-spacing: -0.04em; } // Tighten the “Ar”.
 			}
 
-			#media--header {
+			[href="#media"] {
 				.m { letter-spacing: -0.04em; } // “Me”.
 				.d { letter-spacing:  0.02em; } // “di“.
 			}
 
-			#science--header {
+			[href="#science"] {
 				.s { letter-spacing: -0.01em; } // “Sc“.
 				.i { letter-spacing: -0.015em; } // “ie“.
 				.n { letter-spacing: -0.02em; } // “nc“.

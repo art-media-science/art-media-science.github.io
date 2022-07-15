@@ -1,38 +1,22 @@
-<header>
-	<section
-		id="logo"
-		>
-		<h1>
-			<a
-				href="#art"
-				id="art--header"
-				>
+<nav>
+	<section>
+		<h1 data-logo>
+			<a href="#art">
 				<span class="a">A</span>rt,
 			</a>
-			<a
-				href="#media"
-				id="media--header"
-				>
+			<a href="#media">
 				<span class="m">M</span>e<span class="d">d</span>ia,
 			</a>
-			<a
-				href="#science"
-				id="science--header"
-				>
+			<a href="#science">
 				<span class="s">S</span>c<i class="i">i</i>e<span class="n">n</span>ce
 			</a>
 		</h1>
 	</section>
-	<section
-		id="tagline"
-		>
-		<a
-			href="#about"
-			id="about--header"
-			>
+	<section data-tagline>
+		<a href="#about">
 			<p>
 				{{- page.subtitle | newline_to_br | markdownify | remove: '<p>' | remove: '</p>' -}}
 			</p>
 		</a>
 	</section>
-</header>
+</nav>

@@ -8,10 +8,17 @@
 		<script src="{{ '/assets/scripts/index.js' | relative_path }}"></script>
 	</head>
 	<body>
-		{% include header.html %}
+		<header>
+			{% include nav.html %}
+			<section data-nouns>
+				{{ content | split: '<!-- ABOUT -->' | first }}
+			</section>
+		</header>
 		<main>
-			{{ content | split: '<!-- ABOUT -->' | first }}
+			{% include aside.html %}
+			<section id="about">
+				{{ content | split: '<!-- ABOUT -->' | last }}
+			</section>
 		</main>
-		{% include footer.html %}
 	</body>
 </html>

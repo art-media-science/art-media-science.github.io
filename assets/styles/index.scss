@@ -56,6 +56,7 @@
 
 
 body {
+	// Scrolley stuff.
 	--logo--height--scaled: calc(var(--logo--height) * var(--logo--scale, 1));
 
 	--scroll--offset: calc(
@@ -70,26 +71,9 @@ body {
 			+ var(--margin) * 4
 		);
 
-
-	// Main layout.
-	display: grid;
-	grid-template-areas:
-		"header"
-		"main"
-		"footer";
-
 	@include landscape {
 		--scroll--offset:        var(--margin);
 		--scroll--offset--about: var(--margin);
-
-		column-gap:        var(--margin);
-		grid-auto-columns: var(--column--ratio); // Golden.
-		grid-template-areas:
-			"header ."
-			".      main"
-			"footer footer";
-		margin-left:  var(--margin);
-		margin-right: var(--margin);
 	}
 
 	#art,
@@ -105,7 +89,7 @@ body {
 
 
 	// Color transitions.
-	&.main--visible {
+	&.invert {
 		--color:             black;
 		--color--background: white;
 
@@ -113,7 +97,8 @@ body {
 	}
 
 	&,
-	header {
+	nav,
+	aside {
 		--color--transition: 200ms;
 
 		background:                 var(--color--background);
@@ -123,7 +108,8 @@ body {
 	}
 
 	@include landscape {
-		header {
+		nav,
+		aside {
 			background: initial;
 		}
 	}
@@ -138,8 +124,27 @@ body {
 
 
 
-	// Section-specific.
-	@import 'header';
-	@import 'main';
-	@import 'footer';
+	// Main layout.
+	> header,
+	> main {
+		@include landscape {
+			column-gap:            var(--margin);
+			display:               grid;
+			grid-template-columns: var(--column--ratio); // Golden.
+			padding-left:          var(--margin);
+			padding-right:         var(--margin);
+		}
+	}
+
+	// The “Art, Science, Media” nav and nouns area.
+	> header {
+		@import 'nav';
+		@import 'nouns';
+	}
+
+	// The “About” section, below.
+	> main {
+		@import 'aside';
+		@import 'about';
+	}
 }

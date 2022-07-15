@@ -18,7 +18,7 @@ const invertClass =   'invert'
 
 
 
-const getHeights = (body, logo, tagline, links) => {
+const getHeights = (body, header, logo, tagline, links) => {
 	let logoHeight =    logo.offsetHeight
 	let taglineHeight = tagline.offsetHeight
 	let linksHeight =   links.offsetHeight
@@ -42,7 +42,7 @@ const getHeights = (body, logo, tagline, links) => {
 
 
 
-headerScrollScale = (body, logo) => {
+logoScrollScale = (body, logo) => {
 	let scrollDistance = parseFloat(getComputedStyle(logo.parentElement).marginTop)
 
 	const clamp = (num, min, max) => Math.min(Math.max(num, min), max)
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const nouns =   document.querySelector('[data-nouns]')
 	const links =   document.querySelector('[data-links]')
 
-	getHeights(body, logo, tagline, links)
-	headerScrollScale(body, logo)
+	getHeights(body, header, logo, tagline, links)
+	logoScrollScale(body, logo)
 	invertBackground(body, nouns, invertClass)
 })

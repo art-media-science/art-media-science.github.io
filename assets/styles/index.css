@@ -707,7 +707,7 @@ body > main > aside > ul {
 (min-width: 58.125em) {
 	body > main > aside > ul {
 		bottom: var(--margin);
-		margin-top: calc(var(--margin) * 3);
+		margin-top: 0.3rem;
 		position: sticky;
 	}
 }

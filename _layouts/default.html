@@ -11,14 +11,14 @@
 		<header data-header>
 			{% include nav.html %}
 			<section data-nouns>
-				{{ content | split: '<!-- ABOUT -->' | first }}
+				<section id="art">{% section_content art %}</section>
+				<section id="media">{% section_content media %}</section>
+				<section id="science">{% section_content science %}</section>
 			</section>
 		</header>
 		<main>
 			{% include aside.html %}
-			<section id="about">
-				{{ content | split: '<!-- ABOUT -->' | last }}
-			</section>
+			<section id="about">{% section_content about %}</section>
 		</main>
 	</body>
 </html>

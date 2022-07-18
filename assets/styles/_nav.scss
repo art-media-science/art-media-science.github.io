@@ -44,7 +44,7 @@
 		top:           var(--margin);
 
 		@include landscape {
-			margin-bottom: calc(100vh - var(--logo--height--scaled) - var(--tagline--height) - var(--margin) * 3);
+			margin-bottom: calc(100vh - var(--logo--height--scaled) - var(--margin) * 2);
 		}
 
 		> h1 {
@@ -133,6 +133,10 @@
 		display:       flex;
 		flex-shrink:   0;
 		position:      sticky;
+
+		@include landscape {
+			margin-top: calc(-1 * var(--tagline--height));
+		}
 
 		> a {
 			@extend %link--element;

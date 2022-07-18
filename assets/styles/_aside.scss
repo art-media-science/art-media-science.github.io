@@ -12,6 +12,7 @@
 		display:         flex;
 		flex-direction:  column;
 		justify-content: end;
+		margin-bottom:   initial;
 		padding:         initial; // Grid gaps take over.
 		position:        initial;
 		top:             initial;
@@ -29,9 +30,10 @@
 		gap:            var(--typography--between);
 
 		@include landscape {
-			bottom:     var(--margin);
-			margin-top: var(--margin);
-			position:   sticky;
+			bottom:        var(--margin);
+			margin-bottom: var(--margin);
+			margin-top:    var(--margin);
+			position:      sticky;
 		}
 
 		@include breakpoint(768) {

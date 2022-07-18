@@ -162,6 +162,8 @@ body {
 
 	// The “About” section, below.
 	> footer {
+		min-height: calc(100vh - var(--tagline--height) - var(--margin) * 2);
+
 		@import 'aside';
 		@import 'about';
 	}

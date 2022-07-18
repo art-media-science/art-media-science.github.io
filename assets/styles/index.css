@@ -693,6 +693,10 @@ body > main > section #science {
 	margin-top: var(--nouns--spacing);
 }
 
+body > footer {
+	min-height: calc(100vh - var(--tagline--height) - var(--margin) * 2);
+}
+
 body > footer > aside {
 	--nav--scroll--offset: calc(var(--tagline--height) + var(--margin) * 2 - 0.2rem);
 	margin-bottom: calc(-1 * var(--margin));
@@ -710,6 +714,7 @@ body > footer > aside {
 		display: flex;
 		flex-direction: column;
 		justify-content: end;
+		margin-bottom: initial;
 		padding: initial;
 		position: initial;
 		top: initial;
@@ -730,6 +735,7 @@ body > footer > aside > ul {
 (min-width: 58.125em) {
 	body > footer > aside > ul {
 		bottom: var(--margin);
+		margin-bottom: var(--margin);
 		margin-top: var(--margin);
 		position: sticky;
 	}
@@ -754,7 +760,6 @@ body > footer > section {
 (min-width: 58.125em) {
 	body > footer > section {
 		margin-top: calc(-1 * var(--tagline--height) - var(--margin));
-		padding-bottom: calc(var(--tagline--height) + var(--margin));
 		padding-left: initial;
 		padding-right: initial;
 	}

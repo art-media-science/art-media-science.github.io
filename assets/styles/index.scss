@@ -75,6 +75,15 @@ body {
 
 
 
+	// Cap around a 16-inch MacBook Pro.
+	@include breakpoint(1688) {
+		margin-left:  auto;
+		margin-right: auto;
+		width:        168.8rem;
+	}
+
+
+
 	// Scrolley stuff.
 	--logo--height--scaled: calc(var(--logo--height) * var(--logo--scale, 1));
 

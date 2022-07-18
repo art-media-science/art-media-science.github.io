@@ -13,10 +13,10 @@
 			<section data-nouns>
 				{% assign nouns = content | split: '<hr />' | first | split: '<h1 ' | shift %}
 				{% for noun in nouns %}
-					{% assign id = noun | split: '>' | first %}
-					{% assign content = noun | split: '</h1>' | last %}
-					<section {{ id }}>
-						{{ content }}
+					{% assign noun_id = noun | split: '>' | first %}
+					{% assign noun_content = noun | split: '</h1>' | last %}
+					<section {{ noun_id }}>
+						{{ noun_content }}
 					</section>
 				{% endfor %}
 			</section>

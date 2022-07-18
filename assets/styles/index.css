@@ -79,7 +79,7 @@ details ::-webkit-details-marker {
 	src: url("../fonts/heldane--regular--italic.woff2") format("woff2");
 }
 
-body > header > nav > section:first-child > h1,
+body > main > nav > section:first-child > h1,
 :root {
 	--typography--shoulder: calc(1 - var(--typography--cap-height));
 	--typography--shoulder--top: calc(var(--typography--shoulder) - var(--typography--shoulder--bottom));
@@ -92,14 +92,14 @@ body > header > nav > section:first-child > h1,
 	font-family: "Calibre", sans-serif;
 }
 
-body > header > nav > section:first-child > h1 {
+body > main > nav > section:first-child > h1 {
 	--typography--cap-height: 0.642;
 	--typography--x-height: 0.446;
 	--typography--shoulder--bottom: 0.184;
 	font-family: "Heldane", serif;
 }
 
-body > header > nav > section:first-child > h1,
+body > main > nav > section:first-child > h1,
 :root {
 	--typography--weight: 400;
 }
@@ -109,7 +109,7 @@ body > header > nav > section:first-child > h1,
 	--typography--inset--right: -0.061;
 }
 
-body > header > nav > section:first-child > h1 {
+body > main > nav > section:first-child > h1 {
 	--typography--inset--left: -0.019;
 	--typography--inset--right: -0.014;
 }
@@ -291,7 +291,7 @@ p + p {
 	margin-top: var(--layout--typography--leading-shoulder);
 }
 
-body > main > aside > ul {
+body > footer > aside > ul {
 	--typography--font-size: calc(var(--typography--scale, 1) * var(--typography--size--override, var(--typography--size)));
 	--typography--line-height: calc(var(--typography--leading) * var(--typography--size--override, var(--typography--size)));
 	--typography--cap: calc(var(--typography--cap-height) * 1em);
@@ -300,76 +300,76 @@ body > main > aside > ul {
 	font-size: var(--typography--font-size);
 }
 
-.focus body > header > nav > section:first-child > h1 > a:not(:disabled):focus,
-.focus body > header > nav > section:last-child > a:not(:disabled):focus,
-.focus body > main > aside > ul > li > a:not(:disabled):focus {
+.focus body > main > nav > section:first-child > h1 > a:not(:disabled):focus,
+.focus body > main > nav > section:last-child > a:not(:disabled):focus,
+.focus body > footer > aside > ul > li > a:not(:disabled):focus {
 	outline-color: var(--color);
 	outline-style: solid;
 	outline-width: var(--link--outline--override, var(--link--outline));
 }
 
-body > header > nav > section:first-child > h1 > a,
-body > header > nav > section:last-child > a,
-body > main > aside > ul > li > a {
+body > main > nav > section:first-child > h1 > a,
+body > main > nav > section:last-child > a,
+body > footer > aside > ul > li > a {
 	-webkit-tap-highlight-color: var(--link--highlight);
 	cursor: pointer;
 	transition-duration: 50ms, var(--hover--duration);
 	transition-property: background-color, text-decoration-color;
 }
 
-body > header > nav > section:first-child > h1 > a:active,
-body > header > nav > section:last-child > a:active,
-body > main > aside > ul > li > a:active {
+body > main > nav > section:first-child > h1 > a:active,
+body > main > nav > section:last-child > a:active,
+body > footer > aside > ul > li > a:active {
 	background-color: var(--link--highlight);
 	border-radius: calc(var(--link--enlargement) / 3);
 }
 
-body > header > nav > section:first-child > h1 > a:active h1,
-body > header > nav > section:last-child > a:active h1,
-body > main > aside > ul > li > a:active h1,
-body > header > nav > section:first-child > h1 > a:active h2,
-body > header > nav > section:last-child > a:active h2,
-body > main > aside > ul > li > a:active h2,
-body > header > nav > section:first-child > h1 > a:active h3,
-body > header > nav > section:last-child > a:active h3,
-body > main > aside > ul > li > a:active h3,
-body > header > nav > section:first-child > h1 > a:active h4,
-body > header > nav > section:last-child > a:active h4,
-body > main > aside > ul > li > a:active h4,
-body > header > nav > section:first-child > h1 > a:active h5,
-body > header > nav > section:last-child > a:active h5,
-body > main > aside > ul > li > a:active h5,
-body > header > nav > section:first-child > h1 > a:active h6,
-body > header > nav > section:last-child > a:active h6,
-body > main > aside > ul > li > a:active h6,
-body > header > nav > section:first-child > h1 > a:active p,
-body > header > nav > section:last-child > a:active p,
-body > main > aside > ul > li > a:active p {
+body > main > nav > section:first-child > h1 > a:active h1,
+body > main > nav > section:last-child > a:active h1,
+body > footer > aside > ul > li > a:active h1,
+body > main > nav > section:first-child > h1 > a:active h2,
+body > main > nav > section:last-child > a:active h2,
+body > footer > aside > ul > li > a:active h2,
+body > main > nav > section:first-child > h1 > a:active h3,
+body > main > nav > section:last-child > a:active h3,
+body > footer > aside > ul > li > a:active h3,
+body > main > nav > section:first-child > h1 > a:active h4,
+body > main > nav > section:last-child > a:active h4,
+body > footer > aside > ul > li > a:active h4,
+body > main > nav > section:first-child > h1 > a:active h5,
+body > main > nav > section:last-child > a:active h5,
+body > footer > aside > ul > li > a:active h5,
+body > main > nav > section:first-child > h1 > a:active h6,
+body > main > nav > section:last-child > a:active h6,
+body > footer > aside > ul > li > a:active h6,
+body > main > nav > section:first-child > h1 > a:active p,
+body > main > nav > section:last-child > a:active p,
+body > footer > aside > ul > li > a:active p {
 	--color--background: transparent;
 	transition-duration: 0s;
 }
 
-body > header > nav > section:first-child > h1 > a:focus,
-body > header > nav > section:last-child > a:focus,
-body > main > aside > ul > li > a:focus {
+body > main > nav > section:first-child > h1 > a:focus,
+body > main > nav > section:last-child > a:focus,
+body > footer > aside > ul > li > a:focus {
 	outline: none;
 	z-index: 1;
 }
 
-body > header > nav > section:last-child > a,
-body > main > aside > ul > li > a {
+body > main > nav > section:last-child > a,
+body > footer > aside > ul > li > a {
 	margin: calc(var(--link--enlargement) * -1);
 	padding: var(--link--enlargement);
 }
 
-body > header > nav > section:last-child > a,
-body > main > aside > ul > li > a {
+body > main > nav > section:last-child > a,
+body > footer > aside > ul > li > a {
 	display: flex;
 	flex-direction: column;
 	width: fit-content;
 }
 
-body > header > nav > section:first-child > h1 > a {
+body > main > nav > section:first-child > h1 > a {
 	border-color: transparent;
 	border-style: solid;
 	border-width: var(--link--enlargement);
@@ -378,7 +378,7 @@ body > header > nav > section:first-child > h1 > a {
 	margin-bottom: calc(-1 * var(--link--enlargement) / 2);
 }
 
-body > header > nav > section:first-child > h1 > a:active {
+body > main > nav > section:first-child > h1 > a:active {
 	--color--background: transparent;
 }
 
@@ -493,8 +493,8 @@ body p {
 (min-width: 35.5em) and (min-height: 30em),
 (min-width: 58.125em) {
 
-	body > header,
-	body > main {
+	body > main,
+	body > footer {
 		column-gap: var(--margin);
 		display: grid;
 		grid-template-columns: var(--column--ratio);
@@ -503,12 +503,12 @@ body p {
 	}
 }
 
-body > header {
+body > main {
 	position: sticky;
-	top: calc(-1 * var(--header--height) + var(--tagline--height) + var(--margin) * 2 - 0.1rem);
+	top: calc(-1 * var(--main--height) + var(--tagline--height) + var(--margin) * 2 - 0.1rem);
 }
 
-body > header > nav {
+body > main > nav {
 	--nav--scroll: calc((var(--vh--initial, 100vh) - var(--logo--height) - var(--tagline--height) - var(--margin) * 3) / 2);
 	--nav--scroll--offset: calc(-100vh + var(--logo--height--scaled) + var(--tagline--height) + var(--margin) * 3);
 	display: flex;
@@ -523,14 +523,14 @@ body > header > nav {
 @media (orientation: landscape),
 (min-width: 35.5em) and (min-height: 30em),
 (min-width: 58.125em) {
-	body > header > nav {
+	body > main > nav {
 		padding-left: initial;
 		padding-right: initial;
 		top: calc(-1 * var(--nav--scroll));
 	}
 }
 
-body > header > nav > section:first-child {
+body > main > nav > section:first-child {
 	flex-shrink: 0;
 	height: var(--logo--height--scaled);
 	margin-bottom: calc(var(--tagline--height) + var(--margin));
@@ -542,12 +542,12 @@ body > header > nav > section:first-child {
 @media (orientation: landscape),
 (min-width: 35.5em) and (min-height: 30em),
 (min-width: 58.125em) {
-	body > header > nav > section:first-child {
+	body > main > nav > section:first-child {
 		margin-bottom: calc(100vh - var(--logo--height--scaled) - var(--tagline--height) - var(--margin) * 3);
 	}
 }
 
-body > header > nav > section:first-child > h1 {
+body > main > nav > section:first-child > h1 {
 	--typography--leading: calc(5/6);
 	--typography--size: 8.8rem;
 	--transition--duration: 100ms;
@@ -565,32 +565,32 @@ body > header > nav > section:first-child > h1 {
 }
 
 @media (max-width: 23.375em) {
-	body > header > nav > section:first-child > h1 {
+	body > main > nav > section:first-child > h1 {
 		--typography--size: 8rem;
 	}
 }
 
 @media (min-width: 35.5em) {
-	body > header > nav > section:first-child > h1 {
+	body > main > nav > section:first-child > h1 {
 		--typography--size: 7.2rem;
 	}
 }
 
 @media (min-width: 48em) and (min-height: 30em),
 (min-width: 58.125em) {
-	body > header > nav > section:first-child > h1 {
+	body > main > nav > section:first-child > h1 {
 		--typography--size: 12.4rem;
 		--transition--duration: 50ms;
 	}
 }
 
 @media (min-width: 64em) {
-	body > header > nav > section:first-child > h1 {
+	body > main > nav > section:first-child > h1 {
 		--typography--size: 13.2rem;
 	}
 }
 
-body > header > nav > section:first-child > h1 > a {
+body > main > nav > section:first-child > h1 > a {
 	--link--outline--override: calc((1 + (var(--logo--scale) * var(--logo--scroll))) * var(--link--outline));
 	border-bottom: initial;
 	border-top: initial;
@@ -602,7 +602,7 @@ body > header > nav > section:first-child > h1 > a {
 	transition: color calc(var(--color--transition) / 2) linear;
 }
 
-body > header > nav > section:first-child > h1 > a:before {
+body > main > nav > section:first-child > h1 > a:before {
 	content: "";
 	display: block;
 	height: 100%;
@@ -611,54 +611,54 @@ body > header > nav > section:first-child > h1 > a:before {
 	width: 100%;
 }
 
-body > header > nav > section:first-child > h1 [href="#art"] .a {
+body > main > nav > section:first-child > h1 [href="#art"] .a {
 	letter-spacing: -0.04em;
 }
 
-body > header > nav > section:first-child > h1 [href="#media"] .m {
+body > main > nav > section:first-child > h1 [href="#media"] .m {
 	letter-spacing: -0.04em;
 }
 
-body > header > nav > section:first-child > h1 [href="#media"] .d {
+body > main > nav > section:first-child > h1 [href="#media"] .d {
 	letter-spacing: 0.02em;
 }
 
-body > header > nav > section:first-child > h1 [href="#science"] .s {
+body > main > nav > section:first-child > h1 [href="#science"] .s {
 	letter-spacing: -0.01em;
 }
 
-body > header > nav > section:first-child > h1 [href="#science"] .i {
+body > main > nav > section:first-child > h1 [href="#science"] .i {
 	letter-spacing: -0.015em;
 }
 
-body > header > nav > section:first-child > h1 [href="#science"] .n {
+body > main > nav > section:first-child > h1 [href="#science"] .n {
 	letter-spacing: -0.02em;
 }
 
-body > header > nav > section:first-child > h1 [href="#science"] .e {
+body > main > nav > section:first-child > h1 [href="#science"] .e {
 	letter-spacing: -0.02em;
 }
 
-body > header > nav > section:last-child {
+body > main > nav > section:last-child {
 	bottom: var(--margin);
 	display: flex;
 	flex-shrink: 0;
 	position: sticky;
 }
 
-body > header > nav > section:last-child > a > p {
+body > main > nav > section:last-child > a > p {
 	--typography--size: 2.4rem;
 	--typography--leading: 1;
 }
 
 @media (min-width: 48em) and (min-height: 30em),
 (min-width: 58.125em) {
-	body > header > nav > section:last-child > a > p {
+	body > main > nav > section:last-child > a > p {
 		--typography--size: 3.6rem;
 	}
 }
 
-body > header > section {
+body > main > section {
 	--section--spacing: calc((100vh - var(--logo--height--scaled) - var(--tagline--height) - var(--margin) * 3) / 2);
 	--nouns--spacing: calc(var(--margin) * 4);
 	--nouns--height: calc(100vh - var(--logo--height--scaled) - var(--tagline--height) - var(--margin) * 5 - var(--nouns--spacing) - 0.8rem);
@@ -671,7 +671,7 @@ body > header > section {
 @media (orientation: landscape),
 (min-width: 35.5em) and (min-height: 30em),
 (min-width: 58.125em) {
-	body > header > section {
+	body > main > section {
 		--section--spacing: calc(var(--logo--height) - var(--logo--height--scaled) + var(--margin) / 2);
 		--nouns--height: calc(100vh - var(--tagline--height) - var(--margin) * 2 - var(--nouns--spacing));
 		grid-column: 2;
@@ -682,18 +682,18 @@ body > header > section {
 	}
 }
 
-body > header > section #art,
-body > header > section #media,
-body > header > section #science {
+body > main > section #art,
+body > main > section #media,
+body > main > section #science {
 	min-height: var(--nouns--height);
 }
 
-body > header > section #media,
-body > header > section #science {
+body > main > section #media,
+body > main > section #science {
 	margin-top: var(--nouns--spacing);
 }
 
-body > main > aside {
+body > footer > aside {
 	--nav--scroll--offset: calc(var(--tagline--height) + var(--margin) * 2 - 0.2rem);
 	margin-bottom: calc(-1 * var(--margin));
 	padding-bottom: var(--margin);
@@ -706,7 +706,7 @@ body > main > aside {
 @media (orientation: landscape),
 (min-width: 35.5em) and (min-height: 30em),
 (min-width: 58.125em) {
-	body > main > aside {
+	body > footer > aside {
 		display: flex;
 		flex-direction: column;
 		justify-content: end;
@@ -716,7 +716,7 @@ body > main > aside {
 	}
 }
 
-body > main > aside > ul {
+body > footer > aside > ul {
 	--typography--size: 2.4rem;
 	--typography--leading: 1;
 	align-items: start;
@@ -728,7 +728,7 @@ body > main > aside > ul {
 @media (orientation: landscape),
 (min-width: 35.5em) and (min-height: 30em),
 (min-width: 58.125em) {
-	body > main > aside > ul {
+	body > footer > aside > ul {
 		bottom: var(--margin);
 		margin-top: var(--margin);
 		position: sticky;
@@ -737,12 +737,12 @@ body > main > aside > ul {
 
 @media (min-width: 48em) and (min-height: 30em),
 (min-width: 58.125em) {
-	body > main > aside > ul {
+	body > footer > aside > ul {
 		--typography--size: 3.6rem;
 	}
 }
 
-body > main > section {
+body > footer > section {
 	margin-top: calc(var(--margin) * 4);
 	padding-bottom: var(--margin);
 	padding-left: var(--margin);
@@ -752,7 +752,7 @@ body > main > section {
 @media (orientation: landscape),
 (min-width: 35.5em) and (min-height: 30em),
 (min-width: 58.125em) {
-	body > main > section {
+	body > footer > section {
 		margin-top: calc(-1 * var(--tagline--height) - var(--margin));
 		padding-bottom: calc(var(--tagline--height) + var(--margin));
 		padding-left: initial;
@@ -760,11 +760,11 @@ body > main > section {
 	}
 }
 
-body > main > section p {
+body > footer > section p {
 	font-style: italic;
 	max-width: 80ch;
 }
 
-body > main > section p + p {
+body > footer > section p + p {
 	margin-top: var(--margin);
 }

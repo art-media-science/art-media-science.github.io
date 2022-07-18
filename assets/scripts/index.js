@@ -105,7 +105,7 @@
 
 
 
-const headerHeightVar = '--header--height'
+const mainHeightVar = '--main--height'
 const logoHeightVar = '--logo--height'
 const taglineHeightVar = '--tagline--height'
 const linksHeightVar = '--links--height'
@@ -116,14 +116,14 @@ const activeClass = 'active'
 
 
 
-const getHeights = (body, header, logo, tagline, links) => {
+const getHeights = (body, main, logo, tagline, links) => {
 	const updateVars = () => {
 		body.style.setProperty(logoHeightVar, ` ${logo.offsetHeight / 10}rem`)
 		body.style.setProperty(taglineHeightVar, ` ${tagline.offsetHeight / 10}rem`)
 		body.style.setProperty(linksHeightVar, ` ${links.offsetHeight / 10}rem`)
 
 		setTimeout(() => { // Since it depends on the other heights.
-			body.style.setProperty(headerHeightVar, ` ${header.offsetHeight / 10}rem`)
+			body.style.setProperty(mainHeightVar, ` ${main.offsetHeight / 10}rem`)
 		}, 10)
 	}
 
@@ -219,13 +219,13 @@ const fixIphoneFlicker = (...elements) => {
 
 document.addEventListener('DOMContentLoaded', () => {
 	const body = document.body
-	const header = document.querySelector('[data-header]')
+	const main = document.querySelector('[data-main]')
 	const logo = document.querySelector('[data-logo]')
 	const tagline = document.querySelector('[data-tagline]')
 	const nouns = document.querySelector('[data-nouns]')
 	const links = document.querySelector('[data-links]')
 
-	getHeights(body, header, logo, tagline, links)
+	getHeights(body, main, logo, tagline, links)
 	logoScrollScale(body, logo)
 	invertBackground(body, nouns, links, invertClass)
 	activeSection(logo, activeClass)

@@ -26,8 +26,7 @@ $--default-font-fize: 16;
 				(-webkit-min-device-pixel-ratio: 2) and (min-width: #{calc(375 / $--default-font-fize)}em) and (max-height: #{calc(616 / $--default-font-fize)}em), // Bigger iPhone SE / 8.
 				(-webkit-min-device-pixel-ratio: 2) and (min-width: #{calc(414 / $--default-font-fize)}em), // iPhones 11 / XR.
 				(-webkit-min-device-pixel-ratio: 2) and (orientation: landscape), // All these in landscape.
-				(-webkit-min-device-pixel-ratio: 3) // iPhones after 2020 or so, no iPads are @3x yet.
-				{
+				(-webkit-min-device-pixel-ratio: 3) { // iPhones after 2020 or so, no iPads are @3x yet.
 				@content;
 			}
 		}
@@ -54,7 +53,9 @@ $--default-font-fize: 16;
 		}
 	}
 	@else if $break == 768 {
-		@media (min-width: #{calc($break / $--default-font-fize)}em) and (min-height: #{calc(480 / $--default-font-fize)}em), (min-width: #{calc(930 / $--default-font-fize)}em) { // Clear landscape iPhones.
+		@media
+			(min-width: #{calc($break / $--default-font-fize)}em) and (min-height: #{calc(480 / $--default-font-fize)}em), // Clear landscape iPhones.
+			(min-width: #{calc(930 / $--default-font-fize)}em) {
 			@content;
 		}
 	}
@@ -67,7 +68,9 @@ $--default-font-fize: 16;
 
 @mixin landscape($break: false) {
 	@if $break {
-		@media (orientation: landscape), (min-width: #{calc($break / $--default-font-fize)}em) {
+		@media
+			(orientation: landscape),
+			(min-width: #{calc($break / $--default-font-fize)}em) {
 			@content;
 		}
 	}

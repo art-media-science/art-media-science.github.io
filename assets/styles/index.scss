@@ -51,11 +51,30 @@
 		--color--link:          rgba(0, 0, 0, 0.1);
 		--color--link--reverse: rgba(255, 255, 255, 0.2);
 	}
+
+
+
+	// From Viewporter JS.
+	&.clockwise {
+		--safe--inset--left:  0.4rem; // Optical shift.
+		--safe--inset--right: calc(env(safe-area-inset-right) - 1.3rem); // Right to notch.
+	}
+
+	&.counter-clockwise {
+		--safe--inset--left:  calc(env(safe-area-inset-left) - 1.3rem); // Right to notch.
+		--safe--inset--right: 0.6rem; // Optical room for scroll indicator.
+	}
 }
 
 
 
 body {
+	// iPhone rotation.
+	padding-left:  var(--safe--inset--left, 0rem);
+	padding-right: var(--safe--inset--right, 0rem);
+
+
+
 	// Scrolley stuff.
 	--logo--height--scaled: calc(var(--logo--height) * var(--logo--scale, 1));
 

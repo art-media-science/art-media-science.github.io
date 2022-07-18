@@ -10,7 +10,7 @@
 			/ 2
 		);
 
-	// The collapsed/scrolled header sticky offset.
+	// The collapsed/scrolled nav sticky offset.
 	--nav--scroll--offset: calc(
 			-100vh
 			+ var(--logo--height--scaled)

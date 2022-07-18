@@ -129,7 +129,7 @@ body {
 		}
 	}
 
-	// Logo/h1 combo (with transform) in the header doc.
+	// Logo/h1 combo (with transform) in the nav doc.
 	p {
 		transition-delay:           calc(var(--color--transition) / 4);
 		transition-duration:        calc(var(--color--transition) / 2);
@@ -140,8 +140,8 @@ body {
 
 
 	// Main layout.
-	> header,
-	> main {
+	> main,
+	> footer {
 		@include landscape {
 			column-gap:            var(--margin);
 			display:               grid;
@@ -152,16 +152,16 @@ body {
 	}
 
 	// The “Art, Science, Media” nav and nouns area.
-	> header {
+	> main {
 		position: sticky;
-		top:      calc(-1 * var(--header--height) + var(--tagline--height) + var(--margin) * 2 - 0.1rem); // Hide overshoots.
+		top:      calc(-1 * var(--main--height) + var(--tagline--height) + var(--margin) * 2 - 0.1rem); // Hide overshoots.
 
 		@import 'nav';
 		@import 'nouns';
 	}
 
 	// The “About” section, below.
-	> main {
+	> footer {
 		@import 'aside';
 		@import 'about';
 	}

@@ -8,7 +8,7 @@
 		<script src="{{ '/assets/scripts/index.js' | relative_path }}"></script>
 	</head>
 	<body>
-		<header data-header>
+		<main data-main>
 			{% include nav.html %}
 			<section data-nouns>
 				{% assign nouns = content | split: '<hr />' | first | split: '<h1 ' | shift %}
@@ -20,13 +20,13 @@
 					</section>
 				{% endfor %}
 			</section>
-		</header>
-		<main>
+		</main>
+		<footer>
 			{% include aside.html %}
 			<section id="about">
 				{% assign about = content | split: '<hr />' | last %}
 				{{ about }}
 			</section>
-		</main>
+		</footer>
 	</body>
 </html>

@@ -16,31 +16,25 @@ links:
 
 
 
-{% section art %}
+# Art
 
 Profound intuition hybrid narrative hybridity constraint architectural alternative history left history Self technological emergence. Dialectic discourse textual reclaimed histories dualism matrix Pseudorealism Derrida. Subjectivism uncanny juxtaposition hybridity synesthetic cultural symbolism left history archetypal form. Semiotics of the object cybernetic Adorno post-human polemical communities of practice Freudian. Fetish object stimulus obsolescence reality principle cognizance universalizing.
 
-{% endsection %}
 
 
-
-{% section media %}
+# Media
 
 Morphology ubiquity dialogous mundane domestic objects historical-ontological internarrative White Cube experiential aesthetics. Visual representation crises of representation reflexive physical dissonance collapsing boundaries emerging technologies Jean-François Lyotard semiotics of the object socio-cultural. Left history propagated denotation intertextual luminary synecdoche hyperreal interface. Lived experience non-verbal space Self instantaneous temporality assimilation.
 
-{% endsection %}
 
 
-
-{% section science %}
+# Science
 
 Dialectic Baudrillard transcend mundane domestic objects Symbolist appropriating urbanism fallacious Walter Benjamin. Disparity art object fetish object uncanny collapsing boundaries Derrida socio-cultural appropriating Schopenhauer. Insubstantial symbolic paradigms Heidegger masculine parody polemical indeterminancy physical dissonance. Pastoral cosmologic cultural discourse matrix physical dissonance liminal space communities of practice. Universalizing discourse artifice theoretical.
 
-{% endsection %}
 
 
-
-{% section about %}
+---
 
 Archetype transmogrification Frankfurt School theoretical discourse Kant synesthesia subjectivism communities of practice. Obsolescence informance urbane BioArt cosmologic psychical condition ubiquity. DNA Freudian left history ethnographies non-verbal space critical theory agency morphology mundane domestic objects. Inculturate Sontag emanation assimilation cosmologic Adorno Stuckism.
 
@@ -51,5 +45,3 @@ Systems of representation reclaimed identity DNA luminary visual representation 
 Profound intuition hybrid narrative hybridity constraint architectural alternative history left history Self technological emergence. Dialectic discourse textual reclaimed histories dualism matrix Pseudorealism Derrida. Subjectivism uncanny juxtaposition hybridity synesthetic cultural symbolism left history archetypal form. Semiotics of the object cybernetic Adorno post-human polemical communities of practice Freudian. Fetish object stimulus obsolescence reality principle cognizance universalizing.
 
 Systems of representation reclaimed identity DNA luminary visual representation atmospheric palimpsest. Conceptual constructs aporia binary partition hierarchical experiential aesthetics cognizance permissive Schopenhauer John Ruskin. Appropriated visual clichés psychical condition totalitarian hegemony Wunderkammer emergent emanation individualism transitory. Dichotomy dialogous asymmetric physical dissonance Self White Cube post-industrial After Sherrie Levine phenomenology.
-
-{% endsection %}

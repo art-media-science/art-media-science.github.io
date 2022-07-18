@@ -11,14 +11,22 @@
 		<header data-header>
 			{% include nav.html %}
 			<section data-nouns>
-				<section id="art">{% section_content art %}</section>
-				<section id="media">{% section_content media %}</section>
-				<section id="science">{% section_content science %}</section>
+				{% assign nouns = content | split: '<hr />' | first | split: '<h1 ' | shift %}
+				{% for noun in nouns %}
+					{% assign id = noun | split: '>' | first %}
+					{% assign content = noun | split: '</h1>' | last %}
+					<section {{ id }}>
+						{{ content }}
+					</section>
+				{% endfor %}
 			</section>
 		</header>
 		<main>
 			{% include aside.html %}
-			<section id="about">{% section_content about %}</section>
+			<section id="about">
+				{% assign about = content | split: '<hr />' | last %}
+				{{ about }}
+			</section>
 		</main>
 	</body>
 </html>

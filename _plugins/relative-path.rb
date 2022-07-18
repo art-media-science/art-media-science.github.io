@@ -1,3 +1,7 @@
+# From here: https://github.com/jekyll/jekyll/issues/6360#issuecomment-329275101
+
+
+
 require 'pathname'
 
 module Jekyll

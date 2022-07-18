@@ -203,6 +203,20 @@ const activeSection = (logo, activeClass) => {
 
 
 
+const fixIphoneFlicker = (...elements) => {
+	// Only on iPhones, of course.
+	if (navigator.platform.includes('iPhone')) {
+		elements.forEach((element) => {
+			window.addEventListener('scroll', () => {
+				// “Trill” the opacity to force a re-render while scrolling.
+				(element.style.opacity == 1) ? element.style.opacity = 0.999: element.style.opacity = 1
+			})
+		})
+	}
+}
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
 	const body = document.body
 	const header = document.querySelector('[data-header]')
@@ -215,4 +229,5 @@ document.addEventListener('DOMContentLoaded', () => {
 	logoScrollScale(body, logo)
 	invertBackground(body, nouns, links, invertClass)
 	activeSection(logo, activeClass)
+	fixIphoneFlicker(logo, tagline)
 })

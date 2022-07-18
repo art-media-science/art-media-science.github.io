@@ -20,7 +20,6 @@
 
 	display:         flex;
 	flex-direction:  column;
-	gap:             var(--margin);
 	height:          calc(100vh + var(--nav--scroll));
 	justify-content: space-between;
 	padding:         var(--margin);
@@ -130,8 +129,10 @@
 
 	// The “tagline”.
 	> section:last-child {
-		bottom:   var(--margin);
-		position: sticky;
+		bottom:        var(--margin);
+		display:       flex;
+		flex-shrink:   0;
+		position:      sticky;
 
 		> a {
 			@extend %link--element;

@@ -415,7 +415,19 @@ body > header > nav > section:first-child > h1 > a:active {
 	}
 }
 
+:root.clockwise {
+	--safe--inset--left: 0.4rem;
+	--safe--inset--right: calc(env(safe-area-inset-right) - 1.3rem);
+}
+
+:root.counter-clockwise {
+	--safe--inset--left: calc(env(safe-area-inset-left) - 1.3rem);
+	--safe--inset--right: 0.6rem;
+}
+
 body {
+	padding-left: var(--safe--inset--left, 0rem);
+	padding-right: var(--safe--inset--right, 0rem);
 	--logo--height--scaled: calc(var(--logo--height) * var(--logo--scale, 1));
 	--scroll--offset: calc(var(--logo--height--scaled) + var(--tagline--height) + var(--margin) * 4);
 	--scroll--offset--about: calc(var(--tagline--height) + var(--links--height) + var(--margin) * 4);
@@ -501,7 +513,6 @@ body > header > nav {
 	--nav--scroll--offset: calc(-100vh + var(--logo--height--scaled) + var(--tagline--height) + var(--margin) * 3);
 	display: flex;
 	flex-direction: column;
-	gap: var(--margin);
 	height: calc(100vh + var(--nav--scroll));
 	justify-content: space-between;
 	padding: var(--margin);
@@ -630,6 +641,8 @@ body > header > nav > section:first-child > h1 [href="#science"] .e {
 
 body > header > nav > section:last-child {
 	bottom: var(--margin);
+	display: flex;
+	flex-shrink: 0;
 	position: sticky;
 }
 

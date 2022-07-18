@@ -543,7 +543,7 @@ body > main > nav > section:first-child {
 (min-width: 35.5em) and (min-height: 30em),
 (min-width: 58.125em) {
 	body > main > nav > section:first-child {
-		margin-bottom: calc(100vh - var(--logo--height--scaled) - var(--tagline--height) - var(--margin) * 3);
+		margin-bottom: calc(100vh - var(--logo--height--scaled) - var(--margin) * 2);
 	}
 }
 
@@ -644,6 +644,14 @@ body > main > nav > section:last-child {
 	display: flex;
 	flex-shrink: 0;
 	position: sticky;
+}
+
+@media (orientation: landscape),
+(min-width: 35.5em) and (min-height: 30em),
+(min-width: 58.125em) {
+	body > main > nav > section:last-child {
+		margin-top: calc(-1 * var(--tagline--height));
+	}
 }
 
 body > main > nav > section:last-child > a > p {

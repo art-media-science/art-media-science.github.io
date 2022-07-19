@@ -315,8 +315,6 @@ body > main > figure > a,
 body > footer > aside > ul > li > a {
 	-webkit-tap-highlight-color: var(--link--highlight);
 	cursor: pointer;
-	transition-duration: 50ms, var(--hover--duration);
-	transition-property: background-color, text-decoration-color;
 }
 
 body > main > nav > section:first-child > h1 > a:active,
@@ -412,6 +410,7 @@ body > main > nav > section:first-child > h1 > a:active {
 	--color--accent: #808080;
 	--color: white;
 	--color--background: var(--color--accent);
+	--color--transition: 200ms;
 	--color--link: rgba(0, 0, 0, 0.033);
 	--color--link--reverse: rgba(255, 255, 255, 0.066);
 	--link--enlargement: 0.4rem;
@@ -539,11 +538,11 @@ body.invert.art [href="#art"] {
 }
 
 body.invert.art [href="#media"] {
-	--color: var(--color);
+	--color: black;
 }
 
 body.invert.art [href="#science"] {
-	--color: var(--color);
+	--color: black;
 }
 
 body.invert.media {
@@ -551,7 +550,7 @@ body.invert.media {
 }
 
 body.invert.media [href="#art"] {
-	--color: var(--color);
+	--color: black;
 }
 
 body.invert.media [href="#media"] {
@@ -559,7 +558,7 @@ body.invert.media [href="#media"] {
 }
 
 body.invert.media [href="#science"] {
-	--color: var(--color);
+	--color: black;
 }
 
 body.invert.science {
@@ -567,11 +566,11 @@ body.invert.science {
 }
 
 body.invert.science [href="#art"] {
-	--color: var(--color);
+	--color: black;
 }
 
 body.invert.science [href="#media"] {
-	--color: var(--color);
+	--color: black;
 }
 
 body.invert.science [href="#science"] {
@@ -581,7 +580,6 @@ body.invert.science [href="#science"] {
 body,
 body nav,
 body aside {
-	--color--transition: 200ms;
 	background: var(--color--background);
 	transition-duration: var(--color--transition);
 	transition-property: background;
@@ -598,11 +596,13 @@ body aside {
 	}
 }
 
+body h1 > a,
 body p,
 body svg {
+	color: var(--color);
 	transition-delay: calc(var(--color--transition) / 4);
 	transition-duration: calc(var(--color--transition) / 2);
-	transition-property: color, stroke;
+	transition-property: color, fill, stroke;
 	transition-timing-function: linear;
 }
 
@@ -676,9 +676,9 @@ body > main > nav > section:first-child > h1 {
 	position: absolute;
 	transform-origin: 0px -0.025em;
 	transform: scale(var(--scroll--scale));
-	transition-delay: calc(var(--color--transition) / 4), 0ms;
-	transition-duration: calc(var(--color--transition) / 2), var(--scroll--scale--duration);
-	transition-property: color, transform;
+	transition-delay: 0ms;
+	transition-duration: var(--scroll--scale--duration);
+	transition-property: transform;
 	transition-timing-function: linear;
 	will-change: transform;
 }
@@ -687,12 +687,10 @@ body > main > nav > section:first-child > h1 > a {
 	--link--outline--override: calc((1 + (var(--logo--scale) * var(--logo--scroll))) * var(--link--outline));
 	border-bottom: initial;
 	border-top: initial;
-	color: var(--color);
 	margin-bottom: initial;
 	margin-top: initial;
 	pointer-events: none;
 	position: relative;
-	transition: color calc(var(--color--transition) / 2) linear;
 }
 
 body > main > nav > section:first-child > h1 > a:before {

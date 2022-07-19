@@ -108,8 +108,8 @@ const activeSection = (logo, activeClass) => {
 
 
 const fixIphoneFlicker = (...elements) => {
-	// Only on iPhones, of course.
-	if (navigator.platform.includes('iPhone')) {
+	// iPhones… and narrow iPad views.
+	if (navigator.platform.includes('iPhone') || navigator.platform.includes('iPad')) {
 		elements.forEach((element) => {
 			window.addEventListener('scroll', () => {
 				// “Trill” the opacity to force a re-render while scrolling.

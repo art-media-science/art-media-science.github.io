@@ -406,7 +406,10 @@ body > main > nav > section:first-child > h1 > a:active {
 	--margin--vertical: var(--margin);
 	--page--width: 100vw;
 	--column--ratio: 0.382fr 0.618fr;
-	--color--accent: #d31919;
+	--color--art: #d22d2d;
+	--color--media: #e6a50f;
+	--color--science: #145fb8;
+	--color--accent: #808080;
 	--color: white;
 	--color--background: var(--color--accent);
 	--color--link: rgba(0, 0, 0, 0.033);
@@ -527,7 +530,51 @@ body.invert {
 	--link--highlight: var(--color--link);
 }
 
-body.invert .active {
+body.invert.art {
+	--color--accent: var(--color--art);
+}
+
+body.invert.art [href="#art"] {
+	--color: var(--color--accent);
+}
+
+body.invert.art [href="#media"] {
+	--color: var(--color);
+}
+
+body.invert.art [href="#science"] {
+	--color: var(--color);
+}
+
+body.invert.media {
+	--color--accent: var(--color--media);
+}
+
+body.invert.media [href="#art"] {
+	--color: var(--color);
+}
+
+body.invert.media [href="#media"] {
+	--color: var(--color--accent);
+}
+
+body.invert.media [href="#science"] {
+	--color: var(--color);
+}
+
+body.invert.science {
+	--color--accent: var(--color--science);
+}
+
+body.invert.science [href="#art"] {
+	--color: var(--color);
+}
+
+body.invert.science [href="#media"] {
+	--color: var(--color);
+}
+
+body.invert.science [href="#science"] {
 	--color: var(--color--accent);
 }
 

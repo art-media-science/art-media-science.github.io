@@ -1,8 +1,8 @@
 > aside {
-	--nav--scroll--offset: calc(var(--tagline--height) + var(--margin) * 2 - 0.2rem);
+	--nav--scroll--offset: calc(var(--tagline--height) + var(--margin--vertical) * 2 - 0.2rem);
 
-	margin-bottom:  calc(-1 * var(--margin));
-	padding-bottom: var(--margin);
+	margin-bottom:  calc(-1 * var(--margin--vertical));
+	padding-bottom: var(--margin--vertical);
 	padding-left:   var(--margin);
 	padding-right:  var(--margin);
 	position:       sticky;
@@ -30,9 +30,9 @@
 		gap:            var(--typography--between);
 
 		@include landscape {
-			bottom:        var(--margin);
-			margin-bottom: var(--margin);
-			margin-top:    var(--margin);
+			bottom:        var(--margin--vertical);
+			margin-bottom: var(--margin--vertical);
+			margin-top:    var(--margin--vertical);
 			position:      sticky;
 		}
 

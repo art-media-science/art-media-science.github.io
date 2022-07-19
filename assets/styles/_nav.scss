@@ -5,7 +5,7 @@
 				var(--vh--initial, 100vh)
 				- var(--logo--height)
 				- var(--tagline--height)
-				- var(--margin) * 3
+				- var(--margin--vertical) * 3
 			)
 			/ 2
 		);
@@ -15,14 +15,17 @@
 			-100vh
 			+ var(--logo--height--scaled)
 			+ var(--tagline--height)
-			+ var(--margin) * 3
+			+ var(--margin--vertical) * 3
 		);
 
 	display:         flex;
 	flex-direction:  column;
 	height:          calc(100vh + var(--nav--scroll));
 	justify-content: space-between;
-	padding:         var(--margin);
+	padding-bottom:  var(--margin--vertical);
+	padding-left:    var(--margin);
+	padding-right:   var(--margin);
+	padding-top:     var(--margin--vertical);
 	position:        sticky;
 	top:             calc(var(--nav--scroll--offset) - var(--nav--scroll));
 
@@ -38,13 +41,13 @@
 	> section:first-child {
 		flex-shrink:   0;
 		height:        var(--logo--height--scaled);
-		margin-bottom: calc(var(--tagline--height) + var(--margin));
+		margin-bottom: calc(var(--tagline--height) + var(--margin--vertical));
 		margin-top:    var(--nav--scroll);
 		position:      sticky;
-		top:           var(--margin);
+		top:           var(--margin--vertical);
 
 		@include landscape {
-			margin-bottom: calc(100vh - var(--logo--height--scaled) - var(--margin) * 2);
+			margin-bottom: calc(100vh - var(--logo--height--scaled) - var(--margin--vertical) * 2);
 		}
 
 		> h1 {
@@ -129,7 +132,7 @@
 
 	// The “tagline”.
 	> section:last-child {
-		bottom:        var(--margin);
+		bottom:        var(--margin--vertical);
 		display:       flex;
 		flex-shrink:   0;
 		position:      sticky;

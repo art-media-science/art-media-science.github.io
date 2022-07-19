@@ -4,18 +4,18 @@
 				100vh
 				- var(--logo--height--scaled)
 				- var(--tagline--height)
-				- var(--margin) * 3
+				- var(--margin--vertical) * 3
 			)
 			/ 2
 		);
 
-	--nouns--spacing: calc(var(--margin) * 4);
+	--nouns--spacing: calc(var(--margin--vertical) * 4);
 
 	--nouns--height: calc(
 			100vh
 			- var(--logo--height--scaled)
 			- var(--tagline--height)
-			- var(--margin) * 5
+			- var(--margin--vertical) * 5
 			- var(--nouns--spacing)
 			- 0.8rem
 		);
@@ -29,19 +29,19 @@
 		--section--spacing: calc(
 				var(--logo--height)
 				- var(--logo--height--scaled)
-				+ var(--margin) / 2
+				+ var(--margin--vertical) / 2
 			);
 
 		--nouns--height: calc(
 				100vh
 				- var(--tagline--height)
-				- var(--margin) * 2
+				- var(--margin--vertical) * 2
 				- var(--nouns--spacing)
 			);
 
 		grid-column:    2;
 		grid-row:       2;
-		padding-bottom: calc(var(--nouns--spacing) + var(--tagline--height) + var(--margin));
+		padding-bottom: calc(var(--nouns--spacing) + var(--tagline--height) + var(--margin--vertical));
 		padding-left:   initial; // Grid gaps take over.
 		padding-right:  initial;
 	}

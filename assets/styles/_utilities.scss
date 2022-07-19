@@ -84,6 +84,12 @@ $--default-font-fize: 16;
 	}
 }
 
+@mixin tall {
+	@media (min-height: #{calc(1024 / $--default-font-fize)}em) {
+		@content;
+	}
+}
+
 @mixin retina($density: 2) {
 	@media (-webkit-min-device-pixel-ratio: #{$density}) {
 		@content;

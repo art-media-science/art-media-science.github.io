@@ -384,10 +384,13 @@ body > main > nav > section:first-child > h1 > a:active {
 
 :root {
 	--logo--scale: 0.618;
-	--margin: 2.4rem;
-	--margin--vertical: var(--margin);
 	--typography--leading: 1.2;
+	--typography--leading--tagline: 1;
 	--typography--size: 2rem;
+	--typography--size--logo: calc(var(--typography--size) * 4);
+	--typography--size--tagline: calc(var(--typography--size) * 1.2);
+	--margin: calc(var(--typography--size) * 1.2);
+	--margin--vertical: var(--margin);
 	--column--ratio: 0.382fr 0.618fr;
 	--color--accent: #d31919;
 	--color: white;
@@ -400,18 +403,37 @@ body > main > nav > section:first-child > h1 > a:active {
 	scroll-behavior: smooth;
 }
 
+@media (max-width: 23.375em) {
+	:root {
+		--typography--size: calc((20/375) * 100vw);
+	}
+}
+
+@media (orientation: landscape),
+(min-width: 35.5em) and (min-height: 30em),
+(min-width: 58.125em) {
+	:root {
+		--logo--scale: 0.75;
+		--typography--size--logo: calc(var(--typography--size) * 3.5);
+	}
+}
+
 @media (min-width: 48em) and (min-height: 30em),
 (min-width: 58.125em) {
 	:root {
-		--margin: 4.8rem;
-		--typography--size: 2.4rem;
+		--logo--scale: 0.618;
+		--typography--size: clamp(2.4rem, (24/1440) * 100vw, 2.8rem);
+		--typography--size--logo: calc(var(--typography--size) * 5.5);
+		--typography--size--tagline: calc(var(--typography--size) * 1.5);
+		--margin: calc(var(--typography--size) * 2);
 		--link--enlargement: 0.8rem;
 	}
 }
 
-@media (min-width: 109.75em) and (min-height: 64em) {
+@media (min-width: 110.75em) and (min-height: 64em) {
 	:root {
 		--margin--vertical: calc(var(--margin) * 2);
+		--typography--size--logo: calc(var(--typography--size) * 6.5);
 	}
 }
 
@@ -440,11 +462,11 @@ body {
 	--scroll--offset--about: calc(var(--tagline--height) + var(--links--height) + var(--margin) * 4);
 }
 
-@media (min-width: 103.75em) {
+@media (min-width: 102.5em) {
 	body {
 		margin-left: auto;
 		margin-right: auto;
-		width: 166rem;
+		width: 164rem;
 	}
 }
 
@@ -566,8 +588,8 @@ body > main > nav > section:first-child {
 }
 
 body > main > nav > section:first-child > h1 {
-	--typography--leading: calc(5/6);
-	--typography--size: 8.8rem;
+	--typography--size: var(--typography--size--logo);
+	--typography--leading: 5/6;
 	--transition--duration: 100ms;
 	align-items: start;
 	display: flex;
@@ -582,29 +604,10 @@ body > main > nav > section:first-child > h1 {
 	will-change: transform;
 }
 
-@media (max-width: 23.375em) {
-	body > main > nav > section:first-child > h1 {
-		--typography--size: 8rem;
-	}
-}
-
-@media (min-width: 35.5em) {
-	body > main > nav > section:first-child > h1 {
-		--typography--size: 7.2rem;
-	}
-}
-
 @media (min-width: 48em) and (min-height: 30em),
 (min-width: 58.125em) {
 	body > main > nav > section:first-child > h1 {
-		--typography--size: 12.4rem;
 		--transition--duration: 50ms;
-	}
-}
-
-@media (min-width: 64em) {
-	body > main > nav > section:first-child > h1 {
-		--typography--size: 13.2rem;
 	}
 }
 
@@ -673,15 +676,8 @@ body > main > nav > section:last-child {
 }
 
 body > main > nav > section:last-child > a > p {
-	--typography--size: 2.4rem;
-	--typography--leading: 1;
-}
-
-@media (min-width: 48em) and (min-height: 30em),
-(min-width: 58.125em) {
-	body > main > nav > section:last-child > a > p {
-		--typography--size: 3.6rem;
-	}
+	--typography--leading: var(--typography--leading--tagline);
+	--typography--size: var(--typography--size--tagline);
 }
 
 body > main > section {
@@ -748,8 +744,8 @@ body > footer > aside {
 }
 
 body > footer > aside > ul {
-	--typography--size: 2.4rem;
-	--typography--leading: 1;
+	--typography--leading: var(--typography--leading--tagline);
+	--typography--size: var(--typography--size--tagline);
 	align-items: start;
 	display: flex;
 	flex-direction: column;
@@ -764,13 +760,6 @@ body > footer > aside > ul {
 		margin-bottom: var(--margin--vertical);
 		margin-top: var(--margin--vertical);
 		position: sticky;
-	}
-}
-
-@media (min-width: 48em) and (min-height: 30em),
-(min-width: 58.125em) {
-	body > footer > aside > ul {
-		--typography--size: 3.6rem;
 	}
 }
 

@@ -491,6 +491,14 @@ body {
 (min-width: 35.5em) and (min-height: 30em),
 (min-width: 58.125em) {
 	body {
+		padding-right: calc(var(--safe--inset--right, 0rem) + var(--tagline--height) + var(--margin));
+	}
+}
+
+@media (orientation: landscape),
+(min-width: 35.5em) and (min-height: 30em),
+(min-width: 58.125em) {
+	body {
 		--scroll--offset: var(--margin--vertical);
 		--scroll--offset--about: calc(var(--margin--vertical) - 0.1rem);
 	}
@@ -716,12 +724,20 @@ body > main > figure > a:active {
 
 body > main > figure > a > svg {
 	--stroke--width: 0.175rem;
-	--icon--size: calc(var(--tagline--height) * 1 / var(--logo--scale));
-	overflow: visible;
+	--icon--size: calc(var(--tagline--height) * 1 / var(--logo--scale) + var(--link--enlargement) * 2);
+	animation: rotate 20s linear infinite;
 	height: var(--icon--size);
-	stroke: var(--color);
+	margin: calc(-1 * var(--link--enlargement));
+	overflow: visible;
 	stroke-width: var(--stroke--width);
+	stroke: var(--color);
 	width: var(--icon--size);
+}
+
+@keyframes rotate {
+	100% {
+		transform: rotate(1turn);
+	}
 }
 
 @media (min-width: 48em) and (min-height: 30em),

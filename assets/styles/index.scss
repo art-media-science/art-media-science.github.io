@@ -20,15 +20,15 @@
 
 	--logo--scale: 0.618; // Golden.
 
-	--margin:              2.4rem;
-	--margin--vertical:    var(--margin);
-
 	--typography--leading:          1.2;
 	--typography--leading--tagline: 1;
 
 	--typography--size:          2rem;
-	--typography--size--logo:    8.8rem;
-	--typography--size--tagline: 2.4rem;
+	--typography--size--logo:    calc(var(--typography--size) * 4);
+	--typography--size--tagline: calc(var(--typography--size) * 1.2);
+
+	--margin:           calc(var(--typography--size) * 1.2);
+	--margin--vertical: var(--margin);
 
 	--column--ratio: 0.382fr 0.618fr; // Golden.
 
@@ -46,26 +46,32 @@
 
 	scroll-behavior: smooth;
 
+	@include breakpoint(320) { --typography--size: calc((20/375) * 100vw); } // Scale it all down from 20 @ 375.
 
+	@include landscape {
+		--logo--scale: 0.75;
 
-
-	@include breakpoint(320) { --typography--size--logo: 8rem; }
-	@include breakpoint(568) { --typography--size--logo: 7.2rem; }
+		--typography--size--logo: calc(var(--typography--size) * 3.5);
+	}
 
 	@include breakpoint(768) {
-		--margin:           4.8rem;
+		--logo--scale: 0.618; // Back to Golden.
 
-		--typography--size:          2.4rem;
-		--typography--size--logo:    12.4rem;
-		--typography--size--tagline: 3.6rem;
+		--typography--size:          clamp(2.4rem, (24/1440) * 100vw, 2.8rem);
+		--typography--size--logo:    calc(var(--typography--size) * 5.5);
+		--typography--size--tagline: calc(var(--typography--size) * 1.5);
+
+		--margin: calc(var(--typography--size) * 2);
 
 		--link--enlargement: 0.8rem;
 	}
 
-	@include breakpoint(1024) { --typography--size--logo: 13.2rem; }
+	@include breakpoint(1772) { // Width cap, plus (now larger) margins.
+		@include tall {
+			--margin--vertical: calc(var(--margin) * 2);
 
-	@include breakpoint(1756) { // Width cap, plus margins.
-		@include tall { --margin--vertical: calc(var(--margin) * 2); }
+			--typography--size--logo: calc(var(--typography--size) * 6.5);
+		}
 	}
 
 	@include browser-specific(safari--mobile) {
@@ -96,11 +102,11 @@ body {
 
 
 
-	// Cap around a 16-inch MacBook Pro.
-	@include breakpoint(1660) {
+	// Cap width around a 16-inch MacBook Pro.
+	@include breakpoint(1640) {
 		margin-left:  auto;
 		margin-right: auto;
-		width:        166rem;
+		width:        164rem;
 	}
 
 

@@ -56,21 +56,17 @@
 			--typography--size:    var(--typography--size--logo);
 			--typography--leading: 5/6;
 
-			--transition--duration: 100ms;
-
 			align-items:                start;
 			display:                    flex;
 			flex-direction:             column;
 			position:                   absolute;
 			transform-origin:           0px -0.025em; // Optical shift down, for “A“ overshoot.
-			transform:                  scale(calc(1 - (1 - var(--logo--scale)) * var(--logo--scroll)));
+			transform:                  scale(var(--scroll--scale));
 			transition-delay:           calc(var(--color--transition) / 4), 0ms;
-			transition-duration:        calc(var(--color--transition) / 2), var(--transition--duration);
+			transition-duration:        calc(var(--color--transition) / 2), var(--scroll--scale--duration);
 			transition-property:        color, transform;
 			transition-timing-function: linear;
 			will-change:                transform;
-
-			@include breakpoint(768) { --transition--duration: 50ms; }// Can go faster on desktop.
 
 			> a {
 				@extend %link--text;

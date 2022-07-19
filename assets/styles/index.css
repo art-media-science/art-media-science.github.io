@@ -583,7 +583,7 @@ body > main > nav > section:first-child {
 (min-width: 35.5em) and (min-height: 30em),
 (min-width: 58.125em) {
 	body > main > nav > section:first-child {
-		margin-bottom: calc(100vh - var(--logo--height--scaled) - var(--margin--vertical) * 2);
+		margin-bottom: calc(var(--vh--initial, 100vh) - var(--logo--height--scaled) - var(--margin--vertical) * 2);
 	}
 }
 
@@ -683,7 +683,7 @@ body > main > nav > section:last-child > a > p {
 body > main > section {
 	--section--spacing: calc((100vh - var(--logo--height--scaled) - var(--tagline--height) - var(--margin--vertical) * 3) / 2);
 	--nouns--spacing: calc(var(--margin--vertical) * 4);
-	--nouns--height: calc(100vh - var(--logo--height--scaled) - var(--tagline--height) - var(--margin--vertical) * 5 - var(--nouns--spacing) - 0.8rem);
+	--nouns--height: calc(var(--vh--initial, 100vh) - var(--logo--height--scaled) - var(--tagline--height) - var(--margin--vertical) * 5 - var(--nouns--spacing) - 0.8rem);
 	padding-bottom: var(--nouns--spacing);
 	padding-left: var(--margin);
 	padding-right: var(--margin);
@@ -695,7 +695,7 @@ body > main > section {
 (min-width: 58.125em) {
 	body > main > section {
 		--section--spacing: calc(var(--logo--height) - var(--logo--height--scaled) + var(--margin--vertical) / 2);
-		--nouns--height: calc(100vh - var(--tagline--height) - var(--margin--vertical) * 2 - var(--nouns--spacing));
+		--nouns--height: calc(var(--vh--initial, 100vh) - var(--tagline--height) - var(--margin--vertical) * 2 - var(--nouns--spacing));
 		grid-column: 2;
 		grid-row: 2;
 		padding-bottom: calc(var(--nouns--spacing) + var(--tagline--height) + var(--margin--vertical));

@@ -64,34 +64,46 @@ logoScrollScale = (logo) => {
 
 
 
-const invertBackground = (nouns, links, invertClass) => {
+const invertBackground = (nouns, links, invertClass, sections) => {
+	let scrollDown
+
 	const checkBounds = () => {
 		viewport = window.innerHeight
 		nounsTop = nouns.getBoundingClientRect().top
-		linksBottom = links.getBoundingClientRect().bottom; // Ternary gets angry without this semicolon?
+		linksBottom = links.getBoundingClientRect().bottom
 
-		(nounsTop <= viewport &&  viewport <= linksBottom) ? document.body.classList.add(invertClass) : document.body.classList.remove(invertClass)
+		if (nounsTop <= viewport &&  viewport <= linksBottom) {
+			document.body.classList.add(invertClass)
+		} else {
+			document.body.classList.remove(invertClass)
+
+			if (scrollDown) sections.forEach((section) => document.body.classList.remove(section))
+		}
 	}
 
 	window.addEventListener('load', checkBounds)
 	window.addEventListener('resize', checkBounds)
-	window.addEventListener('scroll', checkBounds)
+
+	window.addEventListener('scroll', () => {
+		checkBounds();
+
+		scrollDown = this.previousScroll < this.scrollY
+		this.previousScroll = this.scrollY
+	})
 }
 
 
 
 const activeSection = (sections) => {
 	sections.forEach((section) => {
-		let activeClass = section.replace('#', '')
-
 		const observer = new IntersectionObserver(entries => {
 			const [entry] = entries;
-			(entry.isIntersecting) ? document.body.classList.add(activeClass) : document.body.classList.remove(activeClass)
+			(entry.isIntersecting) ? document.body.classList.add(section) : document.body.classList.remove(section)
 		}, {
-			rootMargin: '-25% 0px -25% 0px',
+			rootMargin: '-33% 0px -25% 0px',
 		})
 
-		setTimeout(() => observer.observe(document.querySelector(section)), 10) // Let the layout settle.
+		setTimeout(() => observer.observe(document.getElementById(section)), 10) // Let the layout settle.
 	})
 }
 
@@ -114,15 +126,14 @@ const fixIphoneFlicker = (...elements) => {
 document.addEventListener('DOMContentLoaded', () => {
 	const main =     document.querySelector('[data-main]')
 	const logo =     document.querySelector('[data-logo]')
-	const sections = [...logo.querySelectorAll('a')].map((link) => link.getAttribute('href'))
 	const tagline =  document.querySelector('[data-tagline]')
 	const nouns =    document.querySelector('[data-nouns]')
 	const links =    document.querySelector('[data-links]')
-
+	const sections = [...logo.querySelectorAll('a')].map((link) => link.getAttribute('href').replace('#', ''))
 
 	getHeights(main, logo, tagline, links)
 	logoScrollScale(logo)
-	invertBackground(nouns, links, invertClass)
+	invertBackground(nouns, links, invertClass, sections)
 	activeSection(sections)
 	fixIphoneFlicker(logo, tagline)
 })

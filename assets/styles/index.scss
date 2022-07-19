@@ -30,6 +30,8 @@
 	--margin:           calc(var(--typography--size) * 1.2);
 	--margin--vertical: var(--margin);
 
+	--page--width: 100vw;
+
 	--column--ratio: 0.382fr 0.618fr; // Golden.
 
 	--color--accent: #d31919; // For now.
@@ -66,6 +68,12 @@
 		--link--enlargement: 0.8rem;
 	}
 
+	// Cap width around a 16-inch MacBook Pro.
+	@include breakpoint(1640) {
+		--page--width: 164rem;
+	}
+
+
 	@include breakpoint(1772) { // Width cap, plus (now larger) margins.
 		@include tall {
 			--margin--vertical: calc(var(--margin) * 2);
@@ -96,18 +104,12 @@
 
 
 body {
-	// iPhone rotation.
+	// iPhone rotation and width cap.
+	margin-left:   auto;
+	margin-right:  auto;
 	padding-left:  var(--safe--inset--left, 0rem);
 	padding-right: var(--safe--inset--right, 0rem);
-
-
-
-	// Cap width around a 16-inch MacBook Pro.
-	@include breakpoint(1640) {
-		margin-left:  auto;
-		margin-right: auto;
-		width:        164rem;
-	}
+	width:         var(--page--width);
 
 
 

@@ -1,6 +1,6 @@
 > figure {
 	position: fixed;
-	right:    var(--margin);
+	right:    calc((100vw - var(--page--width)) / 2 + var(--margin));
 	top:      var(--margin--vertical);
 
 	> a {

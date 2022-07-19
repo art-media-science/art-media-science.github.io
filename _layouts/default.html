@@ -7,9 +7,14 @@
 		<link href="{{ '/assets/styles/index.css' | relative_path }}" rel="stylesheet">
 		<script src="{{ '/assets/scripts/index.js' | relative_path }}"></script>
 	</head>
-	<body>
+	<body id="top" >
 		<main data-main>
 			{% include nav.html %}
+			<figure>
+				<a href="#top">
+					{% include icons/venn.svg %}
+				</a>
+			</figure>
 			<section data-nouns>
 				{% assign nouns = content | split: '<hr />' | first | split: '<h1 ' | shift %}
 				{% for noun in nouns %}

@@ -166,10 +166,11 @@ body {
 	}
 
 	// Logo/h1 combo (with transform) in the nav doc.
-	p {
+	p,
+	svg {
 		transition-delay:           calc(var(--color--transition) / 4);
 		transition-duration:        calc(var(--color--transition) / 2);
-		transition-property:        color;
+		transition-property:        color, stroke;
 		transition-timing-function: linear;
 	}
 
@@ -193,6 +194,7 @@ body {
 		top:      calc(-1 * var(--main--height) + var(--tagline--height) + var(--margin--vertical) * 2 - 0.1rem); // Hide overshoots.
 
 		@import 'nav';
+		@import 'venn';
 		@import 'nouns';
 	}
 

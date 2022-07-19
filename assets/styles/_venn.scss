@@ -1,0 +1,21 @@
+> figure {
+	position: fixed;
+	right:    var(--margin);
+	top:      var(--margin--vertical);
+
+	> a {
+		@extend %link--element;
+
+		&,
+		&:active {
+			border-radius: 50%; // Round the link highlight.
+		}
+
+		> svg {
+			overflow: visible;
+			height:   var(--tagline--height);
+			stroke:   var(--color);
+			width:    var(--tagline--height);
+		}
+	}
+}

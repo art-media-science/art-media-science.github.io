@@ -20,14 +20,14 @@ const activeClass =   'active'
 
 
 
-const getHeights = (body, main, logo, tagline, links) => {
+const getHeights = (main, logo, tagline, links) => {
 	const updateVars = () => {
-		body.style.setProperty(logoHeightVar,    ` ${logo.offsetHeight / 10}rem`)
-		body.style.setProperty(taglineHeightVar, ` ${tagline.offsetHeight / 10}rem`)
-		body.style.setProperty(linksHeightVar,   ` ${links.offsetHeight / 10}rem`)
+		document.body.style.setProperty(logoHeightVar,    ` ${logo.offsetHeight / 10}rem`)
+		document.body.style.setProperty(taglineHeightVar, ` ${tagline.offsetHeight / 10}rem`)
+		document.body.style.setProperty(linksHeightVar,   ` ${links.offsetHeight / 10}rem`)
 
 		setTimeout(() => { // Since it depends on the other heights.
-			body.style.setProperty(mainHeightVar, ` ${main.offsetHeight / 10}rem`)
+			document.body.style.setProperty(mainHeightVar, ` ${main.offsetHeight / 10}rem`)
 		}, 10)
 	}
 
@@ -37,7 +37,7 @@ const getHeights = (body, main, logo, tagline, links) => {
 
 
 
-logoScrollScale = (body, logo) => {
+logoScrollScale = (logo) => {
 	let scrollDistance
 
 	const clamp = (num, min, max) => Math.min(Math.max(num, min), max)
@@ -46,7 +46,7 @@ logoScrollScale = (body, logo) => {
 		// The extra/early 10px “softens” the transition a bit.
 		scroll = clamp(((window.scrollY - scrollDistance + 10) / scrollDistance).toFixed(6), 0, 1)
 
-		body.style.setProperty(scrollVar, ` ${scroll}`)
+		document.body.style.setProperty(scrollVar, ` ${scroll}`)
 	}
 
 	window.addEventListener('load', () => {
@@ -66,13 +66,13 @@ logoScrollScale = (body, logo) => {
 
 
 
-const invertBackground = (body, nouns, links, invertClass) => {
+const invertBackground = (nouns, links, invertClass) => {
 	const checkBounds = () => {
 		viewport = window.innerHeight
 		nounsTop = nouns.getBoundingClientRect().top
 		linksBottom = links.getBoundingClientRect().bottom; // Ternary gets angry without this semicolon?
 
-		(nounsTop <= viewport &&  viewport <= linksBottom) ? body.classList.add(invertClass) : body.classList.remove(invertClass)
+		(nounsTop <= viewport &&  viewport <= linksBottom) ? document.body.classList.add(invertClass) : document.body.classList.remove(invertClass)
 	}
 
 	window.addEventListener('load', checkBounds)
@@ -122,16 +122,15 @@ const fixIphoneFlicker = (...elements) => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-	const body =    document.body
 	const main =    document.querySelector('[data-main]')
 	const logo =    document.querySelector('[data-logo]')
 	const tagline = document.querySelector('[data-tagline]')
 	const nouns =   document.querySelector('[data-nouns]')
 	const links =   document.querySelector('[data-links]')
 
-	getHeights(body, main, logo, tagline, links)
-	logoScrollScale(body, logo)
-	invertBackground(body, nouns, links, invertClass)
+	getHeights(main, logo, tagline, links)
+	logoScrollScale(logo)
+	invertBackground(nouns, links, invertClass)
 	activeSection(logo, activeClass)
 	fixIphoneFlicker(logo, tagline)
 })

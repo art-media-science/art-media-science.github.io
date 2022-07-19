@@ -34,7 +34,11 @@
 
 	--column--ratio: 0.382fr 0.618fr; // Golden.
 
-	--color--accent: #d31919; // For now.
+	--color--art:     #d22d2d;
+	--color--media:   #e6a50f;
+	--color--science: #145fb8;
+
+	--color--accent:  #808080; // For now.
 
 	--color:             white;
 	--color--background: var(--color--accent);
@@ -152,9 +156,28 @@ body {
 
 		--link--highlight: var(--color--link);
 
-		// Current section, from JS.
-		.active {
-			--color: var(--color--accent);
+		&.art {
+			--color--accent: var(--color--art);
+
+			[href="#art"] {     --color: var(--color--accent); }
+			[href="#media"] {   --color: var(--color); }
+			[href="#science"] { --color: var(--color); }
+		}
+
+		&.media {
+			--color--accent: var(--color--media);
+
+			[href="#art"] {     --color: var(--color); }
+			[href="#media"] {   --color: var(--color--accent); }
+			[href="#science"] { --color: var(--color); }
+		}
+
+		&.science {
+			--color--accent: var(--color--science);
+
+			[href="#art"] {     --color: var(--color); }
+			[href="#media"] {   --color: var(--color); }
+			[href="#science"] { --color: var(--color--accent); }
 		}
 	}
 

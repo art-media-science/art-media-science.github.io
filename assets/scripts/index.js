@@ -16,7 +16,6 @@ const linksHeightVar =   '--links--height'
 const scrollVar =        '--logo--scroll'
 
 const invertClass =   'invert'
-const activeClass =   'active'
 
 
 
@@ -81,26 +80,18 @@ const invertBackground = (nouns, links, invertClass) => {
 
 
 
-const activeSection = (logo, activeClass) => {
-	const links = logo.querySelectorAll('a')
-
-	links.forEach((link) => {
-		// const section = document.getElementById(link.getAttribute('href'))
-		const section = document.getElementById(link.getAttribute('href').replace('#', ''))
+const activeSection = (sections) => {
+	sections.forEach((section) => {
+		let activeClass = section.replace('#', '')
 
 		const observer = new IntersectionObserver(entries => {
-			const [entry] = entries
-			if (entry.isIntersecting) {
-				links.forEach((link) => link.classList.remove(activeClass))
-				link.classList.add(activeClass)
-			} else {
-				link.classList.remove(activeClass)
-			}
+			const [entry] = entries;
+			(entry.isIntersecting) ? document.body.classList.add(activeClass) : document.body.classList.remove(activeClass)
 		}, {
-			rootMargin: '-50% 0px -33% 0px',
+			rootMargin: '-25% 0px -25% 0px',
 		})
 
-		window.addEventListener('load', observer.observe(section))
+		setTimeout(() => observer.observe(document.querySelector(section)), 10) // Let the layout settle.
 	})
 }
 
@@ -121,15 +112,17 @@ const fixIphoneFlicker = (...elements) => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-	const main =    document.querySelector('[data-main]')
-	const logo =    document.querySelector('[data-logo]')
-	const tagline = document.querySelector('[data-tagline]')
-	const nouns =   document.querySelector('[data-nouns]')
-	const links =   document.querySelector('[data-links]')
+	const main =     document.querySelector('[data-main]')
+	const logo =     document.querySelector('[data-logo]')
+	const sections = [...logo.querySelectorAll('a')].map((link) => link.getAttribute('href'))
+	const tagline =  document.querySelector('[data-tagline]')
+	const nouns =    document.querySelector('[data-nouns]')
+	const links =    document.querySelector('[data-links]')
+
 
 	getHeights(main, logo, tagline, links)
 	logoScrollScale(logo)
 	invertBackground(nouns, links, invertClass)
-	activeSection(logo, activeClass)
+	activeSection(sections)
 	fixIphoneFlicker(logo, tagline)
 })

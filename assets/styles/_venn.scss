@@ -27,17 +27,17 @@
 			// TODO Derive this from the type, move up to :root.
 			--stroke--width: 0.175rem;
 
-			--icon--size:    calc(var(--tagline--height) * 1 / var(--logo--scale) + var(--link--enlargement) * 2);
+			--icon--size:    calc(var(--tagline--height) * 1 / var(--logo--scale) + var(--link--enlargement) * 3);
 
 			animation:    rotate 20s linear infinite;
 			height:       var(--icon--size);
-			margin:       calc(-1 * var(--link--enlargement));
+			margin:       calc(-1.5 * var(--link--enlargement));
 			overflow:     visible;
 			stroke-width: var(--stroke--width);
 			stroke:       var(--color);
 			width:        var(--icon--size);
 
-			@include breakpoint(768) { --stroke--width: 0.25rem; }
+			@include breakpoint(768) { --stroke--width: 0.225rem; }
 		}
 	}
 }

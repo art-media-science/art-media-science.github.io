@@ -622,7 +622,7 @@ body > main > nav > section:first-child {
 
 body > main > nav > section:first-child > h1 {
 	--typography--size: var(--typography--size--logo);
-	--typography--leading: 5/6;
+	--typography--leading: 0.8;
 	align-items: start;
 	display: flex;
 	flex-direction: column;
@@ -724,10 +724,10 @@ body > main > figure > a:active {
 
 body > main > figure > a > svg {
 	--stroke--width: 0.175rem;
-	--icon--size: calc(var(--tagline--height) * 1 / var(--logo--scale) + var(--link--enlargement) * 2);
+	--icon--size: calc(var(--tagline--height) * 1 / var(--logo--scale) + var(--link--enlargement) * 3);
 	animation: rotate 20s linear infinite;
 	height: var(--icon--size);
-	margin: calc(-1 * var(--link--enlargement));
+	margin: calc(-1.5 * var(--link--enlargement));
 	overflow: visible;
 	stroke-width: var(--stroke--width);
 	stroke: var(--color);
@@ -743,7 +743,7 @@ body > main > figure > a > svg {
 @media (min-width: 48em) and (min-height: 30em),
 (min-width: 58.125em) {
 	body > main > figure > a > svg {
-		--stroke--width: 0.25rem;
+		--stroke--width: 0.225rem;
 	}
 }
 

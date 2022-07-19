@@ -21,8 +21,8 @@
 	> ul {
 		@extend %type--layout;
 
-		--typography--size:    2.4rem;
-		--typography--leading: 1;
+		--typography--leading: var(--typography--leading--tagline);
+		--typography--size:    var(--typography--size--tagline);
 
 		align-items:    start;
 		display:        flex;
@@ -34,10 +34,6 @@
 			margin-bottom: var(--margin--vertical);
 			margin-top:    var(--margin--vertical);
 			position:      sticky;
-		}
-
-		@include breakpoint(768) {
-			--typography--size: 3.6rem;
 		}
 
 		> li {

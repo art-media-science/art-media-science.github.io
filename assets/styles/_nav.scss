@@ -53,8 +53,8 @@
 		> h1 {
 			@extend %font--heldane--regular;
 
+			--typography--size:    var(--typography--size--logo);
 			--typography--leading: calc(5/6);
-			--typography--size:    8.8rem;
 
 			--transition--duration: 100ms;
 
@@ -70,16 +70,7 @@
 			transition-timing-function: linear;
 			will-change:                transform;
 
-			@include breakpoint(320) { --typography--size: 8rem; }
-			@include breakpoint(568) { --typography--size: 7.2rem; }
-
-			@include breakpoint(768) {
-				--typography--size: 12.4rem;
-
-				--transition--duration: 50ms; // Can go faster on desktop.
-			}
-
-			@include breakpoint(1024) { --typography--size: 13.2rem; }
+			@include breakpoint(768) { --transition--duration: 50ms; }// Can go faster on desktop.
 
 			> a {
 				@extend %link--text;
@@ -145,12 +136,8 @@
 			@extend %link--element;
 
 			> p {
-				--typography--size:    2.4rem;
-				--typography--leading: 1;
-
-				@include breakpoint(768) {
-					--typography--size: 3.6rem;
-				}
+				--typography--leading: var(--typography--leading--tagline);
+				--typography--size:    var(--typography--size--tagline);
 			}
 		}
 	}

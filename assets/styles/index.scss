@@ -22,8 +22,13 @@
 
 	--margin:              2.4rem;
 	--margin--vertical:    var(--margin);
-	--typography--leading: 1.2;
-	--typography--size:    2rem;
+
+	--typography--leading:          1.2;
+	--typography--leading--tagline: 1;
+
+	--typography--size:          2rem;
+	--typography--size--logo:    8.8rem;
+	--typography--size--tagline: 2.4rem;
 
 	--column--ratio: 0.382fr 0.618fr; // Golden.
 
@@ -41,12 +46,23 @@
 
 	scroll-behavior: smooth;
 
+
+
+
+	@include breakpoint(320) { --typography--size--logo: 8rem; }
+	@include breakpoint(568) { --typography--size--logo: 7.2rem; }
+
 	@include breakpoint(768) {
 		--margin:           4.8rem;
-		--typography--size: 2.4rem;
+
+		--typography--size:          2.4rem;
+		--typography--size--logo:    12.4rem;
+		--typography--size--tagline: 3.6rem;
 
 		--link--enlargement: 0.8rem;
 	}
+
+	@include breakpoint(1024) { --typography--size--logo: 13.2rem; }
 
 	@include breakpoint(1756) { // Width cap, plus margins.
 		@include tall { --margin--vertical: calc(var(--margin) * 2); }

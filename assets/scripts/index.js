@@ -26,9 +26,8 @@ const getHeights = (main, logo, tagline, links) => {
 		document.body.style.setProperty(taglineHeightVar, ` ${tagline.offsetHeight / 10}rem`)
 		document.body.style.setProperty(linksHeightVar,   ` ${links.offsetHeight / 10}rem`)
 
-		setTimeout(() => { // Since it depends on the other heights.
-			document.body.style.setProperty(mainHeightVar, ` ${main.offsetHeight / 10}rem`)
-		}, 10)
+		// Since it depends on the other heights.
+		setTimeout(() => document.body.style.setProperty(mainHeightVar, ` ${main.offsetHeight / 10}rem`), 10)
 	}
 
 	window.addEventListener('load', updateVars)

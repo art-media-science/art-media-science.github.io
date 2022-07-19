@@ -6,9 +6,7 @@
 
 %--focus {
 	-webkit-tap-highlight-color: var(--link--highlight);
-	cursor:              pointer;
-	transition-duration: 50ms, var(--hover--duration);
-	transition-property: background-color, text-decoration-color;
+	cursor: pointer;
 
 	&:active {
 		background-color: var(--link--highlight);

@@ -43,6 +43,8 @@
 	--color:             white;
 	--color--background: var(--color--accent);
 
+	--color--transition: 200ms;
+
 	--color--link:          rgba(0, 0, 0, 0.033);
 	--color--link--reverse: rgba(255, 255, 255, 0.066);
 
@@ -160,23 +162,23 @@ body {
 			--color--accent: var(--color--art);
 
 			[href="#art"] {     --color: var(--color--accent); }
-			[href="#media"] {   --color: var(--color); }
-			[href="#science"] { --color: var(--color); }
+			[href="#media"] {   --color: black; } // There are briefly multiple classes, so turn off the others.
+			[href="#science"] { --color: black; }
 		}
 
 		&.media {
 			--color--accent: var(--color--media);
 
-			[href="#art"] {     --color: var(--color); }
+			[href="#art"] {     --color: black; }
 			[href="#media"] {   --color: var(--color--accent); }
-			[href="#science"] { --color: var(--color); }
+			[href="#science"] { --color: black; }
 		}
 
 		&.science {
 			--color--accent: var(--color--science);
 
-			[href="#art"] {     --color: var(--color); }
-			[href="#media"] {   --color: var(--color); }
+			[href="#art"] {     --color: black; }
+			[href="#media"] {   --color: black; }
 			[href="#science"] { --color: var(--color--accent); }
 		}
 	}
@@ -184,8 +186,6 @@ body {
 	&,
 	nav,
 	aside {
-		--color--transition: 200ms;
-
 		background:                 var(--color--background);
 		transition-duration:        var(--color--transition);
 		transition-property:        background;
@@ -199,12 +199,13 @@ body {
 		}
 	}
 
-	// Logo/h1 combo (with transform) in the nav doc.
+	h1 > a,
 	p,
 	svg {
+		color:                      var(--color);
 		transition-delay:           calc(var(--color--transition) / 4);
 		transition-duration:        calc(var(--color--transition) / 2);
-		transition-property:        color, stroke;
+		transition-property:        color, fill, stroke;
 		transition-timing-function: linear;
 	}
 

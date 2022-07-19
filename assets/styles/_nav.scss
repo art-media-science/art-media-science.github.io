@@ -62,9 +62,9 @@
 			position:                   absolute;
 			transform-origin:           0px -0.025em; // Optical shift down, for “A“ overshoot.
 			transform:                  scale(var(--scroll--scale));
-			transition-delay:           calc(var(--color--transition) / 4), 0ms;
-			transition-duration:        calc(var(--color--transition) / 2), var(--scroll--scale--duration);
-			transition-property:        color, transform;
+			transition-delay:           0ms;
+			transition-duration:        var(--scroll--scale--duration);
+			transition-property:        transform;
 			transition-timing-function: linear;
 			will-change:                transform;
 
@@ -76,12 +76,10 @@
 
 				border-bottom:  initial; // Fix overlaps.
 				border-top:     initial;
-				color:          var(--color);
 				margin-bottom:  initial;
 				margin-top:     initial;
 				pointer-events: none;
 				position:       relative;
-				transition:     color calc(var(--color--transition) / 2) linear;
 
 				// Better click/tap target.
 				&:before {

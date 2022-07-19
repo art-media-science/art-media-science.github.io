@@ -302,6 +302,7 @@ body > footer > aside > ul {
 
 .focus body > main > nav > section:first-child > h1 > a:not(:disabled):focus,
 .focus body > main > nav > section:last-child > a:not(:disabled):focus,
+.focus body > main > figure > a:not(:disabled):focus,
 .focus body > footer > aside > ul > li > a:not(:disabled):focus {
 	outline-color: var(--color);
 	outline-style: solid;
@@ -310,6 +311,7 @@ body > footer > aside > ul {
 
 body > main > nav > section:first-child > h1 > a,
 body > main > nav > section:last-child > a,
+body > main > figure > a,
 body > footer > aside > ul > li > a {
 	-webkit-tap-highlight-color: var(--link--highlight);
 	cursor: pointer;
@@ -319,31 +321,39 @@ body > footer > aside > ul > li > a {
 
 body > main > nav > section:first-child > h1 > a:active,
 body > main > nav > section:last-child > a:active,
+body > main > figure > a:active,
 body > footer > aside > ul > li > a:active {
 	background-color: var(--link--highlight);
-	border-radius: calc(var(--link--enlargement) / 3);
+	border-radius: calc(var(--link--enlargement) / 2);
 }
 
 body > main > nav > section:first-child > h1 > a:active h1,
 body > main > nav > section:last-child > a:active h1,
+body > main > figure > a:active h1,
 body > footer > aside > ul > li > a:active h1,
 body > main > nav > section:first-child > h1 > a:active h2,
 body > main > nav > section:last-child > a:active h2,
+body > main > figure > a:active h2,
 body > footer > aside > ul > li > a:active h2,
 body > main > nav > section:first-child > h1 > a:active h3,
 body > main > nav > section:last-child > a:active h3,
+body > main > figure > a:active h3,
 body > footer > aside > ul > li > a:active h3,
 body > main > nav > section:first-child > h1 > a:active h4,
 body > main > nav > section:last-child > a:active h4,
+body > main > figure > a:active h4,
 body > footer > aside > ul > li > a:active h4,
 body > main > nav > section:first-child > h1 > a:active h5,
 body > main > nav > section:last-child > a:active h5,
+body > main > figure > a:active h5,
 body > footer > aside > ul > li > a:active h5,
 body > main > nav > section:first-child > h1 > a:active h6,
 body > main > nav > section:last-child > a:active h6,
+body > main > figure > a:active h6,
 body > footer > aside > ul > li > a:active h6,
 body > main > nav > section:first-child > h1 > a:active p,
 body > main > nav > section:last-child > a:active p,
+body > main > figure > a:active p,
 body > footer > aside > ul > li > a:active p {
 	--color--background: transparent;
 	transition-duration: 0s;
@@ -351,18 +361,21 @@ body > footer > aside > ul > li > a:active p {
 
 body > main > nav > section:first-child > h1 > a:focus,
 body > main > nav > section:last-child > a:focus,
+body > main > figure > a:focus,
 body > footer > aside > ul > li > a:focus {
 	outline: none;
 	z-index: 1;
 }
 
 body > main > nav > section:last-child > a,
+body > main > figure > a,
 body > footer > aside > ul > li > a {
 	margin: calc(var(--link--enlargement) * -1);
 	padding: var(--link--enlargement);
 }
 
 body > main > nav > section:last-child > a,
+body > main > figure > a,
 body > footer > aside > ul > li > a {
 	display: flex;
 	flex-direction: column;
@@ -391,6 +404,7 @@ body > main > nav > section:first-child > h1 > a:active {
 	--typography--size--tagline: calc(var(--typography--size) * 1.2);
 	--margin: calc(var(--typography--size) * 1.2);
 	--margin--vertical: var(--margin);
+	--page--width: 100vw;
 	--column--ratio: 0.382fr 0.618fr;
 	--color--accent: #d31919;
 	--color: white;
@@ -430,6 +444,12 @@ body > main > nav > section:first-child > h1 > a:active {
 	}
 }
 
+@media (min-width: 102.5em) {
+	:root {
+		--page--width: 164rem;
+	}
+}
+
 @media (min-width: 110.75em) and (min-height: 64em) {
 	:root {
 		--margin--vertical: calc(var(--margin) * 2);
@@ -455,19 +475,16 @@ body > main > nav > section:first-child > h1 > a:active {
 }
 
 body {
+	margin-left: auto;
+	margin-right: auto;
 	padding-left: var(--safe--inset--left, 0rem);
 	padding-right: var(--safe--inset--right, 0rem);
+	width: var(--page--width);
+	--scroll--scale: calc(1 - (1 - var(--logo--scale)) * var(--logo--scroll));
+	--scroll--scale--duration: 100ms;
 	--logo--height--scaled: calc(var(--logo--height) * var(--logo--scale, 1));
 	--scroll--offset: calc(var(--logo--height--scaled) + var(--tagline--height) + var(--margin) * 4);
 	--scroll--offset--about: calc(var(--tagline--height) + var(--links--height) + var(--margin) * 4);
-}
-
-@media (min-width: 102.5em) {
-	body {
-		margin-left: auto;
-		margin-right: auto;
-		width: 164rem;
-	}
 }
 
 @media (orientation: landscape),
@@ -476,6 +493,13 @@ body {
 	body {
 		--scroll--offset: var(--margin--vertical);
 		--scroll--offset--about: calc(var(--margin--vertical) - 0.1rem);
+	}
+}
+
+@media (min-width: 48em) and (min-height: 30em),
+(min-width: 58.125em) {
+	body {
+		--scroll--scale--duration: 50ms;
 	}
 }
 
@@ -519,10 +543,11 @@ body aside {
 	}
 }
 
-body p {
+body p,
+body svg {
 	transition-delay: calc(var(--color--transition) / 4);
 	transition-duration: calc(var(--color--transition) / 2);
-	transition-property: color;
+	transition-property: color, stroke;
 	transition-timing-function: linear;
 }
 
@@ -590,25 +615,17 @@ body > main > nav > section:first-child {
 body > main > nav > section:first-child > h1 {
 	--typography--size: var(--typography--size--logo);
 	--typography--leading: 5/6;
-	--transition--duration: 100ms;
 	align-items: start;
 	display: flex;
 	flex-direction: column;
 	position: absolute;
 	transform-origin: 0px -0.025em;
-	transform: scale(calc(1 - (1 - var(--logo--scale)) * var(--logo--scroll)));
+	transform: scale(var(--scroll--scale));
 	transition-delay: calc(var(--color--transition) / 4), 0ms;
-	transition-duration: calc(var(--color--transition) / 2), var(--transition--duration);
+	transition-duration: calc(var(--color--transition) / 2), var(--scroll--scale--duration);
 	transition-property: color, transform;
 	transition-timing-function: linear;
 	will-change: transform;
-}
-
-@media (min-width: 48em) and (min-height: 30em),
-(min-width: 58.125em) {
-	body > main > nav > section:first-child > h1 {
-		--transition--duration: 50ms;
-	}
 }
 
 body > main > nav > section:first-child > h1 > a {
@@ -678,6 +695,40 @@ body > main > nav > section:last-child {
 body > main > nav > section:last-child > a > p {
 	--typography--leading: var(--typography--leading--tagline);
 	--typography--size: var(--typography--size--tagline);
+}
+
+body > main > figure {
+	position: fixed;
+	right: calc((100vw - var(--page--width)) / 2 + var(--margin));
+	top: var(--margin--vertical);
+	transform-origin: top right;
+	transform: scale(var(--scroll--scale));
+	transition-duration: var(--scroll--scale--duration);
+	transition-property: transform;
+	transition-timing-function: linear;
+	will-change: transform;
+}
+
+body > main > figure > a,
+body > main > figure > a:active {
+	border-radius: 50%;
+}
+
+body > main > figure > a > svg {
+	--stroke--width: 0.175rem;
+	--icon--size: calc(var(--tagline--height) * 1 / var(--logo--scale));
+	overflow: visible;
+	height: var(--icon--size);
+	stroke: var(--color);
+	stroke-width: var(--stroke--width);
+	width: var(--icon--size);
+}
+
+@media (min-width: 48em) and (min-height: 30em),
+(min-width: 58.125em) {
+	body > main > figure > a > svg {
+		--stroke--width: 0.25rem;
+	}
 }
 
 body > main > section {

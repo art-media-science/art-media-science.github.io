@@ -47,7 +47,7 @@
 		top:           var(--margin--vertical);
 
 		@include landscape {
-			margin-bottom: calc(100vh - var(--logo--height--scaled) - var(--margin--vertical) * 2);
+			margin-bottom: calc(var(--vh--initial, 100vh) - var(--logo--height--scaled) - var(--margin--vertical) * 2);
 		}
 
 		> h1 {

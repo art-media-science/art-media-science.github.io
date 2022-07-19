@@ -12,7 +12,7 @@
 	--nouns--spacing: calc(var(--margin--vertical) * 4);
 
 	--nouns--height: calc(
-			100vh
+			var(--vh--initial, 100vh)
 			- var(--logo--height--scaled)
 			- var(--tagline--height)
 			- var(--margin--vertical) * 5
@@ -33,7 +33,7 @@
 			);
 
 		--nouns--height: calc(
-				100vh
+				var(--vh--initial, 100vh)
 				- var(--tagline--height)
 				- var(--margin--vertical) * 2
 				- var(--nouns--spacing)

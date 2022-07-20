@@ -1,0 +1,75 @@
+& {
+	--color:             white;
+	--color--background: var(--color--accent);
+
+	&.art { --color--accent: var(--color--art); }
+	&.media { --color--accent: var(--color--media); }
+	&.science { --color--accent: var(--color--science); }
+
+	&.main {
+		--color:             black;
+		--color--background: white;
+
+		--link--highlight: var(--color--link);
+
+		&.art {
+			[href="#art"] {     --color: var(--color--accent); }
+			[href="#media"] {   --color: black; } // There are briefly multiple classes, so turn off the others.
+			[href="#science"] { --color: black; }
+		}
+
+		&.media {
+			[href="#art"] {     --color: black; }
+			[href="#media"] {   --color: var(--color--accent); }
+			[href="#science"] { --color: black; }
+		}
+
+		&.science {
+			[href="#art"] {     --color: black; }
+			[href="#media"] {   --color: black; }
+			[href="#science"] { --color: var(--color--accent); }
+		}
+	}
+
+	&,
+	nav,
+	aside {
+		background:                 var(--color--background);
+		transition-duration:        var(--color--transition);
+		transition-property:        background;
+		transition-timing-function: ease-in-out;
+	}
+
+	&.invert {
+		&,
+		nav,
+		aside {
+			transition-duration: 7800ms; // Ballparking the JS.
+		}
+	}
+
+	&.main {
+		&,
+		nav,
+		aside {
+			transition-duration: var(--color--transition);
+		}
+	}
+
+	@include landscape {
+		nav,
+		aside {
+			background: initial;
+		}
+	}
+
+	h1 > a,
+	p,
+	svg {
+		color:                      var(--color);
+		transition-delay:           calc(var(--color--transition) / 4);
+		transition-duration:        calc(var(--color--transition) / 2);
+		transition-property:        color, fill, stroke;
+		transition-timing-function: linear;
+	}
+}

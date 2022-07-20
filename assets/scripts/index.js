@@ -15,9 +15,10 @@ const taglineHeightVar = '--tagline--height'
 const linksHeightVar =   '--links--height'
 const scrollVar =        '--logo--scroll'
 
-const mainClass = 'main'
+const invertClass =  'invert'
+const mainClass =    'main'
 
-const backgroundCycleTimer = 10000
+const backgroundCycleTimer = 8000
 
 
 
@@ -79,6 +80,7 @@ const invertBackground = (nouns, links, mainClass, sections) => {
 				document.body.classList.add(mainClass)
 				sections.forEach((section) => document.body.classList.remove(section))
 			}
+			setTimeout(() => document.body.classList.remove(invertClass), 100)
 		} else {
 			if (document.body.classList.contains(mainClass)) {
 				document.body.classList.remove(mainClass)
@@ -89,6 +91,7 @@ const invertBackground = (nouns, links, mainClass, sections) => {
 				cycleBackgroundColor(sections)
 				backgroundCycle = setInterval(() => cycleBackgroundColor(sections), backgroundCycleTimer)
 			}
+			setTimeout(() => document.body.classList.add(invertClass), 100)
 		}
 	}
 

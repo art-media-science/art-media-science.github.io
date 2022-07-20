@@ -98,9 +98,12 @@ const activeSection = (sections) => {
 	sections.forEach((section) => {
 		const observer = new IntersectionObserver(entries => {
 			const [entry] = entries;
-			(entry.isIntersecting) ? document.body.classList.add(section) : document.body.classList.remove(section)
+			if (document.body.classList.contains(invertClass)) {
+				(entry.isIntersecting) ? document.body.classList.add(section) : document.body.classList.remove(section)
+			}
 		}, {
-			rootMargin: '-33% 0px -25% 0px',
+			rootMargin: '-25% 0px -25% 0px',
+			threshold:  [0, 0.1, 0.25, 0.5, 0.75, 1] // Catch “Science” more times coming back up from footer.
 		})
 
 		setTimeout(() => observer.observe(document.getElementById(section)), 10) // Let the layout settle.

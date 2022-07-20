@@ -114,18 +114,20 @@ const scrollVar = '--logo--scroll'
 const invertClass = 'invert'
 const mainClass = 'main'
 
-const backgroundCycleTimer = 8000
+let nounCycle
+const nounCycleTimer = 8000
 
 
 
 const getHeights = (main, logo, tagline, links) => {
-	const updateVars = () => {
-		document.body.style.setProperty(logoHeightVar, ` ${logo.offsetHeight / 10}rem`)
-		document.body.style.setProperty(taglineHeightVar, ` ${tagline.offsetHeight / 10}rem`)
-		document.body.style.setProperty(linksHeightVar, ` ${links.offsetHeight / 10}rem`)
+	const setHeightVar = (element, variable) => document.body.style.setProperty(variable, ` ${element.offsetHeight / 10}rem`)
 
-		// Since it depends on the other heights.
-		setTimeout(() => document.body.style.setProperty(mainHeightVar, ` ${main.offsetHeight / 10}rem`), 10)
+	const updateVars = () => {
+		setHeightVar(logo, logoHeightVar)
+		setHeightVar(tagline, taglineHeightVar)
+		setHeightVar(links, linksHeightVar)
+
+		setTimeout(() => setHeightVar(main, mainHeightVar), 10) // Since it depends on the other heights.
 	}
 
 	window.addEventListener('load', updateVars)
@@ -134,10 +136,11 @@ const getHeights = (main, logo, tagline, links) => {
 
 
 
-logoScrollScale = (logo) => {
+const getScrollDistance = (logo) => {
 	let scrollDistance
 
 	const clamp = (num, min, max) => Math.min(Math.max(num, min), max)
+	const updateScrollDistance = () => scrollDistance = parseFloat(getComputedStyle(logo.parentElement).marginTop)
 
 	const updateScroll = () => {
 		// The extra/early 10px “softens” the transition a bit.
@@ -147,14 +150,12 @@ logoScrollScale = (logo) => {
 	}
 
 	window.addEventListener('load', () => {
-		scrollDistance = parseFloat(getComputedStyle(logo.parentElement).marginTop)
-
+		updateScrollDistance()
 		updateScroll()
 	})
 
 	window.addEventListener('resize', () => {
-		scrollDistance = parseFloat(getComputedStyle(logo.parentElement).marginTop)
-
+		updateScrollDistance()
 		updateScroll()
 	})
 
@@ -163,32 +164,29 @@ logoScrollScale = (logo) => {
 
 
 
-const invertBackground = (nouns, links, mainClass, sections) => {
+const watchMainVisible = (nouns, links, content) => {
 	let scrollDown
 
 	const checkBounds = () => {
 		viewport = window.innerHeight
-		nounsTop = nouns.getBoundingClientRect().top
+		contentTop = content.getBoundingClientRect().top
 		linksBottom = links.getBoundingClientRect().bottom
 
-		if (nounsTop <= viewport && viewport <= linksBottom) {
-			if (!document.body.classList.contains(mainClass)) {
-				document.body.classList.add(mainClass)
-				sections.forEach((section) => document.body.classList.remove(section))
+		if (contentTop <= viewport && viewport <= linksBottom) { // Intersecting.
+			if (!body.contains(mainClass)) {
+				body.add(mainClass)
+				nouns.forEach((noun) => body.remove(noun))
 			}
-			setTimeout(() => document.body.classList.remove(invertClass), 100)
+			if (body.contains(invertClass)) setTimeout(() => body.remove(invertClass), 100) // Delayed to differentiate in/out.
 		} else {
-			if (document.body.classList.contains(mainClass)) {
-				document.body.classList.remove(mainClass)
+			if (body.contains(mainClass)) {
+				body.remove(mainClass)
 
-				if (scrollDown) sections.forEach((section) => document.body.classList.remove(section))
+				if (scrollDown) nouns.forEach((noun) => body.remove(noun))
 
-				clearInterval(backgroundCycle); // Clear the timer.
-				cycleBackgroundColor(sections)
-				setTimeout(() => cycleBackgroundColor(sections), 200) // Fade right away.
-				backgroundCycle = setInterval(() => cycleBackgroundColor(sections), backgroundCycleTimer)
+				cycleRandomNoun(nouns)
 			}
-			setTimeout(() => document.body.classList.add(invertClass), 100)
+			if (!body.contains(invertClass)) setTimeout(() => body.add(invertClass), 100)
 		}
 	}
 
@@ -205,39 +203,47 @@ const invertBackground = (nouns, links, mainClass, sections) => {
 
 
 
-const activeSection = (sections) => {
-	sections.forEach((section) => {
+watchCurrentNoun = (nouns) => {
+	nouns.forEach((noun) => {
 		const observer = new IntersectionObserver(entries => {
 			const [entry] = entries;
-			if (document.body.classList.contains(mainClass)) {
-				(entry.isIntersecting) ? document.body.classList.add(section): document.body.classList.remove(section)
+			if (body.contains(mainClass)) {
+				(entry.isIntersecting) ? body.add(noun): body.remove(noun)
 			}
 		}, {
 			rootMargin: '-25% 0px -25% 0px',
 			threshold: [0, 0.1, 0.25, 0.5, 0.75, 1] // Catch “Science” more times coming back up from footer.
 		})
 
-		setTimeout(() => observer.observe(document.getElementById(section)), 10) // Let the layout settle.
+		setTimeout(() => observer.observe(document.getElementById(noun)), 10) // Let the layout settle.
 	})
 }
 
 
 
-const cycleBackgroundColor = (sections) => {
-	if (!document.body.classList.contains(mainClass)) {
-		let randomSection = sections[Math.floor(Math.random() * sections.length)]
+const randomNoun = (nouns) => {
+	if (!body.contains(mainClass)) {
+		let randomNoun = nouns[Math.floor(Math.random() * nouns.length)]
 
-		while (document.body.classList.contains(randomSection)) {
-			randomSection = sections[Math.floor(Math.random() * sections.length)]
+		while (body.contains(randomNoun)) {
+			randomNoun = nouns[Math.floor(Math.random() * nouns.length)]
 		}
-		sections.forEach((section) => document.body.classList.remove(section))
-		document.body.classList.add(randomSection)
+		nouns.forEach((noun) => body.remove(noun))
+		body.add(randomNoun)
 	}
+}
+
+const cycleRandomNoun = (nouns) => {
+	clearInterval(nounCycle) // Clear the timer, if there is one.
+	randomNoun(nouns) // Apply the first one.
+	setTimeout(() => randomNoun(nouns), 200) // Again so it is fading right away.
+	nounCycle = setInterval(() => randomNoun(nouns), nounCycleTimer) // Then on a timer.
 }
 
 
 
-const fixIphoneFlicker = (...elements) => {
+
+const fixMobileSafariFlicker = (...elements) => {
 	// iPhones… and narrow iPad views.
 	if (navigator.platform.includes('iPhone') || navigator.platform.includes('iPad')) {
 		elements.forEach((element) => {
@@ -252,20 +258,20 @@ const fixIphoneFlicker = (...elements) => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
+	window.body = document.body.classList // Save some repetition.
+
 	const main = document.querySelector('[data-main]')
 	const logo = document.querySelector('[data-logo]')
 	const tagline = document.querySelector('[data-tagline]')
-	const nouns = document.querySelector('[data-nouns]')
+	const content = document.querySelector('[data-content]')
 	const links = document.querySelector('[data-links]')
-	const sections = [...logo.querySelectorAll('a')].map((link) => link.getAttribute('href').replace('#', ''))
+
+	const nouns = [...logo.querySelectorAll('a')].map((link) => link.getAttribute('href').replace('#', ''))
 
 	getHeights(main, logo, tagline, links)
-	logoScrollScale(logo)
-	invertBackground(nouns, links, mainClass, sections)
-	activeSection(sections)
-	fixIphoneFlicker(logo, tagline)
-
-	cycleBackgroundColor(sections) // Apply the first one.
-	setTimeout(() => cycleBackgroundColor(sections), 200) // Again so it is fading right away.
-	backgroundCycle = setInterval(() => cycleBackgroundColor(sections), backgroundCycleTimer) // Then on a timer.
+	getScrollDistance(logo)
+	watchMainVisible(nouns, links, content)
+	watchCurrentNoun(nouns)
+	cycleRandomNoun(nouns)
+	fixMobileSafariFlicker(logo, tagline)
 })

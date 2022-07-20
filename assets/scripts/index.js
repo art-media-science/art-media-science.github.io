@@ -68,7 +68,7 @@ const getScrollDistance = (logo) => {
 
 
 
-const watchMainVisible = (nouns, links, mainClass, sections) => {
+const watchMainVisible = (nouns, links, sections) => {
 	let scrollDown
 
 	const checkBounds = () => {
@@ -77,23 +77,23 @@ const watchMainVisible = (nouns, links, mainClass, sections) => {
 		linksBottom = links.getBoundingClientRect().bottom
 
 		if (nounsTop <= viewport &&  viewport <= linksBottom) {
-			if (!document.body.classList.contains(mainClass)) {
-				document.body.classList.add(mainClass)
-				sections.forEach((section) => document.body.classList.remove(section))
+			if (!body.contains(mainClass)) {
+				body.add(mainClass)
+				sections.forEach((section) => body.remove(section))
 			}
-			if (document.body.classList.contains(invertClass)) {
-				setTimeout(() => document.body.classList.remove(invertClass), 100) // Delayed to differentiate in/out.
+			if (body.contains(invertClass)) {
+				setTimeout(() => body.remove(invertClass), 100) // Delayed to differentiate in/out.
 			}
 		} else {
-			if (document.body.classList.contains(mainClass)) {
-				document.body.classList.remove(mainClass)
+			if (body.contains(mainClass)) {
+				body.remove(mainClass)
 
-				if (scrollDown) sections.forEach((section) => document.body.classList.remove(section))
+				if (scrollDown) sections.forEach((section) => body.remove(section))
 
 				cycleRandomSection(sections)
 			}
-			if (!document.body.classList.contains(invertClass)) {
-				setTimeout(() => document.body.classList.add(invertClass), 100)
+			if (!body.contains(invertClass)) {
+				setTimeout(() => body.add(invertClass), 100)
 			}
 		}
 	}
@@ -115,8 +115,8 @@ watchCurrentSection = (sections) => {
 	sections.forEach((section) => {
 		const observer = new IntersectionObserver(entries => {
 			const [entry] = entries;
-			if (document.body.classList.contains(mainClass)) {
-				(entry.isIntersecting) ? document.body.classList.add(section) : document.body.classList.remove(section)
+			if (body.contains(mainClass)) {
+				(entry.isIntersecting) ? body.add(section) : body.remove(section)
 			}
 		}, {
 			rootMargin: '-25% 0px -25% 0px',
@@ -130,14 +130,14 @@ watchCurrentSection = (sections) => {
 
 
 const randomSection = (sections) => {
-	if (!document.body.classList.contains(mainClass)) {
+	if (!body.contains(mainClass)) {
 		let randomSection = sections[Math.floor(Math.random() * sections.length)]
 
-		while (document.body.classList.contains(randomSection)) {
+		while (body.contains(randomSection)) {
 			randomSection = sections[Math.floor(Math.random() * sections.length)]
 		}
-		sections.forEach((section) => document.body.classList.remove(section))
-		document.body.classList.add(randomSection)
+		sections.forEach((section) => body.remove(section))
+		body.add(randomSection)
 	}
 }
 
@@ -166,6 +166,8 @@ const fixIphoneFlicker = (...elements) => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
+	window.body = document.body.classList // Save some repetition.
+
 	const main =     document.querySelector('[data-main]')
 	const logo =     document.querySelector('[data-logo]')
 	const tagline =  document.querySelector('[data-tagline]')
@@ -175,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	getHeights(main, logo, tagline, links)
 	getScrollDistance(logo)
-	watchMainVisible(nouns, links, mainClass, sections)
+	watchMainVisible(nouns, links, sections)
 	watchCurrentSection(sections)
 	cycleRandomSection(sections)
 	fixIphoneFlicker(logo, tagline)

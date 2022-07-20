@@ -69,7 +69,7 @@ const getScrollDistance = (logo) => {
 
 
 
-const watchMainVisible = (links, content) => {
+const watchMain = (links, content) => {
 	let scrollDown
 
 	const checkBounds = () => {
@@ -101,14 +101,14 @@ const watchMainVisible = (links, content) => {
 	window.addEventListener('scroll', () => {
 		checkBounds();
 
-		scrollDown = this.previousScroll < this.scrollY
-		this.previousScroll = this.scrollY
+		scrollDown = window.previousScrollY < window.scrollY
+		window.previousScrollY = window.scrollY
 	})
 }
 
 
 
-watchCurrentNoun = () => {
+watchNouns = () => {
 	nouns.forEach((noun) => {
 		const observer = new IntersectionObserver(entries => {
 			const [entry] = entries;
@@ -127,6 +127,8 @@ watchCurrentNoun = () => {
 
 
 const randomNoun = () => {
+	// const updateScrollDistance = () => scrollDistance = parseFloat(getComputedStyle(logo.parentElement).marginTop)
+
 	if (!body.contains(mainClass)) {
 		let randomNoun = nouns[Math.floor(Math.random() * nouns.length)]
 
@@ -173,8 +175,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	getHeights(main, logo, tagline, links)
 	getScrollDistance(logo)
-	watchMainVisible(links, content)
-	watchCurrentNoun()
+	watchMain(links, content)
+	watchNouns()
 	cycleRandomNoun()
 	fixMobileSafariFlicker(logo, tagline)
 })

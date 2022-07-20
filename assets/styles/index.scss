@@ -112,10 +112,6 @@ body {
 	padding-right: var(--safe--inset--right, 0rem);
 	width:         var(--page--width);
 
-	@include landscape {
-		padding-right: calc(var(--safe--inset--right, 0rem) + var(--tagline--height) + var(--margin));
-	}
-
 
 
 	// Scrolley stuff.

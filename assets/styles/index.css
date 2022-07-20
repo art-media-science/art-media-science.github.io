@@ -466,21 +466,14 @@ body {
 	padding-left: var(--safe--inset--left, 0rem);
 	padding-right: var(--safe--inset--right, 0rem);
 	width: var(--page--width);
+}
+
+body {
 	--scroll--scale: calc(1 - (1 - var(--logo--scale)) * var(--logo--scroll));
 	--scroll--scale--duration: 100ms;
 	--logo--height--scaled: calc(var(--logo--height) * var(--logo--scale, 1));
 	--scroll--offset: calc(var(--logo--height--scaled) + var(--tagline--height) + var(--margin) * 4);
 	--scroll--offset--about: calc(var(--tagline--height) + var(--links--height) + var(--margin) * 4);
-	--color: white;
-	--color--background: var(--color--accent);
-}
-
-@media (orientation: landscape),
-(min-width: 35.5em) and (min-height: 30em),
-(min-width: 58.125em) {
-	body {
-		padding-right: calc(var(--safe--inset--right, 0rem) + var(--tagline--height) + var(--margin));
-	}
 }
 
 @media (orientation: landscape),
@@ -507,6 +500,11 @@ body #science {
 
 body #about {
 	scroll-margin-top: var(--scroll--offset--about);
+}
+
+body {
+	--color: white;
+	--color--background: var(--color--accent);
 }
 
 body.art {

@@ -175,5 +175,4 @@ document.addEventListener('DOMContentLoaded', () => {
 	watchCurrentSection(sections)
 	cycleRandomSection(sections)
 	fixIphoneFlicker(logo, tagline)
-
 })

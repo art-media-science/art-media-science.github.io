@@ -13,7 +13,7 @@
 			{% comment %} This Liquid mess uses hr/h1 to define content sections from one Markdown file. {% endcomment %}
 			{% assign nouns = content | split: '<hr />' | first | split: '<h1 ' | shift %}
 			{% assign about = content | split: '<hr />' | last %}
-			<section data-nouns>
+			<section data-content>
 				{% for noun in nouns %}
 					{% assign noun_id = noun | split: '>' | first %}
 					{% assign noun_content = noun | split: '</h1>' | last %}

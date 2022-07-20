@@ -18,8 +18,8 @@ const scrollVar =        '--logo--scroll'
 const invertClass = 'invert'
 const mainClass =   'main'
 
-let   cycleSection
-const cycleSectionTimer = 8000
+let   nounCycle
+const nounCycleTimer = 8000
 
 
 
@@ -68,27 +68,27 @@ const getScrollDistance = (logo) => {
 
 
 
-const watchMainVisible = (nouns, links, sections) => {
+const watchMainVisible = (nouns, links, content) => {
 	let scrollDown
 
 	const checkBounds = () => {
-		viewport = window.innerHeight
-		nounsTop = nouns.getBoundingClientRect().top
+		viewport =    window.innerHeight
+		contentTop =  content.getBoundingClientRect().top
 		linksBottom = links.getBoundingClientRect().bottom
 
-		if (nounsTop <= viewport && viewport <= linksBottom) { // Intersecting.
+		if (contentTop <= viewport && viewport <= linksBottom) { // Intersecting.
 			if (!body.contains(mainClass)) {
 				body.add(mainClass)
-				sections.forEach((section) => body.remove(section))
+				nouns.forEach((noun) => body.remove(noun))
 			}
 			if (body.contains(invertClass)) setTimeout(() => body.remove(invertClass), 100) // Delayed to differentiate in/out.
 		} else {
 			if (body.contains(mainClass)) {
 				body.remove(mainClass)
 
-				if (scrollDown) sections.forEach((section) => body.remove(section))
+				if (scrollDown) nouns.forEach((noun) => body.remove(noun))
 
-				cycleRandomSection(sections)
+				cycleRandomNoun(nouns)
 			}
 			if (!body.contains(invertClass)) setTimeout(() => body.add(invertClass), 100)
 		}
@@ -107,47 +107,47 @@ const watchMainVisible = (nouns, links, sections) => {
 
 
 
-watchCurrentSection = (sections) => {
-	sections.forEach((section) => {
+watchCurrentNoun = (nouns) => {
+	nouns.forEach((noun) => {
 		const observer = new IntersectionObserver(entries => {
 			const [entry] = entries;
 			if (body.contains(mainClass)) {
-				(entry.isIntersecting) ? body.add(section) : body.remove(section)
+				(entry.isIntersecting) ? body.add(noun) : body.remove(noun)
 			}
 		}, {
 			rootMargin: '-25% 0px -25% 0px',
 			threshold:  [0, 0.1, 0.25, 0.5, 0.75, 1] // Catch “Science” more times coming back up from footer.
 		})
 
-		setTimeout(() => observer.observe(document.getElementById(section)), 10) // Let the layout settle.
+		setTimeout(() => observer.observe(document.getElementById(noun)), 10) // Let the layout settle.
 	})
 }
 
 
 
-const randomSection = (sections) => {
+const randomNoun = (nouns) => {
 	if (!body.contains(mainClass)) {
-		let randomSection = sections[Math.floor(Math.random() * sections.length)]
+		let randomNoun = nouns[Math.floor(Math.random() * nouns.length)]
 
-		while (body.contains(randomSection)) {
-			randomSection = sections[Math.floor(Math.random() * sections.length)]
+		while (body.contains(randomNoun)) {
+			randomNoun = nouns[Math.floor(Math.random() * nouns.length)]
 		}
-		sections.forEach((section) => body.remove(section))
-		body.add(randomSection)
+		nouns.forEach((noun) => body.remove(noun))
+		body.add(randomNoun)
 	}
 }
 
-const cycleRandomSection = (sections) => {
-	clearInterval(cycleSection) // Clear the timer, if there is one.
-	randomSection(sections) // Apply the first one.
-	setTimeout(() => randomSection(sections), 200) // Again so it is fading right away.
-	cycleSection = setInterval(() => randomSection(sections), cycleSectionTimer) // Then on a timer.
+const cycleRandomNoun = (nouns) => {
+	clearInterval(nounCycle) // Clear the timer, if there is one.
+	randomNoun(nouns) // Apply the first one.
+	setTimeout(() => randomNoun(nouns), 200) // Again so it is fading right away.
+	nounCycle = setInterval(() => randomNoun(nouns), nounCycleTimer) // Then on a timer.
 }
 
 
 
 
-const fixIphoneFlicker = (...elements) => {
+const fixMobileSafariFlicker = (...elements) => {
 	// iPhones… and narrow iPad views.
 	if (navigator.platform.includes('iPhone') || navigator.platform.includes('iPad')) {
 		elements.forEach((element) => {
@@ -164,17 +164,18 @@ const fixIphoneFlicker = (...elements) => {
 document.addEventListener('DOMContentLoaded', () => {
 	window.body = document.body.classList // Save some repetition.
 
-	const main =     document.querySelector('[data-main]')
-	const logo =     document.querySelector('[data-logo]')
-	const tagline =  document.querySelector('[data-tagline]')
-	const nouns =    document.querySelector('[data-nouns]')
-	const links =    document.querySelector('[data-links]')
-	const sections = [...logo.querySelectorAll('a')].map((link) => link.getAttribute('href').replace('#', ''))
+	const main =    document.querySelector('[data-main]')
+	const logo =    document.querySelector('[data-logo]')
+	const tagline = document.querySelector('[data-tagline]')
+	const content = document.querySelector('[data-content]')
+	const links =   document.querySelector('[data-links]')
+
+	const nouns = [...logo.querySelectorAll('a')].map((link) => link.getAttribute('href').replace('#', ''))
 
 	getHeights(main, logo, tagline, links)
 	getScrollDistance(logo)
-	watchMainVisible(nouns, links, sections)
-	watchCurrentSection(sections)
-	cycleRandomSection(sections)
-	fixIphoneFlicker(logo, tagline)
+	watchMainVisible(nouns, links, content)
+	watchCurrentNoun(nouns)
+	cycleRandomNoun(nouns)
+	fixMobileSafariFlicker(logo, tagline)
 })

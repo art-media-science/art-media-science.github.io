@@ -8,6 +8,7 @@
 {% include_relative _viewporter.js %}
 
 
+const nouns = ['art', 'media', 'science']
 
 const mainHeightVar =    '--main--height'
 const logoHeightVar =    '--logo--height'
@@ -68,7 +69,7 @@ const getScrollDistance = (logo) => {
 
 
 
-const watchMainVisible = (nouns, links, content) => {
+const watchMainVisible = (links, content) => {
 	let scrollDown
 
 	const checkBounds = () => {
@@ -107,7 +108,7 @@ const watchMainVisible = (nouns, links, content) => {
 
 
 
-watchCurrentNoun = (nouns) => {
+watchCurrentNoun = () => {
 	nouns.forEach((noun) => {
 		const observer = new IntersectionObserver(entries => {
 			const [entry] = entries;
@@ -125,7 +126,7 @@ watchCurrentNoun = (nouns) => {
 
 
 
-const randomNoun = (nouns) => {
+const randomNoun = () => {
 	if (!body.contains(mainClass)) {
 		let randomNoun = nouns[Math.floor(Math.random() * nouns.length)]
 
@@ -137,7 +138,7 @@ const randomNoun = (nouns) => {
 	}
 }
 
-const cycleRandomNoun = (nouns) => {
+const cycleRandomNoun = () => {
 	clearInterval(nounCycle) // Clear the timer, if there is one.
 	randomNoun(nouns) // Apply the first one.
 	setTimeout(() => randomNoun(nouns), 200) // Again so it is fading right away.
@@ -170,12 +171,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	const content = document.querySelector('[data-content]')
 	const links =   document.querySelector('[data-links]')
 
-	const nouns = [...logo.querySelectorAll('a')].map((link) => link.getAttribute('href').replace('#', ''))
-
 	getHeights(main, logo, tagline, links)
 	getScrollDistance(logo)
-	watchMainVisible(nouns, links, content)
-	watchCurrentNoun(nouns)
-	cycleRandomNoun(nouns)
+	watchMainVisible(links, content)
+	watchCurrentNoun()
+	cycleRandomNoun()
 	fixMobileSafariFlicker(logo, tagline)
 })

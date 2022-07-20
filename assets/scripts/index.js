@@ -75,7 +75,10 @@ const invertBackground = (nouns, links, mainClass, sections) => {
 		linksBottom = links.getBoundingClientRect().bottom
 
 		if (nounsTop <= viewport &&  viewport <= linksBottom) {
-			document.body.classList.add(mainClass)
+			if (!document.body.classList.contains(mainClass)) {
+				document.body.classList.add(mainClass)
+				sections.forEach((section) => document.body.classList.remove(section))
+			}
 		} else {
 			if (document.body.classList.contains(mainClass)) {
 				document.body.classList.remove(mainClass)

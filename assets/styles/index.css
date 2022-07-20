@@ -407,9 +407,6 @@ body > main > nav > section:first-child > h1 > a:active {
 	--color--art: #d22d2d;
 	--color--media: #e6a50f;
 	--color--science: #145fb8;
-	--color--accent: #808080;
-	--color: white;
-	--color--background: var(--color--accent);
 	--color--transition: 200ms;
 	--color--link: rgba(0, 0, 0, 0.033);
 	--color--link--reverse: rgba(255, 255, 255, 0.066);
@@ -487,6 +484,8 @@ body {
 	--logo--height--scaled: calc(var(--logo--height) * var(--logo--scale, 1));
 	--scroll--offset: calc(var(--logo--height--scaled) + var(--tagline--height) + var(--margin) * 4);
 	--scroll--offset--about: calc(var(--tagline--height) + var(--links--height) + var(--margin) * 4);
+	--color: white;
+	--color--background: var(--color--accent);
 }
 
 @media (orientation: landscape),
@@ -523,57 +522,57 @@ body #about {
 	scroll-margin-top: var(--scroll--offset--about);
 }
 
-body.invert {
+body.art {
+	--color--accent: var(--color--art);
+}
+
+body.media {
+	--color--accent: var(--color--media);
+}
+
+body.science {
+	--color--accent: var(--color--science);
+}
+
+body.main {
 	--color: black;
 	--color--background: white;
 	--link--highlight: var(--color--link);
 }
 
-body.invert.art {
-	--color--accent: var(--color--art);
-}
-
-body.invert.art [href="#art"] {
+body.main.art [href="#art"] {
 	--color: var(--color--accent);
 }
 
-body.invert.art [href="#media"] {
+body.main.art [href="#media"] {
 	--color: black;
 }
 
-body.invert.art [href="#science"] {
+body.main.art [href="#science"] {
 	--color: black;
 }
 
-body.invert.media {
-	--color--accent: var(--color--media);
-}
-
-body.invert.media [href="#art"] {
+body.main.media [href="#art"] {
 	--color: black;
 }
 
-body.invert.media [href="#media"] {
+body.main.media [href="#media"] {
 	--color: var(--color--accent);
 }
 
-body.invert.media [href="#science"] {
+body.main.media [href="#science"] {
 	--color: black;
 }
 
-body.invert.science {
-	--color--accent: var(--color--science);
-}
-
-body.invert.science [href="#art"] {
+body.main.science [href="#art"] {
 	--color: black;
 }
 
-body.invert.science [href="#media"] {
+body.main.science [href="#media"] {
 	--color: black;
 }
 
-body.invert.science [href="#science"] {
+body.main.science [href="#science"] {
 	--color: var(--color--accent);
 }
 
@@ -583,7 +582,19 @@ body aside {
 	background: var(--color--background);
 	transition-duration: var(--color--transition);
 	transition-property: background;
-	transition-timing-function: linear;
+	transition-timing-function: ease-in-out;
+}
+
+body.invert,
+body.invert nav,
+body.invert aside {
+	transition-duration: 7800ms;
+}
+
+body.main,
+body.main nav,
+body.main aside {
+	transition-duration: var(--color--transition);
 }
 
 @media (orientation: landscape),

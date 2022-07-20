@@ -17,6 +17,8 @@ const scrollVar =        '--logo--scroll'
 
 const invertClass =   'invert'
 
+const backgroundCycleTimer = 10000
+
 
 
 const getHeights = (main, logo, tagline, links) => {
@@ -75,9 +77,15 @@ const invertBackground = (nouns, links, invertClass, sections) => {
 		if (nounsTop <= viewport &&  viewport <= linksBottom) {
 			document.body.classList.add(invertClass)
 		} else {
-			document.body.classList.remove(invertClass)
+			if (document.body.classList.contains(invertClass)) {
+				document.body.classList.remove(invertClass)
 
-			if (scrollDown) sections.forEach((section) => document.body.classList.remove(section))
+				if (scrollDown) sections.forEach((section) => document.body.classList.remove(section))
+
+				clearInterval(backgroundCycle);
+				cycleBackgroundColor(sections)
+				backgroundCycle = setInterval(() => cycleBackgroundColor(sections), backgroundCycleTimer)
+			}
 		}
 	}
 
@@ -112,6 +120,21 @@ const activeSection = (sections) => {
 
 
 
+const cycleBackgroundColor = (sections) => {
+	if (!document.body.classList.contains(invertClass)) {
+		console.log("RAN")
+		let randomSection = sections[Math.floor(Math.random() * sections.length)]
+
+		while (document.body.classList.contains(randomSection)) {
+			randomSection = sections[Math.floor(Math.random() * sections.length)]
+		}
+		sections.forEach((section) => document.body.classList.remove(section))
+		document.body.classList.add(randomSection)
+	}
+}
+
+
+
 const fixIphoneFlicker = (...elements) => {
 	// iPhones… and narrow iPad views.
 	if (navigator.platform.includes('iPhone') || navigator.platform.includes('iPad')) {
@@ -139,4 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	invertBackground(nouns, links, invertClass, sections)
 	activeSection(sections)
 	fixIphoneFlicker(logo, tagline)
+
+	cycleBackgroundColor(sections)
+	backgroundCycle = setInterval(() => cycleBackgroundColor(sections), backgroundCycleTimer)
 })

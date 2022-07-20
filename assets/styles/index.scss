@@ -34,14 +34,14 @@
 
 	--column--ratio: 0.382fr 0.618fr; // Golden.
 
-	--color--art:     #be3737;
-	--color--media:   #e6a50f;
-	--color--science: #1a60b2;
+	--color--art:     hsl(360, 55%, 48%);
+	--color--media:   hsl(42,  88%, 48%);
+	--color--science: hsl(212, 75%, 40%);
 
 	--color--transition: 200ms;
 
-	--color--link:          rgba(0, 0, 0, 0.033);
-	--color--link--reverse: rgba(255, 255, 255, 0.066);
+	--color--link:          hsl(0, 0%, 0%, 3.333%);
+	--color--link--reverse: hsl(0, 0%, 100%, 6.666%);
 
 	--link--enlargement:    0.4rem;
 	--link--highlight:      var(--color--link--reverse);
@@ -84,8 +84,8 @@
 	}
 
 	@include browser-specific(safari--mobile) {
-		--color--link:          rgba(0, 0, 0, 0.1);
-		--color--link--reverse: rgba(255, 255, 255, 0.2);
+		--color--link:          hsl(0, 0%, 0%, 10%);
+		--color--link--reverse: hsl(0, 0%, 100%, 20%);
 	}
 
 

@@ -32,7 +32,7 @@
 	}
 
 	&,
-	nav,
+	header,
 	aside {
 		background:                 var(--color--background);
 		transition-duration:        var(--color--transition);
@@ -42,7 +42,7 @@
 
 	&.invert {
 		&,
-		nav,
+		header,
 		aside {
 			transition-duration: 7800ms; // Ballparking the JS.
 		}
@@ -50,14 +50,14 @@
 
 	&.main {
 		&,
-		nav,
+		header,
 		aside {
 			transition-duration: var(--color--transition);
 		}
 	}
 
 	@include landscape {
-		nav,
+		header,
 		aside {
 			background: initial;
 		}

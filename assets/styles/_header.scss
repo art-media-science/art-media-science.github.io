@@ -1,6 +1,6 @@
-> nav {
+> header {
 	// The distance from the initial, centered logo until it is “stuck”.
-	--nav--scroll: calc(
+	--header--scroll: calc(
 			(
 				var(--vh--initial, 100vh)
 				- var(--logo--height)
@@ -10,8 +10,8 @@
 			/ 2
 		);
 
-	// The collapsed/scrolled nav sticky offset.
-	--nav--scroll--offset: calc(
+	// The collapsed/scrolled header sticky offset.
+	--header--scroll--offset: calc(
 			-100vh
 			+ var(--logo--height--scaled)
 			+ var(--tagline--height)
@@ -20,19 +20,19 @@
 
 	display:         flex;
 	flex-direction:  column;
-	height:          calc(100vh + var(--nav--scroll));
+	height:          calc(100vh + var(--header--scroll));
 	justify-content: space-between;
 	padding-bottom:  var(--margin--vertical);
 	padding-left:    var(--margin);
 	padding-right:   var(--margin);
 	padding-top:     var(--margin--vertical);
 	position:        sticky;
-	top:             calc(var(--nav--scroll--offset) - var(--nav--scroll));
+	top:             calc(var(--header--scroll--offset) - var(--header--scroll));
 
 	@include landscape {
 		padding-left:  initial; // Grid gaps take over.
 		padding-right: initial;
-		top:           calc(-1 * var(--nav--scroll));
+		top:           calc(-1 * var(--header--scroll));
 	}
 
 
@@ -42,7 +42,7 @@
 		flex-shrink:   0;
 		height:        var(--logo--height--scaled);
 		margin-bottom: calc(var(--tagline--height) + var(--margin--vertical));
-		margin-top:    var(--nav--scroll);
+		margin-top:    var(--header--scroll);
 		position:      sticky;
 		top:           var(--margin--vertical);
 

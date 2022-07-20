@@ -129,12 +129,12 @@ body {
 		}
 	}
 
-	// The “Art, Science, Media” nav and nouns area.
+	// The “Art, Science, Media” header and nouns area.
 	> main {
 		position: sticky;
 		top:      calc(-1 * var(--main--height) + var(--tagline--height) + var(--margin--vertical) * 2 - 0.1rem); // Hide overshoots.
 
-		@import 'nav';
+		@import 'header';
 		@import 'nouns';
 	}
 

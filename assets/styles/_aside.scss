@@ -1,12 +1,12 @@
 > aside {
-	--nav--scroll--offset: calc(var(--tagline--height) + var(--margin--vertical) * 2 - 0.2rem);
+	--header--scroll--offset: calc(var(--tagline--height) + var(--margin--vertical) * 2 - 0.2rem);
 
 	margin-bottom:  calc(-1 * var(--margin--vertical));
 	padding-bottom: var(--margin--vertical);
 	padding-left:   var(--margin);
 	padding-right:  var(--margin);
 	position:       sticky;
-	top:            var(--nav--scroll--offset);
+	top:            var(--header--scroll--offset);
 
 	@include landscape {
 		display:         flex;

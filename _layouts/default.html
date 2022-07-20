@@ -9,7 +9,7 @@
 	</head>
 	<body id="top" >
 		<main data-main>
-			{% include nav.html %}
+			{% include header.html %}
 			{% comment %} This Liquid mess uses hr/h1 to define content sections from one Markdown file. {% endcomment %}
 			{% assign nouns = content | split: '<hr />' | first | split: '<h1 ' | shift %}
 			{% assign about = content | split: '<hr />' | last %}

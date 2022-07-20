@@ -15,7 +15,7 @@ const taglineHeightVar = '--tagline--height'
 const linksHeightVar =   '--links--height'
 const scrollVar =        '--logo--scroll'
 
-const invertClass =   'invert'
+const mainClass = 'main'
 
 const backgroundCycleTimer = 10000
 
@@ -66,7 +66,7 @@ logoScrollScale = (logo) => {
 
 
 
-const invertBackground = (nouns, links, invertClass, sections) => {
+const invertBackground = (nouns, links, mainClass, sections) => {
 	let scrollDown
 
 	const checkBounds = () => {
@@ -75,10 +75,10 @@ const invertBackground = (nouns, links, invertClass, sections) => {
 		linksBottom = links.getBoundingClientRect().bottom
 
 		if (nounsTop <= viewport &&  viewport <= linksBottom) {
-			document.body.classList.add(invertClass)
+			document.body.classList.add(mainClass)
 		} else {
-			if (document.body.classList.contains(invertClass)) {
-				document.body.classList.remove(invertClass)
+			if (document.body.classList.contains(mainClass)) {
+				document.body.classList.remove(mainClass)
 
 				if (scrollDown) sections.forEach((section) => document.body.classList.remove(section))
 
@@ -106,7 +106,7 @@ const activeSection = (sections) => {
 	sections.forEach((section) => {
 		const observer = new IntersectionObserver(entries => {
 			const [entry] = entries;
-			if (document.body.classList.contains(invertClass)) {
+			if (document.body.classList.contains(mainClass)) {
 				(entry.isIntersecting) ? document.body.classList.add(section) : document.body.classList.remove(section)
 			}
 		}, {
@@ -121,7 +121,7 @@ const activeSection = (sections) => {
 
 
 const cycleBackgroundColor = (sections) => {
-	if (!document.body.classList.contains(invertClass)) {
+	if (!document.body.classList.contains(mainClass)) {
 		console.log("RAN")
 		let randomSection = sections[Math.floor(Math.random() * sections.length)]
 
@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	getHeights(main, logo, tagline, links)
 	logoScrollScale(logo)
-	invertBackground(nouns, links, invertClass, sections)
+	invertBackground(nouns, links, mainClass, sections)
 	activeSection(sections)
 	fixIphoneFlicker(logo, tagline)
 

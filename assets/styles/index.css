@@ -404,9 +404,9 @@ body > main > nav > section:first-child > h1 > a:active {
 	--margin--vertical: var(--margin);
 	--page--width: 100vw;
 	--column--ratio: 0.382fr 0.618fr;
-	--color--art: #d22d2d;
+	--color--art: #be3737;
 	--color--media: #e6a50f;
-	--color--science: #145fb8;
+	--color--science: #1a60b2;
 	--color--transition: 200ms;
 	--color--link: rgba(0, 0, 0, 0.033);
 	--color--link--reverse: rgba(255, 255, 255, 0.066);

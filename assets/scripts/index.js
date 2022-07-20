@@ -43,6 +43,7 @@ const getScrollDistance = (logo) => {
 	let scrollDistance
 
 	const clamp = (num, min, max) => Math.min(Math.max(num, min), max)
+	const updateScrollDistance = () => scrollDistance = parseFloat(getComputedStyle(logo.parentElement).marginTop)
 
 	const updateScroll = () => {
 		// The extra/early 10px “softens” the transition a bit.
@@ -52,14 +53,12 @@ const getScrollDistance = (logo) => {
 	}
 
 	window.addEventListener('load', () => {
-		scrollDistance = parseFloat(getComputedStyle(logo.parentElement).marginTop)
-
+		updateScrollDistance()
 		updateScroll()
 	})
 
 	window.addEventListener('resize', () => {
-		scrollDistance = parseFloat(getComputedStyle(logo.parentElement).marginTop)
-
+		updateScrollDistance()
 		updateScroll()
 	})
 
@@ -81,7 +80,9 @@ const watchMainVisible = (nouns, links, mainClass, sections) => {
 				document.body.classList.add(mainClass)
 				sections.forEach((section) => document.body.classList.remove(section))
 			}
-			setTimeout(() => document.body.classList.remove(invertClass), 100) // Delayed to differentiate in/out.
+			if (document.body.classList.contains(invertClass)) {
+				setTimeout(() => document.body.classList.remove(invertClass), 100) // Delayed to differentiate in/out.
+			}
 		} else {
 			if (document.body.classList.contains(mainClass)) {
 				document.body.classList.remove(mainClass)
@@ -90,7 +91,9 @@ const watchMainVisible = (nouns, links, mainClass, sections) => {
 
 				cycleRandomSection(sections)
 			}
-			setTimeout(() => document.body.classList.add(invertClass), 100)
+			if (!document.body.classList.contains(invertClass)) {
+				setTimeout(() => document.body.classList.add(invertClass), 100)
+			}
 		}
 	}
 

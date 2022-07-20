@@ -76,14 +76,12 @@ const watchMainVisible = (nouns, links, sections) => {
 		nounsTop = nouns.getBoundingClientRect().top
 		linksBottom = links.getBoundingClientRect().bottom
 
-		if (nounsTop <= viewport &&  viewport <= linksBottom) {
+		if (nounsTop <= viewport && viewport <= linksBottom) { // Intersecting.
 			if (!body.contains(mainClass)) {
 				body.add(mainClass)
 				sections.forEach((section) => body.remove(section))
 			}
-			if (body.contains(invertClass)) {
-				setTimeout(() => body.remove(invertClass), 100) // Delayed to differentiate in/out.
-			}
+			if (body.contains(invertClass)) setTimeout(() => body.remove(invertClass), 100) // Delayed to differentiate in/out.
 		} else {
 			if (body.contains(mainClass)) {
 				body.remove(mainClass)
@@ -92,9 +90,7 @@ const watchMainVisible = (nouns, links, sections) => {
 
 				cycleRandomSection(sections)
 			}
-			if (!body.contains(invertClass)) {
-				setTimeout(() => body.add(invertClass), 100)
-			}
+			if (!body.contains(invertClass)) setTimeout(() => body.add(invertClass), 100)
 		}
 	}
 

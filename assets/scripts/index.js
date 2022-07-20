@@ -15,10 +15,11 @@ const taglineHeightVar = '--tagline--height'
 const linksHeightVar =   '--links--height'
 const scrollVar =        '--logo--scroll'
 
-const invertClass =  'invert'
-const mainClass =    'main'
+const invertClass = 'invert'
+const mainClass =   'main'
 
-const backgroundCycleTimer = 8000
+let   cycleSection
+const cycleSectionTimer = 8000
 
 
 
@@ -38,7 +39,7 @@ const getHeights = (main, logo, tagline, links) => {
 
 
 
-logoScrollScale = (logo) => {
+const getScrollDistance = (logo) => {
 	let scrollDistance
 
 	const clamp = (num, min, max) => Math.min(Math.max(num, min), max)
@@ -67,7 +68,7 @@ logoScrollScale = (logo) => {
 
 
 
-const invertBackground = (nouns, links, mainClass, sections) => {
+const watchMainVisible = (nouns, links, mainClass, sections) => {
 	let scrollDown
 
 	const checkBounds = () => {
@@ -80,17 +81,14 @@ const invertBackground = (nouns, links, mainClass, sections) => {
 				document.body.classList.add(mainClass)
 				sections.forEach((section) => document.body.classList.remove(section))
 			}
-			setTimeout(() => document.body.classList.remove(invertClass), 100)
+			setTimeout(() => document.body.classList.remove(invertClass), 100) // Delayed to differentiate in/out.
 		} else {
 			if (document.body.classList.contains(mainClass)) {
 				document.body.classList.remove(mainClass)
 
 				if (scrollDown) sections.forEach((section) => document.body.classList.remove(section))
 
-				clearInterval(backgroundCycle); // Clear the timer.
-				cycleBackgroundColor(sections)
-				setTimeout(() => cycleBackgroundColor(sections), 200) // Fade right away.
-				backgroundCycle = setInterval(() => cycleBackgroundColor(sections), backgroundCycleTimer)
+				cycleRandomSection(sections)
 			}
 			setTimeout(() => document.body.classList.add(invertClass), 100)
 		}
@@ -109,7 +107,7 @@ const invertBackground = (nouns, links, mainClass, sections) => {
 
 
 
-const activeSection = (sections) => {
+watchCurrentSection = (sections) => {
 	sections.forEach((section) => {
 		const observer = new IntersectionObserver(entries => {
 			const [entry] = entries;
@@ -127,7 +125,7 @@ const activeSection = (sections) => {
 
 
 
-const cycleBackgroundColor = (sections) => {
+const randomSection = (sections) => {
 	if (!document.body.classList.contains(mainClass)) {
 		let randomSection = sections[Math.floor(Math.random() * sections.length)]
 
@@ -138,6 +136,14 @@ const cycleBackgroundColor = (sections) => {
 		document.body.classList.add(randomSection)
 	}
 }
+
+const cycleRandomSection = (sections) => {
+	clearInterval(cycleSection) // Clear the timer, if there is one.
+	randomSection(sections) // Apply the first one.
+	setTimeout(() => randomSection(sections), 200) // Again so it is fading right away.
+	cycleSection = setInterval(() => randomSection(sections), cycleSectionTimer) // Then on a timer.
+}
+
 
 
 
@@ -164,12 +170,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	const sections = [...logo.querySelectorAll('a')].map((link) => link.getAttribute('href').replace('#', ''))
 
 	getHeights(main, logo, tagline, links)
-	logoScrollScale(logo)
-	invertBackground(nouns, links, mainClass, sections)
-	activeSection(sections)
+	getScrollDistance(logo)
+	watchMainVisible(nouns, links, mainClass, sections)
+	watchCurrentSection(sections)
+	cycleRandomSection(sections)
 	fixIphoneFlicker(logo, tagline)
 
-	cycleBackgroundColor(sections) // Apply the first one.
-	setTimeout(() => cycleBackgroundColor(sections), 200) // Again so it is fading right away.
-	backgroundCycle = setInterval(() => cycleBackgroundColor(sections), backgroundCycleTimer) // Then on a timer.
 })

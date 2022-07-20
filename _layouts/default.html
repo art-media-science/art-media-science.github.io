@@ -10,8 +10,10 @@
 	<body id="top" >
 		<main data-main>
 			{% include nav.html %}
+			{% comment %} This Liquid mess uses hr/h1 to define content sections from one Markdown file. {% endcomment %}
+			{% assign nouns = content | split: '<hr />' | first | split: '<h1 ' | shift %}
+			{% assign about = content | split: '<hr />' | last %}
 			<section data-nouns>
-				{% assign nouns = content | split: '<hr />' | first | split: '<h1 ' | shift %}
 				{% for noun in nouns %}
 					{% assign noun_id = noun | split: '>' | first %}
 					{% assign noun_content = noun | split: '</h1>' | last %}
@@ -24,7 +26,6 @@
 		<footer>
 			{% include aside.html %}
 			<section id="about">
-				{% assign about = content | split: '<hr />' | last %}
 				{{ about }}
 			</section>
 		</footer>

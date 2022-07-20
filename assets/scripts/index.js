@@ -24,13 +24,14 @@ const cycleSectionTimer = 8000
 
 
 const getHeights = (main, logo, tagline, links) => {
-	const updateVars = () => {
-		document.body.style.setProperty(logoHeightVar,    ` ${logo.offsetHeight / 10}rem`)
-		document.body.style.setProperty(taglineHeightVar, ` ${tagline.offsetHeight / 10}rem`)
-		document.body.style.setProperty(linksHeightVar,   ` ${links.offsetHeight / 10}rem`)
+	const setHeightVar = (element, variable) => document.body.style.setProperty(variable, ` ${element.offsetHeight / 10}rem`)
 
-		// Since it depends on the other heights.
-		setTimeout(() => document.body.style.setProperty(mainHeightVar, ` ${main.offsetHeight / 10}rem`), 10)
+	const updateVars = () => {
+		setHeightVar(logo, logoHeightVar)
+		setHeightVar(tagline, taglineHeightVar)
+		setHeightVar(links, linksHeightVar)
+
+		setTimeout(() => setHeightVar(main, mainHeightVar), 10)// Since it depends on the other heights.
 	}
 
 	window.addEventListener('load', updateVars)

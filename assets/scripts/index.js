@@ -183,8 +183,9 @@ const invertBackground = (nouns, links, mainClass, sections) => {
 
 				if (scrollDown) sections.forEach((section) => document.body.classList.remove(section))
 
-				clearInterval(backgroundCycle);
+				clearInterval(backgroundCycle); // Clear the timer.
 				cycleBackgroundColor(sections)
+				setTimeout(() => cycleBackgroundColor(sections), 200) // Fade right away.
 				backgroundCycle = setInterval(() => cycleBackgroundColor(sections), backgroundCycleTimer)
 			}
 			setTimeout(() => document.body.classList.add(invertClass), 100)
@@ -224,7 +225,6 @@ const activeSection = (sections) => {
 
 const cycleBackgroundColor = (sections) => {
 	if (!document.body.classList.contains(mainClass)) {
-		console.log("RAN")
 		let randomSection = sections[Math.floor(Math.random() * sections.length)]
 
 		while (document.body.classList.contains(randomSection)) {
@@ -265,6 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	activeSection(sections)
 	fixIphoneFlicker(logo, tagline)
 
-	cycleBackgroundColor(sections)
-	backgroundCycle = setInterval(() => cycleBackgroundColor(sections), backgroundCycleTimer)
+	cycleBackgroundColor(sections) // Apply the first one.
+	setTimeout(() => cycleBackgroundColor(sections), 200) // Again so it is fading right away.
+	backgroundCycle = setInterval(() => cycleBackgroundColor(sections), backgroundCycleTimer) // Then on a timer.
 })

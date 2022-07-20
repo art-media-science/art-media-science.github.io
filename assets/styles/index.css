@@ -781,19 +781,12 @@ body > main > figure > a:active {
 body > main > figure > a > svg {
 	--stroke--width: 0.175rem;
 	--icon--size: calc(var(--tagline--height) * 1 / var(--logo--scale) + var(--link--enlargement) * 3);
-	animation: rotate 20s linear infinite;
 	height: var(--icon--size);
 	margin: calc(-1.5 * var(--link--enlargement));
 	overflow: visible;
 	stroke-width: var(--stroke--width);
 	stroke: var(--color);
 	width: var(--icon--size);
-}
-
-@keyframes rotate {
-	100% {
-		transform: rotate(1turn);
-	}
 }
 
 @media (min-width: 48em) and (min-height: 30em),

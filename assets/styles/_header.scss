@@ -163,7 +163,7 @@
 		justify-self:     center;
 		margin-bottom:    calc(var(--tagline--height) * -1); // 🤷‍♀️
 		position:         sticky;
-		top:              calc(var(--margin--vertical) + var(--page--inset--right));
+		top:              calc(var(--margin--vertical) + var(--pagination--size) / 3);
 		transform-origin: center top;
 
 		> li {

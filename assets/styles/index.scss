@@ -30,12 +30,14 @@
 	--margin:           calc(var(--typography--size) * 1.2);
 	--margin--vertical: var(--margin);
 
-	--pagination--size:   calc(var(--typography--size--logo) * 0.125); // Size of the period in the logo.
-	--pagination--gutter: calc(var(--pagination--size) * var(--logo--scale) + var(--margin));
+	--pagination--size:         calc(var(--typography--size--logo) * 0.125); // Size of the period in the logo.
+	--pagination--size--scaled: calc(var(--pagination--size) * var(--logo--scale));
+	--pagination--gutter:       calc(var(--pagination--size--scaled) + var(--margin));
 
 	--page--width: 100vw;
 
-	--column--ratio: 0.382fr 0.618fr; // Golden.
+	--column--ratio:             0.382fr 0.618fr; // Golden.
+	--column--ratio--pagination: 1fr var(--pagination--size--scaled);
 
 	--color--art:     hsl(360, 55%, 48%);
 	--color--media:   hsl(42,  88%, 48%);
@@ -58,6 +60,8 @@
 		--logo--scale: 0.75;
 
 		--typography--size--logo: calc(var(--typography--size) * 3.5);
+
+		--column--ratio--pagination: calc((100% - var(--margin)) * 0.382) var(--pagination--size--scaled); // Match parent on left.
 	}
 
 	@include breakpoint(768) {

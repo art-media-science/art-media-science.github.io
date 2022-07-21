@@ -29,11 +29,13 @@
 
 	align-content:         space-between;
 	align-items:           start;
+	column-gap:            var(--margin);
 	display:               grid;
 	grid-auto-rows:        min-content;
 	grid-template-areas:
 		"logo    pagination"
 		"tagline pagination";
+	grid-template-columns: var(--column--ratio--pagination);
 	height:                calc(100vh + var(--header--scroll));
 	justify-content:       space-between;
 	padding-bottom:        var(--margin--vertical);
@@ -151,13 +153,14 @@
 
 
 	// The pagination dots.
-	> ul {
+	> menu:first-of-type {
 		@extend %--header--transform;
 
 		display:          flex;
 		flex-direction:   column;
 		gap:              calc(var(--pagination--size) * 0.8);
 		grid-area:        pagination;
+		justify-self:     end;
 		margin-bottom:    calc(var(--tagline--height) * -1); // 🤷‍♀️
 		position:         sticky;
 		top:              var(--margin--vertical);

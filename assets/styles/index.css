@@ -437,10 +437,16 @@ body > main > header > section:first-of-type > h1 > a:active {
 	:root {
 		--logo--scale: 0.618;
 		--typography--size: clamp(2.4rem, (24/1440) * 100vw, 2.8rem);
-		--typography--size--logo: calc(var(--typography--size) * 5.5);
+		--typography--size--logo: calc(var(--typography--size) * 4.5);
 		--typography--size--tagline: calc(var(--typography--size) * 1.5);
 		--margin: calc(var(--typography--size) * 2);
 		--link--enlargement: 0.8rem;
+	}
+}
+
+@media (min-width: 61.25em) {
+	:root {
+		--typography--size--logo: calc(var(--typography--size) * 5.5);
 	}
 }
 
@@ -713,7 +719,7 @@ body > main > header > section:first-of-type > h1 {
 	display: flex;
 	flex-direction: column;
 	position: absolute;
-	transform-origin: 0px -0.025em;
+	transform-origin: left top;
 }
 
 body > main > header > section:first-of-type > h1 > a {
@@ -788,9 +794,9 @@ body > main > header > ul {
 	flex-direction: column;
 	gap: calc(var(--pagination--size) * 0.8);
 	position: fixed;
-	right: var(--margin);
-	top: var(--margin);
-	transform-origin: 0 var(--pagination--size);
+	right: calc((100vw - var(--page--width)) / 2 + var(--margin));
+	top: var(--margin--vertical);
+	transform-origin: right var(--pagination--size);
 }
 
 body > main > header > ul > li > a {

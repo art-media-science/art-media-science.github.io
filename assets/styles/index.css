@@ -79,7 +79,7 @@ details ::-webkit-details-marker {
 	src: url("../fonts/heldane--regular--italic.woff2") format("woff2");
 }
 
-body > main > header > section:first-child > h1,
+body > main > header > section:first-of-type > h1,
 :root {
 	--typography--shoulder: calc(1 - var(--typography--cap-height));
 	--typography--shoulder--top: calc(var(--typography--shoulder) - var(--typography--shoulder--bottom));
@@ -92,14 +92,14 @@ body > main > header > section:first-child > h1,
 	font-family: "Calibre", sans-serif;
 }
 
-body > main > header > section:first-child > h1 {
+body > main > header > section:first-of-type > h1 {
 	--typography--cap-height: 0.642;
 	--typography--x-height: 0.446;
 	--typography--shoulder--bottom: 0.184;
 	font-family: "Heldane", serif;
 }
 
-body > main > header > section:first-child > h1,
+body > main > header > section:first-of-type > h1,
 :root {
 	--typography--weight: 400;
 }
@@ -109,7 +109,7 @@ body > main > header > section:first-child > h1,
 	--typography--inset--right: -0.061;
 }
 
-body > main > header > section:first-child > h1 {
+body > main > header > section:first-of-type > h1 {
 	--typography--inset--left: -0.019;
 	--typography--inset--right: -0.014;
 }
@@ -300,87 +300,87 @@ body > footer > aside > ul {
 	font-size: var(--typography--font-size);
 }
 
-.focus body > main > header > section:first-child > h1 > a:not(:disabled):focus,
-.focus body > main > header > section:last-child > a:not(:disabled):focus,
-.focus body > main > ul > li > a:not(:disabled):focus,
+.focus body > main > header > section:first-of-type > h1 > a:not(:disabled):focus,
+.focus body > main > header > section:last-of-type > a:not(:disabled):focus,
+.focus body > main > header > ul > li > a:not(:disabled):focus,
 .focus body > footer > aside > ul > li > a:not(:disabled):focus {
 	outline-color: var(--color);
 	outline-style: solid;
 	outline-width: var(--link--outline--override, var(--link--outline));
 }
 
-body > main > header > section:first-child > h1 > a,
-body > main > header > section:last-child > a,
-body > main > ul > li > a,
+body > main > header > section:first-of-type > h1 > a,
+body > main > header > section:last-of-type > a,
+body > main > header > ul > li > a,
 body > footer > aside > ul > li > a {
 	-webkit-tap-highlight-color: var(--link--highlight);
 	cursor: pointer;
 }
 
-body > main > header > section:first-child > h1 > a:active,
-body > main > header > section:last-child > a:active,
-body > main > ul > li > a:active,
+body > main > header > section:first-of-type > h1 > a:active,
+body > main > header > section:last-of-type > a:active,
+body > main > header > ul > li > a:active,
 body > footer > aside > ul > li > a:active {
 	background-color: var(--link--highlight);
 	border-radius: calc(var(--link--enlargement) / 2);
 }
 
-body > main > header > section:first-child > h1 > a:active h1,
-body > main > header > section:last-child > a:active h1,
-body > main > ul > li > a:active h1,
+body > main > header > section:first-of-type > h1 > a:active h1,
+body > main > header > section:last-of-type > a:active h1,
+body > main > header > ul > li > a:active h1,
 body > footer > aside > ul > li > a:active h1,
-body > main > header > section:first-child > h1 > a:active h2,
-body > main > header > section:last-child > a:active h2,
-body > main > ul > li > a:active h2,
+body > main > header > section:first-of-type > h1 > a:active h2,
+body > main > header > section:last-of-type > a:active h2,
+body > main > header > ul > li > a:active h2,
 body > footer > aside > ul > li > a:active h2,
-body > main > header > section:first-child > h1 > a:active h3,
-body > main > header > section:last-child > a:active h3,
-body > main > ul > li > a:active h3,
+body > main > header > section:first-of-type > h1 > a:active h3,
+body > main > header > section:last-of-type > a:active h3,
+body > main > header > ul > li > a:active h3,
 body > footer > aside > ul > li > a:active h3,
-body > main > header > section:first-child > h1 > a:active h4,
-body > main > header > section:last-child > a:active h4,
-body > main > ul > li > a:active h4,
+body > main > header > section:first-of-type > h1 > a:active h4,
+body > main > header > section:last-of-type > a:active h4,
+body > main > header > ul > li > a:active h4,
 body > footer > aside > ul > li > a:active h4,
-body > main > header > section:first-child > h1 > a:active h5,
-body > main > header > section:last-child > a:active h5,
-body > main > ul > li > a:active h5,
+body > main > header > section:first-of-type > h1 > a:active h5,
+body > main > header > section:last-of-type > a:active h5,
+body > main > header > ul > li > a:active h5,
 body > footer > aside > ul > li > a:active h5,
-body > main > header > section:first-child > h1 > a:active h6,
-body > main > header > section:last-child > a:active h6,
-body > main > ul > li > a:active h6,
+body > main > header > section:first-of-type > h1 > a:active h6,
+body > main > header > section:last-of-type > a:active h6,
+body > main > header > ul > li > a:active h6,
 body > footer > aside > ul > li > a:active h6,
-body > main > header > section:first-child > h1 > a:active p,
-body > main > header > section:last-child > a:active p,
-body > main > ul > li > a:active p,
+body > main > header > section:first-of-type > h1 > a:active p,
+body > main > header > section:last-of-type > a:active p,
+body > main > header > ul > li > a:active p,
 body > footer > aside > ul > li > a:active p {
 	--color--background: transparent;
 	transition-duration: 0s;
 }
 
-body > main > header > section:first-child > h1 > a:focus,
-body > main > header > section:last-child > a:focus,
-body > main > ul > li > a:focus,
+body > main > header > section:first-of-type > h1 > a:focus,
+body > main > header > section:last-of-type > a:focus,
+body > main > header > ul > li > a:focus,
 body > footer > aside > ul > li > a:focus {
 	outline: none;
 	z-index: 1;
 }
 
-body > main > header > section:last-child > a,
-body > main > ul > li > a,
+body > main > header > section:last-of-type > a,
+body > main > header > ul > li > a,
 body > footer > aside > ul > li > a {
 	margin: calc(var(--link--enlargement) * -1);
 	padding: var(--link--enlargement);
 }
 
-body > main > header > section:last-child > a,
-body > main > ul > li > a,
+body > main > header > section:last-of-type > a,
+body > main > header > ul > li > a,
 body > footer > aside > ul > li > a {
 	display: flex;
 	flex-direction: column;
 	width: fit-content;
 }
 
-body > main > header > section:first-child > h1 > a {
+body > main > header > section:first-of-type > h1 > a {
 	border-color: transparent;
 	border-style: solid;
 	border-width: var(--link--enlargement);
@@ -389,7 +389,7 @@ body > main > header > section:first-child > h1 > a {
 	margin-bottom: calc(-1 * var(--link--enlargement) / 2);
 }
 
-body > main > header > section:first-child > h1 > a:active {
+body > main > header > section:first-of-type > h1 > a:active {
 	--color--background: transparent;
 }
 
@@ -680,7 +680,7 @@ body > main > header {
 	}
 }
 
-body > main > header > section:first-child {
+body > main > header > section:first-of-type {
 	flex-shrink: 0;
 	height: var(--logo--height--scaled);
 	margin-bottom: calc(var(--tagline--height) + var(--margin--vertical));
@@ -692,12 +692,12 @@ body > main > header > section:first-child {
 @media (orientation: landscape),
 (min-width: 35.5em) and (min-height: 30em),
 (min-width: 58.125em) {
-	body > main > header > section:first-child {
+	body > main > header > section:first-of-type {
 		margin-bottom: calc(var(--vh--initial, 100vh) - var(--logo--height--scaled) - var(--margin--vertical) * 2);
 	}
 }
 
-body > main > header > section:first-child > h1 {
+body > main > header > section:first-of-type > h1 {
 	--typography--size: var(--typography--size--logo);
 	--typography--leading: 0.8;
 	align-items: start;
@@ -712,7 +712,7 @@ body > main > header > section:first-child > h1 {
 	will-change: transform;
 }
 
-body > main > header > section:first-child > h1 > a {
+body > main > header > section:first-of-type > h1 > a {
 	--link--outline--override: calc((1 + (var(--logo--scale) * var(--logo--scroll))) * var(--link--outline));
 	border-bottom: initial;
 	border-top: initial;
@@ -722,7 +722,7 @@ body > main > header > section:first-child > h1 > a {
 	position: relative;
 }
 
-body > main > header > section:first-child > h1 > a:before {
+body > main > header > section:first-of-type > h1 > a:before {
 	content: "";
 	display: block;
 	height: 100%;
@@ -731,35 +731,35 @@ body > main > header > section:first-child > h1 > a:before {
 	width: 100%;
 }
 
-body > main > header > section:first-child > h1 [href="#art"] .a {
+body > main > header > section:first-of-type > h1 [href="#art"] .a {
 	letter-spacing: -0.04em;
 }
 
-body > main > header > section:first-child > h1 [href="#media"] .m {
+body > main > header > section:first-of-type > h1 [href="#media"] .m {
 	letter-spacing: -0.04em;
 }
 
-body > main > header > section:first-child > h1 [href="#media"] .d {
+body > main > header > section:first-of-type > h1 [href="#media"] .d {
 	letter-spacing: 0.02em;
 }
 
-body > main > header > section:first-child > h1 [href="#science"] .s {
+body > main > header > section:first-of-type > h1 [href="#science"] .s {
 	letter-spacing: -0.01em;
 }
 
-body > main > header > section:first-child > h1 [href="#science"] .i {
+body > main > header > section:first-of-type > h1 [href="#science"] .i {
 	letter-spacing: -0.015em;
 }
 
-body > main > header > section:first-child > h1 [href="#science"] .n {
+body > main > header > section:first-of-type > h1 [href="#science"] .n {
 	letter-spacing: -0.02em;
 }
 
-body > main > header > section:first-child > h1 [href="#science"] .e {
+body > main > header > section:first-of-type > h1 [href="#science"] .e {
 	letter-spacing: -0.02em;
 }
 
-body > main > header > section:last-child {
+body > main > header > section:last-of-type {
 	bottom: var(--margin--vertical);
 	display: flex;
 	flex-shrink: 0;
@@ -769,17 +769,17 @@ body > main > header > section:last-child {
 @media (orientation: landscape),
 (min-width: 35.5em) and (min-height: 30em),
 (min-width: 58.125em) {
-	body > main > header > section:last-child {
+	body > main > header > section:last-of-type {
 		margin-top: calc(-1 * var(--tagline--height));
 	}
 }
 
-body > main > header > section:last-child > a > p {
+body > main > header > section:last-of-type > a > p {
 	--typography--leading: var(--typography--leading--tagline);
 	--typography--size: var(--typography--size--tagline);
 }
 
-body > main > ul {
+body > main > header > ul {
 	display: flex;
 	flex-direction: column;
 	gap: calc(var(--pagination--size) * 0.8);
@@ -794,15 +794,15 @@ body > main > ul {
 	will-change: transform;
 }
 
-body > main > ul > li > a {
+body > main > header > ul > li > a {
 	border-radius: 50%;
 }
 
-body > main > ul > li > a:active {
+body > main > header > ul > li > a:active {
 	border-radius: 50%;
 }
 
-body > main > ul > li > a:before {
+body > main > header > ul > li > a:before {
 	background-color: var(--color);
 	border-radius: 50%;
 	content: "";

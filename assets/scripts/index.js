@@ -119,8 +119,6 @@ watchNouns = () => {
 
 
 const randomNoun = () => {
-	// const updateScrollDistance = () => scrollDistance = parseFloat(getComputedStyle(logo.parentElement).marginTop)
-
 	if (!body.contains(mainClass)) {
 		let randomNoun = nouns[Math.floor(Math.random() * nouns.length)]
 

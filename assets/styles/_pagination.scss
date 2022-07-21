@@ -1,0 +1,36 @@
+> ul {
+	display:                    flex;
+	flex-direction:             column;
+	gap:                        calc(var(--pagination--size) * 0.8);
+	position:                   fixed;
+	right:                      var(--margin);
+	top:                        var(--margin);
+	transform-origin:           top right;
+	transform:                  scale(var(--scroll--scale));
+	transition-duration:        var(--scroll--scale--duration);
+	transition-property:        transform;
+	transition-timing-function: linear;
+	will-change:                transform;
+
+	> li {
+		> a {
+			@extend %link--element;
+
+			border-radius: 50%;
+
+			&:active {
+				border-radius: 50%;
+			}
+
+			&:before {
+				background-color: var(--color);
+				border-radius:    50%;
+				content:          '';
+				display:          block;
+				height:           var(--pagination--size);
+				transition:       inherit; // From the links, in color.
+				width:            var(--pagination--size);
+			}
+		}
+	}
+}

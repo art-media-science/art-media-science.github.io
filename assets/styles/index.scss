@@ -30,6 +30,8 @@
 	--margin:           calc(var(--typography--size) * 1.2);
 	--margin--vertical: var(--margin);
 
+	--pagination--size: calc(var(--typography--size--logo) * 0.125); // Size of the period in the logo.
+
 	--page--width: 100vw;
 
 	--column--ratio: 0.382fr 0.618fr; // Golden.
@@ -115,6 +117,11 @@ body {
 	padding-right: var(--safe--inset--right, 0rem);
 	width:         var(--page--width);
 
+	// Room for the dots.
+	@include landscape {
+		padding-right: calc(var(--safe--inset--right, 0rem) + var(--margin) + var(--pagination--size) * var(--logo--scale));
+	}
+
 
 
 	// Main layout.
@@ -135,6 +142,7 @@ body {
 		top:      calc(-1 * var(--main--height) + var(--tagline--height) + var(--margin--vertical) * 2 - 0.1rem); // Hide overshoots.
 
 		@import 'header';
+		@import 'pagination';
 		@import 'nouns';
 	}
 

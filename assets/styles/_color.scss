@@ -71,13 +71,15 @@
 		}
 	}
 
-	h1 > a,
+	[href="#art"],
+	[href="#media"],
+	[href="#science"],
 	p,
 	svg {
 		color:                      var(--color);
 		transition-delay:           calc(var(--color--transition) / 4);
 		transition-duration:        calc(var(--color--transition) / 2);
-		transition-property:        color, fill, stroke;
+		transition-property:        background-color, color, fill, stroke;
 		transition-timing-function: linear;
 	}
 }

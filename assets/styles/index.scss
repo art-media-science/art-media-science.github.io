@@ -63,7 +63,7 @@
 		--logo--scale: 0.618; // Back to Golden.
 
 		--typography--size:          clamp(2.4rem, (24/1440) * 100vw, 2.8rem);
-		--typography--size--logo:    calc(var(--typography--size) * 5.5);
+		--typography--size--logo:    calc(var(--typography--size) * 4.5);
 		--typography--size--tagline: calc(var(--typography--size) * 1.5);
 
 		--margin: calc(var(--typography--size) * 2);
@@ -71,11 +71,9 @@
 		--link--enlargement: 0.8rem;
 	}
 
-	// Cap width around a 16-inch MacBook Pro.
-	@include breakpoint(1640) {
-		--page--width: 164rem;
-	}
+	@include breakpoint(980) { --typography--size--logo: calc(var(--typography--size) * 5.5) }
 
+	@include breakpoint(1640) { --page--width: 164rem; } // Cap width around a 16-inch MacBook Pro.
 
 	@include breakpoint(1772) { // Width cap, plus (now larger) margins.
 		@include tall {

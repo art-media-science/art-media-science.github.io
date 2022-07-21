@@ -34,9 +34,9 @@
 	&,
 	header,
 	aside {
-		background:                 var(--color--background);
+		background-color:           var(--color--background);
 		transition-duration:        var(--color--transition);
-		transition-property:        background;
+		transition-property:        background-color;
 		transition-timing-function: ease-in-out;
 	}
 
@@ -46,6 +46,14 @@
 		aside {
 			transition-duration: 7800ms; // Ballparking the JS.
 		}
+
+		@include landscape {
+			header,
+			aside {
+				transition-duration: initial;
+			}
+		}
+
 	}
 
 	&.main {

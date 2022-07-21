@@ -302,6 +302,7 @@ body > footer > aside > ul {
 
 .focus body > main > header > section:first-child > h1 > a:not(:disabled):focus,
 .focus body > main > header > section:last-child > a:not(:disabled):focus,
+.focus body > main > ul > li > a:not(:disabled):focus,
 .focus body > footer > aside > ul > li > a:not(:disabled):focus {
 	outline-color: var(--color);
 	outline-style: solid;
@@ -310,6 +311,7 @@ body > footer > aside > ul {
 
 body > main > header > section:first-child > h1 > a,
 body > main > header > section:last-child > a,
+body > main > ul > li > a,
 body > footer > aside > ul > li > a {
 	-webkit-tap-highlight-color: var(--link--highlight);
 	cursor: pointer;
@@ -317,6 +319,7 @@ body > footer > aside > ul > li > a {
 
 body > main > header > section:first-child > h1 > a:active,
 body > main > header > section:last-child > a:active,
+body > main > ul > li > a:active,
 body > footer > aside > ul > li > a:active {
 	background-color: var(--link--highlight);
 	border-radius: calc(var(--link--enlargement) / 2);
@@ -324,24 +327,31 @@ body > footer > aside > ul > li > a:active {
 
 body > main > header > section:first-child > h1 > a:active h1,
 body > main > header > section:last-child > a:active h1,
+body > main > ul > li > a:active h1,
 body > footer > aside > ul > li > a:active h1,
 body > main > header > section:first-child > h1 > a:active h2,
 body > main > header > section:last-child > a:active h2,
+body > main > ul > li > a:active h2,
 body > footer > aside > ul > li > a:active h2,
 body > main > header > section:first-child > h1 > a:active h3,
 body > main > header > section:last-child > a:active h3,
+body > main > ul > li > a:active h3,
 body > footer > aside > ul > li > a:active h3,
 body > main > header > section:first-child > h1 > a:active h4,
 body > main > header > section:last-child > a:active h4,
+body > main > ul > li > a:active h4,
 body > footer > aside > ul > li > a:active h4,
 body > main > header > section:first-child > h1 > a:active h5,
 body > main > header > section:last-child > a:active h5,
+body > main > ul > li > a:active h5,
 body > footer > aside > ul > li > a:active h5,
 body > main > header > section:first-child > h1 > a:active h6,
 body > main > header > section:last-child > a:active h6,
+body > main > ul > li > a:active h6,
 body > footer > aside > ul > li > a:active h6,
 body > main > header > section:first-child > h1 > a:active p,
 body > main > header > section:last-child > a:active p,
+body > main > ul > li > a:active p,
 body > footer > aside > ul > li > a:active p {
 	--color--background: transparent;
 	transition-duration: 0s;
@@ -349,18 +359,21 @@ body > footer > aside > ul > li > a:active p {
 
 body > main > header > section:first-child > h1 > a:focus,
 body > main > header > section:last-child > a:focus,
+body > main > ul > li > a:focus,
 body > footer > aside > ul > li > a:focus {
 	outline: none;
 	z-index: 1;
 }
 
 body > main > header > section:last-child > a,
+body > main > ul > li > a,
 body > footer > aside > ul > li > a {
 	margin: calc(var(--link--enlargement) * -1);
 	padding: var(--link--enlargement);
 }
 
 body > main > header > section:last-child > a,
+body > main > ul > li > a,
 body > footer > aside > ul > li > a {
 	display: flex;
 	flex-direction: column;
@@ -389,6 +402,7 @@ body > main > header > section:first-child > h1 > a:active {
 	--typography--size--tagline: calc(var(--typography--size) * 1.2);
 	--margin: calc(var(--typography--size) * 1.2);
 	--margin--vertical: var(--margin);
+	--pagination--size: calc(var(--typography--size--logo) * 0.125);
 	--page--width: 100vw;
 	--column--ratio: 0.382fr 0.618fr;
 	--color--art: hsl(360, 55%, 48%);
@@ -602,14 +616,24 @@ body.main aside {
 	}
 }
 
-body h1 > a,
+body [href="#art"],
+body [href="#media"],
+body [href="#science"],
 body p,
 body svg {
 	color: var(--color);
 	transition-delay: calc(var(--color--transition) / 4);
 	transition-duration: calc(var(--color--transition) / 2);
-	transition-property: color, fill, stroke;
+	transition-property: background-color, color, fill, stroke;
 	transition-timing-function: linear;
+}
+
+@media (orientation: landscape),
+(min-width: 35.5em) and (min-height: 30em),
+(min-width: 58.125em) {
+	body {
+		padding-right: calc(var(--safe--inset--right, 0rem) + var(--margin) + var(--pagination--size) * var(--logo--scale));
+	}
 }
 
 @media (orientation: landscape),
@@ -682,7 +706,6 @@ body > main > header > section:first-child > h1 {
 	position: absolute;
 	transform-origin: 0px -0.025em;
 	transform: scale(var(--scroll--scale));
-	transition-delay: 0ms;
 	transition-duration: var(--scroll--scale--duration);
 	transition-property: transform;
 	transition-timing-function: linear;
@@ -754,6 +777,39 @@ body > main > header > section:last-child {
 body > main > header > section:last-child > a > p {
 	--typography--leading: var(--typography--leading--tagline);
 	--typography--size: var(--typography--size--tagline);
+}
+
+body > main > ul {
+	display: flex;
+	flex-direction: column;
+	gap: calc(var(--pagination--size) * 0.8);
+	position: fixed;
+	right: var(--margin);
+	top: var(--margin);
+	transform-origin: top right;
+	transform: scale(var(--scroll--scale));
+	transition-duration: var(--scroll--scale--duration);
+	transition-property: transform;
+	transition-timing-function: linear;
+	will-change: transform;
+}
+
+body > main > ul > li > a {
+	border-radius: 50%;
+}
+
+body > main > ul > li > a:active {
+	border-radius: 50%;
+}
+
+body > main > ul > li > a:before {
+	background-color: var(--color);
+	border-radius: 50%;
+	content: "";
+	display: block;
+	height: var(--pagination--size);
+	transition: inherit;
+	width: var(--pagination--size);
 }
 
 body > main > section {

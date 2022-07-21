@@ -88,9 +88,11 @@
 
 	@include breakpoint(1772) { // Width cap, plus (now larger) margins.
 		@include tall {
+			--typography--size--logo: calc(var(--typography--size) * 6.5);
+
 			--margin--vertical: calc(var(--margin) * 2);
 
-			--typography--size--logo: calc(var(--typography--size) * 6.5);
+			--page--inset--right: 0rem;
 		}
 	}
 

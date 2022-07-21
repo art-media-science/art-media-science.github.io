@@ -39,6 +39,11 @@
 		transition-timing-function: linear;
 	}
 
+	// Jump icons.
+	> main > header > aside > a[href="#art"] {
+		transition-property: opacity, visibility;
+	}
+
 
 
 	// States.
@@ -60,9 +65,12 @@
 			transition-duration: var(--color--transition);
 		}
 
+
+
+		// There are briefly multiple classes, so turn off the others.
 		&.art {
 			[href="#art"] { --color: var(--color--accent); }
-			[href="#media"] { --color: black; } // There are briefly multiple classes, so turn off the others.
+			[href="#media"] { --color: black; }
 			[href="#science"] { --color: black; }
 		}
 
@@ -93,6 +101,22 @@
 			> footer > aside {
 				transition-duration: initial;
 			}
+		}
+	}
+
+
+
+	// Hide the initial scroll arrow.
+	&.main,
+	&.main.art,
+	&.main.media,
+	&.main.science,
+	&.footer {
+		> main > header > aside > a[href="#art"] {
+			--color: white; // So it isn’t trying to go to color/black while fading.
+
+			opacity:    0;
+			visibility: hidden;
 		}
 	}
 }

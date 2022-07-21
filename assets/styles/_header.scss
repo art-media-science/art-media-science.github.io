@@ -196,14 +196,16 @@
 	// The jump link buttons.
 	> aside {
 		align-items:     end;
-		bottom:          var(--margin);
+		bottom:          var(--margin--vertical);
 		display:         flex;
 		grid-area:       buttons;
 		height:          var(--tagline--height);
 		justify-content: center;
-		margin-top:      calc(var(--tagline--height) * -1);
 		position:        sticky;
 
+		@include landscape {
+			margin-top: calc(var(--tagline--height) * -1);
+		}
 
 		> a {
 			@extend %link--element;

@@ -34,8 +34,8 @@
 	}
 
 	&,
-	header,
-	aside {
+	> main > header,
+	> footer > aside {
 		background-color:           var(--color--background);
 		transition-duration:        var(--color--transition);
 		transition-property:        background-color;
@@ -44,14 +44,14 @@
 
 	&.invert {
 		&,
-		header,
-		aside {
+		> main > header,
+		> footer > aside {
 			transition-duration: 7800ms; // Ballparking the JS.
 		}
 
 		@include landscape {
-			header,
-			aside {
+			> main > header,
+			> footer > aside {
 				transition-duration: initial;
 			}
 		}
@@ -60,15 +60,15 @@
 
 	&.main {
 		&,
-		header,
-		aside {
+		> main > header,
+		> footer > aside {
 			transition-duration: var(--color--transition);
 		}
 	}
 
 	@include landscape {
-		header,
-		aside {
+		> main > header,
+		> footer > aside {
 			background-color: initial;
 		}
 	}

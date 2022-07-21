@@ -1,3 +1,12 @@
+%--header--transform {
+	transform:                  scale(var(--scroll--scale));
+	transition-duration:        var(--scroll--scale--duration);
+	transition-property:        transform;
+	transition-timing-function: linear;
+	will-change:                transform;
+}
+
+
 > header {
 	// The distance from the initial, centered logo until it is “stuck”.
 	--header--scroll: calc(
@@ -51,21 +60,17 @@
 		}
 
 		> h1 {
+			@extend %--header--transform;
 			@extend %font--heldane--regular;
 
 			--typography--size:    var(--typography--size--logo);
 			--typography--leading: 0.8;
 
-			align-items:                start;
-			display:                    flex;
-			flex-direction:             column;
-			position:                   absolute;
-			transform-origin:           0px -0.025em; // Optical shift down, for “A“ overshoot.
-			transform:                  scale(var(--scroll--scale));
-			transition-duration:        var(--scroll--scale--duration);
-			transition-property:        transform;
-			transition-timing-function: linear;
-			will-change:                transform;
+			align-items:      start;
+			display:          flex;
+			flex-direction:   column;
+			position:         absolute;
+			transform-origin: 0px -0.025em; // Optical shift down, for “A“ overshoot.
 
 			> a {
 				@extend %link--text;
@@ -139,18 +144,15 @@
 
 	// The pagination dots.
 	> ul {
-		display:                    flex;
-		flex-direction:             column;
-		gap:                        calc(var(--pagination--size) * 0.8);
-		position:                   fixed;
-		right:                      var(--margin);
-		top:                        var(--margin);
-		transform-origin:           top right;
-		transform:                  scale(var(--scroll--scale));
-		transition-duration:        var(--scroll--scale--duration);
-		transition-property:        transform;
-		transition-timing-function: linear;
-		will-change:                transform;
+		@extend %--header--transform;
+
+		display:          flex;
+		flex-direction:   column;
+		gap:              calc(var(--pagination--size) * 0.8);
+		position:         fixed;
+		right:            var(--margin);
+		top:              var(--margin);
+		transform-origin: top right;
 
 		> li {
 			> a {

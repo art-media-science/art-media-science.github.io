@@ -114,6 +114,8 @@ const scrollVar = '--logo--scroll'
 
 const invertClass = 'invert'
 const mainClass = 'main'
+const headerClass = 'header'
+const footerClass = 'footer'
 
 let nounCycle
 const nounCycleTimer = 8000
@@ -166,40 +168,30 @@ const getScrollDistance = (logo) => {
 
 
 const watchMain = (links, content) => {
-	let scrollDown
-
 	const checkBounds = () => {
 		viewport = window.innerHeight
 		contentTop = content.getBoundingClientRect().top
 		linksBottom = links.getBoundingClientRect().bottom
 
 		if (contentTop <= viewport && viewport <= linksBottom) { // Intersecting.
-			if (!body.contains(mainClass)) {
+			if (!body.contains(mainClass)) { // Only do it once.
+				body.remove(...nouns, headerClass, footerClass, invertClass)
 				body.add(mainClass)
-				nouns.forEach((noun) => body.remove(noun))
 			}
-			if (body.contains(invertClass)) setTimeout(() => body.remove(invertClass), 100) // Delayed to differentiate in/out.
 		} else {
-			if (body.contains(mainClass)) {
-				body.remove(mainClass)
-
-				if (scrollDown) nouns.forEach((noun) => body.remove(noun))
-
+			if (body.contains(mainClass)) { // Only scrolling out.
+				body.remove(...nouns, mainClass)
 				cycleRandomNoun(nouns)
 			}
-			if (!body.contains(invertClass)) setTimeout(() => body.add(invertClass), 100)
+			if (contentTop > viewport && !body.contains(headerClass)) body.add(headerClass) // In the “header”.
+			if (viewport > linksBottom && !body.contains(footerClass)) body.add(footerClass) // In the “footer”.
+			if (!body.contains(invertClass)) setTimeout(() => body.add(invertClass), 100) // Delayed to differentiate in/out.
 		}
 	}
 
 	window.addEventListener('load', checkBounds)
 	window.addEventListener('resize', checkBounds)
-
-	window.addEventListener('scroll', () => {
-		checkBounds();
-
-		scrollDown = window.previousScrollY < window.scrollY
-		window.previousScrollY = window.scrollY
-	})
+	window.addEventListener('scroll', checkBounds)
 }
 
 
@@ -231,7 +223,7 @@ const randomNoun = () => {
 		while (body.contains(randomNoun)) {
 			randomNoun = nouns[Math.floor(Math.random() * nouns.length)]
 		}
-		nouns.forEach((noun) => body.remove(noun))
+		body.remove(...nouns)
 		body.add(randomNoun)
 	}
 }

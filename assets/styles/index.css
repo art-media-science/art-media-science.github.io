@@ -302,7 +302,7 @@ body > footer > aside > ul {
 
 .focus body > main > header > section:first-of-type > h1 > a:not(:disabled):focus,
 .focus body > main > header > section:last-of-type > a:not(:disabled):focus,
-.focus body > main > header > menu:first-of-type > li > a:not(:disabled):focus,
+.focus body > main > header > menu > li > a:not(:disabled):focus,
 .focus body > footer > aside > ul > li > a:not(:disabled):focus {
 	outline-color: var(--color);
 	outline-style: solid;
@@ -311,7 +311,7 @@ body > footer > aside > ul {
 
 body > main > header > section:first-of-type > h1 > a,
 body > main > header > section:last-of-type > a,
-body > main > header > menu:first-of-type > li > a,
+body > main > header > menu > li > a,
 body > footer > aside > ul > li > a {
 	-webkit-tap-highlight-color: var(--link--highlight);
 	cursor: pointer;
@@ -319,7 +319,7 @@ body > footer > aside > ul > li > a {
 
 body > main > header > section:first-of-type > h1 > a:active,
 body > main > header > section:last-of-type > a:active,
-body > main > header > menu:first-of-type > li > a:active,
+body > main > header > menu > li > a:active,
 body > footer > aside > ul > li > a:active {
 	background-color: var(--link--highlight);
 	border-radius: calc(var(--link--enlargement) / 2);
@@ -327,31 +327,31 @@ body > footer > aside > ul > li > a:active {
 
 body > main > header > section:first-of-type > h1 > a:active h1,
 body > main > header > section:last-of-type > a:active h1,
-body > main > header > menu:first-of-type > li > a:active h1,
+body > main > header > menu > li > a:active h1,
 body > footer > aside > ul > li > a:active h1,
 body > main > header > section:first-of-type > h1 > a:active h2,
 body > main > header > section:last-of-type > a:active h2,
-body > main > header > menu:first-of-type > li > a:active h2,
+body > main > header > menu > li > a:active h2,
 body > footer > aside > ul > li > a:active h2,
 body > main > header > section:first-of-type > h1 > a:active h3,
 body > main > header > section:last-of-type > a:active h3,
-body > main > header > menu:first-of-type > li > a:active h3,
+body > main > header > menu > li > a:active h3,
 body > footer > aside > ul > li > a:active h3,
 body > main > header > section:first-of-type > h1 > a:active h4,
 body > main > header > section:last-of-type > a:active h4,
-body > main > header > menu:first-of-type > li > a:active h4,
+body > main > header > menu > li > a:active h4,
 body > footer > aside > ul > li > a:active h4,
 body > main > header > section:first-of-type > h1 > a:active h5,
 body > main > header > section:last-of-type > a:active h5,
-body > main > header > menu:first-of-type > li > a:active h5,
+body > main > header > menu > li > a:active h5,
 body > footer > aside > ul > li > a:active h5,
 body > main > header > section:first-of-type > h1 > a:active h6,
 body > main > header > section:last-of-type > a:active h6,
-body > main > header > menu:first-of-type > li > a:active h6,
+body > main > header > menu > li > a:active h6,
 body > footer > aside > ul > li > a:active h6,
 body > main > header > section:first-of-type > h1 > a:active p,
 body > main > header > section:last-of-type > a:active p,
-body > main > header > menu:first-of-type > li > a:active p,
+body > main > header > menu > li > a:active p,
 body > footer > aside > ul > li > a:active p {
 	--color--background: transparent;
 	transition-duration: 0s;
@@ -359,21 +359,21 @@ body > footer > aside > ul > li > a:active p {
 
 body > main > header > section:first-of-type > h1 > a:focus,
 body > main > header > section:last-of-type > a:focus,
-body > main > header > menu:first-of-type > li > a:focus,
+body > main > header > menu > li > a:focus,
 body > footer > aside > ul > li > a:focus {
 	outline: none;
 	z-index: 1;
 }
 
 body > main > header > section:last-of-type > a,
-body > main > header > menu:first-of-type > li > a,
+body > main > header > menu > li > a,
 body > footer > aside > ul > li > a {
 	margin: calc(var(--link--enlargement) * -1);
 	padding: var(--link--enlargement);
 }
 
 body > main > header > section:last-of-type > a,
-body > main > header > menu:first-of-type > li > a,
+body > main > header > menu > li > a,
 body > footer > aside > ul > li > a {
 	display: flex;
 	flex-direction: column;
@@ -406,6 +406,7 @@ body > main > header > section:first-of-type > h1 > a:active {
 	--pagination--size--scaled: calc(var(--pagination--size) * var(--logo--scale));
 	--pagination--gutter: calc(var(--pagination--size--scaled) + var(--margin));
 	--page--width: 100vw;
+	--page--inset--right: 0.4rem;
 	--column--ratio: 0.382fr 0.618fr;
 	--column--ratio--pagination: 1fr var(--pagination--size--scaled);
 	--color--art: hsl(360, 55%, 48%);
@@ -444,6 +445,7 @@ body > main > header > section:first-of-type > h1 > a:active {
 		--typography--size--logo: calc(var(--typography--size) * 4.5);
 		--typography--size--tagline: calc(var(--typography--size) * 1.5);
 		--margin: calc(var(--typography--size) * 2);
+		--page--inset--right: 0.6rem;
 		--link--enlargement: 0.8rem;
 	}
 }
@@ -475,20 +477,20 @@ body > main > header > section:first-of-type > h1 > a:active {
 }
 
 :root.clockwise {
-	--safe--inset--left: 0.4rem;
-	--safe--inset--right: calc(env(safe-area-inset-right) - 1.3rem);
+	--page--inset--left: 0.4rem;
+	--page--inset--right: calc(env(safe-area-inset-right) - 1.3rem);
 }
 
 :root.counter-clockwise {
-	--safe--inset--left: calc(env(safe-area-inset-left) - 1.3rem);
-	--safe--inset--right: 0.6rem;
+	--page--inset--left: calc(env(safe-area-inset-left) - 1.3rem);
+	--page--inset--right: 0.6rem;
 }
 
 body {
 	margin-left: auto;
 	margin-right: auto;
-	padding-left: var(--safe--inset--left, 0rem);
-	padding-right: var(--safe--inset--right, 0rem);
+	padding-left: var(--page--inset--left, 0rem);
+	padding-right: var(--page--inset--right, 0rem);
 	width: var(--page--width);
 }
 
@@ -587,8 +589,8 @@ body.main.science [href="#science"] {
 }
 
 body,
-body header,
-body aside {
+body > main > header,
+body > footer > aside {
 	background-color: var(--color--background);
 	transition-duration: var(--color--transition);
 	transition-property: background-color;
@@ -596,8 +598,8 @@ body aside {
 }
 
 body.invert,
-body.invert header,
-body.invert aside {
+body.invert > main > header,
+body.invert > footer > aside {
 	transition-duration: 7800ms;
 }
 
@@ -605,15 +607,15 @@ body.invert aside {
 (min-width: 35.5em) and (min-height: 30em),
 (min-width: 58.125em) {
 
-	body.invert header,
-	body.invert aside {
+	body.invert > main > header,
+	body.invert > footer > aside {
 		transition-duration: initial;
 	}
 }
 
 body.main,
-body.main header,
-body.main aside {
+body.main > main > header,
+body.main > footer > aside {
 	transition-duration: var(--color--transition);
 }
 
@@ -621,8 +623,8 @@ body.main aside {
 (min-width: 35.5em) and (min-height: 30em),
 (min-width: 58.125em) {
 
-	body header,
-	body aside {
+	body > main > header,
+	body > footer > aside {
 		background-color: initial;
 	}
 }
@@ -637,14 +639,6 @@ body svg {
 	transition-duration: calc(var(--color--transition) / 2);
 	transition-property: background-color, color, fill, stroke;
 	transition-timing-function: linear;
-}
-
-@media (orientation: landscape),
-(min-width: 35.5em) and (min-height: 30em),
-(min-width: 58.125em) {
-	body {
-		padding-right: calc(var(--safe--inset--right, 0rem));
-	}
 }
 
 @media (orientation: landscape),
@@ -666,7 +660,7 @@ body > main {
 	top: calc(-1 * var(--main--height) + var(--tagline--height) + var(--margin--vertical) * 2 - 0.1rem);
 }
 
-body > main > header > menu:first-of-type,
+body > main > header > menu,
 body > main > header > section:first-of-type > h1 {
 	transform: scale(var(--scroll--scale));
 	transition-duration: var(--scroll--scale--duration);
@@ -802,27 +796,31 @@ body > main > header > section:last-of-type > a > p {
 	--typography--size: var(--typography--size--tagline);
 }
 
-body > main > header > menu:first-of-type {
+body > main > header > menu {
 	display: flex;
 	flex-direction: column;
 	gap: calc(var(--pagination--size) * 0.8);
 	grid-area: pagination;
-	justify-self: end;
+	justify-self: center;
 	margin-bottom: calc(var(--tagline--height) * -1);
 	position: sticky;
-	top: var(--margin--vertical);
-	transform-origin: right var(--pagination--size);
+	top: calc(var(--margin--vertical) + var(--page--inset--right));
+	transform-origin: center top;
 }
 
-body > main > header > menu:first-of-type > li > a {
+body > main > header > menu > li {
+	display: flex;
+}
+
+body > main > header > menu > li > a {
 	border-radius: 50%;
 }
 
-body > main > header > menu:first-of-type > li > a:active {
+body > main > header > menu > li > a:active {
 	border-radius: 50%;
 }
 
-body > main > header > menu:first-of-type > li > a:before {
+body > main > header > menu > li > a:before {
 	background-color: var(--color);
 	border-radius: 50%;
 	content: "";

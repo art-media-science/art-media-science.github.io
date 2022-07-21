@@ -34,7 +34,7 @@
 	grid-auto-rows:        min-content;
 	grid-template-areas:
 		"logo    pagination"
-		"tagline pagination";
+		"tagline buttons";
 	grid-template-columns: var(--column--ratio--pagination);
 	height:                calc(100vh + var(--header--scroll));
 	justify-content:       space-between;
@@ -187,6 +187,35 @@
 					transition:       inherit; // From the links, in color.
 					width:            var(--pagination--size);
 				}
+			}
+		}
+	}
+
+
+
+	// The jump link buttons.
+	> aside {
+		align-items:     end;
+		bottom:          var(--margin);
+		display:         flex;
+		grid-area:       buttons;
+		height:          var(--tagline--height);
+		justify-content: center;
+		margin-top:      calc(var(--tagline--height) * -1);
+		position:        sticky;
+
+
+		> a {
+			@extend %link--element;
+
+			position: absolute;
+		}
+
+		> [href="#art"] {
+			> svg {
+				height:    calc(var(--typography--size--tagline) * 1.333);
+				transform: rotate(90deg);
+				width:     calc(var(--typography--size--tagline) * 1.333);
 			}
 		}
 	}

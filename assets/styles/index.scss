@@ -34,6 +34,8 @@
 	--pagination--size--scaled: calc(var(--pagination--size) * var(--logo--scale));
 	--pagination--gutter:       calc(var(--pagination--size--scaled) + var(--margin));
 
+	--stroke--width: calc(var(--typography--size--tagline) * 0.0666);
+
 	--page--width: 100vw;
 
 	--page--inset--right: 0.4rem; // Optical inset.

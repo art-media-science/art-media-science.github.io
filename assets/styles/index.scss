@@ -30,7 +30,8 @@
 	--margin:           calc(var(--typography--size) * 1.2);
 	--margin--vertical: var(--margin);
 
-	--pagination--size: calc(var(--typography--size--logo) * 0.125); // Size of the period in the logo.
+	--pagination--size:   calc(var(--typography--size--logo) * 0.125); // Size of the period in the logo.
+	--pagination--gutter: calc(var(--pagination--size) * var(--logo--scale) + var(--margin));
 
 	--page--width: 100vw;
 
@@ -115,9 +116,8 @@ body {
 	padding-right: var(--safe--inset--right, 0rem);
 	width:         var(--page--width);
 
-	// Room for the dots.
 	@include landscape {
-		padding-right: calc(var(--safe--inset--right, 0rem) + var(--margin) + var(--pagination--size) * var(--logo--scale));
+		padding-right: calc(var(--safe--inset--right, 0rem));
 	}
 
 

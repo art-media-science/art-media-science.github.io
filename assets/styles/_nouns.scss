@@ -41,9 +41,11 @@
 
 		grid-column:    2;
 		grid-row:       2;
+		margin-right:   var(--pagination--gutter); // Room for the dots.
 		padding-bottom: calc(var(--nouns--spacing) + var(--tagline--height) + var(--margin--vertical));
 		padding-left:   initial; // Grid gaps take over.
 		padding-right:  initial;
+		z-index:        1; // In front of header.
 	}
 
 

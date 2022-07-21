@@ -27,18 +27,24 @@
 			+ var(--margin--vertical) * 3
 		);
 
-	display:         flex;
-	flex-direction:  column;
-	height:          calc(100vh + var(--header--scroll));
-	justify-content: space-between;
-	padding-bottom:  var(--margin--vertical);
-	padding-left:    var(--margin);
-	padding-right:   var(--margin);
-	padding-top:     var(--margin--vertical);
-	position:        sticky;
-	top:             calc(var(--header--scroll--offset) - var(--header--scroll));
+	align-content:         space-between;
+	align-items:           start;
+	display:               grid;
+	grid-auto-rows:        min-content;
+	grid-template-areas:
+		"logo    pagination"
+		"tagline pagination";
+	height:                calc(100vh + var(--header--scroll));
+	justify-content:       space-between;
+	padding-bottom:        var(--margin--vertical);
+	padding-left:          var(--margin);
+	padding-right:         var(--margin);
+	padding-top:           var(--margin--vertical);
+	position:              sticky;
+	top:                   calc(var(--header--scroll--offset) - var(--header--scroll));
 
 	@include landscape {
+		grid-column:   span 2; // Across the content.
 		padding-left:  initial; // Grid gaps take over.
 		padding-right: initial;
 		top:           calc(-1 * var(--header--scroll));
@@ -49,6 +55,7 @@
 	// The “logo”.
 	> section:first-of-type {
 		flex-shrink:   0;
+		grid-area:     logo;
 		height:        var(--logo--height--scaled);
 		margin-bottom: calc(var(--tagline--height) + var(--margin--vertical));
 		margin-top:    var(--header--scroll);
@@ -121,10 +128,11 @@
 
 	// The “tagline”.
 	> section:last-of-type {
-		bottom:        var(--margin--vertical);
-		display:       flex;
-		flex-shrink:   0;
-		position:      sticky;
+		bottom:      var(--margin--vertical);
+		display:     flex;
+		flex-shrink: 0;
+		grid-area:   tagline;
+		position:    sticky;
 
 		@include landscape {
 			margin-top: calc(-1 * var(--tagline--height));
@@ -149,8 +157,9 @@
 		display:          flex;
 		flex-direction:   column;
 		gap:              calc(var(--pagination--size) * 0.8);
-		position:         fixed;
-		right:            calc((100vw - var(--page--width)) / 2 + var(--margin));
+		grid-area:        pagination;
+		margin-bottom:    calc(var(--tagline--height) * -1); // 🤷‍♀️
+		position:         sticky;
 		top:              var(--margin--vertical);
 		transform-origin: right var(--pagination--size);
 

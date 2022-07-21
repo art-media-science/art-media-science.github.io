@@ -403,6 +403,7 @@ body > main > header > section:first-of-type > h1 > a:active {
 	--margin: calc(var(--typography--size) * 1.2);
 	--margin--vertical: var(--margin);
 	--pagination--size: calc(var(--typography--size--logo) * 0.125);
+	--pagination--gutter: calc(var(--pagination--size) * var(--logo--scale) + var(--margin));
 	--page--width: 100vw;
 	--column--ratio: 0.382fr 0.618fr;
 	--color--art: hsl(360, 55%, 48%);
@@ -525,6 +526,7 @@ body #about {
 body {
 	--color: white;
 	--color--background: var(--color--accent);
+	--color--accent: white;
 }
 
 body.art {
@@ -618,7 +620,7 @@ body.main aside {
 
 	body header,
 	body aside {
-		background: initial;
+		background-color: initial;
 	}
 }
 
@@ -638,7 +640,7 @@ body svg {
 (min-width: 35.5em) and (min-height: 30em),
 (min-width: 58.125em) {
 	body {
-		padding-right: calc(var(--safe--inset--right, 0rem) + var(--margin) + var(--pagination--size) * var(--logo--scale));
+		padding-right: calc(var(--safe--inset--right, 0rem));
 	}
 }
 
@@ -673,8 +675,11 @@ body > main > header > section:first-of-type > h1 {
 body > main > header {
 	--header--scroll: calc((var(--vh--initial, 100vh) - var(--logo--height) - var(--tagline--height) - var(--margin--vertical) * 3) / 2);
 	--header--scroll--offset: calc(-100vh + var(--logo--height--scaled) + var(--tagline--height) + var(--margin--vertical) * 3);
-	display: flex;
-	flex-direction: column;
+	align-content: space-between;
+	align-items: start;
+	display: grid;
+	grid-auto-rows: min-content;
+	grid-template-areas: "logo    pagination""tagline pagination";
 	height: calc(100vh + var(--header--scroll));
 	justify-content: space-between;
 	padding-bottom: var(--margin--vertical);
@@ -689,6 +694,7 @@ body > main > header {
 (min-width: 35.5em) and (min-height: 30em),
 (min-width: 58.125em) {
 	body > main > header {
+		grid-column: span 2;
 		padding-left: initial;
 		padding-right: initial;
 		top: calc(-1 * var(--header--scroll));
@@ -697,6 +703,7 @@ body > main > header {
 
 body > main > header > section:first-of-type {
 	flex-shrink: 0;
+	grid-area: logo;
 	height: var(--logo--height--scaled);
 	margin-bottom: calc(var(--tagline--height) + var(--margin--vertical));
 	margin-top: var(--header--scroll);
@@ -773,6 +780,7 @@ body > main > header > section:last-of-type {
 	bottom: var(--margin--vertical);
 	display: flex;
 	flex-shrink: 0;
+	grid-area: tagline;
 	position: sticky;
 }
 
@@ -793,8 +801,9 @@ body > main > header > ul {
 	display: flex;
 	flex-direction: column;
 	gap: calc(var(--pagination--size) * 0.8);
-	position: fixed;
-	right: calc((100vw - var(--page--width)) / 2 + var(--margin));
+	grid-area: pagination;
+	margin-bottom: calc(var(--tagline--height) * -1);
+	position: sticky;
 	top: var(--margin--vertical);
 	transform-origin: right var(--pagination--size);
 }
@@ -835,9 +844,11 @@ body > main > section {
 		--nouns--height: calc(var(--vh--initial, 100vh) - var(--tagline--height) - var(--margin--vertical) * 2 - var(--nouns--spacing));
 		grid-column: 2;
 		grid-row: 2;
+		margin-right: var(--pagination--gutter);
 		padding-bottom: calc(var(--nouns--spacing) + var(--tagline--height) + var(--margin--vertical));
 		padding-left: initial;
 		padding-right: initial;
+		z-index: 1;
 	}
 }
 
@@ -901,6 +912,7 @@ body > footer > aside > ul {
 }
 
 body > footer > section {
+	margin-right: var(--pagination--gutter);
 	margin-top: calc(var(--margin--vertical) * 4);
 	padding-bottom: var(--margin--vertical);
 	padding-left: var(--margin);
@@ -914,6 +926,7 @@ body > footer > section {
 		margin-top: calc(-1 * var(--tagline--height) - var(--margin--vertical));
 		padding-left: initial;
 		padding-right: initial;
+		z-index: 1;
 	}
 }
 

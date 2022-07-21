@@ -81,7 +81,7 @@
 
 
 
-	&.invert {
+	&.invert:not(.main) { // More specific.
 		&,
 		> main > header,
 		> footer > aside {

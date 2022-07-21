@@ -104,13 +104,17 @@
 
 
 	// From Viewporter JS.
+
+	&.clockwise,
+	&.counter-clockwise { --iphone--notch: 1.3rem; } // On my 13 mini, at least.
+
 	&.clockwise {
 		--page--inset--left:  0.4rem; // Optical shift.
-		--page--inset--right: calc(env(safe-area-inset-right) - 1.3rem); // Right to notch.
+		--page--inset--right: calc(env(safe-area-inset-right) - var(--iphone--notch) + 0.4rem);
 	}
 
 	&.counter-clockwise {
-		--page--inset--left:  calc(env(safe-area-inset-left) - 1.3rem); // Right to notch.
+		--page--inset--left:  calc(env(safe-area-inset-left) - var(--iphone--notch));
 		--page--inset--right: 0.6rem; // Optical room for scroll indicator.
 	}
 }

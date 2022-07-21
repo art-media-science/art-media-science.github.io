@@ -213,9 +213,21 @@
 
 		> [href="#art"] {
 			> svg {
+				--icon--shift--x: 0.05em;
+				--icon--shift--y: 0.0333em;
+
 				height:    calc(var(--typography--size--tagline) * 1.333);
-				transform: rotate(90deg);
+				transform: translate(var(--icon--shift--x, 0rem), var(--icon--shift--y, 0rem)) rotate(90deg);
 				width:     calc(var(--typography--size--tagline) * 1.333);
+
+				@include retina {
+					--icon--shift--x: 0.025em;
+					--icon--shift--y: 0em;
+				}
+
+				@include retina(3) {
+					--icon--shift--x: 0.0166em;
+				}
 			}
 		}
 	}

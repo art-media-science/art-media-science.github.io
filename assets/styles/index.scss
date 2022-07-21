@@ -36,6 +36,8 @@
 
 	--page--width: 100vw;
 
+	--page--inset--right: 0.4rem; // Optical inset.
+
 	--column--ratio:             0.382fr 0.618fr; // Golden.
 	--column--ratio--pagination: 1fr var(--pagination--size--scaled);
 
@@ -73,6 +75,8 @@
 
 		--margin: calc(var(--typography--size) * 2);
 
+		--page--inset--right: 0.6rem;
+
 		--link--enlargement: 0.8rem;
 	}
 
@@ -97,13 +101,13 @@
 
 	// From Viewporter JS.
 	&.clockwise {
-		--safe--inset--left:  0.4rem; // Optical shift.
-		--safe--inset--right: calc(env(safe-area-inset-right) - 1.3rem); // Right to notch.
+		--page--inset--left:  0.4rem; // Optical shift.
+		--page--inset--right: calc(env(safe-area-inset-right) - 1.3rem); // Right to notch.
 	}
 
 	&.counter-clockwise {
-		--safe--inset--left:  calc(env(safe-area-inset-left) - 1.3rem); // Right to notch.
-		--safe--inset--right: 0.6rem; // Optical room for scroll indicator.
+		--page--inset--left:  calc(env(safe-area-inset-left) - 1.3rem); // Right to notch.
+		--page--inset--right: 0.6rem; // Optical room for scroll indicator.
 	}
 }
 
@@ -116,8 +120,8 @@ body {
 	// iPhone rotation and width caps.
 	margin-left:   auto;
 	margin-right:  auto;
-	padding-left:  var(--safe--inset--left, 0rem);
-	padding-right: var(--safe--inset--right, 0rem);
+	padding-left:  var(--page--inset--left, 0rem);
+	padding-right: var(--page--inset--right, 0rem);
 	width:         var(--page--width);
 
 

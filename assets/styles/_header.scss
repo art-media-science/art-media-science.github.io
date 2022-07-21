@@ -153,20 +153,22 @@
 
 
 	// The pagination dots.
-	> menu:first-of-type {
+	> menu {
 		@extend %--header--transform;
 
 		display:          flex;
 		flex-direction:   column;
 		gap:              calc(var(--pagination--size) * 0.8);
 		grid-area:        pagination;
-		justify-self:     end;
+		justify-self:     center;
 		margin-bottom:    calc(var(--tagline--height) * -1); // 🤷‍♀️
 		position:         sticky;
-		top:              var(--margin--vertical);
-		transform-origin: right var(--pagination--size);
+		top:              calc(var(--margin--vertical) + var(--page--inset--right));
+		transform-origin: center top;
 
 		> li {
+			display: flex;
+
 			> a {
 				@extend %link--element;
 

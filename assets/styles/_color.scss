@@ -2,6 +2,8 @@
 	--color:             white;
 	--color--background: var(--color--accent);
 
+	--color--accent: white; // To matte the header transition, so it isn’t doubling up.
+
 	&.art { --color--accent: var(--color--art); }
 	&.media { --color--accent: var(--color--media); }
 	&.science { --color--accent: var(--color--science); }
@@ -67,7 +69,7 @@
 	@include landscape {
 		header,
 		aside {
-			background: initial;
+			background-color: initial;
 		}
 	}
 

@@ -79,9 +79,10 @@ const watchMain = (links, content) => {
 
 		if (contentTop <= viewport && viewport <= linksBottom) { // Intersecting.
 			if (!body.contains(mainClass)) { // Only do it once.
-				body.remove(...nouns, headerClass, footerClass, invertClass)
+				body.remove(...nouns, headerClass, footerClass)
 				body.add(mainClass)
 			}
+			if (body.contains(invertClass)) setTimeout(() => body.remove(invertClass), 100) // Delayed to differentiate in/out.
 		} else {
 			if (body.contains(mainClass)) { // Only scrolling out.
 				body.remove(...nouns, mainClass)
@@ -89,7 +90,7 @@ const watchMain = (links, content) => {
 			}
 			if (contentTop > viewport && !body.contains(headerClass)) body.add(headerClass) // In the “header”.
 			if (viewport > linksBottom && !body.contains(footerClass)) body.add(footerClass) // In the “footer”.
-			if (!body.contains(invertClass)) setTimeout(() => body.add(invertClass), 100) // Delayed to differentiate in/out.
+			if (!body.contains(invertClass)) setTimeout(() => body.add(invertClass), 100)
 		}
 	}
 
@@ -133,7 +134,7 @@ const randomNoun = () => {
 const cycleRandomNoun = () => {
 	clearInterval(nounCycle) // Clear the timer, if there is one.
 	randomNoun(nouns) // Apply the first one.
-	setTimeout(() => randomNoun(nouns), 200) // Again so it is fading right away.
+	setTimeout(() => randomNoun(nouns), 300) // Again so it is fading right away.
 	nounCycle = setInterval(() => randomNoun(nouns), nounCycleTimer) // Then on a timer.
 }
 

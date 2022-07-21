@@ -790,7 +790,7 @@ body > main > header > ul {
 	position: fixed;
 	right: var(--margin);
 	top: var(--margin);
-	transform-origin: top right;
+	transform-origin: 0 var(--pagination--size);
 }
 
 body > main > header > ul > li > a {

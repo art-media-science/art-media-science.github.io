@@ -564,9 +564,9 @@ body.main.science [href="#science"] {
 body,
 body header,
 body aside {
-	background: var(--color--background);
+	background-color: var(--color--background);
 	transition-duration: var(--color--transition);
-	transition-property: background;
+	transition-property: background-color;
 	transition-timing-function: ease-in-out;
 }
 
@@ -574,6 +574,16 @@ body.invert,
 body.invert header,
 body.invert aside {
 	transition-duration: 7800ms;
+}
+
+@media (orientation: landscape),
+(min-width: 35.5em) and (min-height: 30em),
+(min-width: 58.125em) {
+
+	body.invert header,
+	body.invert aside {
+		transition-duration: initial;
+	}
 }
 
 body.main,

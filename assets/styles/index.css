@@ -719,6 +719,54 @@ body.footer > main > header > aside > a[href="#about"] {
 	}
 }
 
+body > main > section,
+body > footer > section {
+	padding-left: var(--margin);
+	padding-right: var(--margin);
+}
+
+@media (orientation: landscape),
+(min-width: 35.5em) and (min-height: 30em),
+(min-width: 58.125em) {
+
+	body > main > section,
+	body > footer > section {
+		grid-column: 2;
+		margin-right: var(--pagination--gutter);
+		padding-left: initial;
+		padding-right: initial;
+		z-index: 1;
+	}
+}
+
+body > main > header,
+body > footer > aside {
+	align-content: space-between;
+	align-items: start;
+	column-gap: var(--margin);
+	display: grid;
+	grid-auto-rows: min-content;
+	grid-template-columns: var(--column--ratio--pagination);
+	justify-content: space-between;
+	padding-bottom: var(--margin--vertical);
+	padding-left: var(--margin);
+	padding-right: var(--margin);
+	position: sticky;
+}
+
+@media (orientation: landscape),
+(min-width: 35.5em) and (min-height: 30em),
+(min-width: 58.125em) {
+
+	body > main > header,
+	body > footer > aside {
+		grid-column: 1/span 2;
+		grid-row: 1;
+		padding-left: initial;
+		padding-right: initial;
+	}
+}
+
 body > main {
 	position: sticky;
 	top: calc(-1 * var(--main--height) + var(--tagline--height) + var(--margin--vertical) * 2 - 0.1rem);
@@ -736,20 +784,9 @@ body > main > header > section:first-of-type > h1 {
 body > main > header {
 	--header--scroll: calc((var(--vh--initial, 100vh) - var(--logo--height) - var(--tagline--height) - var(--margin--vertical) * 3) / 2);
 	--header--scroll--offset: calc(-100vh + var(--logo--height--scaled) + var(--tagline--height) + var(--margin--vertical) * 3);
-	align-content: space-between;
-	align-items: start;
-	column-gap: var(--margin);
-	display: grid;
-	grid-auto-rows: min-content;
 	grid-template-areas: "logo    pagination""tagline buttons";
-	grid-template-columns: var(--column--ratio--pagination);
 	height: calc(100vh + var(--header--scroll));
-	justify-content: space-between;
-	padding-bottom: var(--margin--vertical);
-	padding-left: var(--margin);
-	padding-right: var(--margin);
 	padding-top: var(--margin--vertical);
-	position: sticky;
 	top: calc(var(--header--scroll--offset) - var(--header--scroll));
 }
 
@@ -757,9 +794,6 @@ body > main > header {
 (min-width: 35.5em) and (min-height: 30em),
 (min-width: 58.125em) {
 	body > main > header {
-		grid-column: span 2;
-		padding-left: initial;
-		padding-right: initial;
 		top: calc(-1 * var(--header--scroll));
 	}
 }
@@ -947,8 +981,6 @@ body > main > section {
 	--nouns--spacing: calc(var(--margin--vertical) * 4);
 	--nouns--height: calc(var(--vh--initial, 100vh) - var(--logo--height--scaled) - var(--tagline--height) - var(--margin--vertical) * 5 - var(--nouns--spacing) - 0.8rem);
 	padding-bottom: var(--nouns--spacing);
-	padding-left: var(--margin);
-	padding-right: var(--margin);
 	padding-top: var(--section--spacing);
 }
 
@@ -958,13 +990,8 @@ body > main > section {
 	body > main > section {
 		--section--spacing: calc(var(--logo--height) - var(--logo--height--scaled) + var(--margin--vertical) / 2);
 		--nouns--height: calc(var(--vh--initial, 100vh) - var(--tagline--height) - var(--margin--vertical) * 2 - var(--nouns--spacing));
-		grid-column: 2;
 		grid-row: 2;
-		margin-right: var(--pagination--gutter);
 		padding-bottom: calc(var(--nouns--spacing) + var(--tagline--height) + var(--margin--vertical));
-		padding-left: initial;
-		padding-right: initial;
-		z-index: 1;
 	}
 }
 
@@ -985,11 +1012,8 @@ body > footer {
 
 body > footer > aside {
 	--header--scroll--offset: calc(var(--tagline--height) + var(--margin--vertical) * 2 - 0.2rem);
+	grid-template-areas: "links top";
 	margin-bottom: calc(-1 * var(--margin--vertical));
-	padding-bottom: var(--margin--vertical);
-	padding-left: var(--margin);
-	padding-right: var(--margin);
-	position: sticky;
 	top: var(--header--scroll--offset);
 }
 
@@ -997,12 +1021,10 @@ body > footer > aside {
 (min-width: 35.5em) and (min-height: 30em),
 (min-width: 58.125em) {
 	body > footer > aside {
-		display: flex;
-		flex-direction: column;
-		justify-content: end;
+		align-self: end;
+		bottom: 0;
 		margin-bottom: initial;
-		padding: initial;
-		position: initial;
+		margin-top: var(--margin);
 		top: initial;
 	}
 }
@@ -1012,37 +1034,22 @@ body > footer > aside > ul {
 	--typography--size: var(--typography--size--tagline);
 	align-items: start;
 	display: flex;
+	grid-area: links;
 	flex-direction: column;
 	gap: var(--typography--between);
 }
 
-@media (orientation: landscape),
-(min-width: 35.5em) and (min-height: 30em),
-(min-width: 58.125em) {
-	body > footer > aside > ul {
-		bottom: var(--margin--vertical);
-		margin-bottom: var(--margin--vertical);
-		margin-top: var(--margin--vertical);
-		position: sticky;
-	}
-}
-
 body > footer > section {
-	margin-right: var(--pagination--gutter);
 	margin-top: calc(var(--margin--vertical) * 4);
 	padding-bottom: var(--margin--vertical);
-	padding-left: var(--margin);
-	padding-right: var(--margin);
 }
 
 @media (orientation: landscape),
 (min-width: 35.5em) and (min-height: 30em),
 (min-width: 58.125em) {
 	body > footer > section {
+		grid-row: 1;
 		margin-top: calc(-1 * var(--tagline--height) - var(--margin--vertical));
-		padding-left: initial;
-		padding-right: initial;
-		z-index: 1;
 	}
 }
 

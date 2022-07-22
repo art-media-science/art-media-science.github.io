@@ -491,13 +491,18 @@ body > main > header > section:first-of-type > h1 > a:active {
 	}
 }
 
+:root.clockwise,
+:root.counter-clockwise {
+	--iphone--notch: 1.3rem;
+}
+
 :root.clockwise {
 	--page--inset--left: 0.4rem;
-	--page--inset--right: calc(env(safe-area-inset-right) - 1.3rem);
+	--page--inset--right: calc(env(safe-area-inset-right) - var(--iphone--notch) + 0.4rem);
 }
 
 :root.counter-clockwise {
-	--page--inset--left: calc(env(safe-area-inset-left) - 1.3rem);
+	--page--inset--left: calc(env(safe-area-inset-left) - var(--iphone--notch));
 	--page--inset--right: 0.6rem;
 }
 
@@ -571,20 +576,35 @@ body > footer > aside {
 body [href="#art"],
 body [href="#media"],
 body [href="#science"],
-body p,
-body svg {
+body p {
 	color: var(--color);
-	fill: var(--color);
+	transition-duration: var(--color--transition);
+	transition-property: background-color, color;
+	transition-timing-function: ease-in-out;
+}
+
+body svg {
+	fill: currentcolor;
 	stroke-width: var(--stroke--width);
-	stroke: var(--color);
-	transition-delay: calc(var(--color--transition) / 4);
-	transition-duration: calc(var(--color--transition) / 2);
-	transition-property: background-color, color, fill, stroke;
-	transition-timing-function: linear;
+	stroke: currentcolor;
+}
+
+body > main > header > aside > a[href="#art"],
+body > main > header > aside > a[href="#about"] {
+	color: var(--color);
+	transition-duration: var(--color--transition);
+	transition-property: color, opacity, visibility;
+	transition-timing-function: ease-in-out;
 }
 
 body > main > header > aside > a[href="#art"] {
-	transition-property: opacity, visibility;
+	transition-delay: calc(var(--color--transition) * 2);
+}
+
+body > main > header > aside > a[href="#about"] {
+	opacity: 0;
+	transition-delay: 0ms, var(--color--transition), var(--color--transition);
+	visibility: hidden;
 }
 
 body.art {
@@ -670,7 +690,14 @@ body.main.science > main > header > aside > a[href="#art"],
 body.footer > main > header > aside > a[href="#art"] {
 	--color: white;
 	opacity: 0;
+	transition-delay: 0ms;
+	transition-duration: calc(var(--color--transition) / 2);
 	visibility: hidden;
+}
+
+body.main > main > header > aside > a[href="#about"] {
+	opacity: 1;
+	visibility: visible;
 }
 
 @media (orientation: landscape),
@@ -838,6 +865,7 @@ body > main > header > menu {
 	position: sticky;
 	top: calc(var(--margin--vertical) + var(--pagination--size) / 3);
 	transform-origin: center top;
+	z-index: 1;
 }
 
 body > main > header > menu > li {
@@ -884,25 +912,29 @@ body > main > header > aside > a {
 	position: absolute;
 }
 
-body > main > header > aside > [href="#art"] > svg {
+body > main > header > aside > a > svg {
+	height: calc(var(--typography--size--tagline) * 1.333);
+	transform: translate(var(--icon--shift--x, 0rem), var(--icon--shift--y, 0rem)) rotate(var(--icon--rotation, 0deg));
+	width: calc(var(--typography--size--tagline) * 1.333);
 	--icon--shift--x: 0.05em;
 	--icon--shift--y: 0.0333em;
-	height: calc(var(--typography--size--tagline) * 1.333);
-	transform: translate(var(--icon--shift--x, 0rem), var(--icon--shift--y, 0rem)) rotate(90deg);
-	width: calc(var(--typography--size--tagline) * 1.333);
 }
 
 @media (-webkit-min-device-pixel-ratio: 2) {
-	body > main > header > aside > [href="#art"] > svg {
+	body > main > header > aside > a > svg {
 		--icon--shift--x: 0.025em;
 		--icon--shift--y: 0em;
 	}
 }
 
 @media (-webkit-min-device-pixel-ratio: 3) {
-	body > main > header > aside > [href="#art"] > svg {
+	body > main > header > aside > a > svg {
 		--icon--shift--x: 0.0166em;
 	}
+}
+
+body > main > header > aside > [href="#art"] > svg {
+	--icon--rotation: 90deg;
 }
 
 body > main > section {

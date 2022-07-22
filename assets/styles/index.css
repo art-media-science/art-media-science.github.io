@@ -303,8 +303,9 @@ body > footer > aside > ul {
 .focus body > main > header > section:first-of-type > h1 > a:not(:disabled):focus,
 .focus body > main > header > section:last-of-type > a:not(:disabled):focus,
 .focus body > main > header > menu > li > a:not(:disabled):focus,
-.focus body > main > header > aside > a:not(:disabled):focus,
-.focus body > footer > aside > ul > li > a:not(:disabled):focus {
+.focus body > footer > aside > ul > li > a:not(:disabled):focus,
+.focus body nav > a:not(:disabled):focus,
+body .focus nav > a:not(:disabled):focus {
 	outline-color: var(--color);
 	outline-style: solid;
 	outline-width: var(--link--outline--override, var(--link--outline));
@@ -313,8 +314,8 @@ body > footer > aside > ul {
 body > main > header > section:first-of-type > h1 > a,
 body > main > header > section:last-of-type > a,
 body > main > header > menu > li > a,
-body > main > header > aside > a,
-body > footer > aside > ul > li > a {
+body > footer > aside > ul > li > a,
+body nav > a {
 	-webkit-tap-highlight-color: var(--link--highlight);
 	cursor: pointer;
 }
@@ -322,8 +323,8 @@ body > footer > aside > ul > li > a {
 body > main > header > section:first-of-type > h1 > a:active,
 body > main > header > section:last-of-type > a:active,
 body > main > header > menu > li > a:active,
-body > main > header > aside > a:active,
-body > footer > aside > ul > li > a:active {
+body > footer > aside > ul > li > a:active,
+body nav > a:active {
 	background-color: var(--link--highlight);
 	border-radius: calc(var(--link--enlargement) / 2);
 }
@@ -331,38 +332,38 @@ body > footer > aside > ul > li > a:active {
 body > main > header > section:first-of-type > h1 > a:active h1,
 body > main > header > section:last-of-type > a:active h1,
 body > main > header > menu > li > a:active h1,
-body > main > header > aside > a:active h1,
 body > footer > aside > ul > li > a:active h1,
+body nav > a:active h1,
 body > main > header > section:first-of-type > h1 > a:active h2,
 body > main > header > section:last-of-type > a:active h2,
 body > main > header > menu > li > a:active h2,
-body > main > header > aside > a:active h2,
 body > footer > aside > ul > li > a:active h2,
+body nav > a:active h2,
 body > main > header > section:first-of-type > h1 > a:active h3,
 body > main > header > section:last-of-type > a:active h3,
 body > main > header > menu > li > a:active h3,
-body > main > header > aside > a:active h3,
 body > footer > aside > ul > li > a:active h3,
+body nav > a:active h3,
 body > main > header > section:first-of-type > h1 > a:active h4,
 body > main > header > section:last-of-type > a:active h4,
 body > main > header > menu > li > a:active h4,
-body > main > header > aside > a:active h4,
 body > footer > aside > ul > li > a:active h4,
+body nav > a:active h4,
 body > main > header > section:first-of-type > h1 > a:active h5,
 body > main > header > section:last-of-type > a:active h5,
 body > main > header > menu > li > a:active h5,
-body > main > header > aside > a:active h5,
 body > footer > aside > ul > li > a:active h5,
+body nav > a:active h5,
 body > main > header > section:first-of-type > h1 > a:active h6,
 body > main > header > section:last-of-type > a:active h6,
 body > main > header > menu > li > a:active h6,
-body > main > header > aside > a:active h6,
 body > footer > aside > ul > li > a:active h6,
+body nav > a:active h6,
 body > main > header > section:first-of-type > h1 > a:active p,
 body > main > header > section:last-of-type > a:active p,
 body > main > header > menu > li > a:active p,
-body > main > header > aside > a:active p,
-body > footer > aside > ul > li > a:active p {
+body > footer > aside > ul > li > a:active p,
+body nav > a:active p {
 	--color--background: transparent;
 	transition-duration: 0s;
 }
@@ -370,24 +371,24 @@ body > footer > aside > ul > li > a:active p {
 body > main > header > section:first-of-type > h1 > a:focus,
 body > main > header > section:last-of-type > a:focus,
 body > main > header > menu > li > a:focus,
-body > main > header > aside > a:focus,
-body > footer > aside > ul > li > a:focus {
+body > footer > aside > ul > li > a:focus,
+body nav > a:focus {
 	outline: none;
 	z-index: 1;
 }
 
 body > main > header > section:last-of-type > a,
 body > main > header > menu > li > a,
-body > main > header > aside > a,
-body > footer > aside > ul > li > a {
+body > footer > aside > ul > li > a,
+body nav > a {
 	margin: calc(var(--link--enlargement) * -1);
 	padding: var(--link--enlargement);
 }
 
 body > main > header > section:last-of-type > a,
 body > main > header > menu > li > a,
-body > main > header > aside > a,
-body > footer > aside > ul > li > a {
+body > footer > aside > ul > li > a,
+body nav > a {
 	display: flex;
 	flex-direction: column;
 	width: fit-content;
@@ -421,6 +422,7 @@ body > main > header > section:first-of-type > h1 > a:active {
 	--stroke--width: calc(var(--typography--size--tagline) * 0.0666);
 	--page--width: 100vw;
 	--page--inset--right: 0.4rem;
+	--page--inset--right: 0.6rem;
 	--column--ratio: 0.382fr 0.618fr;
 	--column--ratio--pagination: 1fr var(--pagination--size--scaled);
 	--color--art: hsl(360, 55%, 48%);
@@ -459,7 +461,7 @@ body > main > header > section:first-of-type > h1 > a:active {
 		--typography--size--logo: calc(var(--typography--size) * 4.5);
 		--typography--size--tagline: calc(var(--typography--size) * 1.5);
 		--margin: calc(var(--typography--size) * 2);
-		--page--inset--right: 0.6rem;
+		--page--inset--right: 0.8rem;
 		--link--enlargement: 0.8rem;
 	}
 }
@@ -589,19 +591,20 @@ body svg {
 	stroke: currentcolor;
 }
 
-body > main > header > aside > a[href="#art"],
-body > main > header > aside > a[href="#about"] {
+body nav [href="#art"],
+body nav [href="#about"],
+body nav [href="#top"] {
 	color: var(--color);
 	transition-duration: var(--color--transition);
 	transition-property: color, opacity, visibility;
 	transition-timing-function: ease-in-out;
 }
 
-body > main > header > aside > a[href="#art"] {
+body nav [href="#art"] {
 	transition-delay: calc(var(--color--transition) * 4);
 }
 
-body > main > header > aside > a[href="#about"] {
+body nav [href="#about"] {
 	opacity: 0;
 	transition-delay: 0ms, calc(var(--color--transition) * 3), calc(var(--color--transition) * 4);
 	visibility: hidden;
@@ -683,11 +686,11 @@ body.invert:not(.main) > footer > aside {
 	}
 }
 
-body.main > main > header > aside > a[href="#art"],
-body.main.art > main > header > aside > a[href="#art"],
-body.main.media > main > header > aside > a[href="#art"],
-body.main.science > main > header > aside > a[href="#art"],
-body.footer > main > header > aside > a[href="#art"] {
+body.main nav [href="#art"],
+body.main.art nav [href="#art"],
+body.main.media nav [href="#art"],
+body.main.science nav [href="#art"],
+body.footer nav [href="#art"] {
 	--color: white;
 	opacity: 0;
 	transition-delay: 0ms;
@@ -695,13 +698,13 @@ body.footer > main > header > aside > a[href="#art"] {
 	visibility: hidden;
 }
 
-body.main > main > header > aside > a[href="#about"] {
+body.main nav [href="#about"] {
 	opacity: 1;
 	transition-delay: 0ms, var(--color--transition), 0ms;
 	visibility: visible;
 }
 
-body.footer > main > header > aside > a[href="#about"] {
+body.footer nav [href="#about"] {
 	transition-delay: 0ms, 0ms, var(--color--transition);
 }
 
@@ -742,7 +745,6 @@ body > footer > section {
 body > main > header,
 body > footer > aside {
 	align-content: space-between;
-	align-items: start;
 	column-gap: var(--margin);
 	display: grid;
 	grid-auto-rows: min-content;
@@ -784,7 +786,8 @@ body > main > header > section:first-of-type > h1 {
 body > main > header {
 	--header--scroll: calc((var(--vh--initial, 100vh) - var(--logo--height) - var(--tagline--height) - var(--margin--vertical) * 3) / 2);
 	--header--scroll--offset: calc(-100vh + var(--logo--height--scaled) + var(--tagline--height) + var(--margin--vertical) * 3);
-	grid-template-areas: "logo    pagination""tagline buttons";
+	align-items: start;
+	grid-template-areas: "logo    pagination""tagline button";
 	height: calc(100vh + var(--header--scroll));
 	padding-top: var(--margin--vertical);
 	top: calc(var(--header--scroll--offset) - var(--header--scroll));
@@ -929,51 +932,18 @@ body > main > header > menu > li > a:before {
 	width: var(--pagination--size);
 }
 
-body > main > header > aside {
-	align-items: end;
+body > main > header > nav {
 	bottom: var(--margin--vertical);
-	display: flex;
-	grid-area: buttons;
 	height: var(--tagline--height);
-	justify-content: center;
 	position: sticky;
 }
 
 @media (orientation: landscape),
 (min-width: 35.5em) and (min-height: 30em),
 (min-width: 58.125em) {
-	body > main > header > aside {
+	body > main > header > nav {
 		margin-top: calc(var(--tagline--height) * -1);
 	}
-}
-
-body > main > header > aside > a {
-	position: absolute;
-}
-
-body > main > header > aside > a > svg {
-	height: calc(var(--typography--size--tagline) * 1.333);
-	transform: translate(var(--icon--shift--x, 0rem), var(--icon--shift--y, 0rem)) rotate(var(--icon--rotation, 0deg));
-	width: calc(var(--typography--size--tagline) * 1.333);
-	--icon--shift--x: 0.05em;
-	--icon--shift--y: 0.0333em;
-}
-
-@media (-webkit-min-device-pixel-ratio: 2) {
-	body > main > header > aside > a > svg {
-		--icon--shift--x: 0.025em;
-		--icon--shift--y: 0em;
-	}
-}
-
-@media (-webkit-min-device-pixel-ratio: 3) {
-	body > main > header > aside > a > svg {
-		--icon--shift--x: 0.0166em;
-	}
-}
-
-body > main > header > aside > [href="#art"] > svg {
-	--icon--rotation: 90deg;
 }
 
 body > main > section {
@@ -1012,7 +982,8 @@ body > footer {
 
 body > footer > aside {
 	--header--scroll--offset: calc(var(--tagline--height) + var(--margin--vertical) * 2 - 0.2rem);
-	grid-template-areas: "links top";
+	align-items: end;
+	grid-template-areas: "links button";
 	margin-bottom: calc(-1 * var(--margin--vertical));
 	top: var(--header--scroll--offset);
 }
@@ -1060,4 +1031,44 @@ body > footer > section p {
 
 body > footer > section p + p {
 	margin-top: var(--margin);
+}
+
+body nav {
+	align-items: end;
+	display: flex;
+	justify-content: center;
+	grid-area: button;
+}
+
+body nav > a {
+	position: absolute;
+}
+
+body nav > a > svg {
+	height: calc(var(--typography--size--tagline) * 1.333);
+	transform: translate(var(--icon--shift--x, 0rem), var(--icon--shift--y, 0rem)) rotate(var(--icon--rotation, 0deg));
+	width: calc(var(--typography--size--tagline) * 1.333);
+	--icon--shift--x: 0.05em;
+	--icon--shift--y: 0.0333em;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2) {
+	body nav > a > svg {
+		--icon--shift--x: 0.025em;
+		--icon--shift--y: 0em;
+	}
+}
+
+@media (-webkit-min-device-pixel-ratio: 3) {
+	body nav > a > svg {
+		--icon--shift--x: 0.0166em;
+	}
+}
+
+body nav > a[href="#art"] > svg {
+	--icon--rotation: 90deg;
+}
+
+body nav > a[href="#top"] > svg {
+	--icon--rotation: -90deg;
 }

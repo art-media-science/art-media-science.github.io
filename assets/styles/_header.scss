@@ -150,7 +150,7 @@
 		justify-self:     center;
 		margin-bottom:    calc(var(--tagline--height) * -1); // 🤷‍♀️
 		position:         sticky;
-		top:              calc(var(--margin--vertical) + var(--pagination--size) / 3);
+		top:              calc(var(--margin--vertical) + var(--pagination--size) / 2);
 		transform-origin: center top;
 		z-index:          1; // Over the aside, in the about/footer.
 

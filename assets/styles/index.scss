@@ -38,7 +38,6 @@
 
 	--page--width: 100vw;
 
-	--page--inset--right: 0.4rem; // Optical inset.
 	--page--inset--right: 0.6rem; // Optical inset.
 
 	--column--ratio:             0.382fr 0.618fr; // Golden.
@@ -141,7 +140,7 @@ body {
 		@include landscape {
 			column-gap:            var(--margin);
 			display:               grid;
-			grid-template-columns: var(--column--ratio); // Golden.
+			grid-template-columns: var(--column--ratio);
 			padding-left:          var(--margin);
 			padding-right:         var(--margin);
 		}

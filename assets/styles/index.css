@@ -714,6 +714,11 @@ body.bottom nav [href="#top"] {
 	visibility: visible;
 }
 
+body > main,
+body > footer {
+	display: grid;
+}
+
 @media (orientation: landscape),
 (min-width: 35.5em) and (min-height: 30em),
 (min-width: 58.125em) {
@@ -721,7 +726,6 @@ body.bottom nav [href="#top"] {
 	body > main,
 	body > footer {
 		column-gap: var(--margin);
-		display: grid;
 		grid-template-columns: var(--column--ratio);
 		padding-left: var(--margin);
 		padding-right: var(--margin);
@@ -753,6 +757,7 @@ body > footer > aside {
 	align-content: space-between;
 	column-gap: var(--margin);
 	display: grid;
+	grid-row: 1;
 	grid-auto-rows: min-content;
 	grid-template-columns: var(--column--ratio--pagination);
 	justify-content: space-between;
@@ -769,7 +774,6 @@ body > footer > aside {
 	body > main > header,
 	body > footer > aside {
 		grid-column: 1/span 2;
-		grid-row: 1;
 		padding-left: initial;
 		padding-right: initial;
 	}

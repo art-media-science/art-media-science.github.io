@@ -51,12 +51,12 @@
 	}
 
 	> main > header > aside > a[href="#art"] {
-		transition-delay: calc(var(--color--transition) * 2);
+		transition-delay: calc(var(--color--transition) * 4);
 	}
 
 	> main > header > aside > a[href="#about"] {
 		opacity:          0;
-		transition-delay: 0ms, var(--color--transition), var(--color--transition);
+		transition-delay: 0ms, calc(var(--color--transition) * 3), calc(var(--color--transition) * 4);
 		visibility:       hidden;
 	}
 
@@ -141,8 +141,15 @@
 	// Show the about “i”.
 	&.main {
 		> main > header > aside > a[href="#about"] {
-			opacity:    1;
-			visibility: visible;
+			opacity:          1;
+			transition-delay: 0ms, var(--color--transition), 0ms;
+			visibility:       visible;
+		}
+	}
+
+	&.footer {
+		> main > header > aside > a[href="#about"] {
+			transition-delay: 0ms, 0ms, var(--color--transition);
 		}
 	}
 }

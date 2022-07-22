@@ -39,6 +39,7 @@
 	--page--width: 100vw;
 
 	--page--inset--right: 0.4rem; // Optical inset.
+	--page--inset--right: 0.6rem; // Optical inset.
 
 	--column--ratio:             0.382fr 0.618fr; // Golden.
 	--column--ratio--pagination: 1fr var(--pagination--size--scaled);
@@ -77,7 +78,7 @@
 
 		--margin: calc(var(--typography--size) * 2);
 
-		--page--inset--right: 0.6rem;
+		--page--inset--right: 0.8rem;
 
 		--link--enlargement: 0.8rem;
 	}
@@ -163,7 +164,6 @@ body {
 	> main > header,
 	> footer > aside {
 		align-content:         space-between;
-		align-items:           start;
 		column-gap:            var(--margin);
 		display:               grid;
 		grid-auto-rows:        min-content;
@@ -182,6 +182,8 @@ body {
 		}
 	}
 
+
+
 	// The “Art, Science, Media” header and nouns area.
 	> main {
 		position: sticky;
@@ -197,5 +199,39 @@ body {
 
 		@import 'aside';
 		@import 'about';
+	}
+
+
+
+	// The jump icons/buttons.
+	nav {
+		align-items:     end;
+		display:         flex;
+		justify-content: center;
+		grid-area:       button;
+
+		> a {
+			@extend %link--element;
+
+			position: absolute;
+
+			> svg {
+				height:    calc(var(--typography--size--tagline) * 1.333);
+				transform: translate(var(--icon--shift--x, 0rem), var(--icon--shift--y, 0rem)) rotate(var(--icon--rotation, 0deg));
+				width:     calc(var(--typography--size--tagline) * 1.333);
+
+				--icon--shift--x: 0.05em;
+				--icon--shift--y: 0.0333em;
+
+				@include retina {
+					--icon--shift--x: 0.025em;
+					--icon--shift--y: 0em;
+				}
+
+				@include retina(3) {
+					--icon--shift--x: 0.0166em;
+				}
+			}
+		}
 	}
 }

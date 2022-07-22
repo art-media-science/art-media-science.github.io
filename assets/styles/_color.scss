@@ -42,19 +42,19 @@
 	}
 
 	// Jump icons.
-	> main > header > aside > a[href="#art"], // As specific.
-	> main > header > aside > a[href="#about"] {
+	nav [href="#art"], // As specific as as above.
+	nav [href="#about"] {
 		color:                      var(--color);
 		transition-duration:        var(--color--transition);
 		transition-property:        color, opacity, visibility;
 		transition-timing-function: ease-in-out;
 	}
 
-	> main > header > aside > a[href="#art"] {
+	nav [href="#art"] {
 		transition-delay: calc(var(--color--transition) * 4);
 	}
 
-	> main > header > aside > a[href="#about"] {
+	nav [href="#about"] {
 		opacity:          0;
 		transition-delay: 0ms, calc(var(--color--transition) * 3), calc(var(--color--transition) * 4);
 		visibility:       hidden;
@@ -128,7 +128,7 @@
 	&.main.media,
 	&.main.science,
 	&.footer {
-		> main > header > aside > a[href="#art"] {
+		nav [href="#art"] {
 			--color: white; // So it isn’t trying to go to color/black while fading.
 
 			opacity:             0;
@@ -140,7 +140,7 @@
 
 	// Show the about “i”.
 	&.main {
-		> main > header > aside > a[href="#about"] {
+		nav [href="#about"] {
 			opacity:          1;
 			transition-delay: 0ms, var(--color--transition), 0ms;
 			visibility:       visible;
@@ -148,7 +148,7 @@
 	}
 
 	&.footer {
-		> main > header > aside > a[href="#about"] {
+		nav [href="#about"] {
 			transition-delay: 0ms, 0ms, var(--color--transition);
 		}
 	}

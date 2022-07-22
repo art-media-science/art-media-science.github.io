@@ -27,9 +27,10 @@
 			+ var(--margin--vertical) * 3
 		);
 
+	align-items: start;
 	grid-template-areas:
 		"logo    pagination"
-		"tagline buttons";
+		"tagline button";
 	height:      calc(100vh + var(--header--scroll));
 	padding-top: var(--margin--vertical);
 	top:         calc(var(--header--scroll--offset) - var(--header--scroll));
@@ -181,41 +182,13 @@
 
 
 	// The jump link buttons.
-	> aside {
-		align-items:     end;
-		bottom:          var(--margin--vertical);
-		display:         flex;
-		grid-area:       buttons;
-		height:          var(--tagline--height);
-		justify-content: center;
-		position:        sticky;
+	> nav {
+		bottom:   var(--margin--vertical);
+		height:   var(--tagline--height);
+		position: sticky;
 
 		@include landscape {
 			margin-top: calc(var(--tagline--height) * -1);
-		}
-
-		> a {
-			@extend %link--element;
-
-			position: absolute;
-
-			> svg {
-				height:    calc(var(--typography--size--tagline) * 1.333);
-				transform: translate(var(--icon--shift--x, 0rem), var(--icon--shift--y, 0rem)) rotate(var(--icon--rotation, 0deg));
-				width:     calc(var(--typography--size--tagline) * 1.333);
-
-				--icon--shift--x: 0.05em;
-				--icon--shift--y: 0.0333em;
-
-				@include retina {
-					--icon--shift--x: 0.025em;
-					--icon--shift--y: 0em;
-				}
-
-				@include retina(3) {
-					--icon--shift--x: 0.0166em;
-				}
-			}
 		}
 
 		> [href="#art"] {

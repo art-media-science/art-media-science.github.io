@@ -1020,6 +1020,12 @@ body > footer > aside > ul {
 	gap: var(--typography--between);
 }
 
+body > footer > aside > ul > li > a > p > svg {
+	--icon--shift: calc((var(--typography--cap-height) - var(--typography--x-height)) / 2 * 1em);
+	height: calc(var(--typography--cap-height) * 1em);
+	margin-bottom: calc(var(--icon--shift) * -1);
+}
+
 body > footer > section {
 	margin-top: calc(var(--margin--vertical) * 4);
 	padding-bottom: var(--margin--vertical);

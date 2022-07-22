@@ -23,25 +23,41 @@
 		}
 	}
 
-	// Text/icons.
+	// Text.
 	[href="#art"],
 	[href="#media"],
 	[href="#science"],
-	p,
-	svg {
+	p {
 		color:                      var(--color);
-		fill:                       var(--color);
-		stroke-width:               var(--stroke--width);
-		stroke:                     var(--color);
-		transition-delay:           calc(var(--color--transition) / 4);
-		transition-duration:        calc(var(--color--transition) / 2);
-		transition-property:        background-color, color, fill, stroke;
-		transition-timing-function: linear;
+		transition-duration:        var(--color--transition);
+		transition-property:        background-color, color;
+		transition-timing-function: ease-in-out;
+	}
+
+	// Icons.
+	svg {
+		fill:         currentcolor;
+		stroke-width: var(--stroke--width);
+		stroke:       currentcolor;
 	}
 
 	// Jump icons.
+	> main > header > aside > a[href="#art"], // As specific.
+	> main > header > aside > a[href="#about"] {
+		color:                      var(--color);
+		transition-duration:        var(--color--transition);
+		transition-property:        color, opacity, visibility;
+		transition-timing-function: ease-in-out;
+	}
+
 	> main > header > aside > a[href="#art"] {
-		transition-property: opacity, visibility;
+		transition-delay: calc(var(--color--transition) * 2);
+	}
+
+	> main > header > aside > a[href="#about"] {
+		opacity:          0;
+		transition-delay: 0ms, var(--color--transition), var(--color--transition);
+		visibility:       hidden;
 	}
 
 
@@ -115,8 +131,18 @@
 		> main > header > aside > a[href="#art"] {
 			--color: white; // So it isn’t trying to go to color/black while fading.
 
-			opacity:    0;
-			visibility: hidden;
+			opacity:             0;
+			transition-delay:    0ms;
+			transition-duration: calc(var(--color--transition) / 2); // Since it doesn’t have to go all the way to black.
+			visibility:          hidden;
+		}
+	}
+
+	// Show the about “i”.
+	&.main {
+		> main > header > aside > a[href="#about"] {
+			opacity:    1;
+			visibility: visible;
 		}
 	}
 }

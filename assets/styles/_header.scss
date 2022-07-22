@@ -165,6 +165,7 @@
 		position:         sticky;
 		top:              calc(var(--margin--vertical) + var(--pagination--size) / 3);
 		transform-origin: center top;
+		z-index:          1; // Over the aside, in the about/footer.
 
 		> li {
 			display: flex;
@@ -211,16 +212,14 @@
 			@extend %link--element;
 
 			position: absolute;
-		}
 
-		> [href="#art"] {
 			> svg {
+				height:    calc(var(--typography--size--tagline) * 1.333);
+				transform: translate(var(--icon--shift--x, 0rem), var(--icon--shift--y, 0rem)) rotate(var(--icon--rotation, 0deg));
+				width:     calc(var(--typography--size--tagline) * 1.333);
+
 				--icon--shift--x: 0.05em;
 				--icon--shift--y: 0.0333em;
-
-				height:    calc(var(--typography--size--tagline) * 1.333);
-				transform: translate(var(--icon--shift--x, 0rem), var(--icon--shift--y, 0rem)) rotate(90deg);
-				width:     calc(var(--typography--size--tagline) * 1.333);
 
 				@include retina {
 					--icon--shift--x: 0.025em;
@@ -230,6 +229,12 @@
 				@include retina(3) {
 					--icon--shift--x: 0.0166em;
 				}
+			}
+		}
+
+		> [href="#art"] {
+			> svg {
+				--icon--rotation: 90deg;
 			}
 		}
 	}

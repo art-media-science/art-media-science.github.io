@@ -17,17 +17,17 @@
 				{% for noun in nouns %}
 					{% assign noun_id = noun | split: '>' | first %}
 					{% assign noun_content = noun | split: '</h1>' | last %}
-					<section {{ noun_id }}>
+					<section {{ noun_id }} tabindex="0">
 						{{ noun_content }}
 					</section>
 				{% endfor %}
 			</section>
 		</main>
 		<footer>
-			{% include aside.html %}
-			<section id="about">
+			<section id="about" tabindex="0">
 				{{ about }}
 			</section>
+			{% include aside.html %}
 		</footer>
 	</body>
 </html>

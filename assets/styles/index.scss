@@ -137,9 +137,10 @@ body {
 	// Main layout.
 	> main,
 	> footer {
+		display: grid;
+
 		@include landscape {
 			column-gap:            var(--margin);
-			display:               grid;
 			grid-template-columns: var(--column--ratio);
 			padding-left:          var(--margin);
 			padding-right:         var(--margin);
@@ -165,6 +166,7 @@ body {
 		align-content:         space-between;
 		column-gap:            var(--margin);
 		display:               grid;
+		grid-row:              1; // Force overlap for about/footer.
 		grid-auto-rows:        min-content;
 		grid-template-columns: var(--column--ratio--pagination);
 		justify-content:       space-between;
@@ -175,7 +177,6 @@ body {
 
 		@include landscape {
 			grid-column:   1 / span 2; // Across the content.
-			grid-row:      1; // Force overlap for about/footer.
 			padding-left:  initial; // Grid gaps take over.
 			padding-right: initial;
 		}

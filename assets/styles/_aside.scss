@@ -1,21 +1,17 @@
 > aside {
-	--header--scroll--offset: calc(var(--tagline--height) + var(--margin--vertical) * 2 - 0.2rem);
+	--header--scroll--offset: calc(var(--tagline--height) + var(--margin--vertical) * 2 - 0.2rem); // Slight overlap for rounding.
 
-	margin-bottom:  calc(-1 * var(--margin--vertical));
-	padding-bottom: var(--margin--vertical);
-	padding-left:   var(--margin);
-	padding-right:  var(--margin);
-	position:       sticky;
-	top:            var(--header--scroll--offset);
+	grid-template-areas:
+		"links top";
+	margin-bottom: calc(-1 * var(--margin--vertical));
+	top:           var(--header--scroll--offset);
 
 	@include landscape {
-		display:         flex;
-		flex-direction:  column;
-		justify-content: end;
-		margin-bottom:   initial;
-		padding:         initial; // Grid gaps take over.
-		position:        initial;
-		top:             initial;
+		align-self:    end;
+		bottom:        0;
+		margin-bottom: initial;
+		margin-top:    var(--margin);
+		top:           initial;
 	}
 
 	> ul {
@@ -26,15 +22,9 @@
 
 		align-items:    start;
 		display:        flex;
+		grid-area:      links;
 		flex-direction: column;
 		gap:            var(--typography--between);
-
-		@include landscape {
-			bottom:        var(--margin--vertical);
-			margin-bottom: var(--margin--vertical);
-			margin-top:    var(--margin--vertical);
-			position:      sticky;
-		}
 
 		> li {
 			> a {

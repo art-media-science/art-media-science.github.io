@@ -144,6 +144,42 @@ body {
 			padding-left:          var(--margin);
 			padding-right:         var(--margin);
 		}
+
+		> section {
+			padding-left:  var(--margin);
+			padding-right: var(--margin);
+
+			@include landscape {
+				grid-column:   2; // After the sticky span.
+				margin-right:  var(--pagination--gutter); // Room for the dots.
+				padding-left:  initial; // Grid gaps take over.
+				padding-right: initial;
+				z-index:       1; // In front of header.
+			}
+		}
+	}
+
+	// Their sticky headers, in common.
+	> main > header,
+	> footer > aside {
+		align-content:         space-between;
+		align-items:           start;
+		column-gap:            var(--margin);
+		display:               grid;
+		grid-auto-rows:        min-content;
+		grid-template-columns: var(--column--ratio--pagination);
+		justify-content:       space-between;
+		padding-bottom:        var(--margin--vertical);
+		padding-left:          var(--margin);
+		padding-right:         var(--margin);
+		position:              sticky;
+
+		@include landscape {
+			grid-column:   1 / span 2; // Across the content.
+			grid-row:      1; // Force overlap for about/footer.
+			padding-left:  initial; // Grid gaps take over.
+			padding-right: initial;
+		}
 	}
 
 	// The “Art, Science, Media” header and nouns area.

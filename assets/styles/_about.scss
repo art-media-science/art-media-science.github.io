@@ -1,15 +1,10 @@
 > section {
-	margin-right:   var(--pagination--gutter); // Room for the dots.
 	margin-top:     calc(var(--margin--vertical) * 4);
 	padding-bottom: var(--margin--vertical);
-	padding-left:   var(--margin); // Grid gaps take over.
-	padding-right:  var(--margin);
 
 	@include landscape {
-		margin-top:     calc(-1 * var(--tagline--height) - var(--margin--vertical));
-		padding-left:   initial; // Grid gaps take over.
-		padding-right:  initial;
-		z-index:        1; // In front of header.
+		grid-row:   1; // With the header.
+		margin-top: calc(-1 * var(--tagline--height) - var(--margin--vertical));
 	}
 
 

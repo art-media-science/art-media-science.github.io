@@ -27,29 +27,15 @@
 			+ var(--margin--vertical) * 3
 		);
 
-	align-content:         space-between;
-	align-items:           start;
-	column-gap:            var(--margin);
-	display:               grid;
-	grid-auto-rows:        min-content;
 	grid-template-areas:
 		"logo    pagination"
 		"tagline buttons";
-	grid-template-columns: var(--column--ratio--pagination);
-	height:                calc(100vh + var(--header--scroll));
-	justify-content:       space-between;
-	padding-bottom:        var(--margin--vertical);
-	padding-left:          var(--margin);
-	padding-right:         var(--margin);
-	padding-top:           var(--margin--vertical);
-	position:              sticky;
-	top:                   calc(var(--header--scroll--offset) - var(--header--scroll));
+	height:      calc(100vh + var(--header--scroll));
+	padding-top: var(--margin--vertical);
+	top:         calc(var(--header--scroll--offset) - var(--header--scroll));
 
 	@include landscape {
-		grid-column:   span 2; // Across the content.
-		padding-left:  initial; // Grid gaps take over.
-		padding-right: initial;
-		top:           calc(-1 * var(--header--scroll));
+		top: calc(-1 * var(--header--scroll));
 	}
 
 

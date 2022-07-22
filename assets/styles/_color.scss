@@ -43,7 +43,8 @@
 
 	// Jump icons.
 	nav [href="#art"], // As specific as as above.
-	nav [href="#about"] {
+	nav [href="#about"],
+	nav [href="#top"] {
 		color:                      var(--color);
 		transition-duration:        var(--color--transition);
 		transition-property:        color, opacity, visibility;

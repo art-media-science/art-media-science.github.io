@@ -190,11 +190,5 @@
 		@include landscape {
 			margin-top: calc(var(--tagline--height) * -1);
 		}
-
-		> [href="#art"] {
-			> svg {
-				--icon--rotation: 90deg;
-			}
-		}
 	}
 }

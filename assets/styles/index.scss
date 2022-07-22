@@ -232,6 +232,18 @@ body {
 					--icon--shift--x: 0.0166em;
 				}
 			}
+
+			&[href="#art"] {
+				> svg {
+					--icon--rotation: 90deg;
+				}
+			}
+
+			&[href="#top"] {
+				> svg {
+					--icon--rotation: -90deg;
+				}
+			}
 		}
 	}
 }

@@ -55,7 +55,8 @@
 		transition-delay: calc(var(--color--transition) * 4);
 	}
 
-	nav [href="#about"] {
+	nav [href="#about"],
+	nav [href="#top"] {
 		opacity:          0;
 		transition-delay: 0ms, calc(var(--color--transition) * 3), calc(var(--color--transition) * 4);
 		visibility:       hidden;
@@ -153,4 +154,14 @@
 			transition-delay: 0ms, 0ms, var(--color--transition);
 		}
 	}
+
+	// The footer top arrow, only near the end.
+	&.bottom {
+		nav [href="#top"] {
+			opacity:          1;
+			transition-delay: 0ms;
+			visibility:       visible;
+		}
+	}
+
 }

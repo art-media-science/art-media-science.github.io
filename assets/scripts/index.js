@@ -20,6 +20,7 @@ const invertClass = 'invert'
 const mainClass =   'main'
 const headerClass = 'header'
 const footerClass = 'footer'
+const bottomClass = 'bottom'
 
 let   nounCycle
 const nounCycleTimer = 8000
@@ -119,6 +120,22 @@ watchNouns = () => {
 
 
 
+watchTaglineTop = (tagline) => {
+	const checkTop = () => {
+		viewport =      window.innerHeight
+		headerPadding = parseInt(getComputedStyle(tagline.parentElement).paddingBottom)
+		taglineTop    = parseInt(tagline.getBoundingClientRect().top); // Dumb ternary semicolon thing.
+
+		(taglineTop - headerPadding <= 0) ? body.add(bottomClass) : body.remove(bottomClass)
+	}
+
+	window.addEventListener('load', checkTop)
+	window.addEventListener('resize', checkTop)
+	window.addEventListener('scroll', checkTop)
+}
+
+
+
 const randomNoun = () => {
 	if (!body.contains(mainClass)) {
 		let randomNoun = nouns[Math.floor(Math.random() * nouns.length)]
@@ -168,6 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	getScrollDistance(logo)
 	watchMain(links, content)
 	watchNouns()
+	watchTaglineTop(tagline)
 	cycleRandomNoun()
 	fixMobileSafariFlicker(logo, tagline)
 })

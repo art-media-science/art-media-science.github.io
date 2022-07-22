@@ -421,7 +421,6 @@ body > main > header > section:first-of-type > h1 > a:active {
 	--pagination--gutter: calc(var(--pagination--size--scaled) + var(--margin));
 	--stroke--width: calc(var(--typography--size--tagline) * 0.0666);
 	--page--width: 100vw;
-	--page--inset--right: 0.4rem;
 	--page--inset--right: 0.6rem;
 	--column--ratio: 0.382fr 0.618fr;
 	--column--ratio--pagination: 1fr var(--pagination--size--scaled);
@@ -604,7 +603,8 @@ body nav [href="#art"] {
 	transition-delay: calc(var(--color--transition) * 4);
 }
 
-body nav [href="#about"] {
+body nav [href="#about"],
+body nav [href="#top"] {
 	opacity: 0;
 	transition-delay: 0ms, calc(var(--color--transition) * 3), calc(var(--color--transition) * 4);
 	visibility: hidden;
@@ -706,6 +706,12 @@ body.main nav [href="#about"] {
 
 body.footer nav [href="#about"] {
 	transition-delay: 0ms, 0ms, var(--color--transition);
+}
+
+body.bottom nav [href="#top"] {
+	opacity: 1;
+	transition-delay: 0ms;
+	visibility: visible;
 }
 
 @media (orientation: landscape),
@@ -905,7 +911,7 @@ body > main > header > menu {
 	justify-self: center;
 	margin-bottom: calc(var(--tagline--height) * -1);
 	position: sticky;
-	top: calc(var(--margin--vertical) + var(--pagination--size) / 3);
+	top: calc(var(--margin--vertical) + var(--pagination--size) / 2);
 	transform-origin: center top;
 	z-index: 1;
 }

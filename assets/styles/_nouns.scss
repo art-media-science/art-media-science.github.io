@@ -1,16 +1,4 @@
 > section {
-	--section--spacing: calc(
-			(
-				100vh
-				- var(--logo--height--scaled)
-				- var(--tagline--height)
-				- var(--margin--vertical) * 3
-			)
-			/ 2
-		);
-
-	--nouns--spacing: calc(var(--margin--vertical) * 4);
-
 	--nouns--height: calc(
 			var(--vh--initial, 100vh)
 			- var(--logo--height--scaled)
@@ -20,16 +8,12 @@
 			- 0.8rem
 		);
 
+	--nouns--spacing: calc(var(--margin--vertical) * 4);
+
+	margin-top:     var(--nouns--spacing);
 	padding-bottom: var(--nouns--spacing);
-	padding-top:    var(--section--spacing);
 
 	@include landscape {
-		--section--spacing: calc(
-				var(--logo--height)
-				- var(--logo--height--scaled)
-				+ var(--margin--vertical) / 2
-			);
-
 		--nouns--height: calc(
 				var(--vh--initial, 100vh)
 				- var(--tagline--height)
@@ -38,6 +22,7 @@
 			);
 
 		grid-row:       2; // After the header.
+		margin-top:     initial;
 		padding-bottom: calc(var(--nouns--spacing) + var(--tagline--height) + var(--margin--vertical));
 	}
 

@@ -4,26 +4,24 @@
 			- var(--logo--height--scaled)
 			- var(--tagline--height)
 			- var(--margin--vertical) * 5
-			- var(--nouns--spacing)
+			- var(--section--spacing)
 			- 0.8rem
 		);
 
-	--nouns--spacing: calc(var(--margin--vertical) * 4);
-
-	margin-top:     var(--nouns--spacing);
-	padding-bottom: var(--nouns--spacing);
+	margin-top:     var(--section--spacing);
+	padding-bottom: var(--section--spacing);
 
 	@include landscape {
 		--nouns--height: calc(
 				var(--vh--initial, 100vh)
 				- var(--tagline--height)
 				- var(--margin--vertical) * 2
-				- var(--nouns--spacing)
+				- var(--section--spacing)
 			);
 
 		grid-row:       2; // After the header.
 		margin-top:     initial;
-		padding-bottom: calc(var(--nouns--spacing) + var(--tagline--height) + var(--margin--vertical));
+		padding-bottom: calc(var(--section--spacing) + var(--tagline--height) + var(--margin--vertical));
 	}
 
 
@@ -36,6 +34,6 @@
 
 	#media,
 	#science {
-		margin-top: var(--nouns--spacing);
+		margin-top: var(--section--spacing);
 	}
 }

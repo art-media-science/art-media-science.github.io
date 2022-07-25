@@ -1,4 +1,8 @@
 & {
+	--section--spacing: calc(var(--margin--vertical) * 6);
+
+
+
 	--scroll--scale:           calc(1 - (1 - var(--logo--scale)) * var(--logo--scroll));
 	--scroll--scale--duration: 100ms;
 

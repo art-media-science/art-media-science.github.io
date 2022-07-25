@@ -1,5 +1,5 @@
 > section {
-	margin-top:     calc(var(--margin--vertical) * 4);
+	margin-top:     var(--section--spacing);
 	padding-bottom: var(--margin--vertical);
 
 	@include landscape {

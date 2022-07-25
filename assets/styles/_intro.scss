@@ -22,7 +22,7 @@
 // The “nouns”.
 > section:last-of-type {
 	margin-bottom: var(--section--spacing);
-	margin-top:    var(--section--spacing);
+	margin-top:    calc(var(--section--spacing) + 25vh); // Matches the IntersectionObserver offset.
 
 	@include landscape {
 		grid-row:      3; // After the intro.
@@ -30,6 +30,10 @@
 	}
 
 
+
+	#art {
+		margin-top: -25vh;
+	}
 
 	#art,
 	#media,

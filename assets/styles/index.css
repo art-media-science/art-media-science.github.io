@@ -628,13 +628,14 @@ body nav [href="#top"] {
 }
 
 body nav [href="#intro"] {
-	transition-delay: calc(var(--color--transition) * 4);
+	--color: white;
+	transition-delay: var(--color--transition);
 }
 
 body nav [href="#about"],
 body nav [href="#top"] {
 	opacity: 0;
-	transition-delay: 0ms, calc(var(--color--transition) * 3), calc(var(--color--transition) * 4);
+	transition-delay: 0ms, calc(var(--color--transition) * 4), calc(var(--color--transition) * 5);
 	visibility: hidden;
 }
 
@@ -714,15 +715,14 @@ body.invert:not(.main) > footer > aside {
 	}
 }
 
-body.main nav [href="#intro"],
-body.main.art nav [href="#intro"],
-body.main.media nav [href="#intro"],
-body.main.science nav [href="#intro"],
-body.footer nav [href="#intro"] {
-	--color: white;
+body.top nav [href="#intro"] {
+	transition-delay: calc(var(--color--transition) * 4);
+}
+
+body:not(.top).invert nav [href="#intro"],
+body.main nav [href="#intro"] {
 	opacity: 0;
-	transition-delay: 0ms;
-	transition-duration: calc(var(--color--transition) / 2);
+	transition-delay: 0;
 	visibility: hidden;
 }
 

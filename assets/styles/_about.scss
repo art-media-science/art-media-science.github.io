@@ -5,7 +5,7 @@
 
 	@include landscape {
 		grid-row:   1; // With the header.
-		margin-top: calc(-1 var(--section--overlap));
+		margin-top: calc(-1 * var(--section--overlap));
 	}
 
 

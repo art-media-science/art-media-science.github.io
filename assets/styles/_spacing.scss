@@ -1,4 +1,9 @@
 & {
+	--logo--height--scaled: calc(var(--logo--height) * var(--logo--scale, 1));
+
+	--scroll--scale:           calc(1 - (1 - var(--logo--scale)) * var(--logo--scroll));
+	--scroll--scale--duration: 100ms;
+
 	--header--height: calc(
 		var(--logo--height) +
 		var(--tagline--height) +
@@ -11,37 +16,38 @@
 			var(--margin--vertical) * 3
 		);
 
+	--header--height--scrolled--footer: calc(
+			var(--tagline--height) +
+			var(--links--height) +
+			var(--margin--vertical) * 3
+		);
+
 	// The distance from the initial, centered logo until it is “stuck”.
 	--header--scroll: calc((var(--vh--initial, 100vh) - var(--header--height)) / 2);
 
-
-
 	--section--spacing: calc(var(--margin--vertical) * 6);
 
+	--anchor--offset: calc(var(--margin));
 
-
-	--scroll--scale:           calc(1 - (1 - var(--logo--scale)) * var(--logo--scroll));
-	--scroll--scale--duration: 100ms;
-
-	--logo--height--scaled: calc(var(--logo--height) * var(--logo--scale, 1));
-
-	--scroll--offset:        calc(var(--logo--height--scaled) + var(--tagline--height) + var(--margin) * 4);
-	--scroll--offset--about: calc(var(--tagline--height) + var(--links--height) + var(--margin) * 4);
+	--anchor--offset--section: calc(var(--anchor--offset) + var(--header--height--scrolled));
+	--anchor--offset--about:   calc(var(--anchor--offset) + var(--header--height--scrolled--footer));
 
 	@include landscape {
-		--scroll--offset:        var(--margin--vertical);
-		--scroll--offset--about: calc(var(--margin--vertical) - 0.1rem); // Hide overshoots.
+		--anchor--offset--section: var(--margin--vertical);
+		--anchor--offset--about:   calc(var(--margin--vertical) - 0.1rem); // Hide overshoots.
 	}
 
 	@include breakpoint(768) { --scroll--scale--duration: 50ms; }// Can go faster on desktop.
 
+
+
 	#art,
 	#media,
 	#science {
-		scroll-margin-top: var(--scroll--offset);
+		scroll-margin-top: var(--anchor--offset--section);
 	}
 
 	#about {
-		scroll-margin-top: var(--scroll--offset--about);
+		scroll-margin-top: var(--anchor--offset--about);
 	}
 }

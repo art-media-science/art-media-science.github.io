@@ -17,7 +17,7 @@
 	top:         calc(var(--header--height--scrolled) - var(--vh--initial, 100vh)); // The collapsed/scrolled header sticky offset.
 
 	@include landscape {
-		height: calc(var(--vh--initial, 100vh) + var(--header--scroll));
+		height: calc(100vh + var(--header--scroll));
 		top:    calc(-1 * var(--header--scroll));
 	}
 

@@ -414,6 +414,7 @@ body > main > header > section:first-of-type > h1 > a:active {
 	--typography--size: 2rem;
 	--typography--size--logo: calc(var(--typography--size) * 4);
 	--typography--size--tagline: calc(var(--typography--size) * 1.2);
+	--typography--size--intro: calc(var(--typography--size) * 2);
 	--margin: calc(var(--typography--size) * 1.2);
 	--margin--vertical: var(--margin);
 	--pagination--size: calc(var(--typography--size--logo) * 0.125);
@@ -516,19 +517,29 @@ body {
 }
 
 body {
+	--logo--height--scaled: calc(var(--logo--height) * var(--logo--scale, 1));
 	--scroll--scale: calc(1 - (1 - var(--logo--scale)) * var(--logo--scroll));
 	--scroll--scale--duration: 100ms;
-	--logo--height--scaled: calc(var(--logo--height) * var(--logo--scale, 1));
-	--scroll--offset: calc(var(--logo--height--scaled) + var(--tagline--height) + var(--margin) * 4);
-	--scroll--offset--about: calc(var(--tagline--height) + var(--links--height) + var(--margin) * 4);
+	--header--height: calc(var(--logo--height) + var(--tagline--height) + var(--margin--vertical) * 3);
+	--header--height--scrolled: calc(var(--logo--height--scaled) + var(--tagline--height) + var(--margin--vertical) * 3);
+	--header--height--scrolled--footer: calc(var(--tagline--height) + var(--links--height) + var(--margin--vertical) * 3);
+	--header--scroll: calc((var(--vh--initial, 100vh) - var(--header--height)) / 2);
+	--anchor--offset: var(--margin--vertical);
+	--anchor--offset--section: calc(var(--anchor--offset) + var(--header--height--scrolled));
+	--anchor--offset--about: calc(var(--anchor--offset) + var(--header--height--scrolled--footer));
+	--section--spacing: calc(var(--margin--vertical) * 5);
+	--section--overlap: 3.2rem;
+	--section--height: calc(var(--vh--initial, 100vh) - var(--header--height--scrolled) - var(--section--spacing) - var(--anchor--offset) - var(--section--overlap));
 }
 
 @media (orientation: landscape),
 (min-width: 35.5em) and (min-height: 30em),
 (min-width: 58.125em) {
 	body {
-		--scroll--offset: var(--margin--vertical);
-		--scroll--offset--about: calc(var(--margin--vertical) - 0.1rem);
+		--anchor--offset--section: var(--margin--vertical);
+		--anchor--offset--about: calc(var(--margin--vertical) - 0.1rem);
+		--section--overlap: calc(var(--tagline--height) + var(--margin--vertical));
+		--section--height: calc(var(--vh--initial, 100vh) - var(--section--spacing) - var(--anchor--offset) - var(--section--overlap));
 	}
 }
 
@@ -537,16 +548,6 @@ body {
 	body {
 		--scroll--scale--duration: 50ms;
 	}
-}
-
-body #art,
-body #media,
-body #science {
-	scroll-margin-top: var(--scroll--offset);
-}
-
-body #about {
-	scroll-margin-top: var(--scroll--offset--about);
 }
 
 body {
@@ -590,7 +591,7 @@ body svg {
 	stroke: currentcolor;
 }
 
-body nav [href="#art"],
+body nav [href="#intro"],
 body nav [href="#about"],
 body nav [href="#top"] {
 	color: var(--color);
@@ -599,7 +600,7 @@ body nav [href="#top"] {
 	transition-timing-function: ease-in-out;
 }
 
-body nav [href="#art"] {
+body nav [href="#intro"] {
 	transition-delay: calc(var(--color--transition) * 4);
 }
 
@@ -686,11 +687,11 @@ body.invert:not(.main) > footer > aside {
 	}
 }
 
-body.main nav [href="#art"],
-body.main.art nav [href="#art"],
-body.main.media nav [href="#art"],
-body.main.science nav [href="#art"],
-body.footer nav [href="#art"] {
+body.main nav [href="#intro"],
+body.main.art nav [href="#intro"],
+body.main.media nav [href="#intro"],
+body.main.science nav [href="#intro"],
+body.footer nav [href="#intro"] {
 	--color: white;
 	opacity: 0;
 	transition-delay: 0ms;
@@ -794,19 +795,18 @@ body > main > header > section:first-of-type > h1 {
 }
 
 body > main > header {
-	--header--scroll: calc((var(--vh--initial, 100vh) - var(--logo--height) - var(--tagline--height) - var(--margin--vertical) * 3) / 2);
-	--header--scroll--offset: calc(-100vh + var(--logo--height--scaled) + var(--tagline--height) + var(--margin--vertical) * 3);
 	align-items: start;
 	grid-template-areas: "logo    pagination""tagline button";
-	height: calc(100vh + var(--header--scroll));
+	height: var(--vh--initial, 100vh);
 	padding-top: var(--margin--vertical);
-	top: calc(var(--header--scroll--offset) - var(--header--scroll));
+	top: calc(var(--header--height--scrolled) - var(--vh--initial, 100vh));
 }
 
 @media (orientation: landscape),
 (min-width: 35.5em) and (min-height: 30em),
 (min-width: 58.125em) {
 	body > main > header {
+		height: calc(var(--vh--initial, 100vh) + var(--header--scroll));
 		top: calc(-1 * var(--header--scroll));
 	}
 }
@@ -956,34 +956,50 @@ body > main > header > nav {
 	}
 }
 
-body > main > section {
-	--section--spacing: calc((100vh - var(--logo--height--scaled) - var(--tagline--height) - var(--margin--vertical) * 3) / 2);
-	--nouns--spacing: calc(var(--margin--vertical) * 4);
-	--nouns--height: calc(var(--vh--initial, 100vh) - var(--logo--height--scaled) - var(--tagline--height) - var(--margin--vertical) * 5 - var(--nouns--spacing) - 0.8rem);
-	padding-bottom: var(--nouns--spacing);
-	padding-top: var(--section--spacing);
+body > main > section:first-of-type {
+	margin-top: calc(var(--header--scroll));
+	min-height: var(--section--height);
+	scroll-margin-top: var(--anchor--offset--section);
 }
 
 @media (orientation: landscape),
 (min-width: 35.5em) and (min-height: 30em),
 (min-width: 58.125em) {
-	body > main > section {
-		--section--spacing: calc(var(--logo--height) - var(--logo--height--scaled) + var(--margin--vertical) / 2);
-		--nouns--height: calc(var(--vh--initial, 100vh) - var(--tagline--height) - var(--margin--vertical) * 2 - var(--nouns--spacing));
+	body > main > section:first-of-type {
 		grid-row: 2;
-		padding-bottom: calc(var(--nouns--spacing) + var(--tagline--height) + var(--margin--vertical));
+		margin-top: initial;
 	}
 }
 
-body > main > section #art,
-body > main > section #media,
-body > main > section #science {
-	min-height: var(--nouns--height);
+body > main > section:first-of-type > p {
+	--typography--leading: var(--typography--leading--tagline);
+	--typography--size: var(--typography--size--intro);
 }
 
-body > main > section #media,
-body > main > section #science {
-	margin-top: var(--nouns--spacing);
+body > main > section:last-of-type {
+	margin-bottom: var(--section--spacing);
+	margin-top: var(--section--spacing);
+}
+
+@media (orientation: landscape),
+(min-width: 35.5em) and (min-height: 30em),
+(min-width: 58.125em) {
+	body > main > section:last-of-type {
+		grid-row: 3;
+		margin-bottom: calc(var(--section--spacing) + var(--section--overlap));
+	}
+}
+
+body > main > section:last-of-type #art,
+body > main > section:last-of-type #media,
+body > main > section:last-of-type #science {
+	min-height: var(--section--height);
+	scroll-margin-top: var(--anchor--offset--section);
+}
+
+body > main > section:last-of-type #media,
+body > main > section:last-of-type #science {
+	margin-top: var(--section--spacing);
 }
 
 body > footer {
@@ -991,11 +1007,10 @@ body > footer {
 }
 
 body > footer > aside {
-	--header--scroll--offset: calc(var(--tagline--height) + var(--margin--vertical) * 2 - 0.2rem);
 	align-items: end;
 	grid-template-areas: "links button";
 	margin-bottom: calc(-1 * var(--margin--vertical));
-	top: var(--header--scroll--offset);
+	top: calc(var(--tagline--height) + var(--margin--vertical) * 2 - 0.2rem);
 }
 
 @media (orientation: landscape),
@@ -1027,8 +1042,9 @@ body > footer > aside > ul > li > a > p > svg {
 }
 
 body > footer > section {
-	margin-top: calc(var(--margin--vertical) * 4);
+	margin-top: var(--section--spacing);
 	padding-bottom: var(--margin--vertical);
+	scroll-margin-top: var(--anchor--offset--about);
 }
 
 @media (orientation: landscape),
@@ -1036,7 +1052,7 @@ body > footer > section {
 (min-width: 58.125em) {
 	body > footer > section {
 		grid-row: 1;
-		margin-top: calc(-1 * var(--tagline--height) - var(--margin--vertical));
+		margin-top: calc(-1 * var(--section--overlap));
 	}
 }
 
@@ -1081,7 +1097,7 @@ body nav > a > svg {
 	}
 }
 
-body nav > a[href="#art"] > svg {
+body nav > a[href="#intro"] > svg {
 	--icon--rotation: 90deg;
 }
 

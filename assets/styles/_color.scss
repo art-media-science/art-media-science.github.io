@@ -42,7 +42,7 @@
 	}
 
 	// Jump icons.
-	nav [href="#art"], // As specific as as above.
+	nav [href="#intro"], // As specific as as above.
 	nav [href="#about"],
 	nav [href="#top"] {
 		color:                      var(--color);
@@ -51,7 +51,7 @@
 		transition-timing-function: ease-in-out;
 	}
 
-	nav [href="#art"] {
+	nav [href="#intro"] {
 		transition-delay: calc(var(--color--transition) * 4);
 	}
 
@@ -130,7 +130,7 @@
 	&.main.media,
 	&.main.science,
 	&.footer {
-		nav [href="#art"] {
+		nav [href="#intro"] {
 			--color: white; // So it isn’t trying to go to color/black while fading.
 
 			opacity:             0;

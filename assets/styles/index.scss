@@ -26,6 +26,7 @@
 	--typography--size:          2rem;
 	--typography--size--logo:    calc(var(--typography--size) * 4);
 	--typography--size--tagline: calc(var(--typography--size) * 1.2);
+	--typography--size--intro:   calc(var(--typography--size) * 2);
 
 	--margin:           calc(var(--typography--size) * 1.2);
 	--margin--vertical: var(--margin);
@@ -233,7 +234,7 @@ body {
 				}
 			}
 
-			&[href="#art"] {
+			&[href="#intro"] {
 				> svg {
 					--icon--rotation: 90deg;
 				}

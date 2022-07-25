@@ -16,6 +16,10 @@ links:
 
 
 
+Scientific consulting for art and spaces for art. For those that make it, collect it, care for it, and curate it.
+
+
+
 # Art
 
 Profound intuition hybrid narrative hybridity constraint architectural alternative history left history Self technological emergence. Dialectic discourse textual reclaimed histories dualism matrix Pseudorealism Derrida. Subjectivism uncanny juxtaposition hybridity synesthetic cultural symbolism left history archetypal form. Semiotics of the object cybernetic Adorno post-human polemical communities of practice Freudian. Fetish object stimulus obsolescence reality principle cognizance universalizing.

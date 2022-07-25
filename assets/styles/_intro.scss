@@ -1,11 +1,30 @@
-> section {
+// The intro blurb.
+> section:first-of-type {
+	margin-top:        calc(var(--header--scroll));
+	min-height:        var(--section--height);
+	scroll-margin-top: var(--anchor--offset--section);
+
+	@include landscape {
+		grid-row:   2; // After the header.
+		margin-top: initial;
+	}
+
+	> p {
+		--typography--leading: var(--typography--leading--tagline);
+		--typography--size:    var(--typography--size--intro);
+	}
+}
+
+
+
+// The “nouns”.
+> section:last-of-type {
 	margin-bottom: var(--section--spacing);
 	margin-top:    var(--section--spacing);
 
 	@include landscape {
-		grid-row:      2; // After the header.
+		grid-row:      3; // After the intro.
 		margin-bottom: calc(var(--section--spacing) + var(--section--overlap));
-		margin-top:    initial;
 	}
 
 

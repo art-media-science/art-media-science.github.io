@@ -190,7 +190,7 @@ body {
 		top:      calc(-1 * var(--main--height) + var(--tagline--height) + var(--margin--vertical) * 2 - 0.1rem); // Hide overshoots.
 
 		@import 'header';
-		@import 'nouns';
+		@import 'intro';
 	}
 
 	// The “About” section, below.

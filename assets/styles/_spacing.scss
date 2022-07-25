@@ -1,4 +1,21 @@
 & {
+	--header--height: calc(
+		var(--logo--height) +
+		var(--tagline--height) +
+		var(--margin--vertical) * 3
+	);
+
+	--header--height--scrolled: calc(
+			var(--logo--height--scaled) +
+			var(--tagline--height) +
+			var(--margin--vertical) * 3
+		);
+
+	// The distance from the initial, centered logo until it is “stuck”.
+	--header--scroll: calc((var(--vh--initial, 100vh) - var(--header--height)) / 2);
+
+
+
 	--section--spacing: calc(var(--margin--vertical) * 6);
 
 

@@ -10,6 +10,8 @@
 	}
 
 	> p {
+		@extend %font--calibre--light;
+
 		--typography--leading: var(--typography--leading--tagline);
 		--typography--size:    var(--typography--size--intro);
 	}

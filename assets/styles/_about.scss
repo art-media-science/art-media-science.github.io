@@ -1,10 +1,11 @@
 > section {
-	margin-top:     var(--section--spacing);
-	padding-bottom: var(--margin--vertical);
+	margin-top:        var(--section--spacing);
+	padding-bottom:    var(--margin--vertical);
+	scroll-margin-top: var(--anchor--offset--about);
 
 	@include landscape {
 		grid-row:   1; // With the header.
-		margin-top: calc(-1 * var(--tagline--height) - var(--margin--vertical));
+		margin-top: calc(-1 var(--section--overlap));
 	}
 
 

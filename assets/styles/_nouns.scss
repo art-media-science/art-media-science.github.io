@@ -1,27 +1,11 @@
 > section {
-	--nouns--height: calc(
-			var(--vh--initial, 100vh)
-			- var(--logo--height--scaled)
-			- var(--tagline--height)
-			- var(--margin--vertical) * 5
-			- var(--section--spacing)
-			- 0.8rem
-		);
-
-	margin-top:     var(--section--spacing);
-	padding-bottom: var(--section--spacing);
+	margin-bottom: var(--section--spacing);
+	margin-top:    var(--section--spacing);
 
 	@include landscape {
-		--nouns--height: calc(
-				var(--vh--initial, 100vh)
-				- var(--tagline--height)
-				- var(--margin--vertical) * 2
-				- var(--section--spacing)
-			);
-
-		grid-row:       2; // After the header.
-		margin-top:     initial;
-		padding-bottom: calc(var(--section--spacing) + var(--tagline--height) + var(--margin--vertical));
+		grid-row:      2; // After the header.
+		margin-bottom: calc(var(--section--spacing) + var(--section--overlap));
+		margin-top:    initial;
 	}
 
 
@@ -29,7 +13,8 @@
 	#art,
 	#media,
 	#science {
-		min-height: var(--nouns--height);
+		min-height:        var(--section--height);
+		scroll-margin-top: var(--anchor--offset--section);
 	}
 
 	#media,

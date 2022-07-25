@@ -25,29 +25,41 @@
 	// The distance from the initial, centered logo until it is “stuck”.
 	--header--scroll: calc((var(--vh--initial, 100vh) - var(--header--height)) / 2);
 
-	--section--spacing: calc(var(--margin--vertical) * 6);
 
-	--anchor--offset: calc(var(--margin));
+
+	--anchor--offset: var(--margin--vertical);
 
 	--anchor--offset--section: calc(var(--anchor--offset) + var(--header--height--scrolled));
 	--anchor--offset--about:   calc(var(--anchor--offset) + var(--header--height--scrolled--footer));
 
+
+
+	--section--spacing: calc(var(--margin--vertical) * 6);
+	--section--overlap: 3.2rem; // One and a half lines of body copy.
+
+	--section--height: calc(
+		var(--vh--initial, 100vh) -
+		var(--header--height--scrolled) -
+		var(--section--spacing) -
+		var(--anchor--offset) -
+		var(--section--overlap)
+	);
+
+
+
 	@include landscape {
 		--anchor--offset--section: var(--margin--vertical);
 		--anchor--offset--about:   calc(var(--margin--vertical) - 0.1rem); // Hide overshoots.
+
+		--section--overlap: calc(var(--tagline--height) + var(--margin--vertical)); // Tagline stuck to bottom.
+
+		--section--height: calc(
+			var(--vh--initial, 100vh) -
+			var(--section--spacing) -
+			var(--anchor--offset) -
+			var(--section--overlap)
+		);
 	}
 
 	@include breakpoint(768) { --scroll--scale--duration: 50ms; }// Can go faster on desktop.
-
-
-
-	#art,
-	#media,
-	#science {
-		scroll-margin-top: var(--anchor--offset--section);
-	}
-
-	#about {
-		scroll-margin-top: var(--anchor--offset--about);
-	}
 }

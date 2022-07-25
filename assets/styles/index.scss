@@ -122,9 +122,6 @@
 
 
 body {
-	@import 'spacing';
-	@import 'color';
-
 	// iPhone rotation and width caps.
 	margin-left:   auto;
 	margin-right:  auto;
@@ -135,6 +132,9 @@ body {
 
 
 	// Main layout.
+	@import 'spacing';
+	@import 'color';
+
 	> main,
 	> footer {
 		display: grid;

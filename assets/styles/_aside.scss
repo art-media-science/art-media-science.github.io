@@ -1,11 +1,9 @@
 > aside {
-	--header--scroll--offset: calc(var(--tagline--height) + var(--margin--vertical) * 2 - 0.2rem); // Slight overlap for rounding.
-
 	align-items: end;
 	grid-template-areas:
 		"links button";
 	margin-bottom: calc(-1 * var(--margin--vertical));
-	top:           var(--header--scroll--offset);
+	top:           calc(var(--tagline--height) + var(--margin--vertical) * 2 - 0.2rem); // Slight overlap for rounding.
 
 	@include landscape {
 		align-self:    end;

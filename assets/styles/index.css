@@ -634,7 +634,7 @@ body nav [href="#top"] {
 	color: var(--color);
 	opacity: 0;
 	transition-duration: var(--color--transition);
-	transition-property: color, opacity, visibility;
+	transition-property: opacity, visibility;
 	transition-timing-function: ease-in-out;
 	visibility: hidden;
 }
@@ -644,12 +644,12 @@ body nav [href="#top"] {
 	--color: white;
 }
 
-body nav [href="#intro"] {
-	transition-delay: calc(var(--color--transition) * 2);
+body nav [href="#about"] {
+	--color: black;
 }
 
-body nav [href="#about"] {
-	transition-delay: 0ms, 0ms, var(--color--transition);
+body nav [href="#intro"] {
+	transition-delay: var(--color--transition);
 }
 
 body nav [href="#top"] {
@@ -743,26 +743,19 @@ body.top nav [href="#intro"] {
 	visibility: visible;
 }
 
-body.top nav [href="#about"] {
-	transition-delay: 0ms, var(--color--transition), calc(var(--color--transition) * 2);
-}
-
-body.header:not(.top) nav [href="#intro"],
-body.main nav [href="#intro"] {
+body.header:not(.top) nav [href="#intro"] {
 	transition-delay: 0ms;
 	transition-duration: var(--color--transition);
 }
 
-body.header:not(.top) nav [href="#about"],
 body.main nav [href="#about"] {
 	opacity: 1;
-	transition-delay: 0ms, calc(var(--color--transition) * 3), 0ms;
 	visibility: visible;
 }
 
+body.header nav [href="#about"],
 body.footer nav [href="#about"] {
 	transition-duration: calc(var(--color--transition) / 2);
-	transition-delay: 0ms, 0ms, calc(var(--color--transition) / 2);
 }
 
 body.bottom nav [href="#top"] {

@@ -139,6 +139,10 @@ const getHeights = (main, logo, tagline, links) => {
 
 
 
+const isLandscape = () => (window.innerWidth > window.innerHeight || window.innerWidth >= 768)
+
+
+
 const getScrollDistance = (logo) => {
 	let scrollOffset
 
@@ -146,12 +150,12 @@ const getScrollDistance = (logo) => {
 	const updateScrollDistance = () => scrollOffset = parseFloat(getComputedStyle(logo.parentElement).marginTop)
 
 	const updateScroll = () => {
-		scaleDifference = logo.offsetHeight - logo.parentElement.offsetHeight
+		const scaleDifference = logo.offsetHeight - logo.parentElement.offsetHeight
 
-		easing = (x) => 1 - Math.pow(1 - x, 4) // easeOutQuart.
+		let easing = (x) => 1 - Math.pow(1 - x, 4) // easeOutQuart.
 
 		// Different ease for landscape layout.
-		if (window.innerWidth > window.innerHeight || window.innerWidth >= 768) easing = (x) => 1 - Math.pow(1 - x, 2) // easeOut…Square?
+		if (isLandscape()) easing = (x) => 1 - Math.pow(1 - x, 2) // easeOut…Square?
 
 		// The extra/early 8px “softens” the transition start a bit.
 		scroll = clamp(((window.scrollY - scrollOffset + 8) / (scrollOffset + scaleDifference)).toFixed(6), 0, 1)
@@ -186,19 +190,20 @@ watchTop = () => {
 
 const watchMain = (links, content) => {
 	const checkBounds = () => {
-		viewport = window.innerHeight
-		contentTop = content.getBoundingClientRect().top
-		linksBottom = links.getBoundingClientRect().bottom
+		const viewport = window.innerHeight
+		const linksBounds = links.getBoundingClientRect()
+		const contentTop = content.getBoundingClientRect().top
 
+		const linksEdge = (isLandscape()) ? linksBounds.top : linksBounds.bottom
 
-		if (contentTop <= viewport && viewport <= linksBottom) { // Intersecting.
+		if (contentTop <= viewport && viewport <= linksEdge) { // Intersecting.
 			if (!body.contains(mainClass)) { // Only do it once.
 				body.remove(...nouns, headerClass, footerClass, cyclingClass)
 				body.add(mainClass)
 			}
 		} else {
 			(contentTop > viewport) ? body.add(headerClass): body.remove(headerClass); // In the “header”.
-			(viewport > linksBottom) ? body.add(footerClass): body.remove(footerClass); // In the “footer”.
+			(viewport > linksEdge) ? body.add(footerClass): body.remove(footerClass); // In the “footer”.
 			if (body.contains(mainClass)) { // Only scrolling out.
 				body.remove(...nouns, mainClass)
 				cycleRandomNoun(nouns)
@@ -233,9 +238,9 @@ watchNouns = () => {
 
 watchTaglineTop = (tagline) => {
 	const checkTop = () => {
-		viewport = window.innerHeight
-		headerPadding = parseInt(getComputedStyle(tagline.parentElement).paddingBottom)
-		taglineTop = parseInt(tagline.getBoundingClientRect().top); // Dumb ternary semicolon thing.
+		const viewport = window.innerHeight
+		const headerPadding = parseInt(getComputedStyle(tagline.parentElement).paddingBottom)
+		const taglineTop = parseInt(tagline.getBoundingClientRect().top); // Dumb ternary semicolon thing.
 
 		(taglineTop - headerPadding <= 0) ? body.add(bottomClass): body.remove(bottomClass)
 	}

@@ -97,12 +97,12 @@ const watchMain = (links, content) => {
 			}
 			if (body.contains(invertClass)) setTimeout(() => body.remove(invertClass), 100) // Delayed to differentiate in/out.
 		} else {
+			(contentTop > viewport) ? body.add(headerClass) : body.remove(headerClass); // In the “header”.
+			(viewport > linksBottom) ? body.add(footerClass) : body.remove(footerClass); // In the “footer”.
 			if (body.contains(mainClass)) { // Only scrolling out.
 				body.remove(...nouns, mainClass)
 				cycleRandomNoun(nouns)
 			}
-			if (contentTop > viewport && !body.contains(headerClass)) body.add(headerClass) // In the “header”.
-			if (viewport > linksBottom && !body.contains(footerClass)) body.add(footerClass) // In the “footer”.
 			if (!body.contains(invertClass)) setTimeout(() => body.add(invertClass), 100)
 		}
 	}

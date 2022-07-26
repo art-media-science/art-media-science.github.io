@@ -24,9 +24,6 @@ const headerClass =  'header'
 const footerClass =  'footer'
 const bottomClass =  'bottom'
 
-let   nounCycle
-const nounCycleTimer = 8000
-
 
 
 const getHeights = (main, logo, tagline, links) => {
@@ -167,11 +164,14 @@ const randomNoun = () => {
 }
 
 const cycleRandomNoun = () => {
-	clearInterval(nounCycle) // Clear the timer, if there is one.
 	randomNoun(nouns) // Apply the first one.
-	setTimeout(() => body.add(cyclingClass), 200)
-	setTimeout(() => randomNoun(nouns), 300) // Again so it is fading right away.
-	nounCycle = setInterval(() => randomNoun(nouns), nounCycleTimer) // Then on a timer.
+
+	ontransitionend = () => {
+		if (event.propertyName == 'background-color' && event.target == document.body && !body.contains(mainClass)) {
+			body.add(cyclingClass)
+			randomNoun(nouns)
+		}
+	}
 }
 
 

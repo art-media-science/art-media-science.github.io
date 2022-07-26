@@ -125,7 +125,7 @@
 		&,
 		> main > header,
 		> footer > aside {
-			transition-duration: 7800ms; // Ballparking the JS.
+			transition-duration: 8000ms;
 		}
 
 		@include landscape {

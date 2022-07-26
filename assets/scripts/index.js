@@ -94,19 +94,20 @@ watchTop = () => {
 
 const watchMain = (links, content) => {
 	const checkBounds = () => {
-		viewport =    window.innerHeight
-		contentTop =  content.getBoundingClientRect().top
-		linksBottom = links.getBoundingClientRect().bottom
+		const viewport =    window.innerHeight
+		const linksBounds = links.getBoundingClientRect()
+		const contentTop =  content.getBoundingClientRect().top
 
+		const linksEdge = (isLandscape()) ? linksBounds.bottom : linksBounds.top
 
-		if (contentTop <= viewport && viewport <= linksBottom) { // Intersecting.
+		if (contentTop <= viewport && viewport <= linksEdge) { // Intersecting.
 			if (!body.contains(mainClass)) { // Only do it once.
 				body.remove(...nouns, headerClass, footerClass, cyclingClass)
 				body.add(mainClass)
 			}
 		} else {
 			(contentTop > viewport) ? body.add(headerClass) : body.remove(headerClass); // In the “header”.
-			(viewport > linksBottom) ? body.add(footerClass) : body.remove(footerClass); // In the “footer”.
+			(viewport > linksEdge) ? body.add(footerClass) : body.remove(footerClass); // In the “footer”.
 			if (body.contains(mainClass)) { // Only scrolling out.
 				body.remove(...nouns, mainClass)
 				cycleRandomNoun(nouns)

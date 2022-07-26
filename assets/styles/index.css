@@ -622,21 +622,28 @@ body nav [href="#intro"],
 body nav [href="#about"],
 body nav [href="#top"] {
 	color: var(--color);
+	opacity: 0;
 	transition-duration: var(--color--transition);
 	transition-property: color, opacity, visibility;
 	transition-timing-function: ease-in-out;
+	visibility: hidden;
+}
+
+body nav [href="#intro"],
+body nav [href="#top"] {
+	--color: white;
 }
 
 body nav [href="#intro"] {
-	--color: white;
-	transition-delay: var(--color--transition);
+	transition-delay: calc(var(--color--transition) * 2);
 }
 
-body nav [href="#about"],
+body nav [href="#about"] {
+	transition-delay: 0ms, 0ms, var(--color--transition);
+}
+
 body nav [href="#top"] {
-	opacity: 0;
-	transition-delay: 0ms, calc(var(--color--transition) * 4), calc(var(--color--transition) * 5);
-	visibility: hidden;
+	transition-delay: var(--color--transition);
 }
 
 body.art {
@@ -699,9 +706,9 @@ body.main.science [href="#science"] {
 	--color: var(--color--accent);
 }
 
-body.invert:not(.main),
-body.invert:not(.main) > main > header,
-body.invert:not(.main) > footer > aside {
+body.cycling:not(.main),
+body.cycling:not(.main) > main > header,
+body.cycling:not(.main) > footer > aside {
 	transition-duration: 7800ms;
 }
 
@@ -709,37 +716,48 @@ body.invert:not(.main) > footer > aside {
 (min-width: 35.5em) and (min-height: 30em),
 (min-width: 58.125em) {
 
-	body.invert:not(.main) > main > header,
-	body.invert:not(.main) > footer > aside {
+	body.cycling:not(.main) > main > header,
+	body.cycling:not(.main) > footer > aside {
 		transition-duration: initial;
 	}
 }
 
 body.top nav [href="#intro"] {
-	transition-delay: calc(var(--color--transition) * 4);
+	opacity: 1;
+	visibility: visible;
 }
 
-body:not(.top).invert nav [href="#intro"],
+body.top nav [href="#about"] {
+	transition-delay: 0ms, var(--color--transition), calc(var(--color--transition) * 2);
+}
+
+body.header:not(.top) nav [href="#intro"],
 body.main nav [href="#intro"] {
-	opacity: 0;
-	transition-delay: 0;
-	visibility: hidden;
+	transition-delay: 0ms;
+	transition-duration: var(--color--transition);
 }
 
+body.header:not(.top) nav [href="#about"],
 body.main nav [href="#about"] {
 	opacity: 1;
-	transition-delay: 0ms, var(--color--transition), 0ms;
+	transition-delay: 0ms, calc(var(--color--transition) * 2), 0ms;
 	visibility: visible;
 }
 
 body.footer nav [href="#about"] {
-	transition-delay: 0ms, 0ms, var(--color--transition);
+	transition-duration: calc(var(--color--transition) / 2);
+	transition-delay: 0ms, 0ms, calc(var(--color--transition) / 2);
 }
 
 body.bottom nav [href="#top"] {
 	opacity: 1;
-	transition-delay: 0ms;
 	visibility: visible;
+}
+
+body.loading:not(.main) nav [href="#intro"],
+body.loading:not(.main) nav [href="#top"] {
+	transition-delay: 0ms;
+	transition-duration: 0ms;
 }
 
 body > main,
@@ -833,7 +851,7 @@ body > main > header {
 (min-width: 35.5em) and (min-height: 30em),
 (min-width: 58.125em) {
 	body > main > header {
-		height: calc(var(--vh--initial, 100vh) + var(--header--scroll));
+		height: calc(100vh + var(--header--scroll));
 		top: calc(-1 * var(--header--scroll));
 	}
 }
@@ -1005,7 +1023,7 @@ body > main > section:first-of-type > p {
 
 body > main > section:last-of-type {
 	margin-bottom: var(--section--spacing);
-	margin-top: var(--section--spacing);
+	margin-top: calc(var(--section--spacing) + 25vh);
 }
 
 @media (orientation: landscape),
@@ -1015,6 +1033,10 @@ body > main > section:last-of-type {
 		grid-row: 3;
 		margin-bottom: calc(var(--section--spacing) + var(--section--overlap));
 	}
+}
+
+body > main > section:last-of-type #art {
+	margin-top: -25vh;
 }
 
 body > main > section:last-of-type #art,

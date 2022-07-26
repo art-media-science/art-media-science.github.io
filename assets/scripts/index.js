@@ -98,7 +98,7 @@ const watchMain = (links, content) => {
 		const linksBounds = links.getBoundingClientRect()
 		const contentTop =  content.getBoundingClientRect().top
 
-		const linksEdge = (isLandscape()) ? linksBounds.bottom : linksBounds.top
+		const linksEdge = (isLandscape()) ? linksBounds.top : linksBounds.bottom
 
 		if (contentTop <= viewport && viewport <= linksEdge) { // Intersecting.
 			if (!body.contains(mainClass)) { // Only do it once.

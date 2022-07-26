@@ -49,7 +49,7 @@
 		color:                      var(--color);
 		opacity:                    0;
 		transition-duration:        var(--color--transition);
-		transition-property:        color, opacity, visibility;
+		transition-property:        opacity, visibility;
 		transition-timing-function: ease-in-out;
 		visibility:                 hidden;
 	}
@@ -59,12 +59,12 @@
 		--color: white; // Just opacity/visibility changes.
 	}
 
-	nav [href="#intro"] {
-		transition-delay: calc(var(--color--transition) * 2);
+	nav [href="#about"] {
+		--color: black;
 	}
 
-	nav [href="#about"] {
-		transition-delay: 0ms, 0ms, var(--color--transition);
+	nav [href="#intro"] {
+		transition-delay: var(--color--transition);
 	}
 
 	nav [href="#top"] {
@@ -144,30 +144,26 @@
 			opacity:    1;
 			visibility: visible;
 		}
-
-		nav [href="#about"] {
-			transition-delay: 0ms, var(--color--transition), calc(var(--color--transition) * 2);
-		}
 	}
 
-	&.header:not(.top),
-	&.main {
+	&.header:not(.top) {
 		nav [href="#intro"] {
 			transition-delay:    0ms;
 			transition-duration: var(--color--transition);
 		}
+	}
 
+	&.main {
 		nav [href="#about"] {
 			opacity:          1;
-			transition-delay: 0ms, calc(var(--color--transition) * 3), 0ms;
 			visibility:       visible;
 		}
 	}
 
+	&.header,
 	&.footer {
 		nav [href="#about"] {
-			transition-duration: calc(var(--color--transition) / 2);
-			transition-delay:    0ms, 0ms, calc(var(--color--transition) / 2);
+			transition-duration: calc(var(--color--transition) / 2); // No color change, go quicker.
 		}
 	}
 

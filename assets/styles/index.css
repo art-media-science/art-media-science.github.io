@@ -706,6 +706,12 @@ body.main.science [href="#science"] {
 	--color: var(--color--accent);
 }
 
+body.main [href="#art"],
+body.main [href="#media"],
+body.main [href="#science"] {
+	filter: brightness(1.1);
+}
+
 body.cycling:not(.main),
 body.cycling:not(.main) > main > header,
 body.cycling:not(.main) > footer > aside {
@@ -955,14 +961,22 @@ body > main > header > section:last-of-type > a > p {
 body > main > header > menu {
 	display: flex;
 	flex-direction: column;
-	gap: calc(var(--pagination--size) * 0.8);
+	gap: calc(var(--pagination--size) * 1.25);
 	grid-area: pagination;
 	justify-self: center;
 	margin-bottom: calc(var(--tagline--height) * -1);
 	position: sticky;
-	top: calc(var(--margin--vertical) + var(--pagination--size) / 2);
+	top: calc(var(--margin--vertical) + var(--pagination--size) / 3);
 	transform-origin: center top;
 	z-index: 1;
+}
+
+@media (orientation: landscape),
+(min-width: 35.5em) and (min-height: 30em),
+(min-width: 58.125em) {
+	body > main > header > menu {
+		top: calc(var(--margin--vertical) + var(--pagination--size) / 4);
+	}
 }
 
 body > main > header > menu > li {

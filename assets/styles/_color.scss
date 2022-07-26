@@ -42,26 +42,32 @@
 	}
 
 	// Jump icons.
-	nav [href="#intro"], // As specific as as above.
+	nav [href="#intro"],
 	nav [href="#about"],
 	nav [href="#top"] {
 		color:                      var(--color);
+		opacity:                    0;
 		transition-duration:        var(--color--transition);
 		transition-property:        color, opacity, visibility;
 		transition-timing-function: ease-in-out;
+		visibility:                 hidden;
+	}
+
+	nav [href="#intro"], // As specific as above.
+	nav [href="#top"] {
+		--color: white; // Just opacity/visibility changes.
 	}
 
 	nav [href="#intro"] {
-		--color: white; // So it isn’t trying to go to color/black while fading.
-
-		transition-delay: var(--color--transition);
+		transition-delay: calc(var(--color--transition) * 2);
 	}
 
-	nav [href="#about"],
+	nav [href="#about"] {
+		transition-delay: 0ms, 0ms, var(--color--transition);
+	}
+
 	nav [href="#top"] {
-		opacity:          0;
-		transition-delay: 0ms, calc(var(--color--transition) * 4), calc(var(--color--transition) * 5);
-		visibility:       hidden;
+		transition-delay: var(--color--transition);
 	}
 
 
@@ -126,43 +132,42 @@
 
 
 
-	// The initial scroll arrow.
 	&.top {
 		nav [href="#intro"] {
-			transition-delay: calc(var(--color--transition) * 4);
+			opacity:    1;
+			visibility: visible;
+		}
+
+		nav [href="#about"] {
+			transition-delay: 0ms, var(--color--transition), calc(var(--color--transition) * 2);
 		}
 	}
 
-	&:not(.top).invert, // Differentiate scrolling off the top vs. load.
+	&.header:not(.top),
 	&.main {
 		nav [href="#intro"] {
-			opacity:          0;
-			transition-delay: 0;
-			visibility:       hidden;
+			transition-delay:    0ms;
+			transition-duration: var(--color--transition);
 		}
-	}
 
-	// Show the about “i”.
-	&.main {
 		nav [href="#about"] {
 			opacity:          1;
-			transition-delay: 0ms, var(--color--transition), 0ms;
+			transition-delay: 0ms, calc(var(--color--transition) * 2), 0ms;
 			visibility:       visible;
 		}
 	}
 
 	&.footer {
 		nav [href="#about"] {
-			transition-delay: 0ms, 0ms, var(--color--transition);
+			transition-duration: calc(var(--color--transition) / 2);
+			transition-delay:    0ms, 0ms, calc(var(--color--transition) / 2);
 		}
 	}
 
-	// The footer top arrow, only near the end.
 	&.bottom {
 		nav [href="#top"] {
-			opacity:          1;
-			transition-delay: 0ms;
-			visibility:       visible;
+			opacity:    1;
+			visibility: visible;
 		}
 	}
 

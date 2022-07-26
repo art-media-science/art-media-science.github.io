@@ -171,4 +171,13 @@
 		}
 	}
 
+
+
+	&.loading:not(.main) { // Differentiate loading with JS.
+		nav [href="#intro"],
+		nav [href="#top"] {
+			transition-delay:    0ms;
+			transition-duration: 0ms;
+		}
+	}
 }

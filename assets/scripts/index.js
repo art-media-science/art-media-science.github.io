@@ -16,12 +16,13 @@ const taglineHeightVar = '--tagline--height'
 const linksHeightVar =   '--links--height'
 const scrollVar =        '--logo--scroll'
 
-const invertClass = 'invert'
-const mainClass =   'main'
-const topClass =    'top'
-const headerClass = 'header'
-const footerClass = 'footer'
-const bottomClass = 'bottom'
+const loadingClass = 'loading'
+const invertClass =  'invert'
+const mainClass =    'main'
+const topClass =     'top'
+const headerClass =  'header'
+const footerClass =  'footer'
+const bottomClass =  'bottom'
 
 let   nounCycle
 const nounCycleTimer = 8000
@@ -201,4 +202,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	watchTaglineTop(tagline)
 	cycleRandomNoun()
 	fixMobileSafariFlicker(logo, tagline)
+})
+
+window.addEventListener('load', () => {
+	setTimeout(() => body.remove(loadingClass), 100) // Wait a tick so the other events clear.
 })

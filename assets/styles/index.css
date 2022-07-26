@@ -546,7 +546,7 @@ body {
 body {
 	--logo--height--scaled: calc(var(--logo--height) * var(--logo--scale, 1));
 	--scroll--scale: calc(1 - (1 - var(--logo--scale)) * var(--logo--scroll));
-	--scroll--scale--duration: 100ms;
+	--scroll--scale--duration: 50ms;
 	--header--height: calc(var(--logo--height) + var(--tagline--height) + var(--margin--vertical) * 3);
 	--header--height--scrolled: calc(var(--logo--height--scaled) + var(--tagline--height) + var(--margin--vertical) * 3);
 	--header--height--scrolled--footer: calc(var(--tagline--height) + var(--links--height) + var(--margin--vertical) * 3);
@@ -567,13 +567,6 @@ body {
 		--anchor--offset--about: calc(var(--margin--vertical) - 0.1rem);
 		--section--overlap: calc(var(--tagline--height) + var(--margin--vertical));
 		--section--height: calc(var(--vh--initial, 100vh) - var(--section--spacing) - var(--anchor--offset) - var(--section--overlap));
-	}
-}
-
-@media (min-width: 48em) and (min-height: 30em),
-(min-width: 58.125em) {
-	body {
-		--scroll--scale--duration: 50ms;
 	}
 }
 
@@ -715,7 +708,7 @@ body.main [href="#science"] {
 body.cycling:not(.main),
 body.cycling:not(.main) > main > header,
 body.cycling:not(.main) > footer > aside {
-	transition-duration: 7800ms;
+	transition-duration: 8000ms;
 }
 
 @media (orientation: landscape),

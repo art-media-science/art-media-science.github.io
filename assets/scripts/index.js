@@ -47,16 +47,23 @@ const getHeights = (main, logo, tagline, links) => {
 
 
 const getScrollDistance = (logo) => {
-	let scrollDistance
+	let scrollOffset
 
 	const clamp = (num, min, max) => Math.min(Math.max(num, min), max)
-	const updateScrollDistance = () => scrollDistance = parseFloat(getComputedStyle(logo.parentElement).marginTop)
+	const updateScrollDistance = () => scrollOffset = parseFloat(getComputedStyle(logo.parentElement).marginTop)
 
 	const updateScroll = () => {
-		// The extra/early 10px “softens” the transition a bit.
-		scroll = clamp(((window.scrollY - scrollDistance + 10) / scrollDistance).toFixed(6), 0, 1)
+		scaleDifference = logo.offsetHeight - logo.parentElement.offsetHeight
 
-		document.body.style.setProperty(scrollVar, ` ${scroll}`)
+		easing = (x) => 1 - Math.pow(1 - x, 4) // easeOutQuart.
+
+		// Different ease for landscape layout.
+		if (window.innerWidth > window.innerHeight || window.innerWidth >= 768) easing = (x) => 1 - Math.pow(1 - x, 2) // easeOut…Square?
+
+		// The extra/early 8px “softens” the transition start a bit.
+		scroll = clamp(((window.scrollY - scrollOffset + 8) / (scrollOffset + scaleDifference)).toFixed(6), 0, 1)
+
+		document.body.style.setProperty(scrollVar, ` ${easing(scroll)}`)
 	}
 
 	window.addEventListener('load', () => {

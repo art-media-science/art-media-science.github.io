@@ -2,7 +2,7 @@
 	--logo--height--scaled: calc(var(--logo--height) * var(--logo--scale, 1));
 
 	--scroll--scale:           calc(1 - (1 - var(--logo--scale)) * var(--logo--scroll));
-	--scroll--scale--duration: 100ms;
+	--scroll--scale--duration: 50ms;
 
 	--header--height: calc(
 		var(--logo--height) +
@@ -60,6 +60,4 @@
 			var(--section--overlap)
 		);
 	}
-
-	@include breakpoint(768) { --scroll--scale--duration: 50ms; }// Can go faster on desktop.
 }

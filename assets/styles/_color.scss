@@ -115,7 +115,7 @@
 
 
 
-	&.invert:not(.main) { // More specific.
+	&.cycling:not(.main) { // More specific.
 		&,
 		> main > header,
 		> footer > aside {

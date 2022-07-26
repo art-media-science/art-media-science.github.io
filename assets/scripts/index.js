@@ -19,6 +19,7 @@ const scrollVar =        '--logo--scroll'
 const invertClass = 'invert'
 const mainClass =   'main'
 const topClass =    'top'
+const headerClass = 'header'
 const footerClass = 'footer'
 const bottomClass = 'bottom'
 
@@ -35,7 +36,7 @@ const getHeights = (main, logo, tagline, links) => {
 		setHeightVar(tagline, taglineHeightVar)
 		setHeightVar(links, linksHeightVar)
 
-		setTimeout(() => setHeightVar(main, mainHeightVar), 10)// Since it depends on the other heights.
+		setTimeout(() => setHeightVar(main, mainHeightVar), 10) // Since it depends on the other heights.
 	}
 
 	window.addEventListener('load', updateVars)
@@ -91,7 +92,7 @@ const watchMain = (links, content) => {
 
 		if (contentTop <= viewport && viewport <= linksBottom) { // Intersecting.
 			if (!body.contains(mainClass)) { // Only do it once.
-				body.remove(...nouns, footerClass)
+				body.remove(...nouns, headerClass, footerClass)
 				body.add(mainClass)
 			}
 			if (body.contains(invertClass)) setTimeout(() => body.remove(invertClass), 100) // Delayed to differentiate in/out.
@@ -100,6 +101,7 @@ const watchMain = (links, content) => {
 				body.remove(...nouns, mainClass)
 				cycleRandomNoun(nouns)
 			}
+			if (contentTop > viewport && !body.contains(headerClass)) body.add(headerClass) // In the “header”.
 			if (viewport > linksBottom && !body.contains(footerClass)) body.add(footerClass) // In the “footer”.
 			if (!body.contains(invertClass)) setTimeout(() => body.add(invertClass), 100)
 		}

@@ -141,6 +141,22 @@ body > main > header > section:first-of-type > h1 {
 	--typography--inset--right: -0.014;
 }
 
+body > main > section:last-of-type > section > h2,
+body > footer > section > h2 {
+	--typography--size: var(--typography--size--tagline);
+	margin-bottom: var(--margin);
+}
+
+body > main > section:last-of-type > section > h2:not(:first-child),
+body > footer > section > h2:not(:first-child) {
+	margin-top: calc(var(--margin) * 2);
+}
+
+body > main > section:last-of-type > section > p + p,
+body > footer > section > p + p {
+	margin-top: var(--margin);
+}
+
 :root {
 	/* Our base size is 10/16, so that 1rem = 10px. Easy maths. */
 	font-size: 62.5%;
@@ -598,6 +614,7 @@ body > footer > aside {
 body [href="#art"],
 body [href="#media"],
 body [href="#science"],
+body h2,
 body p {
 	color: var(--color);
 	transition-duration: var(--color--transition);
@@ -1026,6 +1043,8 @@ body > main > section:first-of-type {
 body > main > section:first-of-type > p {
 	--typography--leading: var(--typography--leading--tagline);
 	--typography--size: var(--typography--size--intro);
+	-webkit-text-stroke-width: 0.0075em;
+	letter-spacing: 0.0025em;
 }
 
 body > main > section:last-of-type {
@@ -1110,15 +1129,6 @@ body > footer > section {
 		grid-row: 1;
 		margin-top: calc(-1 * var(--section--overlap));
 	}
-}
-
-body > footer > section p {
-	font-style: italic;
-	max-width: 80ch;
-}
-
-body > footer > section p + p {
-	margin-top: var(--margin);
 }
 
 body nav {

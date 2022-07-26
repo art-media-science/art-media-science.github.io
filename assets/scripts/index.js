@@ -43,6 +43,10 @@ const getHeights = (main, logo, tagline, links) => {
 
 
 
+const isLandscape = () => (window.innerWidth > window.innerHeight || window.innerWidth >= 768)
+
+
+
 const getScrollDistance = (logo) => {
 	let scrollOffset
 
@@ -50,12 +54,12 @@ const getScrollDistance = (logo) => {
 	const updateScrollDistance = () => scrollOffset = parseFloat(getComputedStyle(logo.parentElement).marginTop)
 
 	const updateScroll = () => {
-		scaleDifference = logo.offsetHeight - logo.parentElement.offsetHeight
+		const scaleDifference = logo.offsetHeight - logo.parentElement.offsetHeight
 
-		easing = (x) => 1 - Math.pow(1 - x, 4) // easeOutQuart.
+		let easing = (x) => 1 - Math.pow(1 - x, 4) // easeOutQuart.
 
 		// Different ease for landscape layout.
-		if (window.innerWidth > window.innerHeight || window.innerWidth >= 768) easing = (x) => 1 - Math.pow(1 - x, 2) // easeOut…Square?
+		if (isLandscape()) easing = (x) => 1 - Math.pow(1 - x, 2) // easeOut…Square?
 
 		// The extra/early 8px “softens” the transition start a bit.
 		scroll = clamp(((window.scrollY - scrollOffset + 8) / (scrollOffset + scaleDifference)).toFixed(6), 0, 1)
@@ -137,9 +141,9 @@ watchNouns = () => {
 
 watchTaglineTop = (tagline) => {
 	const checkTop = () => {
-		viewport =      window.innerHeight
-		headerPadding = parseInt(getComputedStyle(tagline.parentElement).paddingBottom)
-		taglineTop    = parseInt(tagline.getBoundingClientRect().top); // Dumb ternary semicolon thing.
+		const viewport =      window.innerHeight
+		const headerPadding = parseInt(getComputedStyle(tagline.parentElement).paddingBottom)
+		const taglineTop    = parseInt(tagline.getBoundingClientRect().top); // Dumb ternary semicolon thing.
 
 		(taglineTop - headerPadding <= 0) ? body.add(bottomClass) : body.remove(bottomClass)
 	}

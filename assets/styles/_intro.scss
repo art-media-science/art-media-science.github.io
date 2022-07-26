@@ -46,4 +46,11 @@
 	#science {
 		margin-top: var(--section--spacing);
 	}
+
+
+
+	// Each noun.
+	> section {
+		@extend %font--markdown;
+	}
 }

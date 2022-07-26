@@ -109,3 +109,24 @@
 	--typography--inset--left:  -0.019;
 	--typography--inset--right: -0.014;
 }
+
+
+
+// Main markdown.
+%font--markdown {
+	> h2 {
+		--typography--size: var(--typography--size--tagline);
+
+		margin-bottom: var(--margin);
+
+		&:not(:first-child) {
+			margin-top: calc(var(--margin) * 2);
+		}
+	}
+
+	> p {
+		+ p {
+			margin-top: var(--margin);
+		}
+	}
+}

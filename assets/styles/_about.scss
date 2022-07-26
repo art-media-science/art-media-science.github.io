@@ -1,4 +1,6 @@
 > section {
+	@extend %font--markdown;
+
 	margin-top:        var(--section--spacing);
 	padding-bottom:    var(--margin--vertical);
 	scroll-margin-top: var(--anchor--offset--about);
@@ -6,17 +8,5 @@
 	@include landscape {
 		grid-row:   1; // With the header.
 		margin-top: calc(-1 * var(--section--overlap));
-	}
-
-
-
-	// Temp.
-	p {
-		font-style: italic;
-		max-width:  80ch;
-
-		+ p {
-			margin-top: var(--margin);
-		}
 	}
 }

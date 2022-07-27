@@ -30,7 +30,7 @@
 		color:                      var(--color);
 		transition-duration:        var(--color--transition);
 		transition-property:        background-color, color;
-		transition-timing-function: var(--color--transition--curve);
+		transition-timing-function: var(--color--transition--curve--tight);
 	}
 
 	// Icons.
@@ -48,8 +48,8 @@
 		opacity:                    0;
 		transition-duration:        var(--color--transition);
 		transition-property:        opacity, visibility;
-		transition-timing-function: var(--color--transition--curve);
-		visibility:                 hidden;
+		transition-timing-function: linear;
+		visibility:                 var(--color--transition--curve);
 	}
 
 	nav [href="#intro"], // As specific as above.
@@ -59,6 +59,8 @@
 
 	nav [href="#about"] {
 		--color: black;
+
+		transition-delay: calc(var(--color--transition) / 2); // After background is halfway.
 	}
 
 	nav [href="#intro"] {
@@ -161,6 +163,7 @@
 	&.header,
 	&.footer {
 		nav [href="#about"] {
+			transition-delay:    0ms;
 			transition-duration: calc(var(--color--transition) / 2); // No color change, go quicker.
 		}
 	}

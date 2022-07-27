@@ -471,7 +471,7 @@ body > main > header > section:first-of-type > h1 > a:active {
 	--color--art: hsl(360, 55%, 48%);
 	--color--media: hsl(42, 88%, 48%);
 	--color--science: hsl(212, 75%, 40%);
-	--color--transition: 200ms;
+	--color--transition: 500ms;
 	--color--link: hsl(0, 0%, 0%, 3.333%);
 	--color--link--reverse: hsl(0, 0%, 100%, 6.666%);
 	--link--enlargement: 0.4rem;

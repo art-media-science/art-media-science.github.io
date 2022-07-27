@@ -34,8 +34,8 @@
 
 
 
-	--section--spacing: calc(var(--margin--vertical) * 4);
-	--section--overlap: 4.8rem; // One and a half lines of body copy.
+	--section--spacing: calc(var(--margin--vertical) * 6);
+	--section--overlap: 1.2rem; // Through the header on the next section.
 
 	--section--height: calc(
 		var(--vh--initial, 100vh) -
@@ -51,7 +51,6 @@
 		--anchor--offset--section: var(--margin--vertical);
 		--anchor--offset--about:   calc(var(--margin--vertical) - 0.1rem); // Hide overshoots.
 
-		--section--spacing: calc(var(--margin--vertical) * 6);
 		--section--overlap: calc(var(--tagline--height) + var(--margin--vertical)); // Tagline stuck to bottom.
 
 		--section--height: calc(

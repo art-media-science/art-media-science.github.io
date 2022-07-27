@@ -456,7 +456,7 @@ body > main > header > section:first-of-type > h1 > a:active {
 	--typography--leading--tagline: 1;
 	--typography--size: 2rem;
 	--typography--size--logo: calc(var(--typography--size) * 4);
-	--typography--size--tagline: calc(var(--typography--size) * 1.2);
+	--typography--size--tagline: calc(var(--typography--size) * 4 / 3);
 	--typography--size--intro: calc(var(--typography--size) * 2);
 	--margin: calc(var(--typography--size) * 1.2);
 	--margin--vertical: var(--margin);
@@ -572,8 +572,8 @@ body {
 	--anchor--offset: var(--margin--vertical);
 	--anchor--offset--section: calc(var(--anchor--offset) + var(--header--height--scrolled));
 	--anchor--offset--about: calc(var(--anchor--offset) + var(--header--height--scrolled--footer));
-	--section--spacing: calc(var(--margin--vertical) * 4);
-	--section--overlap: 4.8rem;
+	--section--spacing: calc(var(--margin--vertical) * 6);
+	--section--overlap: 1.2rem;
 	--section--height: calc(var(--vh--initial, 100vh) - var(--header--height--scrolled) - var(--section--spacing) - var(--anchor--offset) - var(--section--overlap));
 }
 
@@ -583,7 +583,6 @@ body {
 	body {
 		--anchor--offset--section: var(--margin--vertical);
 		--anchor--offset--about: calc(var(--margin--vertical) - 0.1rem);
-		--section--spacing: calc(var(--margin--vertical) * 6);
 		--section--overlap: calc(var(--tagline--height) + var(--margin--vertical));
 		--section--height: calc(var(--vh--initial, 100vh) - var(--section--spacing) - var(--anchor--offset) - var(--section--overlap));
 	}

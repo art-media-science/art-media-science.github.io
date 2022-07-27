@@ -471,8 +471,9 @@ body > main > header > section:first-of-type > h1 > a:active {
 	--color--art: hsl(360, 55%, 48%);
 	--color--media: hsl(42, 88%, 48%);
 	--color--science: hsl(212, 75%, 40%);
-	--color--transition: 500ms;
-	--color--transition--curve: cubic-bezier(0.45, 0, 0.55, 1);
+	--color--transition: 400ms;
+	--color--transition--curve: cubic-bezier(0.37, 0, 0.63, 1);
+	--color--transition--curve--tight: cubic-bezier(0.83, 0, 0.17, 1);
 	--color--link: hsl(0, 0%, 0%, 3.333%);
 	--color--link--reverse: hsl(0, 0%, 100%, 6.666%);
 	--link--enlargement: 0.4rem;
@@ -620,7 +621,7 @@ body p {
 	color: var(--color);
 	transition-duration: var(--color--transition);
 	transition-property: background-color, color;
-	transition-timing-function: var(--color--transition--curve);
+	transition-timing-function: var(--color--transition--curve--tight);
 }
 
 body svg {
@@ -636,8 +637,8 @@ body nav [href="#top"] {
 	opacity: 0;
 	transition-duration: var(--color--transition);
 	transition-property: opacity, visibility;
-	transition-timing-function: var(--color--transition--curve);
-	visibility: hidden;
+	transition-timing-function: linear;
+	visibility: var(--color--transition--curve);
 }
 
 body nav [href="#intro"],
@@ -647,6 +648,7 @@ body nav [href="#top"] {
 
 body nav [href="#about"] {
 	--color: black;
+	transition-delay: calc(var(--color--transition) / 2);
 }
 
 body nav [href="#intro"] {
@@ -756,6 +758,7 @@ body.main nav [href="#about"] {
 
 body.header nav [href="#about"],
 body.footer nav [href="#about"] {
+	transition-delay: 0ms;
 	transition-duration: calc(var(--color--transition) / 2);
 }
 

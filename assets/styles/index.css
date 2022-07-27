@@ -637,8 +637,8 @@ body nav [href="#top"] {
 	opacity: 0;
 	transition-duration: var(--color--transition);
 	transition-property: opacity, visibility;
-	transition-timing-function: linear;
-	visibility: var(--color--transition--curve);
+	transition-timing-function: var(--color--transition--curve);
+	visibility: hidden;
 }
 
 body nav [href="#intro"],

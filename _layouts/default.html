@@ -29,7 +29,7 @@
 		</main>
 		<footer>
 			<section id="about" tabindex="0">
-				{{ about }}
+				{{ about | replace: ' id="about"', ''}}
 			</section>
 			{% include aside.html %}
 		</footer>

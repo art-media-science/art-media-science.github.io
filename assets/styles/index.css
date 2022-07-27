@@ -472,6 +472,7 @@ body > main > header > section:first-of-type > h1 > a:active {
 	--color--media: hsl(42, 88%, 48%);
 	--color--science: hsl(212, 75%, 40%);
 	--color--transition: 500ms;
+	--color--transition--curve: cubic-bezier(0.45, 0, 0.55, 1);
 	--color--link: hsl(0, 0%, 0%, 3.333%);
 	--color--link--reverse: hsl(0, 0%, 100%, 6.666%);
 	--link--enlargement: 0.4rem;
@@ -598,7 +599,7 @@ body > footer > aside {
 	background-color: var(--color--background);
 	transition-duration: var(--color--transition);
 	transition-property: background-color;
-	transition-timing-function: ease-in-out;
+	transition-timing-function: var(--color--transition--curve);
 }
 
 @media (orientation: landscape),
@@ -619,7 +620,7 @@ body p {
 	color: var(--color);
 	transition-duration: var(--color--transition);
 	transition-property: background-color, color;
-	transition-timing-function: ease-in-out;
+	transition-timing-function: var(--color--transition--curve);
 }
 
 body svg {
@@ -635,7 +636,7 @@ body nav [href="#top"] {
 	opacity: 0;
 	transition-duration: var(--color--transition);
 	transition-property: opacity, visibility;
-	transition-timing-function: ease-in-out;
+	transition-timing-function: var(--color--transition--curve);
 	visibility: hidden;
 }
 

@@ -93,29 +93,12 @@
 		}
 
 
+		// Set the active color for logo/pagination.
+		&.art [href="#art"],
+		&.media [href="#media"],
+		&.science [href="#science"] {
+			--color: var(--color--accent);
 
-		// There are briefly multiple classes, so turn off the others.
-		&.art {
-			[href="#art"] { --color: var(--color--accent); }
-			[href="#media"] { --color: black; }
-			[href="#science"] { --color: black; }
-		}
-
-		&.media {
-			[href="#art"] { --color: black; }
-			[href="#media"] { --color: var(--color--accent); }
-			[href="#science"] { --color: black; }
-		}
-
-		&.science {
-			[href="#art"] { --color: black; }
-			[href="#media"] { --color: black; }
-			[href="#science"] { --color: var(--color--accent); }
-		}
-
-		[href="#art"],
-		[href="#media"],
-		[href="#science"] {
 			filter: brightness(1.1); // Boost them a bit on white.
 		}
 	}

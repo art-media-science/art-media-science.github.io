@@ -123,15 +123,26 @@ const watchMain = (links, content) => {
 
 
 watchNouns = () => {
+	let nounOverlap = [] // Since the nouns “overlap”.
+
 	nouns.forEach((noun) => {
 		const observer = new IntersectionObserver(entries => {
 			const [entry] = entries;
 			if (body.contains(mainClass)) {
-				(entry.isIntersecting) ? body.add(noun) : body.remove(noun)
+				if (entry.isIntersecting) {
+					if (!nounOverlap.includes(noun)) nounOverlap.push(noun) // Only add it once.
+
+					let currentNoun = nounOverlap[nounOverlap.length - 1] // Always take the last one.
+
+					body.remove(...nouns.filter(noun => noun != currentNoun)) // Remove the others.
+					body.add(currentNoun)
+				} else {
+					if (nounOverlap.includes(noun)) nounOverlap = nounOverlap.filter(noun => noun != noun) // Toss the exiting one.
+				}
 			}
 		}, {
 			rootMargin: '-25% 0px -25% 0px',
-			threshold:  [0, 0.1, 0.25, 0.5, 0.75, 1] // Catch “Science” more times coming back up from footer.
+			threshold:  [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1] // Catch “Science” more times coming back up from footer.
 		})
 
 		setTimeout(() => observer.observe(document.getElementById(noun)), 10) // Let the layout settle.

@@ -1037,7 +1037,13 @@ body > main > section:first-of-type > p {
 	--typography--leading: var(--typography--leading--tagline);
 	--typography--size: var(--typography--size--intro);
 	-webkit-text-stroke-width: 0.0075em;
-	letter-spacing: 0.0025em;
+}
+
+@supports (-webkit-hyphens: none) {
+	body > main > section:first-of-type > p {
+		-webkit-text-stroke-width: initial;
+		text-shadow: -0.005em 0 0.01em var(--color), 0 -0.005em 0.01em var(--color);
+	}
 }
 
 body > main > section:last-of-type {

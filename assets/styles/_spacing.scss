@@ -51,6 +51,7 @@
 		--anchor--offset--section: var(--margin--vertical);
 		--anchor--offset--about:   calc(var(--margin--vertical) - 0.1rem); // Hide overshoots.
 
+		--section--spacing: calc(var(--margin--vertical) * 4);
 		--section--overlap: calc(var(--tagline--height) + var(--margin--vertical)); // Tagline stuck to bottom.
 
 		--section--height: calc(

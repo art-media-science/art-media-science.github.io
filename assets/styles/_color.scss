@@ -68,7 +68,7 @@
 	}
 
 	nav [href="#top"] {
-		transition-delay: var(--color--transition);
+		transition-delay: calc(var(--color--transition) * 2);
 	}
 
 
@@ -157,8 +157,9 @@
 
 	&.bottom {
 		nav [href="#top"] {
-			opacity:    1;
-			visibility: visible;
+			opacity:          1;
+			transition-delay: var(--color--transition);
+			visibility:       visible;
 		}
 	}
 

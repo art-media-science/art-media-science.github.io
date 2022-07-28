@@ -14,13 +14,6 @@
 		transition-timing-function: var(--color--transition--curve);
 	}
 
-	@include landscape {
-		> main > header,
-		> footer > aside {
-			background-color: initial;
-		}
-	}
-
 	// Text.
 	[href="#art"],
 	[href="#media"],
@@ -114,13 +107,6 @@
 		> main > header,
 		> footer > aside {
 			transition-duration: 8000ms;
-		}
-
-		@include landscape {
-			> main > header,
-			> footer > aside {
-				transition-duration: initial;
-			}
 		}
 	}
 

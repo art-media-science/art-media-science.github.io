@@ -817,6 +817,34 @@ body > main > header > section:first-of-type > h1 {
 	will-change: transform;
 }
 
+body > main > header > menu [href="#media"],
+body > main > header > section:first-of-type > h1 [href="#media"],
+body > main > header > menu [href="#science"],
+body > main > header > section:first-of-type > h1 [href="#science"] {
+	--scroll--bounce: -8%;
+	transition-duration: var(--color--transition), var(--color--transition), var(--scroll--scale--duration);
+	transition-property: background-color, color, transform;
+	transition-timing-function: var(--color--transition--curve--tight), var(--color--transition--curve--tight), linear;
+	will-change: transform;
+}
+
+body > main > header > menu li [href="#media"],
+body > main > header > section:first-of-type > h1 li [href="#media"],
+body > main > header > menu li [href="#science"],
+body > main > header > section:first-of-type > h1 li [href="#science"] {
+	--scroll--bounce: -25%;
+}
+
+body > main > header > menu [href="#media"],
+body > main > header > section:first-of-type > h1 [href="#media"] {
+	transform: translateY(calc(var(--scroll--bounce) * var(--logo--bounce)));
+}
+
+body > main > header > menu [href="#science"],
+body > main > header > section:first-of-type > h1 [href="#science"] {
+	transform: translateY(calc(2 * var(--scroll--bounce) * var(--logo--bounce)));
+}
+
 body > main > header {
 	align-items: start;
 	grid-template-areas: "logo    pagination""tagline button";

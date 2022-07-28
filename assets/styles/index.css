@@ -661,7 +661,7 @@ body nav [href="#intro"] {
 }
 
 body nav [href="#top"] {
-	transition-delay: var(--color--transition);
+	transition-delay: calc(var(--color--transition) * 2);
 }
 
 body.art {
@@ -739,6 +739,7 @@ body.footer nav [href="#about"] {
 
 body.bottom nav [href="#top"] {
 	opacity: 1;
+	transition-delay: var(--color--transition);
 	visibility: visible;
 }
 

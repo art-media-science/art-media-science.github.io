@@ -4,7 +4,33 @@
 	transition-property:        transform;
 	transition-timing-function: linear;
 	will-change:                transform;
+
+	// Some “stretch”.
+	[href="#media"],
+	[href="#science"] {
+		--scroll--bounce: -8%;
+
+		// Combine with color transitions, oy, CSS.
+		transition-duration:        var(--color--transition), var(--color--transition), var(--scroll--scale--duration);
+		transition-property:        background-color, color, transform;
+		transition-timing-function: var(--color--transition--curve--tight), var(--color--transition--curve--tight), linear;
+		will-change:                transform;
+	}
+
+	li [href="#media"], // More dramatic for the pagination.
+	li [href="#science"] {
+		--scroll--bounce: -25%;
+	}
+
+	[href="#media"] {
+		transform: translateY(calc(var(--scroll--bounce) * var(--logo--bounce)));
+	}
+
+	[href="#science"] {
+		transform: translateY(calc(2 * var(--scroll--bounce) * var(--logo--bounce)));
+	}
 }
+
 
 
 > header {

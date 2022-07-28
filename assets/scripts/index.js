@@ -15,6 +15,7 @@ const logoHeightVar =    '--logo--height'
 const taglineHeightVar = '--tagline--height'
 const linksHeightVar =   '--links--height'
 const scrollVar =        '--logo--scroll'
+const bounceVar =        '--logo--bounce'
 
 const loadingClass = 'loading'
 const cyclingClass = 'cycling'
@@ -65,21 +66,26 @@ const getHeights = (main, logo, tagline, links) => {
 const getScrollDistance = (logo) => {
 	let scrollOffset
 
-	const clamp = (num, min, max) => Math.min(Math.max(num, min), max)
+	const clampZeroOne = (number) => Math.min(Math.max(number.toFixed(6), 0), 1)
 	const updateScrollDistance = () => scrollOffset = parseFloat(getComputedStyle(logo.parentElement).marginTop)
 
 	const updateScroll = () => {
 		const scaleDifference = logo.offsetHeight - logo.parentElement.offsetHeight
+		const scrollProgress =  window.scrollY - scrollOffset + 8 // The extra/early 8px “softens” the scaling start.
+		const scrollDistance =  scrollOffset + scaleDifference
 
 		let easing = (x) => 1 - Math.pow(1 - x, 4) // easeOutQuart.
+		let bounce = (x) => (Math.sin(2 * Math.PI * (x - 1 / 4)) + 1) / 2 // Bell curve.
 
-		// Different ease for landscape layout.
+		scroll =      clampZeroOne((scrollProgress) / scrollDistance)
+		scrollEarly = clampZeroOne((scrollProgress + 24) / (scrollDistance - 24)) // “Peaks” the bounce sooner.
+
+		// Different ease/bounce for landscape layout.
 		if (isLandscape()) easing = (x) => 1 - Math.pow(1 - x, 2) // easeOut…Square?
-
-		// The extra/early 8px “softens” the transition start a bit.
-		scroll = clamp(((window.scrollY - scrollOffset + 8) / (scrollOffset + scaleDifference)).toFixed(6), 0, 1)
+		if (isLandscape()) scrollEarly = clampZeroOne((scrollProgress + 48) / (scrollDistance + 128))
 
 		document.body.style.setProperty(scrollVar, ` ${easing(scroll)}`)
+		document.body.style.setProperty(bounceVar, ` ${bounce(scrollEarly)}`)
 	}
 
 	window.addEventListener('load', () => {

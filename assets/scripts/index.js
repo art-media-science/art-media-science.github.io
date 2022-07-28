@@ -119,6 +119,27 @@ const topClass = 'top'
 const headerClass = 'header'
 const footerClass = 'footer'
 const bottomClass = 'bottom'
+const aboutHash = '#about'
+
+let hashReady = false
+let hashDelay
+
+
+
+const updateHash = (hash) => {
+	if (hashReady) {
+		hash = (hash) ? (hash[0] != '#') ? `#${hash}` : hash : window.location.pathname + window.location.search
+
+		clearTimeout(hashDelay)
+
+		hashDelay = setTimeout(() => {
+			if (hash != window.location.hash) history.replaceState('', '', hash)
+		}, 50) // Long enough to skip over any in-between anchors.
+	}
+}
+
+const isLandscape = () => (window.innerWidth > window.innerHeight || window.innerWidth >= 768)
+
 
 
 
@@ -136,12 +157,6 @@ const getHeights = (main, logo, tagline, links) => {
 	window.addEventListener('load', updateVars)
 	window.addEventListener('resize', updateVars)
 }
-
-
-
-const isLandscape = () => (window.innerWidth > window.innerHeight || window.innerWidth >= 768)
-
-
 
 const getScrollDistance = (logo) => {
 	let scrollOffset
@@ -202,8 +217,18 @@ const watchMain = (links, content) => {
 				body.add(mainClass)
 			}
 		} else {
-			(contentTop > viewport) ? body.add(headerClass): body.remove(headerClass); // In the “header”.
-			(viewport > linksEdge) ? body.add(footerClass): body.remove(footerClass); // In the “footer”.
+			if (contentTop > viewport) { // In the “header”.
+				body.add(headerClass)
+				updateHash()
+			} else {
+				body.remove(headerClass)
+			}
+			if (viewport > linksEdge) { // In the “footer”.
+				body.add(footerClass)
+				updateHash(aboutHash)
+			} else {
+				body.remove(footerClass)
+			}
 			if (body.contains(mainClass)) { // Only scrolling out.
 				body.remove(...nouns, mainClass)
 				cycleRandomNoun(nouns)
@@ -219,15 +244,27 @@ const watchMain = (links, content) => {
 
 
 watchNouns = () => {
+	let nounOverlap = [] // Since the nouns “overlap”.
+
 	nouns.forEach((noun) => {
 		const observer = new IntersectionObserver(entries => {
 			const [entry] = entries;
 			if (body.contains(mainClass)) {
-				(entry.isIntersecting) ? body.add(noun): body.remove(noun)
+				if (entry.isIntersecting) {
+					if (!nounOverlap.includes(noun)) nounOverlap.push(noun) // Only add it once.
+
+					let currentNoun = nounOverlap[nounOverlap.length - 1] // Always take the last one.
+
+					body.remove(...nouns.filter(noun => noun != currentNoun)) // Remove the others.
+					body.add(currentNoun)
+					updateHash(currentNoun)
+				} else {
+					if (nounOverlap.includes(noun)) nounOverlap = nounOverlap.filter(noun => noun != noun) // Toss the exiting one.
+				}
 			}
 		}, {
 			rootMargin: '-25% 0px -25% 0px',
-			threshold: [0, 0.1, 0.25, 0.5, 0.75, 1] // Catch “Science” more times coming back up from footer.
+			threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1] // Catch “Science” more times coming back up from footer.
 		})
 
 		setTimeout(() => observer.observe(document.getElementById(noun)), 10) // Let the layout settle.
@@ -312,5 +349,16 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 window.addEventListener('load', () => {
-	setTimeout(() => body.remove(loadingClass), 100) // Wait a tick so the other events clear.
+	if (window.location.hash) {
+		setTimeout(() => {
+			document.querySelector(window.location.hash).scrollIntoView()
+			setTimeout(() => document.documentElement.classList.remove(loadingClass), 10) // Scroll is set to auto (instant).
+			hashReady = true
+		}, 100) // After the layout slosh, presumably.
+
+	} else {
+		hashReady = true
+
+		setTimeout(() => document.documentElement.classList.remove(loadingClass), 100) // Wait a tick so the other events clear.
+	}
 })

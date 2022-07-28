@@ -553,6 +553,10 @@ body > main > header > section:first-of-type > h1 > a:active {
 	--page--inset--right: 0.6rem;
 }
 
+:root.loading {
+	scroll-behavior: auto;
+}
+
 body {
 	margin-left: auto;
 	margin-right: auto;
@@ -583,6 +587,7 @@ body {
 	body {
 		--anchor--offset--section: var(--margin--vertical);
 		--anchor--offset--about: calc(var(--margin--vertical) - 0.1rem);
+		--section--spacing: calc(var(--margin--vertical) * 4);
 		--section--overlap: calc(var(--tagline--height) + var(--margin--vertical));
 		--section--height: calc(var(--vh--initial, 100vh) - var(--section--spacing) - var(--anchor--offset) - var(--section--overlap));
 	}
@@ -683,38 +688,8 @@ body.main > footer > aside {
 	transition-duration: var(--color--transition);
 }
 
-body.main.art [href="#art"] {
-	--color: var(--color--accent);
-}
-
-body.main.art [href="#media"] {
-	--color: black;
-}
-
-body.main.art [href="#science"] {
-	--color: black;
-}
-
-body.main.media [href="#art"] {
-	--color: black;
-}
-
-body.main.media [href="#media"] {
-	--color: var(--color--accent);
-}
-
-body.main.media [href="#science"] {
-	--color: black;
-}
-
-body.main.science [href="#art"] {
-	--color: black;
-}
-
-body.main.science [href="#media"] {
-	--color: black;
-}
-
+body.main.art [href="#art"],
+body.main.media [href="#media"],
 body.main.science [href="#science"] {
 	--color: var(--color--accent);
 }
@@ -767,8 +742,17 @@ body.bottom nav [href="#top"] {
 	visibility: visible;
 }
 
-body.loading:not(.main) nav [href="#intro"],
-body.loading:not(.main) nav [href="#top"] {
+.loading body {
+	--color--background: white;
+	opacity: 0;
+}
+
+.loading body:not(.main) {
+	tomato: tomato;
+}
+
+.loading body:not(.main) nav [href="#intro"],
+.loading body:not(.main) nav [href="#top"] {
 	transition-delay: 0ms;
 	transition-duration: 0ms;
 }

@@ -608,16 +608,6 @@ body > footer > aside {
 	transition-timing-function: var(--color--transition--curve);
 }
 
-@media (orientation: landscape),
-(min-width: 35.5em) and (min-height: 30em),
-(min-width: 58.125em) {
-
-	body > main > header,
-	body > footer > aside {
-		background-color: initial;
-	}
-}
-
 body [href="#art"],
 body [href="#media"],
 body [href="#science"],
@@ -704,16 +694,6 @@ body.cycling:not(.main),
 body.cycling:not(.main) > main > header,
 body.cycling:not(.main) > footer > aside {
 	transition-duration: 8000ms;
-}
-
-@media (orientation: landscape),
-(min-width: 35.5em) and (min-height: 30em),
-(min-width: 58.125em) {
-
-	body.cycling:not(.main) > main > header,
-	body.cycling:not(.main) > footer > aside {
-		transition-duration: initial;
-	}
 }
 
 body.top nav [href="#intro"] {

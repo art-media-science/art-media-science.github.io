@@ -1,5 +1,6 @@
 (() => {
 	let orientationChanged = false
+	let resetOffset = false
 	let vhOffset = 0
 
 	const html = document.documentElement
@@ -25,7 +26,13 @@
 		vhOffset = vh100 - Math.min(initialVisibleHeight, visibleHeight)
 
 		updateValue('--vh--offset', vhOffset)
-		if (vhOffset) updateValue('--vh--initial', visibleHeight)
+		if (vhOffset) {
+			updateValue('--vh--initial', visibleHeight)
+			resetOffset = false
+		} else {
+			updateValue('--vh--initial', null)
+			resetOffset = true
+		}
 	}
 
 	const updateInnerHeight = () => {
@@ -63,14 +70,13 @@
 		orientationChanged = true
 
 		orientationDirection()
-		setTimeout(() => window.dispatchEvent(new Event('resize')), 250); // For other things listening that are a bit behind.
-		setTimeout(() => orientationChanged = false, 750)
+		setTimeout(() => orientationChanged = false, 200)
 	})
 
 	window.addEventListener('resize', () => {
 		updateScrollbarWidth()
 		updateInnerHeight()
 
-		if (orientationChanged) updateVhOffset()
+		if (orientationChanged || resetOffset) updateVhOffset()
 	})
 })();

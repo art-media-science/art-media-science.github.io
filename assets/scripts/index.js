@@ -39,6 +39,9 @@ const updateHash = (hash) => {
 	}, 50) // Long enough to skip over any in-between anchors.
 }
 
+const isLandscape = () => (window.innerWidth > window.innerHeight || window.innerWidth >= 768)
+
+
 
 
 const getHeights = (main, logo, tagline, links) => {
@@ -55,12 +58,6 @@ const getHeights = (main, logo, tagline, links) => {
 	window.addEventListener('load', updateVars)
 	window.addEventListener('resize', updateVars)
 }
-
-
-
-const isLandscape = () => (window.innerWidth > window.innerHeight || window.innerWidth >= 768)
-
-
 
 const getScrollDistance = (logo) => {
 	let scrollOffset

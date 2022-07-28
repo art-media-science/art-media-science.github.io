@@ -108,7 +108,6 @@
 
 
 	// From Viewporter JS.
-
 	&.clockwise,
 	&.counter-clockwise { --iphone--notch: 1.3rem; } // On my 13 mini, at least.
 
@@ -120,6 +119,13 @@
 	&.counter-clockwise {
 		--page--inset--left:  calc(env(safe-area-inset-left) - var(--iphone--notch));
 		--page--inset--right: 0.6rem; // Optical room for scroll indicator.
+	}
+
+
+
+	// Loading JS.
+	&.loading {
+		scroll-behavior: auto;
 	}
 }
 

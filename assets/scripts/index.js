@@ -25,18 +25,21 @@ const footerClass =  'footer'
 const bottomClass =  'bottom'
 const aboutHash   =  '#about'
 
+let hashReady = false
 let hashDelay
 
 
 
 const updateHash = (hash) => {
-	hash = (hash) ? (hash[0] != '#') ? `#${hash}`: hash : window.location.pathname + window.location.search
+	if (hashReady) {
+		hash = (hash) ? (hash[0] != '#') ? `#${hash}`: hash : window.location.pathname + window.location.search
 
-	clearTimeout(hashDelay)
+		clearTimeout(hashDelay)
 
-	hashDelay = setTimeout(() => {
-		if (hash != window.location.hash) history.replaceState('', '', hash)
-	}, 50) // Long enough to skip over any in-between anchors.
+		hashDelay = setTimeout(() => {
+			if (hash != window.location.hash) history.replaceState('', '', hash)
+		}, 50) // Long enough to skip over any in-between anchors.
+	}
 }
 
 const isLandscape = () => (window.innerWidth > window.innerHeight || window.innerWidth >= 768)
@@ -250,5 +253,16 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 window.addEventListener('load', () => {
-	setTimeout(() => body.remove(loadingClass), 100) // Wait a tick so the other events clear.
+	if (window.location.hash) {
+		setTimeout(() => {
+			document.querySelector(window.location.hash).scrollIntoView()
+			setTimeout(() => document.documentElement.classList.remove(loadingClass), 10) // Scroll is set to auto (instant).
+			hashReady = true
+		}, 100) // After the layout slosh, presumably.
+
+	} else {
+		hashReady = true
+
+		setTimeout(() => document.documentElement.classList.remove(loadingClass), 100) // Wait a tick so the other events clear.
+	}
 })

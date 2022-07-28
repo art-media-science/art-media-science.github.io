@@ -164,11 +164,21 @@
 
 
 
-	&.loading:not(.main) { // Differentiate loading with JS.
-		nav [href="#intro"],
-		nav [href="#top"] {
-			transition-delay:    0ms;
-			transition-duration: 0ms;
+	// Differentiate loading with JS.
+	@at-root {
+		.loading & {
+			--color--background: white;
+
+			opacity: 0;
+		}
+
+		.loading &:not(.main) {
+			tomato: tomato;
+			nav [href="#intro"],
+			nav [href="#top"] {
+				transition-delay:    0ms;
+				transition-duration: 0ms;
+			}
 		}
 	}
 }

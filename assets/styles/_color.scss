@@ -98,7 +98,11 @@
 		&.media [href="#media"],
 		&.science [href="#science"] {
 			--color: var(--color--accent);
+		}
 
+		[href="#art"],
+		[href="#media"],
+		[href="#science"] {
 			filter: brightness(1.1); // Boost them a bit on white.
 		}
 	}

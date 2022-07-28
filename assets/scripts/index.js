@@ -23,6 +23,21 @@ const topClass =     'top'
 const headerClass =  'header'
 const footerClass =  'footer'
 const bottomClass =  'bottom'
+const aboutHash   =  '#about'
+
+let hashDelay
+
+
+
+const updateHash = (hash) => {
+	hash = (hash) ? (hash[0] != '#') ? `#${hash}`: hash : window.location.pathname + window.location.search
+
+	clearTimeout(hashDelay)
+
+	hashDelay = setTimeout(() => {
+		if (hash != window.location.hash) history.replaceState('', '', hash)
+	}, 50) // Long enough to skip over any in-between anchors.
+}
 
 
 
@@ -106,8 +121,18 @@ const watchMain = (links, content) => {
 				body.add(mainClass)
 			}
 		} else {
-			(contentTop > viewport) ? body.add(headerClass) : body.remove(headerClass); // In the “header”.
-			(viewport > linksEdge) ? body.add(footerClass) : body.remove(footerClass); // In the “footer”.
+			if (contentTop > viewport) { // In the “header”.
+				body.add(headerClass)
+				updateHash()
+			} else {
+				body.remove(headerClass)
+			}
+			if (viewport > linksEdge) { // In the “footer”.
+				body.add(footerClass)
+				updateHash(aboutHash)
+			} else {
+				body.remove(footerClass)
+			}
 			if (body.contains(mainClass)) { // Only scrolling out.
 				body.remove(...nouns, mainClass)
 				cycleRandomNoun(nouns)
@@ -136,6 +161,7 @@ watchNouns = () => {
 
 					body.remove(...nouns.filter(noun => noun != currentNoun)) // Remove the others.
 					body.add(currentNoun)
+					updateHash(currentNoun)
 				} else {
 					if (nounOverlap.includes(noun)) nounOverlap = nounOverlap.filter(noun => noun != noun) // Toss the exiting one.
 				}

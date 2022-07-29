@@ -239,6 +239,18 @@ const fixMobileSafariFlicker = (...elements) => {
 
 
 
+const cycleFavicon = (favicon) => {
+	const updateFavicon = () => {
+		let background = getComputedStyle(document.body, ':before').backgroundColor // The “swatch”.
+		let uri = favicon.href.replace(/fill='(.*?)'/, `fill='${encodeURI(background)}'`)
+		favicon.setAttribute('href', uri)
+	}
+
+	setInterval(() => updateFavicon(), 50)
+}
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
 	window.body = document.body.classList // Save some repetition.
 
@@ -247,6 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const tagline = document.querySelector('[data-tagline]')
 	const content = document.querySelector('[data-content]')
 	const links =   document.querySelector('[data-links]')
+	const favicon = document.querySelector('[data-favicon]')
 
 	getHeights(main, logo, tagline, links)
 	getScrollDistance(logo)
@@ -256,6 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	watchTaglineTop(tagline)
 	cycleRandomNoun()
 	fixMobileSafariFlicker(logo, tagline)
+	setInterval(() => cycleFavicon(favicon), 150) // Reduce the flash in.
 })
 
 window.addEventListener('load', () => {

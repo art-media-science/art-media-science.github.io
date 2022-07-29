@@ -4,14 +4,29 @@
 
 	--color--accent: white; // To matte the header transition, so it isn’t doubling up.
 
+
+
+	// Color “swatch” for the JS favicon.
+	&:before {
+		content:  '';
+		position: absolute;
+	}
+
+
+
 	// Base transitions.
 	&,
+	&:before,
 	> main > header,
 	> footer > aside {
 		background-color:           var(--color--background);
 		transition-duration:        var(--color--transition);
 		transition-property:        background-color;
 		transition-timing-function: var(--color--transition--curve);
+	}
+
+	&:before {
+		transition-duration: 0ms;
 	}
 
 	// Text.
@@ -85,6 +100,12 @@
 			transition-duration: var(--color--transition);
 		}
 
+		// “Swatch” goes to the accent.
+		&:before {
+			--color--background: var(--color--accent);
+
+			transition-duration: 0ms;
+		}
 
 		// Set the active color for logo/pagination.
 		&.art [href="#art"],
@@ -95,7 +116,8 @@
 
 		[href="#art"],
 		[href="#media"],
-		[href="#science"] {
+		[href="#science"],
+		&:before {
 			filter: brightness(1.1); // Boost them a bit on white.
 		}
 	}
@@ -104,6 +126,7 @@
 
 	&.cycling:not(.main) { // More specific.
 		&,
+		&:before,
 		> main > header,
 		> footer > aside {
 			transition-duration: 8000ms;
@@ -157,6 +180,10 @@
 			--color--background: white;
 
 			opacity: 0;
+
+			&:before {
+				--color--background: transparent;
+			}
 		}
 
 		.loading &:not(.main) {

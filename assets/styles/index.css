@@ -599,13 +599,23 @@ body {
 	--color--accent: white;
 }
 
+body:before {
+	content: "";
+	position: absolute;
+}
+
 body,
+body:before,
 body > main > header,
 body > footer > aside {
 	background-color: var(--color--background);
 	transition-duration: var(--color--transition);
 	transition-property: background-color;
 	transition-timing-function: var(--color--transition--curve);
+}
+
+body:before {
+	transition-duration: 0ms;
 }
 
 body [href="#art"],
@@ -678,6 +688,11 @@ body.main > footer > aside {
 	transition-duration: var(--color--transition);
 }
 
+body.main:before {
+	--color--background: var(--color--accent);
+	transition-duration: 0ms;
+}
+
 body.main.art [href="#art"],
 body.main.media [href="#media"],
 body.main.science [href="#science"] {
@@ -686,11 +701,13 @@ body.main.science [href="#science"] {
 
 body.main [href="#art"],
 body.main [href="#media"],
-body.main [href="#science"] {
+body.main [href="#science"],
+body.main:before {
 	filter: brightness(1.1);
 }
 
 body.cycling:not(.main),
+body.cycling:not(.main):before,
 body.cycling:not(.main) > main > header,
 body.cycling:not(.main) > footer > aside {
 	transition-duration: 8000ms;
@@ -726,6 +743,10 @@ body.bottom nav [href="#top"] {
 .loading body {
 	--color--background: white;
 	opacity: 0;
+}
+
+.loading body:before {
+	--color--background: transparent;
 }
 
 .loading body:not(.main) {

@@ -317,7 +317,7 @@ const cycleRandomNoun = () => {
 	randomNoun(nouns) // Apply the first one.
 
 	ontransitionend = () => {
-		if (event.propertyName == 'background-color' && event.target == document.body && !body.contains(mainClass)) {
+		if (event.propertyName == 'background-color' && event.target == document.body && !event.pseudoElement && !body.contains(mainClass)) {
 			body.add(cyclingClass)
 			randomNoun(nouns)
 		}
@@ -341,6 +341,21 @@ const fixMobileSafariFlicker = (...elements) => {
 
 
 
+const cycleFavicon = (favicon) => {
+	// Only works in Chrome and Firefox.
+	if (navigator.userAgent.includes('Chrome') || navigator.userAgent.includes('Firefox')) {
+		const updateFavicon = () => {
+			let background = getComputedStyle(document.body, ':before').backgroundColor // The “swatch”.
+			let uri = favicon.href.replace(/fill='(.*?)'/, `fill='${encodeURI(background)}'`)
+			favicon.setAttribute('href', uri)
+		}
+
+		setInterval(() => updateFavicon(), 50)
+	}
+}
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
 	window.body = document.body.classList // Save some repetition.
 
@@ -349,6 +364,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const tagline = document.querySelector('[data-tagline]')
 	const content = document.querySelector('[data-content]')
 	const links = document.querySelector('[data-links]')
+	const favicon = document.querySelector('[data-favicon]')
 
 	getHeights(main, logo, tagline, links)
 	getScrollDistance(logo)
@@ -358,6 +374,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	watchTaglineTop(tagline)
 	cycleRandomNoun()
 	fixMobileSafariFlicker(logo, tagline)
+	setInterval(() => cycleFavicon(favicon), 150) // Reduce the flash in.
 })
 
 window.addEventListener('load', () => {

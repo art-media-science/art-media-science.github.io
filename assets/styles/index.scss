@@ -137,7 +137,7 @@ body {
 	margin-right:  auto;
 	padding-left:  var(--page--inset--left, 0rem);
 	padding-right: var(--page--inset--right, 0rem);
-	width:         var(--page--width);
+	width:         calc(var(--page--width) - var(--scrollbar, 0rem));
 
 
 

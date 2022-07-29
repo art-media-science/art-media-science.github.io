@@ -240,13 +240,16 @@ const fixMobileSafariFlicker = (...elements) => {
 
 
 const cycleFavicon = (favicon) => {
-	const updateFavicon = () => {
-		let background = getComputedStyle(document.body, ':before').backgroundColor // The “swatch”.
-		let uri = favicon.href.replace(/fill='(.*?)'/, `fill='${encodeURI(background)}'`)
-		favicon.setAttribute('href', uri)
-	}
+	// Only works in Chrome and Firefox.
+	if (navigator.userAgent.includes('Chrome') || navigator.userAgent.includes('Firefox')) {
+		const updateFavicon = () => {
+			let background = getComputedStyle(document.body, ':before').backgroundColor // The “swatch”.
+			let uri = favicon.href.replace(/fill='(.*?)'/, `fill='${encodeURI(background)}'`)
+			favicon.setAttribute('href', uri)
+		}
 
-	setInterval(() => updateFavicon(), 50)
+		setInterval(() => updateFavicon(), 50)
+	}
 }
 
 

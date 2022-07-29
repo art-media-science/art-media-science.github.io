@@ -1,12 +1,19 @@
 > section {
 	@extend %font--markdown;
 
-	margin-top:        var(--section--spacing);
-	padding-bottom:    var(--margin--vertical);
-	scroll-margin-top: var(--anchor--offset--about);
+	margin-top:     var(--section--spacing);
+	padding-bottom: var(--margin--vertical);
 
 	@include landscape {
 		grid-row:   1; // With the header.
 		margin-top: calc(-1 * var(--section--overlap));
+	}
+
+
+
+	&,
+	h2,
+	h3 {
+		scroll-margin-top: var(--anchor--offset--about);
 	}
 }

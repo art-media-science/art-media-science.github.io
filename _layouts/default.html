@@ -9,6 +9,7 @@
 		{% capture favicon %}{% include favicon.svg %}{% endcapture %}
 		{% assign favicon = favicon | replace: '"', "'" | uri_escape %}
 		<link data-favicon href="data:image/svg+xml, {{ favicon }}" rel="icon" type="image/svg+xml">
+		<link href="{{ '/assets/icons/touch.png' | relative_path }}" rel="apple-touch-icon">
 		<script src="{{ '/assets/scripts/index.js' | relative_path }}"></script>
 	</head>
 	<body id="top">

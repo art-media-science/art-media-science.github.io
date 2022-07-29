@@ -576,7 +576,7 @@ body {
 	--anchor--offset: var(--margin--vertical);
 	--anchor--offset--section: calc(var(--anchor--offset) + var(--header--height--scrolled));
 	--anchor--offset--about: calc(var(--anchor--offset) + var(--header--height--scrolled--footer));
-	--section--spacing: calc(var(--margin--vertical) * 6);
+	--section--spacing: calc(var(--margin--vertical) * 4);
 	--section--overlap: 1.2rem;
 	--section--height: calc(var(--vh--initial, 100vh) - var(--header--height--scrolled) - var(--section--spacing) - var(--anchor--offset) - var(--section--overlap));
 }
@@ -587,7 +587,6 @@ body {
 	body {
 		--anchor--offset--section: var(--margin--vertical);
 		--anchor--offset--about: calc(var(--margin--vertical) - 0.1rem);
-		--section--spacing: calc(var(--margin--vertical) * 4);
 		--section--overlap: calc(var(--tagline--height) + var(--margin--vertical));
 		--section--height: calc(var(--vh--initial, 100vh) - var(--section--spacing) - var(--anchor--offset) - var(--section--overlap));
 	}

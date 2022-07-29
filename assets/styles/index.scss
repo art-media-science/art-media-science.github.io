@@ -127,6 +127,32 @@
 	&.loading {
 		scroll-behavior: auto;
 	}
+
+
+
+	// Scrollbar tweaks in Windows.
+	&.windows {
+		--scrollbar--custom: 1.2rem;
+		--scrollbar--tint:   rgba(0, 0, 0, 0.1333);
+
+		// Firefox.
+		scrollbar-width: thin;
+		scrollbar-color: var(--scrollbar--tint) var(--scrollbar--tint);
+
+		// Chrome.
+		&::-webkit-scrollbar {
+			width: var(--scrollbar--custom);
+		}
+
+		&::-webkit-scrollbar-track {
+			background-color: var(--scrollbar--tint);
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background-color: var(--scrollbar--tint);
+			border-radius:    0.15rem;
+		}
+	}
 }
 
 

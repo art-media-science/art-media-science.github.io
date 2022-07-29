@@ -23,6 +23,7 @@
 				-0.005em  0 0.01em var(--color),
 				 0 -0.005em 0.01em var(--color)
 				;
+			transition-duration: 0ms, var(--color--transition), var(--color--transition);
 			transition-property: background-color, color, text-shadow; // So it fades with the rest.
 		}
 	}

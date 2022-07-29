@@ -614,7 +614,7 @@ body [href="#science"],
 body h2,
 body p {
 	color: var(--color);
-	transition-duration: var(--color--transition);
+	transition-duration: 0ms, var(--color--transition);
 	transition-property: background-color, color;
 	transition-timing-function: var(--color--transition--curve--tight);
 }
@@ -822,7 +822,7 @@ body > main > header > section:first-of-type > h1 [href="#media"],
 body > main > header > menu [href="#science"],
 body > main > header > section:first-of-type > h1 [href="#science"] {
 	--scroll--bounce: -8%;
-	transition-duration: var(--color--transition), var(--color--transition), var(--scroll--scale--duration);
+	transition-duration: 0ms, var(--color--transition), var(--color--transition), var(--scroll--scale--duration);
 	transition-property: background-color, color, transform;
 	transition-timing-function: var(--color--transition--curve--tight), var(--color--transition--curve--tight), linear;
 	will-change: transform;
@@ -1040,6 +1040,7 @@ body > main > section:first-of-type > p {
 	body > main > section:first-of-type > p {
 		-webkit-text-stroke-width: initial;
 		text-shadow: -0.005em 0 0.01em var(--color), 0 -0.005em 0.01em var(--color);
+		transition-duration: 0ms, var(--color--transition), var(--color--transition);
 		transition-property: background-color, color, text-shadow;
 	}
 }
@@ -1116,7 +1117,6 @@ body > footer > aside > ul > li > a > p > svg {
 body > footer > section {
 	margin-top: var(--section--spacing);
 	padding-bottom: var(--margin--vertical);
-	scroll-margin-top: var(--anchor--offset--about);
 }
 
 @media (orientation: landscape),
@@ -1126,6 +1126,12 @@ body > footer > section {
 		grid-row: 1;
 		margin-top: calc(-1 * var(--section--overlap));
 	}
+}
+
+body > footer > section,
+body > footer > section h2,
+body > footer > section h3 {
+	scroll-margin-top: var(--anchor--offset--about);
 }
 
 body nav {

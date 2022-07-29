@@ -557,12 +557,32 @@ body > main > header > section:first-of-type > h1 > a:active {
 	scroll-behavior: auto;
 }
 
+:root.windows {
+	--scrollbar--custom: 1.2rem;
+	--scrollbar--tint: rgba(0, 0, 0, 0.1333);
+	scrollbar-width: thin;
+	scrollbar-color: var(--scrollbar--tint) var(--scrollbar--tint);
+}
+
+:root.windows::-webkit-scrollbar {
+	width: var(--scrollbar--custom);
+}
+
+:root.windows::-webkit-scrollbar-track {
+	background-color: var(--scrollbar--tint);
+}
+
+:root.windows::-webkit-scrollbar-thumb {
+	background-color: var(--scrollbar--tint);
+	border-radius: 0.15rem;
+}
+
 body {
 	margin-left: auto;
 	margin-right: auto;
 	padding-left: var(--page--inset--left, 0rem);
 	padding-right: var(--page--inset--right, 0rem);
-	width: var(--page--width);
+	width: calc(var(--page--width) - var(--scrollbar, 0rem));
 }
 
 body {
@@ -842,7 +862,7 @@ body > main > header > section:first-of-type > h1 [href="#media"],
 body > main > header > menu [href="#science"],
 body > main > header > section:first-of-type > h1 [href="#science"] {
 	--scroll--bounce: -8%;
-	transition-duration: 0ms, var(--color--transition), var(--color--transition), var(--scroll--scale--duration);
+	transition-duration: 0ms, var(--color--transition), var(--scroll--scale--duration);
 	transition-property: background-color, color, transform;
 	transition-timing-function: var(--color--transition--curve--tight), var(--color--transition--curve--tight), linear;
 	will-change: transform;

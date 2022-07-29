@@ -184,7 +184,7 @@ const getScrollDistance = (logo) => {
 
 		// Different ease/bounce for landscape layout.
 		if (isLandscape()) easing = (x) => 1 - Math.pow(1 - x, 2) // easeOut…Square?
-		if (isLandscape()) scrollEarly = clampZeroOne((scrollProgress + 48) / (scrollDistance + 128))
+		if (isLandscape()) scrollEarly = clampZeroOne((scrollProgress + 36) / (scrollDistance + 48))
 
 		document.body.style.setProperty(scrollVar, ` ${easing(scroll)}`)
 		document.body.style.setProperty(bounceVar, ` ${bounce(scrollEarly)}`)

@@ -5,11 +5,10 @@
 		<meta	content="initial-scale=1, width=device-width, viewport-fit=cover" name="viewport">
 		{% include metadata.html %}
 		<link href="{{ '/assets/styles/index.css' | relative_path }}" rel="stylesheet">
-		<!-- <link href="{{ '/assets/icons/favicon.svg' | relative_path }}" rel="icon"> -->
+		<link href="{{ '/assets/icons/favicon.ico' | relative_path }}" rel="icon" sizes="64x64" type="image/x-icon">
 		{% capture favicon %}{% include favicon.svg %}{% endcapture %}
 		{% assign favicon = favicon | replace: '"', "'" | uri_escape %}
-		<link data-favicon href="data:image/svg+xml, {{ favicon }}" rel="icon">
-
+		<link data-favicon href="data:image/svg+xml, {{ favicon }}" rel="icon" type="image/svg+xml">
 		<script src="{{ '/assets/scripts/index.js' | relative_path }}"></script>
 	</head>
 	<body id="top">

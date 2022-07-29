@@ -215,7 +215,7 @@ const cycleRandomNoun = () => {
 	randomNoun(nouns) // Apply the first one.
 
 	ontransitionend = () => {
-		if (event.propertyName == 'background-color' && event.target == document.body && !body.contains(mainClass)) {
+		if (event.propertyName == 'background-color' && event.target == document.body && !event.pseudoElement && !body.contains(mainClass)) {
 			body.add(cyclingClass)
 			randomNoun(nouns)
 		}

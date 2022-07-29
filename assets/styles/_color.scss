@@ -21,7 +21,7 @@
 	h2,
 	p {
 		color:                      var(--color);
-		transition-duration:        var(--color--transition);
+		transition-duration:        0ms, var(--color--transition);
 		transition-property:        background-color, color;
 		transition-timing-function: var(--color--transition--curve--tight);
 	}

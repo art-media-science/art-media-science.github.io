@@ -474,6 +474,7 @@ body > main > header > section:first-of-type > h1 > a:active {
 	--typography--size--logo: calc(var(--typography--size) * 4);
 	--typography--size--tagline: calc(var(--typography--size) * 4 / 3);
 	--typography--size--intro: calc(var(--typography--size) * 2);
+	--typography--size--footer: calc(var(--typography--size) * 0.8);
 	--margin: calc(var(--typography--size) * 1.2);
 	--margin--vertical: var(--margin);
 	--pagination--size: calc(var(--typography--size--logo) * 0.125);
@@ -834,7 +835,8 @@ body > footer > section {
 }
 
 body > main > header,
-body > footer > aside {
+body > footer > aside,
+body > footer > footer {
 	align-content: space-between;
 	column-gap: var(--margin);
 	display: grid;
@@ -852,7 +854,8 @@ body > footer > aside {
 (min-width: 58.125em) {
 
 	body > main > header,
-	body > footer > aside {
+	body > footer > aside,
+	body > footer > footer {
 		grid-column: 1/span 2;
 		padding-left: initial;
 		padding-right: initial;
@@ -1089,13 +1092,14 @@ body > main > section:first-of-type {
 body > main > section:first-of-type > p {
 	--typography--leading: var(--typography--leading--tagline);
 	--typography--size: var(--typography--size--intro);
-	-webkit-text-stroke-width: 0.0075em;
+	--typography--stroke: 0.0075em;
+	-webkit-text-stroke-width: var(--typography--stroke);
 }
 
 @supports (-webkit-hyphens: none) {
 	body > main > section:first-of-type > p {
 		-webkit-text-stroke-width: initial;
-		text-shadow: -0.005em 0 0.01em var(--color), 0 -0.005em 0.01em var(--color);
+		text-shadow: calc(-1 * var(--typography--stroke)) 0 0.01em var(--color), 0 calc(-1 * var(--typography--stroke)) 0.01em var(--color);
 		transition-duration: 0ms, var(--color--transition), var(--color--transition);
 		transition-property: background-color, color, text-shadow;
 	}
@@ -1147,10 +1151,11 @@ body > footer > aside {
 (min-width: 58.125em) {
 	body > footer > aside {
 		align-self: end;
-		bottom: 0;
+		bottom: var(--margin--vertical);
 		grid-row: 1;
 		margin-bottom: initial;
 		margin-top: var(--margin);
+		padding-bottom: initial;
 		top: initial;
 	}
 }
@@ -1173,7 +1178,6 @@ body > footer > aside > ul > li > a > p > svg {
 
 body > footer > section {
 	margin-top: var(--section--spacing);
-	padding-bottom: var(--margin--vertical);
 }
 
 @media (orientation: landscape),
@@ -1189,6 +1193,21 @@ body > footer > section,
 body > footer > section h2,
 body > footer > section h3 {
 	scroll-margin-top: var(--anchor--offset--about);
+}
+
+body > footer > footer {
+	--typography--size: var(--typography--size--footer);
+	row-gap: calc(var(--margin) * 2);
+	grid-template-columns: 1fr;
+	margin-top: var(--section--spacing);
+}
+
+@media (orientation: landscape),
+(min-width: 35.5em) and (min-height: 30em),
+(min-width: 58.125em) {
+	body > footer > footer {
+		grid-template-columns: var(--column--ratio);
+	}
 }
 
 body nav {

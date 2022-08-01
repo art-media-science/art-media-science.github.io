@@ -1,11 +1,17 @@
 > footer {
-	--typography--size: var(--typography--size--footer);
-
-	row-gap:               calc(var(--margin) * 2);
+	row-gap:               var(--margin);
 	grid-template-columns: 1fr;
 	margin-top:            var(--section--spacing);
 
 	@include landscape {
 		grid-template-columns: var(--column--ratio);
+	}
+
+	p {
+		@extend %font--weight-adjust;
+
+		--typography--size: var(--typography--size--footer);
+
+		--typography--weight-adjust: 0.01em; // Adjust to body copy.
 	}
 }

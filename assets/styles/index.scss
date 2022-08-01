@@ -79,6 +79,7 @@
 		--typography--size:          clamp(2.4rem, (24/1440) * 100vw, 2.8rem);
 		--typography--size--logo:    calc(var(--typography--size) * 4.5);
 		--typography--size--tagline: calc(var(--typography--size) * 1.5);
+		--typography--size--footer:  calc(var(--typography--size) * 0.75);
 
 		--margin: calc(var(--typography--size) * 2);
 

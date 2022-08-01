@@ -32,6 +32,22 @@
 }
 
 @font-face {
+	font-family: 'Calibre';
+	font-stretch: normal;
+	font-style:   normal;
+	font-weight:  500;
+	src: url('../fonts/calibre--medium.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Calibre';
+	font-stretch: normal;
+	font-style:   italic;
+	font-weight:  500;
+	src: url('../fonts/calibre--medium--italic.woff2') format('woff2');
+}
+
+@font-face {
 	font-family: 'Heldane';
 	font-stretch: normal;
 	font-style:   normal;
@@ -86,6 +102,10 @@
 	--typography--weight: 400;
 }
 
+%--medium {
+	--typography--weight: 500;
+}
+
 %font--calibre--light {
 	@extend %--calibre;
 	@extend %--light;
@@ -99,6 +119,14 @@
 	@extend %--regular;
 
 	--typography--inset--left:  -0.073;
+	--typography--inset--right: -0.061;
+}
+
+%font--calibre--medium {
+	@extend %--calibre;
+	@extend %--medium;
+
+	--typography--inset--left:  -0.073; // TODO Update these.
 	--typography--inset--right: -0.061;
 }
 

@@ -1,3 +1,5 @@
+{% capture favicon %}{% include favicon.svg %}{% endcapture %}
+{% assign favicon = favicon | replace: '"', "'" | uri_escape %}
 <title>
 	{{- page.title -}}
 </title>
@@ -10,4 +12,20 @@
 	name="theme-color"
 	content="#000"
 	media="(prefers-color-scheme: dark)"
+	>
+<link
+	href="{{ '/assets/icons/favicon.ico' | relative_path }}"
+	rel="icon"
+	sizes="64x64"
+	type="image/x-icon"
+	>
+<link
+	data-favicon
+	href="data:image/svg+xml, {{ favicon }}"
+	rel="icon"
+	type="image/svg+xml"
+	>
+<link
+	href="{{ '/assets/icons/touch.png' | relative_path }}"
+	rel="apple-touch-icon"
 	>

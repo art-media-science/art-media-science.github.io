@@ -173,7 +173,8 @@ body {
 
 	> main,
 	> footer {
-		display: grid;
+		display:               grid;
+		grid-template-columns: 1fr;
 
 		@include landscape {
 			column-gap:            var(--margin);
@@ -202,7 +203,6 @@ body {
 		align-content:         space-between;
 		column-gap:            var(--margin);
 		display:               grid;
-		grid-row:              1; // Force overlap for about/footer.
 		grid-auto-rows:        min-content;
 		grid-template-columns: var(--column--ratio--pagination);
 		justify-content:       space-between;

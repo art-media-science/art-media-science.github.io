@@ -8,6 +8,7 @@
 	@include landscape {
 		align-self:    end;
 		bottom:        0;
+		grid-row:      1; // Force overlap with About content.
 		margin-bottom: initial;
 		margin-top:    var(--margin);
 		top:           initial;

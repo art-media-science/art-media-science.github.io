@@ -1,8 +1,7 @@
 > section {
 	@extend %font--markdown;
 
-	margin-top:     var(--section--spacing);
-	padding-bottom: var(--margin--vertical);
+	margin-top: var(--section--spacing);
 
 	@include landscape {
 		grid-row:   1; // With the header.

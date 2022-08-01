@@ -13,7 +13,8 @@
 			{% comment %} This Liquid mess uses hr/h1 to define content sections from one Markdown file. {% endcomment %}
 			{% assign intro = content | split: '<h1 ' | first %}
 			{% assign nouns = content | split: '<hr />' | first | split: '<h1 ' | shift %}
-			{% assign about = content | split: '<hr />' | last %}
+			{% assign about = content | split: '<hr />' | shift | first %}
+			{% assign colophon = content | split: '<hr />' | last %}
 			<section id="intro" tabindex="0">
 				{{ intro }}
 			</section>
@@ -32,6 +33,7 @@
 			<section id="about" tabindex="0">
 				{{ about | replace: ' id="about"', ''}}
 			</section>
+			{% include footer.html %}
 		</footer>
 	</body>
 </html>

@@ -27,6 +27,7 @@
 	--typography--size--logo:    calc(var(--typography--size) * 4);
 	--typography--size--tagline: calc(var(--typography--size) * 4 / 3);
 	--typography--size--intro:   calc(var(--typography--size) * 2);
+	--typography--size--footer:  calc(var(--typography--size) * 0.8);
 
 	--margin:           calc(var(--typography--size) * 1.2);
 	--margin--vertical: var(--margin);
@@ -199,7 +200,8 @@ body {
 
 	// Their sticky headers, in common.
 	> main > header,
-	> footer > aside {
+	> footer > aside,
+	> footer > footer {
 		align-content:         space-between;
 		column-gap:            var(--margin);
 		display:               grid;
@@ -235,6 +237,7 @@ body {
 
 		@import 'aside';
 		@import 'about';
+		@import 'footer';
 	}
 
 

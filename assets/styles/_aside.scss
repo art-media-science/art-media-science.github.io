@@ -6,12 +6,13 @@
 	top:           calc(var(--tagline--height) + var(--margin--vertical) * 2 - 0.2rem); // Slight overlap for rounding.
 
 	@include landscape {
-		align-self:    end;
-		bottom:        0;
-		grid-row:      1; // Force overlap with About content.
-		margin-bottom: initial;
-		margin-top:    var(--margin);
-		top:           initial;
+		align-self:     end;
+		bottom:         var(--margin--vertical);
+		grid-row:       1; // Force overlap with About content.
+		margin-bottom:  initial;
+		margin-top:     var(--margin);
+		padding-bottom: initial;
+		top:            initial;
 	}
 
 

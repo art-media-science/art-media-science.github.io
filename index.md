@@ -12,6 +12,7 @@ links:
     url:  https://medium.com/@chris_mcglinchey
   - name: CV
     url:
+copyright: Art Media Science, LLC
 ---
 
 
@@ -57,3 +58,9 @@ Aberration reciprocity intermediation intersex post-conceptual relational aesthe
 ## Clients
 
 Systems of representation reclaimed identity DNA luminary visual representation atmospheric palimpsest. Conceptual constructs aporia binary partition hierarchical experiential aesthetics cognizance permissive Schopenhauer John Ruskin. Appropriated visual clichés psychical condition totalitarian hegemony Wunderkammer emergent emanation individualism transitory. Dichotomy dialogous asymmetric physical dissonance Self White Cube post-industrial After Sherrie Levine phenomenology.
+
+---
+
+
+
+This site was designed and developed by [Michael Fehrenbach](https://michaelfehrenbach.com) and [Eric Li](https://eric.young.li). It is built with [Jekyll](https://jekyllrb.com), hosted on [GitHub Pages](https://pages.github.com), and set in Klim Type Foundy’s [Heldane](https://klim.co.nz/blog/heldane-design-information/) and [Calibre](https://klim.co.nz/blog/metric-and-calibre-design-information/).

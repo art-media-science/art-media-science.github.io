@@ -11,23 +11,12 @@
 
 	> p {
 		@extend %font--calibre--light;
+		@extend %font--weight-adjust;
 
 		--typography--leading: var(--typography--leading--tagline);
 		--typography--size:    var(--typography--size--intro);
 
-		--typography--stroke: 0.0075em; // Ballpark weight of tagline.
-
-		-webkit-text-stroke-width: var(--typography--stroke);
-
-		@include browser-specific(safari) {
-			-webkit-text-stroke-width: initial; // Safari’s rendering has gaps.
-			text-shadow:
-				calc(-1 * var(--typography--stroke)) 0 0.01em var(--color),
-				0 calc(-1 * var(--typography--stroke)) 0.01em var(--color)
-				;
-			transition-duration: 0ms, var(--color--transition), var(--color--transition);
-			transition-property: background-color, color, text-shadow; // So it fades with the rest.
-		}
+		--typography--weight-adjust: 0.0075em; // Ballpark weight of tagline.
 	}
 }
 

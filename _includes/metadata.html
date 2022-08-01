@@ -1,8 +1,14 @@
 {% capture favicon %}{% include favicon.svg %}{% endcapture %}
 {% assign favicon = favicon | replace: '"', "'" | uri_escape %}
+{% assign subtitle = page.subtitle | newline_to_br | strip_newlines | replace: "<br />", " " | strip %}
+{% assign intro = content | split: '<h1 ' | first | strip_html | strip %}
 <title>
 	{{- page.title -}}
 </title>
+<meta
+	name="description"
+	content="{{ subtitle }}. {{ intro }}"
+	>
 <meta
 	name="theme-color"
 	content="#fefefe"

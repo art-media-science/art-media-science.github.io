@@ -40,7 +40,8 @@
 
 	--page--width: 100vw;
 
-	--page--inset--right: 0.6rem; // Optical inset.
+	--page--inset--right:  0.6rem; // Optical inset.
+	--page--inset--bottom: calc(env(safe-area-inset-bottom) - 2.1rem); // Right to “pill” (visible on iPhone scroll with top address bar).
 
 	--column--ratio:             0.382fr 0.618fr; // Golden.
 	--column--ratio--pagination: 1fr var(--pagination--size--scaled);
@@ -70,6 +71,8 @@
 
 		--typography--size--logo: calc(var(--typography--size) * 3.5);
 
+		--page--inset--bottom: calc(env(safe-area-inset-bottom) - 0.8rem); // Right to landscape “pill”.
+
 		--column--ratio--pagination: calc((100% - var(--margin)) * 0.382) var(--pagination--size--scaled); // Match parent on left.
 	}
 
@@ -81,14 +84,18 @@
 		--typography--size--tagline: calc(var(--typography--size) * 1.5);
 		--typography--size--footer:  calc(var(--typography--size) * 0.75);
 
-		--margin: calc(var(--typography--size) * 2);
+		--margin: calc(var(--typography--size) * 1.5);
 
 		--page--inset--right: 0.8rem;
 
 		--link--enlargement: 0.8rem;
 	}
 
-	@include breakpoint(980) { --typography--size--logo: calc(var(--typography--size) * 5.5) }
+	@include breakpoint(980) {
+		--typography--size--logo: calc(var(--typography--size) * 5.5);
+
+		--margin: calc(var(--typography--size) * 2);
+	}
 
 	@include breakpoint(1640) { --page--width: 164rem; } // Cap width around a 16-inch MacBook Pro.
 
@@ -161,11 +168,12 @@
 
 body {
 	// iPhone rotation and width caps.
-	margin-left:   auto;
-	margin-right:  auto;
-	padding-left:  var(--page--inset--left, 0rem);
-	padding-right: var(--page--inset--right, 0rem);
-	width:         calc(var(--page--width) - var(--scrollbar, 0rem));
+	margin-left:    auto;
+	margin-right:   auto;
+	padding-bottom: var(--page--inset--bottom, 0rem);
+	padding-left:   var(--page--inset--left, 0rem);
+	padding-right:  var(--page--inset--right, 0rem);
+	width:          calc(var(--page--width) - var(--scrollbar, 0rem));
 
 
 

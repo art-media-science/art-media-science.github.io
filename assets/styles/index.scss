@@ -41,7 +41,7 @@
 	--page--width: 100vw;
 
 	--page--inset--right:  0.6rem; // Optical inset.
-	--page--inset--bottom: calc(env(safe-area-inset-bottom) - 2.1rem); // Right to “pill” (visible on iPhone scroll with top address bar).
+	--page--inset--bottom: calc(env(safe-area-inset-bottom) * 13 / 34); // Right to “pill” (visible on iPhone scroll with top address bar).
 
 	--column--ratio:             0.382fr 0.618fr; // Golden.
 	--column--ratio--pagination: 1fr var(--pagination--size--scaled);
@@ -72,7 +72,7 @@
 
 		--typography--size--logo: calc(var(--typography--size) * 3.5);
 
-		--page--inset--bottom: calc(env(safe-area-inset-bottom) - 0.8rem); // Right to landscape “pill”.
+		--page--inset--bottom: calc(env(safe-area-inset-bottom) * 26 / 41); // Right to landscape “pill”.
 
 		--column--ratio--pagination: calc((100% - var(--margin)) * 0.382) var(--pagination--size--scaled); // Match parent on left.
 	}

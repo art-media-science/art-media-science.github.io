@@ -5,7 +5,7 @@ $--default-font-fize: 16;
 // For targeting lingering, different behaviors.
 @mixin browser-specific($browsers...) {
 	@if index($browsers, 'firefox') {
-		@-moz-document url-prefix() {
+		@supports (-moz-appearance: meterbar) {
 			@content;
 		}
 	}
@@ -33,12 +33,16 @@ $--default-font-fize: 16;
 	}
 	@if index($browsers, 'chrome') {
 		@media (-webkit-min-device-pixel-ratio: 0) and (min-resolution: .001dpcm) {
-			@content;
+			@supports not (-moz-appearance: meterbar) { // Scope out Firefox.
+				@content;
+			}
 		}
 	}
 	@if index($browsers, 'chrome--mobile') {
 		@media (-webkit-min-device-pixel-ratio: 0) and (min-resolution: .001dpcm) and (max-width: #{calc(767 / $--default-font-fize)}em) {
-			@content;
+			@supports not (-moz-appearance: meterbar) {
+				@content;
+			}
 		}
 	}
 }

@@ -50,7 +50,8 @@
 	--color--media:   hsl(42,  88%, 48%);
 	--color--science: hsl(212, 75%, 40%);
 
-	--color--transition: 400ms;
+	--color--transition:       400ms;
+	--color--transition--long: 8s;
 
 	--color--transition--curve:        cubic-bezier(0.37, 0, 0.63, 1);
 	--color--transition--curve--tight: cubic-bezier(0.83, 0, 0.17, 1); // Steeper to minimize the “gray flash” on text.

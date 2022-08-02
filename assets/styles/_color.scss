@@ -129,7 +129,7 @@
 		&:before,
 		> main > header,
 		> footer > aside {
-			transition-duration: 8000ms;
+			transition-duration: var(--color--transition--long);
 		}
 	}
 

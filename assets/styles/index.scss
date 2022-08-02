@@ -222,11 +222,13 @@ body {
 		padding-left:          var(--margin);
 		padding-right:         var(--margin);
 		position:              sticky;
+		z-index:               1;
 
 		@include landscape {
 			grid-column:   1 / span 2; // Across the content.
 			padding-left:  initial; // Grid gaps take over.
 			padding-right: initial;
+			z-index:       initial;
 		}
 	}
 

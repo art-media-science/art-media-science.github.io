@@ -1,12 +1,23 @@
 > footer {
 	@extend %font--markdown;
+	--footer--spacing: calc(var(--section--spacing) * 2);
 
 	row-gap:               var(--margin);
 	grid-template-columns: 1fr;
-	margin-top:            var(--section--spacing);
+	margin-top:            var(--footer--spacing);
 
 	@include landscape {
+		--footer--spacing: calc(var(--inner-height, 100vh) - var(--tagline--height) - var(--colophon--height) - var(--margin) - var(--page--inset--bottom));
+
 		grid-template-columns: var(--column--ratio);
+	}
+
+	@include breakpoint(768) {
+		--footer--spacing: calc(100vh - var(--header--height--scrolled--footer) - var(--colophon--height));
+	}
+
+	@include tall {
+		--footer--spacing: calc(var(--section--spacing) * 2);
 	}
 
 	p {

@@ -239,6 +239,10 @@ body {
 		position: sticky;
 		top:      calc(-1 * var(--main--height) + var(--tagline--height) + var(--margin--vertical) * 2 - 0.1rem); // Hide overshoots.
 
+		@include landscape {
+			z-index:  1; // Always draw over footer.
+		}
+
 		@import 'header';
 		@import 'intro';
 	}

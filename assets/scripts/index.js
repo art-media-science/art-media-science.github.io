@@ -10,12 +10,13 @@
 
 const nouns = ['art', 'media', 'science']
 
-const mainHeightVar =    '--main--height'
-const logoHeightVar =    '--logo--height'
-const taglineHeightVar = '--tagline--height'
-const linksHeightVar =   '--links--height'
-const scrollVar =        '--logo--scroll'
-const bounceVar =        '--logo--bounce'
+const mainHeightVar =     '--main--height'
+const logoHeightVar =     '--logo--height'
+const taglineHeightVar =  '--tagline--height'
+const linksHeightVar =    '--links--height'
+const colophonHeightVar = '--colophon--height'
+const scrollVar =         '--logo--scroll'
+const bounceVar =         '--logo--bounce'
 
 const loadingClass = 'loading'
 const cyclingClass = 'cycling'
@@ -48,13 +49,14 @@ const isLandscape = () => (window.innerWidth > window.innerHeight || window.inne
 
 
 
-const getHeights = (main, logo, tagline, links) => {
+const getHeights = (main, logo, tagline, links, colophon) => {
 	const setHeightVar = (element, variable) => document.body.style.setProperty(variable, ` ${element.offsetHeight / 10}rem`)
 
 	const updateVars = () => {
 		setHeightVar(logo, logoHeightVar)
 		setHeightVar(tagline, taglineHeightVar)
 		setHeightVar(links, linksHeightVar)
+		setHeightVar(colophon, colophonHeightVar)
 
 		setTimeout(() => setHeightVar(main, mainHeightVar), 10) // Since it depends on the other heights.
 	}
@@ -257,14 +259,15 @@ const cycleFavicon = (favicon) => {
 document.addEventListener('DOMContentLoaded', () => {
 	window.body = document.body.classList // Save some repetition.
 
-	const main =    document.querySelector('[data-main]')
-	const logo =    document.querySelector('[data-logo]')
-	const tagline = document.querySelector('[data-tagline]')
-	const content = document.querySelector('[data-content]')
-	const links =   document.querySelector('[data-links]')
-	const favicon = document.querySelector('[data-favicon]')
+	const main =     document.querySelector('[data-main]')
+	const logo =     document.querySelector('[data-logo]')
+	const tagline =  document.querySelector('[data-tagline]')
+	const content =  document.querySelector('[data-content]')
+	const links =    document.querySelector('[data-links]')
+	const colophon = document.querySelector('[data-colophon]')
+	const favicon =  document.querySelector('[data-favicon]')
 
-	getHeights(main, logo, tagline, links)
+	getHeights(main, logo, tagline, links, colophon)
 	getScrollDistance(logo)
 	watchTop()
 	watchMain(links, content)

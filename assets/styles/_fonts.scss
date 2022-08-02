@@ -132,16 +132,14 @@
 
 	@include browser-specific(safari) {
 		--typography--weight-shift: calc(-1 * var(--typography--weight-adjust));
-		--typography--weight-alias: 0;
 
 		-webkit-text-stroke: initial; // Safari’s rendering has gaps.
-		text-shadow: // Only a few, to limit over-aliasing.
-			var(--color) var(--typography--weight-shift) 0 var(--typography--weight-alias),
-			var(--color) var(--typography--weight-shift) var(--typography--weight-shift) var(--typography--weight-alias),
-			var(--color) 0 var(--typography--weight-shift) var(--typography--weight-alias)
+		filter: // Use a shadow, instead.
+			drop-shadow(var(--typography--weight-shift) 0 0 var(--color))
+			drop-shadow(0 var(--typography--weight-shift) 0 var(--color))
 			;
 		transition-duration:        var(--color--transition);
-		transition-property:        color, text-shadow; // So it fades with the rest.
+		transition-property:        color, filter; // So it fades with the rest.
 		transition-timing-function: var(--color--transition--curve--tight);
 	}
 
@@ -150,30 +148,16 @@
 	// Collision with markdown links, bleh.
 	a:not(._):not(._) { // Bump specificity.
 		@include browser-specific(chrome, firefox) {
-		--typography--decoration-thickness: calc(var(--typography--underline) * 1em + var(--typography--weight-adjust, 0em));
-		--typography--text-shadow:          calc(var(--typography--underline--skip) * 1em + var(--typography--weight-adjust, 0em) / 2);
-		--typography--underline-offset:     calc(var(--typography--underline--shift) * 1em + var(--typography--weight-adjust, 0em) * 2);
-		}
-
-		@include browser-specific(firefox, safari) {
-			paint-order:                initial; // Clear overrides, below.
-			text-decoration-skip-ink:   auto;
-			transition-timing-function: var(--color--transition--curve--tight); // No background colors.
-		}
-
-		@include browser-specific(firefox) {
-			-webkit-text-stroke-color:  var(--color);
-			-webkit-text-stroke-width:  var(--typography--weight-adjust, 0em);
+			--typography--decoration-thickness: calc(var(--typography--underline) * 1em + var(--typography--weight-adjust, 0em));
+			--typography--text-shadow:          calc(var(--typography--underline--skip) * 1em + var(--typography--weight-adjust, 0em) / 2);
+			--typography--underline-offset:     calc(var(--typography--underline--shift) * 1em + var(--typography--weight-adjust, 0em) * 2);
 		}
 
 		@include browser-specific(safari) {
-			-webkit-text-stroke:      initial;
-			text-shadow: // Can’t extend in the mixin, so this is repeated.
-				var(--color) var(--typography--weight-shift) 0 var(--typography--weight-alias),
-				var(--color) var(--typography--weight-shift) var(--typography--weight-shift) var(--typography--weight-alias),
-				var(--color) 0 var(--typography--weight-shift) var(--typography--weight-alias)
-				;
-			transition-property: text-decoration-color, text-shadow;
+			-webkit-text-stroke:        initial; // Clear overrides, below.
+			paint-order:                initial;
+			text-decoration-skip-ink:   auto;
+			transition-timing-function: var(--color--transition--curve--tight); // No background colors.
 		}
 	}
 }
@@ -212,7 +196,9 @@
 
 		@include browser-specific(firefox, safari) {
 			--typography--underline-offset--extra: calc(var(--typography--decoration-thickness) / 2);
+		}
 
+		@include browser-specific(safari) {
 			-webkit-text-stroke-color: var(--color--background);
 			-webkit-text-stroke-width: calc(var(--typography--decoration-thickness) * 2);
 			paint-order:               stroke fill; // Fill on top!
@@ -220,7 +206,7 @@
 			transition-property:       text-decoration-color, -webkit-text-stroke-color;
 		}
 
-		@include browser-specific(chrome) { // Chrome doesn’t support `paint-order`, so use a shadow.
+		@include browser-specific(chrome, firefox) { // Chrome doesn’t support `paint-order`, so use a shadow.
 			text-shadow: // Clear the descenders, if we know the background color.
 				var(--color--background) var(--typography--text-shadow) 0, // “East”
 				var(--color--background) var(--typography--text-shadow) calc(var(--typography--text-shadow) / 2), // “Southeast”

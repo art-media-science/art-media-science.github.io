@@ -515,7 +515,7 @@ body > main > header > section:first-of-type > h1 > a:active {
 	--color--media: hsl(42, 88%, 48%);
 	--color--science: hsl(212, 75%, 40%);
 	--color--transition: 400ms;
-	--color--transition--long: 8s;
+	--color--transition--cycle: 8s;
 	--color--transition--curve: cubic-bezier(0.37, 0, 0.63, 1);
 	--color--transition--curve--tight: cubic-bezier(0.83, 0, 0.17, 1);
 	--color--link: hsl(0, 0%, 0%, 3.333%);
@@ -777,7 +777,7 @@ body.cycling:not(.main),
 body.cycling:not(.main):before,
 body.cycling:not(.main) > main > header,
 body.cycling:not(.main) > footer > aside {
-	transition-duration: var(--color--transition--long);
+	transition-duration: var(--color--transition--cycle);
 }
 
 body.top nav [href="#intro"] {

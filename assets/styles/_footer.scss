@@ -1,4 +1,6 @@
 > footer {
+	@extend %font--markdown;
+
 	row-gap:               var(--margin);
 	grid-template-columns: 1fr;
 	margin-top:            var(--section--spacing);

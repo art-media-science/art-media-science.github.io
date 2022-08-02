@@ -128,7 +128,8 @@
 		&,
 		&:before,
 		> main > header,
-		> footer > aside {
+		> footer > aside,
+		p a { // Markdown links, too.
 			transition-duration: var(--color--transition--cycle);
 		}
 	}

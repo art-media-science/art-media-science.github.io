@@ -1,5 +1,5 @@
-// Functions.
 @use "utilities" as *;
+@use 'links';
 
 
 
@@ -117,6 +117,10 @@
 
 	--typography--inset--left:  -0.079; // Optical insets, left edge of capital "M".
 	--typography--inset--right: -0.066; // Right edge of lowercase “m” (since lines tend to end lowercase).
+
+	--typography--underline:         0.040; // Height of crossbar on lowercase “e”.
+	--typography--underline--shift: -0.070; // Shift down from baseline, to line up with bottom of descenders.
+	--typography--underline--skip:   0.050; // Can’t exceed narrowest descender width, with this shadow implementation.
 }
 
 %font--calibre--regular {
@@ -125,6 +129,10 @@
 
 	--typography--inset--left:  -0.073;
 	--typography--inset--right: -0.061;
+
+	--typography--underline:         0.057;
+	--typography--underline--shift: -0.027;
+	--typography--underline--skip:   0.076;
 }
 
 %font--calibre--medium {
@@ -184,5 +192,33 @@
 		+ p {
 			margin-top: var(--margin);
 		}
+	}
+
+	a {
+		@extend %link--text;
+
+		text-decoration-color:      var(--color);
+		text-decoration-line:       underline;
+		text-decoration-skip-ink:   none; // Chrome just cuts right through our curves.
+		text-decoration-thickness:  var(--typography--decoration-thickness);
+		text-underline-offset:      calc(-1 * var(--typography--underline-offset) + var(--typography--decoration-thickness) + var(--typography--underline-offset--extra, 0em));
+		transition-duration:        var(--color--transition);
+		transition-property:        text-decoration-color, text-shadow;
+		transition-timing-function: var(--color--transition--curve--tight), var(--color--transition--curve);
+
+		@include browser-specific(firefox, safari) {
+			--typography--underline-offset--extra: calc(var(--typography--decoration-thickness) / 2);
+		}
+
+		text-shadow: // Clear the descenders, if we know the background color.
+			var(--color--background) var(--typography--text-shadow) 0, // “East”
+			var(--color--background) var(--typography--text-shadow) calc(var(--typography--text-shadow) / 3), // “Southeast”
+			var(--color--background) 0 calc(var(--typography--text-shadow) / 3), // “South”
+			var(--color--background) calc(-1 * var(--typography--text-shadow)) calc(var(--typography--text-shadow) / 3), // “Southwest”
+			var(--color--background) calc(-1 * var(--typography--text-shadow)) 0, // “West”
+			var(--color--background) calc(-1 * var(--typography--text-shadow)) calc(-1 * var(--typography--text-shadow) / 3), // “Northwest”
+			var(--color--background) 0 calc(-1 * var(--typography--text-shadow) / 3), // “North”
+			var(--color--background) var(--typography--text-shadow) calc(-1 * var(--typography--text-shadow) / 3) // “Northeast”
+			;
 	}
 }

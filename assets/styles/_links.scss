@@ -54,13 +54,12 @@
 %link--text {
 	@extend %--focus;
 
-	border-color: transparent;
-	border-style: solid;
-	border-width: var(--link--enlargement);
-	margin:       calc(-1 * var(--link--enlargement));
-
-	border-bottom-width: calc(var(--link--enlargement) / 2); // Clear underlines.
-	margin-bottom:       calc(-1 * var(--link--enlargement) / 2);
+	border-color:       transparent;
+	border-left-width:  var(--link--enlargement);
+	border-right-width: var(--link--enlargement);
+	border-style:       solid;
+	margin-left:        calc(-1 * var(--link--enlargement));
+	margin-right:       calc(-1 * var(--link--enlargement));
 
 	&:active {
 		--color--background: transparent; // Hide the text skip shadow.

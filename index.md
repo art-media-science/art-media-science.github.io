@@ -63,4 +63,4 @@ Systems of representation reclaimed identity DNA luminary visual representation 
 
 
 
-This site was designed and developed by [Michael Fehrenbach](https://michaelfehrenbach.com) and [Eric Li](https://eric.young.li). It is built with [Jekyll](https://jekyllrb.com), hosted on [GitHub Pages](https://pages.github.com), and set in Klim Type Foundy’s [Heldane](https://klim.co.nz/blog/heldane-design-information/) and [Calibre](https://klim.co.nz/blog/metric-and-calibre-design-information/).
+This site was designed and developed by [Michael Fehrenbach](https://michaelfehrenbach.com) and [Eric Li](https://eric.young.li). It is built with [Jekyll](https://jekyllrb.com), hosted on [GitHub Pages](https://pages.github.com), and set in [Heldane](https://klim.co.nz/blog/heldane-design-information/) and [Calibre](https://klim.co.nz/blog/metric-and-calibre-design-information/) by [Klim Type Foundry](https://klim.co.nz).

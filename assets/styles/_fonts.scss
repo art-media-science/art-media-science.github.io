@@ -175,26 +175,32 @@
 
 		text-decoration-color:      var(--color);
 		text-decoration-line:       underline;
-		text-decoration-skip-ink:   none; // Chrome just cuts right through our curves.
 		text-decoration-thickness:  var(--typography--decoration-thickness);
 		text-underline-offset:      calc(-1 * var(--typography--underline-offset) + var(--typography--decoration-thickness) + var(--typography--underline-offset--extra, 0em));
 		transition-duration:        var(--color--transition);
-		transition-property:        text-decoration-color, text-shadow;
-		transition-timing-function: var(--color--transition--curve--tight), var(--color--transition--curve);
+		transition-property:        text-decoration-color, text-shadow, -webkit-text-stroke-color;
+		transition-timing-function: var(--color--transition--curve--tight), var(--color--transition--curve), var(--color--transition--curve);
 
 		@include browser-specific(firefox, safari) {
 			--typography--underline-offset--extra: calc(var(--typography--decoration-thickness) / 2);
+
+			-webkit-text-stroke-color: var(--color--background);
+			-webkit-text-stroke-width: calc(var(--typography--decoration-thickness) * 2);
+			paint-order:               stroke fill; // Fill on top!
+			text-decoration-skip-ink:  none;
 		}
 
-		text-shadow: // Clear the descenders, if we know the background color.
-			var(--color--background) var(--typography--text-shadow) 0, // “East”
-			var(--color--background) var(--typography--text-shadow) calc(var(--typography--text-shadow) / 3), // “Southeast”
-			var(--color--background) 0 calc(var(--typography--text-shadow) / 3), // “South”
-			var(--color--background) calc(-1 * var(--typography--text-shadow)) calc(var(--typography--text-shadow) / 3), // “Southwest”
-			var(--color--background) calc(-1 * var(--typography--text-shadow)) 0, // “West”
-			var(--color--background) calc(-1 * var(--typography--text-shadow)) calc(-1 * var(--typography--text-shadow) / 3), // “Northwest”
-			var(--color--background) 0 calc(-1 * var(--typography--text-shadow) / 3), // “North”
-			var(--color--background) var(--typography--text-shadow) calc(-1 * var(--typography--text-shadow) / 3) // “Northeast”
-			;
+		@include browser-specific(chrome) { // Chrome doesn’t support `paint-order`, so use a shadow.
+			text-shadow: // Clear the descenders, if we know the background color.
+				var(--color--background) var(--typography--text-shadow) 0, // “East”
+				var(--color--background) var(--typography--text-shadow) calc(var(--typography--text-shadow) / 2), // “Southeast”
+				var(--color--background) 0 calc(var(--typography--text-shadow) / 2), // “South”
+				var(--color--background) calc(-1 * var(--typography--text-shadow)) calc(var(--typography--text-shadow) / 2), // “Southwest”
+				var(--color--background) calc(-1 * var(--typography--text-shadow)) 0, // “West”
+				var(--color--background) calc(-1 * var(--typography--text-shadow)) calc(-1 * var(--typography--text-shadow) / 2), // “Northwest”
+				var(--color--background) 0 calc(-1 * var(--typography--text-shadow) / 2), // “North”
+				var(--color--background) var(--typography--text-shadow) calc(-1 * var(--typography--text-shadow) / 2) // “Northeast”
+				;
+		}
 	}
 }

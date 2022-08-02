@@ -268,10 +268,18 @@ body > footer > footer p {
 	body > footer > footer p {
 		--typography--weight-shift: calc(-1 * var(--typography--weight-adjust));
 		-webkit-text-stroke: initial;
-		filter: drop-shadow(var(--typography--weight-shift) 0 0 var(--color)) drop-shadow(0 var(--typography--weight-shift) 0 var(--color));
+		filter: opacity(0.333) drop-shadow(var(--typography--weight-shift) 0 0 var(--color)) drop-shadow(0 0 0 var(--color)) drop-shadow(0 var(--typography--weight-shift) 0 var(--color));
 		transition-duration: var(--color--transition);
 		transition-property: color, filter;
 		transition-timing-function: var(--color--transition--curve--tight);
+	}
+
+	@media (-webkit-min-device-pixel-ratio: 2) {
+
+		body > main > section:first-of-type > p,
+		body > footer > footer p {
+			filter: drop-shadow(var(--typography--weight-shift) 0 0 var(--color)) drop-shadow(0 var(--typography--weight-shift) 0 var(--color));
+		}
 	}
 }
 
@@ -307,12 +315,9 @@ body > footer > footer p {
 		transition-timing-function: var(--color--transition--curve--tight);
 	}
 
-	@supports (-webkit-hyphens: none) {
-
-		body > main > section:first-of-type > p a:not(._):not(._):after,
-		body > footer > footer p a:not(._):not(._):after {
-			opacity: 0.333;
-		}
+	body > main > section:first-of-type > p a:not(._):not(._):after,
+	body > footer > footer p a:not(._):not(._):after {
+		opacity: 0.333;
 	}
 }
 
@@ -973,6 +978,7 @@ body > footer > footer {
 	padding-left: var(--margin);
 	padding-right: var(--margin);
 	position: sticky;
+	z-index: 1;
 }
 
 @media (orientation: landscape),
@@ -985,6 +991,7 @@ body > footer > footer {
 		grid-column: 1/span 2;
 		padding-left: initial;
 		padding-right: initial;
+		z-index: initial;
 	}
 }
 

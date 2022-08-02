@@ -159,10 +159,8 @@
 			text-decoration-skip-ink:   auto;
 			transition-timing-function: var(--color--transition--curve--tight); // No background colors.
 
-			@include browser-specific(safari) {
-				&:after {
-					opacity: 0.333; // Prevent the tap-highlight from tripling up.
-				}
+			&:after {
+				opacity: 0.333; // Prevent the tap-highlight from tripling up.
 			}
 		}
 	}

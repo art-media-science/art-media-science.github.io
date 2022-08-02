@@ -88,66 +88,6 @@ body nav > a:active {
 	border-radius: calc(var(--link--enlargement) / 2);
 }
 
-body > main > header > section:first-of-type > h1 > a:active h1,
-body > main > section:last-of-type > section a:active h1,
-body > footer > section a:active h1,
-body > footer > footer a:active h1,
-body > main > header > section:last-of-type > a:active h1,
-body > main > header > menu > li > a:active h1,
-body > footer > aside > ul > li > a:active h1,
-body nav > a:active h1,
-body > main > header > section:first-of-type > h1 > a:active h2,
-body > main > section:last-of-type > section a:active h2,
-body > footer > section a:active h2,
-body > footer > footer a:active h2,
-body > main > header > section:last-of-type > a:active h2,
-body > main > header > menu > li > a:active h2,
-body > footer > aside > ul > li > a:active h2,
-body nav > a:active h2,
-body > main > header > section:first-of-type > h1 > a:active h3,
-body > main > section:last-of-type > section a:active h3,
-body > footer > section a:active h3,
-body > footer > footer a:active h3,
-body > main > header > section:last-of-type > a:active h3,
-body > main > header > menu > li > a:active h3,
-body > footer > aside > ul > li > a:active h3,
-body nav > a:active h3,
-body > main > header > section:first-of-type > h1 > a:active h4,
-body > main > section:last-of-type > section a:active h4,
-body > footer > section a:active h4,
-body > footer > footer a:active h4,
-body > main > header > section:last-of-type > a:active h4,
-body > main > header > menu > li > a:active h4,
-body > footer > aside > ul > li > a:active h4,
-body nav > a:active h4,
-body > main > header > section:first-of-type > h1 > a:active h5,
-body > main > section:last-of-type > section a:active h5,
-body > footer > section a:active h5,
-body > footer > footer a:active h5,
-body > main > header > section:last-of-type > a:active h5,
-body > main > header > menu > li > a:active h5,
-body > footer > aside > ul > li > a:active h5,
-body nav > a:active h5,
-body > main > header > section:first-of-type > h1 > a:active h6,
-body > main > section:last-of-type > section a:active h6,
-body > footer > section a:active h6,
-body > footer > footer a:active h6,
-body > main > header > section:last-of-type > a:active h6,
-body > main > header > menu > li > a:active h6,
-body > footer > aside > ul > li > a:active h6,
-body nav > a:active h6,
-body > main > header > section:first-of-type > h1 > a:active p,
-body > main > section:last-of-type > section a:active p,
-body > footer > section a:active p,
-body > footer > footer a:active p,
-body > main > header > section:last-of-type > a:active p,
-body > main > header > menu > li > a:active p,
-body > footer > aside > ul > li > a:active p,
-body nav > a:active p {
-	--color--background: transparent;
-	transition-duration: 0s;
-}
-
 body > main > header > section:first-of-type > h1 > a:focus,
 body > main > section:last-of-type > section a:focus,
 body > footer > section a:focus,
@@ -184,16 +124,36 @@ body > footer > footer a {
 	border-color: transparent;
 	border-left-width: var(--link--enlargement);
 	border-right-width: var(--link--enlargement);
+	border-bottom-width: calc(var(--link--enlargement) / 2);
+	border-top-width: 0;
 	border-style: solid;
 	margin-left: calc(-1 * var(--link--enlargement));
 	margin-right: calc(-1 * var(--link--enlargement));
+	position: relative;
 }
 
 body > main > header > section:first-of-type > h1 > a:active,
 body > main > section:last-of-type > section a:active,
 body > footer > section a:active,
 body > footer > footer a:active {
-	--color--background: transparent;
+	--color--active: var(--link--highlight);
+	background-color: initial;
+	border-radius: initial;
+}
+
+body > main > header > section:first-of-type > h1 > a:after,
+body > main > section:last-of-type > section a:after,
+body > footer > section a:after,
+body > footer > footer a:after {
+	background-color: var(--color--active);
+	border-radius: calc(var(--link--enlargement) / 2);
+	bottom: calc(var(--link--enlargement) / -2);
+	content: "";
+	left: calc(-1 * var(--link--enlargement));
+	pointer-events: none;
+	position: absolute;
+	right: calc(-1 * var(--link--enlargement));
+	top: 0;
 }
 
 @font-face {
@@ -345,6 +305,14 @@ body > footer > footer p {
 		paint-order: initial;
 		text-decoration-skip-ink: auto;
 		transition-timing-function: var(--color--transition--curve--tight);
+	}
+
+	@supports (-webkit-hyphens: none) {
+
+		body > main > section:first-of-type > p a:not(._):not(._):after,
+		body > footer > footer p a:not(._):not(._):after {
+			opacity: 0.333;
+		}
 	}
 }
 

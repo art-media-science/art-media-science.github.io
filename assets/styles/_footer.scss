@@ -1,10 +1,13 @@
 > footer {
-	@extend %font--markdown;
 	--footer--spacing: calc(var(--section--spacing) * 2);
 
-	row-gap:               var(--margin);
-	grid-template-columns: 1fr;
-	margin-top:            var(--footer--spacing);
+	grid-template-columns:      1fr;
+	margin-top:                 var(--footer--spacing);
+	row-gap:                    var(--margin);
+	transition-duration:        400ms;
+	transition-property:        margin;
+	transition-timing-function: ease-in-out;
+	will-change:                margin;
 
 	@include landscape {
 		--footer--spacing: calc(var(--inner-height, 100vh) - var(--tagline--height) - var(--colophon--height) - var(--margin) - var(--page--inset--bottom));
@@ -13,7 +16,7 @@
 	}
 
 	@include breakpoint(768) {
-		--footer--spacing: calc(100vh - var(--header--height--scrolled--footer) - var(--colophon--height));
+		--footer--spacing: calc(var(--inner-height, 100vh) - var(--header--height--scrolled--footer) - var(--colophon--height));
 	}
 
 	@include tall {

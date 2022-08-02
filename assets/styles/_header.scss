@@ -49,11 +49,6 @@
 		top:          calc(-1 * var(--header--scroll));
 	}
 
-	@include breakpoint (768) {
-		margin-left:  initial;
-		padding-left: initial;
-	}
-
 
 
 	// The “logo”.

@@ -135,12 +135,21 @@
 
 		-webkit-text-stroke: initial; // Safari’s rendering has gaps.
 		filter: // Use a shadow, instead.
+			opacity(0.333) // Tone down the crispiness.
 			drop-shadow(var(--typography--weight-shift) 0 0 var(--color))
+			drop-shadow(0 0 0 var(--color))
 			drop-shadow(0 var(--typography--weight-shift) 0 var(--color))
 			;
 		transition-duration:        var(--color--transition);
 		transition-property:        color, filter; // So it fades with the rest.
 		transition-timing-function: var(--color--transition--curve--tight);
+
+		@include retina {
+			filter: // Resolution fixes most of the “crispiness.”
+				drop-shadow(var(--typography--weight-shift) 0 0 var(--color))
+				drop-shadow(0 var(--typography--weight-shift) 0 var(--color))
+				;
+		}
 	}
 
 

@@ -169,6 +169,10 @@
 	a {
 		@extend %link--text;
 
+		--typography--text-shadow:          calc(var(--typography--underline--skip) * 1em);
+		--typography--decoration-thickness: calc(var(--typography--underline) * 1em);
+		--typography--underline-offset:     calc(var(--typography--underline--shift) * 1em);
+
 		text-decoration-color:      var(--color);
 		text-decoration-line:       underline;
 		text-decoration-skip-ink:   none; // Chrome just cuts right through our curves.

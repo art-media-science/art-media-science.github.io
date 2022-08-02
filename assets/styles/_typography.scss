@@ -49,10 +49,6 @@ p {
 	--typography--margin--left:  calc(var(--typography--inset--left) * 1em);
 	--typography--margin--right: calc(var(--typography--inset--right) * 1em);
 
-	--typography--text-shadow:          calc(var(--typography--underline--skip) * 1em);
-	--typography--decoration-thickness: calc(var(--typography--underline) * 1em);
-	--typography--underline-offset:     calc(var(--typography--underline--shift) * 1em);
-
 	font-weight:    var(--typography--weight);
 	letter-spacing: var(--typography--letter-spacing);
 

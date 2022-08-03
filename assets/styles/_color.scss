@@ -1,6 +1,6 @@
 & {
 	--color:             white;
-	--color--background: var(--color--accent);
+	--color--background: var(--color--cycle, var(--color--accent));
 
 	--color--accent: white; // To matte the header transition, so it isn’t doubling up.
 

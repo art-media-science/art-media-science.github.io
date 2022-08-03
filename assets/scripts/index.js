@@ -30,6 +30,7 @@ const aboutHash   =  '#about'
 
 let hashReady = false
 let hashDelay
+let nextNoun
 
 
 
@@ -145,7 +146,7 @@ const watchMain = (links, content) => {
 			}
 			if (body.contains(mainClass)) { // Only scrolling out.
 				body.remove(...nouns, mainClass)
-				cycleRandomNoun(nouns)
+				cycleRandomNoun()
 			}
 		}
 	}
@@ -215,23 +216,32 @@ const saveCycleState = () => {
 
 const randomNoun = () => {
 	if (!body.contains(mainClass)) {
-		let randomNoun = nouns[Math.floor(Math.random() * nouns.length)]
+		nextNoun = nouns[Math.floor(Math.random() * nouns.length)]
 
-		while (body.contains(randomNoun)) {
-			randomNoun = nouns[Math.floor(Math.random() * nouns.length)]
+		while (body.contains(nextNoun)) {
+			nextNoun = nouns[Math.floor(Math.random() * nouns.length)]
 		}
 		body.remove(...nouns)
-		body.add(randomNoun)
+		body.add(nextNoun)
 	}
 }
 
 const cycleRandomNoun = () => {
-	randomNoun(nouns) // Apply the first one.
+	if (!nextNoun) { // Apply the first one.
+		randomNoun(nouns)
+		nextNoun = null
+	}
 
 	ontransitionend = () => {
+		// Just our background.
 		if (event.propertyName == 'background-color' && event.target == document.body && !event.pseudoElement && !body.contains(mainClass)) {
-			body.add(cyclingClass)
-			randomNoun(nouns)
+			if (!nextNoun || body.contains(nextNoun)) { // Get another random one.
+				body.add(cyclingClass)
+				randomNoun(nouns)
+			} else { // Restore the previous.
+				body.add(cyclingClass, nextNoun)
+				setTimeout(() => document.body.style.removeProperty(colorVar), 100)
+			}
 		}
 	}
 }

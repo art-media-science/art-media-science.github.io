@@ -52,6 +52,8 @@ details ::-webkit-details-marker {
 body > main > section:last-of-type > section .focus a:not(:disabled):focus,
 .focus body > footer > section a:not(:disabled):focus,
 body > footer > section .focus a:not(:disabled):focus,
+.focus body > footer > footer > section:last-child a:not(:disabled):focus,
+body > footer > footer > section:last-child .focus a:not(:disabled):focus,
 .focus body > main > header > section:last-of-type > a:not(:disabled):focus,
 .focus body > main > header > menu > li > a:not(:disabled):focus,
 .focus body > footer > aside > ul > li > a:not(:disabled):focus,
@@ -65,6 +67,7 @@ body .focus nav > a:not(:disabled):focus {
 body > main > header > section:first-of-type > h1 > a,
 body > main > section:last-of-type > section a,
 body > footer > section a,
+body > footer > footer > section:last-child a,
 body > main > header > section:last-of-type > a,
 body > main > header > menu > li > a,
 body > footer > aside > ul > li > a,
@@ -76,6 +79,7 @@ body nav > a {
 body > main > header > section:first-of-type > h1 > a:active,
 body > main > section:last-of-type > section a:active,
 body > footer > section a:active,
+body > footer > footer > section:last-child a:active,
 body > main > header > section:last-of-type > a:active,
 body > main > header > menu > li > a:active,
 body > footer > aside > ul > li > a:active,
@@ -87,6 +91,7 @@ body nav > a:active {
 body > main > header > section:first-of-type > h1 > a:focus,
 body > main > section:last-of-type > section a:focus,
 body > footer > section a:focus,
+body > footer > footer > section:last-child a:focus,
 body > main > header > section:last-of-type > a:focus,
 body > main > header > menu > li > a:focus,
 body > footer > aside > ul > li > a:focus,
@@ -114,7 +119,8 @@ body nav > a {
 
 body > main > header > section:first-of-type > h1 > a,
 body > main > section:last-of-type > section a,
-body > footer > section a {
+body > footer > section a,
+body > footer > footer > section:last-child a {
 	border-color: transparent;
 	border-left-width: var(--link--enlargement);
 	border-right-width: var(--link--enlargement);
@@ -128,7 +134,8 @@ body > footer > section a {
 
 body > main > header > section:first-of-type > h1 > a:active,
 body > main > section:last-of-type > section a:active,
-body > footer > section a:active {
+body > footer > section a:active,
+body > footer > footer > section:last-child a:active {
 	--color--active: var(--link--highlight);
 	background-color: initial;
 	border-radius: initial;
@@ -136,7 +143,8 @@ body > footer > section a:active {
 
 body > main > header > section:first-of-type > h1 > a:after,
 body > main > section:last-of-type > section a:after,
-body > footer > section a:after {
+body > footer > section a:after,
+body > footer > footer > section:last-child a:after {
 	background-color: var(--color--active);
 	border-radius: calc(var(--link--enlargement) / 2);
 	bottom: calc(var(--link--enlargement) / -2);
@@ -314,23 +322,27 @@ body > footer > footer p {
 }
 
 body > main > section:last-of-type > section > h2,
-body > footer > section > h2 {
+body > footer > section > h2,
+body > footer > footer > section:last-child > h2 {
 	--typography--size: var(--typography--size--tagline);
 	margin-bottom: var(--margin);
 }
 
 body > main > section:last-of-type > section > h2:not(:first-child),
-body > footer > section > h2:not(:first-child) {
+body > footer > section > h2:not(:first-child),
+body > footer > footer > section:last-child > h2:not(:first-child) {
 	margin-top: calc(var(--margin) * 2);
 }
 
 body > main > section:last-of-type > section > p + p,
-body > footer > section > p + p {
+body > footer > section > p + p,
+body > footer > footer > section:last-child > p + p {
 	margin-top: var(--margin);
 }
 
 body > main > section:last-of-type > section a,
-body > footer > section a {
+body > footer > section a,
+body > footer > footer > section:last-child a {
 	--typography--decoration-thickness: calc(var(--typography--underline) * 1em);
 	--typography--text-shadow: calc(var(--typography--underline--skip) * 1em);
 	--typography--underline-offset: calc(var(--typography--underline--shift) * 1em);
@@ -345,7 +357,8 @@ body > footer > section a {
 @supports (-moz-appearance: meterbar) {
 
 	body > main > section:last-of-type > section a,
-	body > footer > section a {
+	body > footer > section a,
+	body > footer > footer > section:last-child a {
 		--typography--underline-offset--extra: calc(var(--typography--decoration-thickness) / 2);
 	}
 }
@@ -353,7 +366,8 @@ body > footer > section a {
 @supports (-webkit-hyphens: none) {
 
 	body > main > section:last-of-type > section a,
-	body > footer > section a {
+	body > footer > section a,
+	body > footer > footer > section:last-child a {
 		--typography--underline-offset--extra: calc(var(--typography--decoration-thickness) / 2);
 	}
 }
@@ -361,7 +375,8 @@ body > footer > section a {
 @supports (-webkit-hyphens: none) {
 
 	body > main > section:last-of-type > section a,
-	body > footer > section a {
+	body > footer > section a,
+	body > footer > footer > section:last-child a {
 		-webkit-text-stroke-color: var(--color--background);
 		-webkit-text-stroke-width: calc(var(--typography--decoration-thickness) * 2);
 		paint-order: stroke fill;
@@ -373,7 +388,8 @@ body > footer > section a {
 @supports (-moz-appearance: meterbar) {
 
 	body > main > section:last-of-type > section a,
-	body > footer > section a {
+	body > footer > section a,
+	body > footer > footer > section:last-child a {
 		text-shadow: var(--color--background) var(--typography--text-shadow) 0, var(--color--background) var(--typography--text-shadow) calc(var(--typography--text-shadow) / 2), var(--color--background) 0 calc(var(--typography--text-shadow) / 2), var(--color--background) calc(-1 * var(--typography--text-shadow)) calc(var(--typography--text-shadow) / 2), var(--color--background) calc(-1 * var(--typography--text-shadow)) 0, var(--color--background) calc(-1 * var(--typography--text-shadow)) calc(-1 * var(--typography--text-shadow) / 2), var(--color--background) 0 calc(-1 * var(--typography--text-shadow) / 2), var(--color--background) var(--typography--text-shadow) calc(-1 * var(--typography--text-shadow) / 2);
 		transition-property: text-decoration-color, text-shadow;
 	}
@@ -383,7 +399,8 @@ body > footer > section a {
 	@supports not (-moz-appearance: meterbar) {
 
 		body > main > section:last-of-type > section a,
-		body > footer > section a {
+		body > footer > section a,
+		body > footer > footer > section:last-child a {
 			text-shadow: var(--color--background) var(--typography--text-shadow) 0, var(--color--background) var(--typography--text-shadow) calc(var(--typography--text-shadow) / 2), var(--color--background) 0 calc(var(--typography--text-shadow) / 2), var(--color--background) calc(-1 * var(--typography--text-shadow)) calc(var(--typography--text-shadow) / 2), var(--color--background) calc(-1 * var(--typography--text-shadow)) 0, var(--color--background) calc(-1 * var(--typography--text-shadow)) calc(-1 * var(--typography--text-shadow) / 2), var(--color--background) 0 calc(-1 * var(--typography--text-shadow) / 2), var(--color--background) var(--typography--text-shadow) calc(-1 * var(--typography--text-shadow) / 2);
 			transition-property: text-decoration-color, text-shadow;
 		}
@@ -729,6 +746,7 @@ body {
 	--section--spacing: calc(var(--margin--vertical) * 4);
 	--section--overlap: 1.2rem;
 	--section--height: calc(var(--vh--initial, 100vh) - var(--header--height--scrolled) - var(--section--spacing) - var(--anchor--offset) - var(--section--overlap));
+	--footer--spacing: calc(var(--section--spacing) * 2);
 }
 
 @media (orientation: landscape),
@@ -739,6 +757,20 @@ body {
 		--anchor--offset--about: calc(var(--margin--vertical) - 0.1rem);
 		--section--overlap: calc(var(--tagline--height) + var(--margin--vertical));
 		--section--height: calc(var(--vh--initial, 100vh) - var(--section--spacing) - var(--anchor--offset) - var(--section--overlap));
+		--footer--spacing: calc(var(--inner-height, 100vh) - var(--tagline--height) - var(--colophon--height) - var(--margin) - var(--page--inset--bottom));
+	}
+}
+
+@media (min-width: 48em) and (min-height: 30em),
+(min-width: 58.125em) {
+	body {
+		--footer--spacing: calc(var(--inner-height, 100vh) - var(--header--height--scrolled--footer) - var(--colophon--height));
+	}
+}
+
+@media (min-height: 64em) {
+	body {
+		--footer--spacing: calc(var(--section--spacing) * 2);
 	}
 }
 
@@ -1288,6 +1320,38 @@ body > footer > aside > ul > li > a > p > svg {
 	margin-bottom: calc(var(--icon--shift) * -1);
 }
 
+@media (orientation: landscape),
+(min-width: 35.5em) and (min-height: 30em),
+(min-width: 58.125em) {
+	body > footer > aside > section {
+		align-items: end;
+		display: flex;
+		height: calc(var(--links--height) + var(--footer--spacing) + var(--colophon--height) - var(--margin--vertical));
+		justify-content: center;
+		margin-bottom: calc(-1 * var(--footer--spacing) - var(--colophon--height) + var(--margin--vertical));
+	}
+
+	body > footer > aside > section > nav {
+		bottom: var(--margin--vertical);
+		position: sticky;
+	}
+
+	body > footer > aside > section > nav > a {
+		transform: translateY(0.2rem);
+	}
+}
+
+@media (orientation: landscape) and (min-width: 48em) and (min-height: 30em),
+(orientation: landscape) and (min-width: 58.125em),
+(min-width: 35.5em) and (min-height: 30em) and (min-width: 48em) and (min-height: 30em),
+(min-width: 35.5em) and (min-height: 30em) and (min-width: 58.125em),
+(min-width: 58.125em) and (min-width: 48em) and (min-height: 30em),
+(min-width: 58.125em) and (min-width: 58.125em) {
+	body > footer > aside > section > nav > a {
+		transform: translateY(0.4rem);
+	}
+}
+
 body > footer > section {
 	margin-top: var(--section--spacing);
 }
@@ -1308,7 +1372,6 @@ body > footer > section h3 {
 }
 
 body > footer > footer {
-	--footer--spacing: calc(var(--section--spacing) * 2);
 	grid-template-columns: 1fr;
 	margin-top: var(--footer--spacing);
 	row-gap: var(--margin);
@@ -1322,27 +1385,25 @@ body > footer > footer {
 (min-width: 35.5em) and (min-height: 30em),
 (min-width: 58.125em) {
 	body > footer > footer {
-		--footer--spacing: calc(var(--inner-height, 100vh) - var(--tagline--height) - var(--colophon--height) - var(--margin) - var(--page--inset--bottom));
 		grid-template-columns: var(--column--ratio);
-	}
-}
-
-@media (min-width: 48em) and (min-height: 30em),
-(min-width: 58.125em) {
-	body > footer > footer {
-		--footer--spacing: calc(var(--inner-height, 100vh) - var(--header--height--scrolled--footer) - var(--colophon--height));
-	}
-}
-
-@media (min-height: 64em) {
-	body > footer > footer {
-		--footer--spacing: calc(var(--section--spacing) * 2);
 	}
 }
 
 body > footer > footer p {
 	--typography--size: var(--typography--size--footer);
 	--typography--weight-adjust: 0.01em;
+}
+
+body > footer > footer > section:last-child {
+	margin-right: var(--margin);
+}
+
+@media (orientation: landscape),
+(min-width: 35.5em) and (min-height: 30em),
+(min-width: 58.125em) {
+	body > footer > footer > section:last-child {
+		margin-right: var(--pagination--gutter);
+	}
 }
 
 body nav {

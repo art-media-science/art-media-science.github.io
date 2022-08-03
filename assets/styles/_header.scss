@@ -181,13 +181,11 @@
 				}
 
 				&:before {
-					background-color: var(--color);
-					border-radius:    50%;
-					content:          '';
-					display:          block;
-					height:           var(--pagination--size);
-					transition:       inherit; // From the links, in color.
-					width:            var(--pagination--size);
+					border-radius: 50%;
+					content:       '';
+					display:       block;
+					height:        var(--pagination--size);
+					width:         var(--pagination--size);
 				}
 			}
 		}

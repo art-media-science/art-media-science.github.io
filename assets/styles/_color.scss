@@ -41,6 +41,17 @@
 		transition-timing-function: var(--color--transition--curve--tight);
 	}
 
+	menu [href="#art"],
+	menu [href="#media"],
+	menu [href="#science"] {
+		&:before {
+			background-color:           var(--color);
+			transition-duration:        var(--color--transition);
+			transition-property:        background-color;
+			transition-timing-function: var(--color--transition--curve--tight);
+		}
+	}
+
 	// Icons.
 	svg {
 		fill:         currentcolor;

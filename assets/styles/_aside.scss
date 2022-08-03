@@ -63,11 +63,7 @@
 				position: sticky;
 
 				> a {
-					transform: translateY(0.2rem); // Optical shift.
-
-					@include breakpoint(768) {
-						transform: translateY(0.4rem);
-					}
+					transform: translateY(var(--link--enlargement)); // Optical shift.
 				}
 			}
 		}

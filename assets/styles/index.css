@@ -774,6 +774,12 @@ body {
 	}
 }
 
+@media (min-height: 64em) and (min-width: 110.75em) {
+	body {
+		--footer--spacing: var(--section--spacing);
+	}
+}
+
 body {
 	--color: white;
 	--color--background: var(--color--accent);

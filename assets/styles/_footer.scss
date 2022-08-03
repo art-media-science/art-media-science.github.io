@@ -6,6 +6,7 @@
 	transition-property:        margin;
 	transition-timing-function: ease-in-out;
 	will-change:                margin;
+	pointer-events:             none; // Allow tapping on the “top” icon.
 
 	@include landscape {
 		grid-template-columns: var(--column--ratio);
@@ -19,7 +20,10 @@
 		--typography--weight-adjust: 0.01em; // Adjust to body copy.
 	}
 
-
+	//Both.
+	> section {
+		pointer-events: auto;
+	}
 
 	// The colophon.
 	> section:last-child {

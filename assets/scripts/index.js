@@ -119,6 +119,7 @@ const linksHeightVar = '--links--height'
 const colophonHeightVar = '--colophon--height'
 const scrollVar = '--logo--scroll'
 const bounceVar = '--logo--bounce'
+const colorVar = '--color--cycle'
 
 const loadingClass = 'loading'
 const cyclingClass = 'cycling'
@@ -131,6 +132,7 @@ const aboutHash = '#about'
 
 let hashReady = false
 let hashDelay
+let nextNoun
 
 
 
@@ -227,6 +229,7 @@ const watchMain = (links, content) => {
 
 		if (contentTop <= viewport && viewport <= linksEdge) { // Intersecting.
 			if (!body.contains(mainClass)) { // Only do it once.
+				saveCycleState()
 				body.remove(...nouns, headerClass, footerClass, cyclingClass)
 				body.add(mainClass)
 			}
@@ -245,7 +248,7 @@ const watchMain = (links, content) => {
 			}
 			if (body.contains(mainClass)) { // Only scrolling out.
 				body.remove(...nouns, mainClass)
-				cycleRandomNoun(nouns)
+				cycleRandomNoun()
 			}
 		}
 	}
@@ -303,25 +306,44 @@ watchTaglineTop = (tagline) => {
 
 
 
+const saveCycleState = () => {
+	const getHex = (rgb) => `#${rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/).slice(1).map(n => parseInt(n, 10).toString(16).padStart(2, '0')).join('')}`
+
+	const background = getHex(getComputedStyle(document.body).backgroundColor)
+
+	if (background != '#ffffff') document.body.style.setProperty(colorVar, ` ${background}`)
+}
+
+
+
 const randomNoun = () => {
 	if (!body.contains(mainClass)) {
-		let randomNoun = nouns[Math.floor(Math.random() * nouns.length)]
+		nextNoun = nouns[Math.floor(Math.random() * nouns.length)]
 
-		while (body.contains(randomNoun)) {
-			randomNoun = nouns[Math.floor(Math.random() * nouns.length)]
+		while (body.contains(nextNoun)) {
+			nextNoun = nouns[Math.floor(Math.random() * nouns.length)]
 		}
 		body.remove(...nouns)
-		body.add(randomNoun)
+		body.add(nextNoun)
 	}
 }
 
 const cycleRandomNoun = () => {
-	randomNoun(nouns) // Apply the first one.
+	if (!nextNoun) { // Apply the first one.
+		randomNoun(nouns)
+		nextNoun = null
+	}
 
 	ontransitionend = () => {
+		// Just our background.
 		if (event.propertyName == 'background-color' && event.target == document.body && !event.pseudoElement && !body.contains(mainClass)) {
-			body.add(cyclingClass)
-			randomNoun(nouns)
+			if (!nextNoun || body.contains(nextNoun)) { // Get another random one.
+				body.add(cyclingClass)
+				randomNoun(nouns)
+			} else { // Restore the previous.
+				body.add(cyclingClass, nextNoun)
+				setTimeout(() => document.body.style.removeProperty(colorVar), 100)
+			}
 		}
 	}
 }

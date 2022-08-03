@@ -766,7 +766,7 @@ body {
 
 body {
 	--color: white;
-	--color--background: var(--color--accent);
+	--color--background: var(--color--cycle, var(--color--accent));
 	--color--accent: white;
 }
 

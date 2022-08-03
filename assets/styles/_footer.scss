@@ -1,6 +1,4 @@
 > footer {
-	--footer--spacing: calc(var(--section--spacing) * 2);
-
 	grid-template-columns:      1fr;
 	margin-top:                 var(--footer--spacing);
 	row-gap:                    var(--margin);
@@ -10,17 +8,7 @@
 	will-change:                margin;
 
 	@include landscape {
-		--footer--spacing: calc(var(--inner-height, 100vh) - var(--tagline--height) - var(--colophon--height) - var(--margin) - var(--page--inset--bottom));
-
 		grid-template-columns: var(--column--ratio);
-	}
-
-	@include breakpoint(768) {
-		--footer--spacing: calc(var(--inner-height, 100vh) - var(--header--height--scrolled--footer) - var(--colophon--height));
-	}
-
-	@include tall {
-		--footer--spacing: calc(var(--section--spacing) * 2);
 	}
 
 	p {

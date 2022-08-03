@@ -810,6 +810,15 @@ body p {
 	transition-timing-function: var(--color--transition--curve--tight);
 }
 
+body menu [href="#art"]:before,
+body menu [href="#media"]:before,
+body menu [href="#science"]:before {
+	background-color: var(--color);
+	transition-duration: var(--color--transition);
+	transition-property: background-color;
+	transition-timing-function: var(--color--transition--curve--tight);
+}
+
 body svg {
 	fill: currentcolor;
 	stroke-width: var(--stroke--width);
@@ -1205,12 +1214,10 @@ body > main > header > menu > li > a:active {
 }
 
 body > main > header > menu > li > a:before {
-	background-color: var(--color);
 	border-radius: 50%;
 	content: "";
 	display: block;
 	height: var(--pagination--size);
-	transition: inherit;
 	width: var(--pagination--size);
 }
 

@@ -46,4 +46,30 @@
 			}
 		}
 	}
+
+
+
+	// The “top” arrow holder.
+	> section {
+		@include landscape {
+			align-items:     end;
+			display:         flex;
+			height:          calc(var(--links--height) + var(--footer--spacing) + var(--colophon--height) - var(--margin--vertical));
+			justify-content: center;
+			margin-bottom:   calc(-1 * var(--footer--spacing) - var(--colophon--height) + var(--margin--vertical));
+
+			> nav {
+				bottom:   var(--margin--vertical);
+				position: sticky;
+
+				> a {
+					transform: translateY(0.2rem); // Optical shift.
+
+					@include breakpoint(768) {
+						transform: translateY(0.4rem);
+					}
+				}
+			}
+		}
+	}
 }

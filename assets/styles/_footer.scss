@@ -18,4 +18,17 @@
 
 		--typography--weight-adjust: 0.01em; // Adjust to body copy.
 	}
+
+
+
+	// The colophon.
+	> section:last-child {
+		@extend %font--markdown;
+
+		margin-right: var(--margin);
+
+		@include landscape {
+			margin-right: var(--pagination--gutter);
+		}
+	}
 }

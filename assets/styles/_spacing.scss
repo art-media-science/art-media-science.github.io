@@ -72,5 +72,9 @@
 
 	@include tall {
 		--footer--spacing: calc(var(--section--spacing) * 2);
+
+		@include breakpoint(1772) {
+			--footer--spacing: var(--section--spacing);
+		}
 	}
 }

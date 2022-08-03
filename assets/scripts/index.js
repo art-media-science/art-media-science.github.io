@@ -17,6 +17,7 @@ const linksHeightVar =    '--links--height'
 const colophonHeightVar = '--colophon--height'
 const scrollVar =         '--logo--scroll'
 const bounceVar =         '--logo--bounce'
+const colorVar =          '--color--cycle'
 
 const loadingClass = 'loading'
 const cyclingClass = 'cycling'
@@ -125,6 +126,7 @@ const watchMain = (links, content) => {
 
 		if (contentTop <= viewport && viewport <= linksEdge) { // Intersecting.
 			if (!body.contains(mainClass)) { // Only do it once.
+				saveCycleState()
 				body.remove(...nouns, headerClass, footerClass, cyclingClass)
 				body.add(mainClass)
 			}
@@ -197,6 +199,16 @@ watchTaglineTop = (tagline) => {
 	window.addEventListener('load', checkTop)
 	window.addEventListener('resize', checkTop)
 	window.addEventListener('scroll', checkTop)
+}
+
+
+
+const saveCycleState = () => {
+	const getHex = (rgb) => `#${rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/).slice(1).map(n => parseInt(n, 10).toString(16).padStart(2, '0')).join('')}`
+
+	const background = getHex(getComputedStyle(document.body).backgroundColor)
+
+	if (background != '#ffffff') document.body.style.setProperty(colorVar, ` ${background}`)
 }
 
 

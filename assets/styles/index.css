@@ -1350,18 +1350,7 @@ body > footer > aside > ul > li > a > p > svg {
 	}
 
 	body > footer > aside > section > nav > a {
-		transform: translateY(0.2rem);
-	}
-}
-
-@media (orientation: landscape) and (min-width: 48em) and (min-height: 30em),
-(orientation: landscape) and (min-width: 58.125em),
-(min-width: 35.5em) and (min-height: 30em) and (min-width: 48em) and (min-height: 30em),
-(min-width: 35.5em) and (min-height: 30em) and (min-width: 58.125em),
-(min-width: 58.125em) and (min-width: 48em) and (min-height: 30em),
-(min-width: 58.125em) and (min-width: 58.125em) {
-	body > footer > aside > section > nav > a {
-		transform: translateY(0.4rem);
+		transform: translateY(var(--link--enlargement));
 	}
 }
 
@@ -1392,6 +1381,7 @@ body > footer > footer {
 	transition-property: margin;
 	transition-timing-function: ease-in-out;
 	will-change: margin;
+	pointer-events: none;
 }
 
 @media (orientation: landscape),
@@ -1405,6 +1395,10 @@ body > footer > footer {
 body > footer > footer p {
 	--typography--size: var(--typography--size--footer);
 	--typography--weight-adjust: 0.01em;
+}
+
+body > footer > footer > section {
+	pointer-events: auto;
 }
 
 body > footer > footer > section:last-child {

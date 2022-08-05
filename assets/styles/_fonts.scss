@@ -161,7 +161,7 @@
 
 // Main markdown.
 %font--markdown {
-	> h2 {
+	h2 {
 		--typography--size: var(--typography--size--tagline);
 
 		margin-bottom: var(--margin);
@@ -171,14 +171,20 @@
 		}
 	}
 
-	> p,
-	> blockquote,
-	> ul {
+	p,
+	blockquote,
+	ul {
 		+ p,
 		+ blockquote,
 		+ ul {
 			margin-top: var(--margin);
 		}
+	}
+
+	blockquote {
+		--typography--scale: 0.9; // Slightly down, same baseline.
+
+		font-style: italic;
 	}
 
 	> ul > li + li {

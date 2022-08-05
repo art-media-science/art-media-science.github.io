@@ -47,7 +47,8 @@ details ::-webkit-details-marker {
 	display: none;
 }
 
-.focus body > main > header > section:first-of-type > h1 > a:not(:disabled):focus,
+.focus body > main > section:first-of-type a:not(:disabled):focus,
+body > main > section:first-of-type .focus a:not(:disabled):focus,
 .focus body > main > section:last-of-type > section a:not(:disabled):focus,
 body > main > section:last-of-type > section .focus a:not(:disabled):focus,
 .focus body > footer > section a:not(:disabled):focus,
@@ -65,6 +66,7 @@ body .focus nav > a:not(:disabled):focus {
 }
 
 body > main > header > section:first-of-type > h1 > a,
+body > main > section:first-of-type a,
 body > main > section:last-of-type > section a,
 body > footer > section a,
 body > footer > footer > section:last-child a,
@@ -76,7 +78,7 @@ body nav > a {
 	cursor: pointer;
 }
 
-body > main > header > section:first-of-type > h1 > a:active,
+body > main > section:first-of-type a:active,
 body > main > section:last-of-type > section a:active,
 body > footer > section a:active,
 body > footer > footer > section:last-child a:active,
@@ -88,7 +90,7 @@ body nav > a:active {
 	border-radius: calc(var(--link--enlargement) / 2);
 }
 
-body > main > header > section:first-of-type > h1 > a:focus,
+body > main > section:first-of-type a:focus,
 body > main > section:last-of-type > section a:focus,
 body > footer > section a:focus,
 body > footer > footer > section:last-child a:focus,
@@ -118,6 +120,7 @@ body nav > a {
 }
 
 body > main > header > section:first-of-type > h1 > a,
+body > main > section:first-of-type a,
 body > main > section:last-of-type > section a,
 body > footer > section a,
 body > footer > footer > section:last-child a {
@@ -132,7 +135,7 @@ body > footer > footer > section:last-child a {
 	position: relative;
 }
 
-body > main > header > section:first-of-type > h1 > a:active,
+body > main > section:first-of-type a:active,
 body > main > section:last-of-type > section a:active,
 body > footer > section a:active,
 body > footer > footer > section:last-child a:active {
@@ -142,6 +145,7 @@ body > footer > footer > section:last-child a:active {
 }
 
 body > main > header > section:first-of-type > h1 > a:after,
+body > main > section:first-of-type a:after,
 body > main > section:last-of-type > section a:after,
 body > footer > section a:after,
 body > footer > footer > section:last-child a:after {
@@ -190,13 +194,19 @@ body > footer > footer > section:last-child a:after {
 
 body > main > header > section:first-of-type > h1,
 :root,
-body > main > section:first-of-type > p {
+body > main > section:first-of-type h3,
+body > main > section:last-of-type > section h3,
+body > footer > section h3,
+body > footer > footer > section:last-child h3 {
 	--typography--shoulder: calc(1 - var(--typography--cap-height));
 	--typography--shoulder--top: calc(var(--typography--shoulder) - var(--typography--shoulder--bottom));
 }
 
 :root,
-body > main > section:first-of-type > p {
+body > main > section:first-of-type h3,
+body > main > section:last-of-type > section h3,
+body > footer > section h3,
+body > footer > footer > section:last-child h3 {
 	--typography--cap-height: 0.614;
 	--typography--x-height: 0.444;
 	--typography--shoulder--bottom: 0.154;
@@ -210,7 +220,10 @@ body > main > header > section:first-of-type > h1 {
 	font-family: "Heldane", serif;
 }
 
-body > main > section:first-of-type > p {
+body > main > section:first-of-type h3,
+body > main > section:last-of-type > section h3,
+body > footer > section h3,
+body > footer > footer > section:last-child h3 {
 	--typography--weight: 300;
 }
 
@@ -219,7 +232,10 @@ body > main > header > section:first-of-type > h1,
 	--typography--weight: 400;
 }
 
-body > main > section:first-of-type > p {
+body > main > section:first-of-type h3,
+body > main > section:last-of-type > section h3,
+body > footer > section h3,
+body > footer > footer > section:last-child h3 {
 	--typography--inset--left: -0.079;
 	--typography--inset--right: -0.066;
 	--typography--underline: 0.040;
@@ -240,16 +256,22 @@ body > main > header > section:first-of-type > h1 {
 	--typography--inset--right: -0.014;
 }
 
-body > main > section:first-of-type > p,
-body > footer > footer p {
+body > footer > footer p,
+body > main > section:first-of-type h3,
+body > main > section:last-of-type > section h3,
+body > footer > section h3,
+body > footer > footer > section:last-child h3 {
 	-webkit-text-stroke-width: var(--typography--weight-adjust);
 	letter-spacing: var(--typography--weight-adjust);
 }
 
 @supports (-webkit-hyphens: none) {
 
-	body > main > section:first-of-type > p,
-	body > footer > footer p {
+	body > footer > footer p,
+	body > main > section:first-of-type h3,
+	body > main > section:last-of-type > section h3,
+	body > footer > section h3,
+	body > footer > footer > section:last-child h3 {
 		--typography--weight-shift: calc(-1 * var(--typography--weight-adjust));
 		-webkit-text-stroke: initial;
 		filter: opacity(0.333) drop-shadow(var(--typography--weight-shift) 0 0 var(--color)) drop-shadow(0 0 0 var(--color)) drop-shadow(0 var(--typography--weight-shift) 0 var(--color));
@@ -260,8 +282,11 @@ body > footer > footer p {
 
 	@media (-webkit-min-device-pixel-ratio: 2) {
 
-		body > main > section:first-of-type > p,
-		body > footer > footer p {
+		body > footer > footer p,
+		body > main > section:first-of-type h3,
+		body > main > section:last-of-type > section h3,
+		body > footer > section h3,
+		body > footer > footer > section:last-child h3 {
 			filter: drop-shadow(var(--typography--weight-shift) 0 0 var(--color)) drop-shadow(0 var(--typography--weight-shift) 0 var(--color));
 		}
 	}
@@ -269,8 +294,10 @@ body > footer > footer p {
 
 @supports (-moz-appearance: meterbar) {
 
-	body > main > section:first-of-type > p a:not(._):not(._),
-	body > footer > footer p a:not(._):not(._) {
+	body > footer > footer p a:not(._):not(._),
+	body > main > section:first-of-type h3 a:not(._):not(._),
+	body > main > section:last-of-type > section h3 a:not(._):not(._),
+	body > footer > section h3 a:not(._):not(._) {
 		--typography--decoration-thickness: calc(var(--typography--underline) * 1em + var(--typography--weight-adjust, 0em));
 		--typography--text-shadow: calc(var(--typography--underline--skip) * 1em + var(--typography--weight-adjust, 0em) / 2);
 		--typography--underline-offset: calc(var(--typography--underline--shift) * 1em + var(--typography--weight-adjust, 0em) * 2);
@@ -280,8 +307,10 @@ body > footer > footer p {
 @media (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
 	@supports not (-moz-appearance: meterbar) {
 
-		body > main > section:first-of-type > p a:not(._):not(._),
-		body > footer > footer p a:not(._):not(._) {
+		body > footer > footer p a:not(._):not(._),
+		body > main > section:first-of-type h3 a:not(._):not(._),
+		body > main > section:last-of-type > section h3 a:not(._):not(._),
+		body > footer > section h3 a:not(._):not(._) {
 			--typography--decoration-thickness: calc(var(--typography--underline) * 1em + var(--typography--weight-adjust, 0em));
 			--typography--text-shadow: calc(var(--typography--underline--skip) * 1em + var(--typography--weight-adjust, 0em) / 2);
 			--typography--underline-offset: calc(var(--typography--underline--shift) * 1em + var(--typography--weight-adjust, 0em) * 2);
@@ -291,39 +320,115 @@ body > footer > footer p {
 
 @supports (-webkit-hyphens: none) {
 
-	body > main > section:first-of-type > p a:not(._):not(._),
-	body > footer > footer p a:not(._):not(._) {
+	body > footer > footer p a:not(._):not(._),
+	body > main > section:first-of-type h3 a:not(._):not(._),
+	body > main > section:last-of-type > section h3 a:not(._):not(._),
+	body > footer > section h3 a:not(._):not(._) {
 		-webkit-text-stroke: initial;
 		paint-order: initial;
 		text-decoration-skip-ink: auto;
 		transition-timing-function: var(--color--transition--curve--tight);
 	}
 
-	body > main > section:first-of-type > p a:not(._):not(._):after,
-	body > footer > footer p a:not(._):not(._):after {
+	body > footer > footer p a:not(._):not(._):after,
+	body > main > section:first-of-type h3 a:not(._):not(._):after,
+	body > main > section:last-of-type > section h3 a:not(._):not(._):after,
+	body > footer > section h3 a:not(._):not(._):after {
 		opacity: 0.333;
 	}
 }
 
-body > main > section:last-of-type > section > h2,
-body > footer > section > h2,
-body > footer > footer > section:last-child > h2 {
+body > main > section:first-of-type h2,
+body > main > section:last-of-type > section h2,
+body > footer > section h2,
+body > footer > footer > section:last-child h2 {
 	--typography--size: var(--typography--size--tagline);
 	margin-bottom: var(--margin);
 }
 
-body > main > section:last-of-type > section > h2:not(:first-child),
-body > footer > section > h2:not(:first-child),
-body > footer > footer > section:last-child > h2:not(:first-child) {
+body > main > section:first-of-type h2:not(:first-child),
+body > main > section:last-of-type > section h2:not(:first-child),
+body > footer > section h2:not(:first-child),
+body > footer > footer > section:last-child h2:not(:first-child) {
 	margin-top: calc(var(--margin) * 2);
 }
 
-body > main > section:last-of-type > section > p + p,
-body > footer > section > p + p,
-body > footer > footer > section:last-child > p + p {
+body > main > section:first-of-type h3,
+body > main > section:last-of-type > section h3,
+body > footer > section h3,
+body > footer > footer > section:last-child h3 {
+	--typography--leading: var(--typography--leading--tagline);
+	--typography--size: var(--typography--size--intro);
+	--typography--weight-adjust: 0.0075em;
+}
+
+body > main > section:first-of-type h3:not(:only-child):not(:first-child),
+body > main > section:last-of-type > section h3:not(:only-child):not(:first-child),
+body > footer > section h3:not(:only-child):not(:first-child) {
+	margin-top: var(--section--spacing);
+}
+
+body > main > section:first-of-type h3:not(:only-child):not(:last-child),
+body > main > section:last-of-type > section h3:not(:only-child):not(:last-child),
+body > footer > section h3:not(:only-child):not(:last-child) {
+	margin-bottom: var(--section--spacing);
+}
+
+body > main > section:first-of-type p + p,
+body > main > section:last-of-type > section p + p,
+body > footer > section p + p,
+body > footer > footer > section:last-child p + p,
+body > main > section:first-of-type p + blockquote,
+body > main > section:last-of-type > section p + blockquote,
+body > footer > section p + blockquote,
+body > footer > footer > section:last-child p + blockquote,
+body > main > section:first-of-type p + ul,
+body > main > section:last-of-type > section p + ul,
+body > footer > section p + ul,
+body > footer > footer > section:last-child p + ul,
+body > main > section:first-of-type blockquote + p,
+body > main > section:last-of-type > section blockquote + p,
+body > footer > section blockquote + p,
+body > footer > footer > section:last-child blockquote + p,
+body > main > section:first-of-type blockquote + blockquote,
+body > main > section:last-of-type > section blockquote + blockquote,
+body > footer > section blockquote + blockquote,
+body > footer > footer > section:last-child blockquote + blockquote,
+body > main > section:first-of-type blockquote + ul,
+body > main > section:last-of-type > section blockquote + ul,
+body > footer > section blockquote + ul,
+body > footer > footer > section:last-child blockquote + ul,
+body > main > section:first-of-type ul + p,
+body > main > section:last-of-type > section ul + p,
+body > footer > section ul + p,
+body > footer > footer > section:last-child ul + p,
+body > main > section:first-of-type ul + blockquote,
+body > main > section:last-of-type > section ul + blockquote,
+body > footer > section ul + blockquote,
+body > footer > footer > section:last-child ul + blockquote,
+body > main > section:first-of-type ul + ul,
+body > main > section:last-of-type > section ul + ul,
+body > footer > section ul + ul,
+body > footer > footer > section:last-child ul + ul {
 	margin-top: var(--margin);
 }
 
+body > main > section:first-of-type blockquote,
+body > main > section:last-of-type > section blockquote,
+body > footer > section blockquote,
+body > footer > footer > section:last-child blockquote {
+	--typography--scale: 0.9;
+	font-style: italic;
+}
+
+body > main > section:first-of-type > ul > li + li,
+body > main > section:last-of-type > section > ul > li + li,
+body > footer > section > ul > li + li,
+body > footer > footer > section:last-child > ul > li + li {
+	margin-top: var(--margin);
+}
+
+body > main > section:first-of-type a,
 body > main > section:last-of-type > section a,
 body > footer > section a,
 body > footer > footer > section:last-child a {
@@ -340,6 +445,7 @@ body > footer > footer > section:last-child a {
 
 @supports (-moz-appearance: meterbar) {
 
+	body > main > section:first-of-type a,
 	body > main > section:last-of-type > section a,
 	body > footer > section a,
 	body > footer > footer > section:last-child a {
@@ -349,6 +455,7 @@ body > footer > footer > section:last-child a {
 
 @supports (-webkit-hyphens: none) {
 
+	body > main > section:first-of-type a,
 	body > main > section:last-of-type > section a,
 	body > footer > section a,
 	body > footer > footer > section:last-child a {
@@ -358,6 +465,7 @@ body > footer > footer > section:last-child a {
 
 @supports (-webkit-hyphens: none) {
 
+	body > main > section:first-of-type a,
 	body > main > section:last-of-type > section a,
 	body > footer > section a,
 	body > footer > footer > section:last-child a {
@@ -371,6 +479,7 @@ body > footer > footer > section:last-child a {
 
 @supports (-moz-appearance: meterbar) {
 
+	body > main > section:first-of-type a,
 	body > main > section:last-of-type > section a,
 	body > footer > section a,
 	body > footer > footer > section:last-child a {
@@ -382,6 +491,7 @@ body > footer > footer > section:last-child a {
 @media (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
 	@supports not (-moz-appearance: meterbar) {
 
+		body > main > section:first-of-type a,
 		body > main > section:last-of-type > section a,
 		body > footer > section a,
 		body > footer > footer > section:last-child a {
@@ -748,19 +858,8 @@ body {
 @media (min-width: 48em) and (min-height: 30em),
 (min-width: 58.125em) {
 	body {
-		--footer--spacing: calc(var(--inner-height, 100vh) - var(--header--height--scrolled--footer) - var(--colophon--height));
-	}
-}
-
-@media (min-height: 64em) {
-	body {
-		--footer--spacing: calc(var(--section--spacing) * 2);
-	}
-}
-
-@media (min-height: 64em) and (min-width: 110.75em) {
-	body {
-		--footer--spacing: var(--section--spacing);
+		--scroll--offset: calc(var(--tagline--height) + var(--margin--vertical) + var(--links--height));
+		--footer--spacing: calc(var(--inner-height, 100vh) - var(--colophon--height) - var(--margin--vertical) - var(--outro--height, var(--scroll--offset)));
 	}
 }
 
@@ -793,6 +892,7 @@ body [href="#art"],
 body [href="#media"],
 body [href="#science"],
 body h2,
+body h3,
 body p {
 	color: var(--color);
 	transition-duration: 0ms, var(--color--transition);
@@ -1240,12 +1340,6 @@ body > main > section:first-of-type {
 	}
 }
 
-body > main > section:first-of-type > p {
-	--typography--leading: var(--typography--leading--tagline);
-	--typography--size: var(--typography--size--intro);
-	--typography--weight-adjust: 0.0075em;
-}
-
 body > main > section:last-of-type {
 	margin-bottom: var(--section--spacing);
 	margin-top: calc(var(--section--spacing) + 25vh);
@@ -1295,9 +1389,15 @@ body > footer > aside {
 		bottom: var(--margin--vertical);
 		grid-row: 1;
 		margin-bottom: initial;
-		margin-top: var(--margin);
 		padding-bottom: initial;
 		top: initial;
+	}
+}
+
+@media (min-width: 48em) and (min-height: 30em),
+(min-width: 58.125em) {
+	body > footer > aside {
+		top: calc(var(--tagline--height) + var(--margin--vertical) * 2);
 	}
 }
 
@@ -1326,6 +1426,9 @@ body > footer > aside > ul > li > a > p > svg {
 		height: calc(var(--links--height) + var(--footer--spacing) + var(--colophon--height) - var(--margin--vertical));
 		justify-content: center;
 		margin-bottom: calc(-1 * var(--footer--spacing) - var(--colophon--height) + var(--margin--vertical));
+		transition-duration: calc(var(--color--transition) / 2);
+		transition-property: height, margin-bottom;
+		will-change: height, margin-bottom;
 	}
 
 	body > footer > aside > section > nav {
@@ -1352,19 +1455,34 @@ body > footer > section {
 }
 
 body > footer > section,
-body > footer > section h2,
-body > footer > section h3 {
+body > footer > section h2 {
 	scroll-margin-top: var(--anchor--offset--about);
+}
+
+body > footer > section > h3:last-child {
+	margin-bottom: calc(-1 * var(--footer--spacing) / 2);
+	min-height: calc(var(--inner-height, 100vh) - var(--header--height--scrolled--footer) - var(--colophon--height) - var(--footer--spacing) / 2 - var(--margin));
+	transition-duration: calc(var(--color--transition) / 2);
+	transition-property: min-height;
+	will-change: min-height;
+}
+
+@media (orientation: landscape),
+(min-width: 35.5em) and (min-height: 30em),
+(min-width: 58.125em) {
+	body > footer > section > h3:last-child {
+		margin-bottom: initial;
+		min-height: initial;
+	}
 }
 
 body > footer > footer {
 	grid-template-columns: 1fr;
 	margin-top: var(--footer--spacing);
 	row-gap: var(--margin);
-	transition-duration: 400ms;
-	transition-property: margin;
-	transition-timing-function: ease-in-out;
-	will-change: margin;
+	transition-duration: calc(var(--color--transition) / 2);
+	transition-property: margin-top;
+	will-change: margin-top;
 	pointer-events: none;
 }
 

@@ -21,25 +21,19 @@ Scientific consulting for art and spaces for art. For those that make it, colle
 
 
 
-# Art
-
-## Art transcends media
+# Art transcends media
 
 Profound intuition hybrid narrative hybridity constraint architectural alternative history left history Self technological emergence. Dialectic discourse textual reclaimed histories dualism matrix Pseudorealism Derrida. Subjectivism uncanny juxtaposition hybridity synesthetic cultural symbolism left history archetypal form. Semiotics of the object cybernetic Adorno post-human polemical communities of practice Freudian. Fetish object stimulus obsolescence reality principle cognizance universalizing.
 
 
 
-# Media
-
-## Media becomes art
+# Media becomes art
 
 Morphology ubiquity dialogous mundane domestic objects historical-ontological internarrative White Cube experiential aesthetics. Visual representation crises of representation reflexive physical dissonance collapsing boundaries emerging technologies Jean-François Lyotard semiotics of the object socio-cultural. Left history propagated denotation intertextual luminary synecdoche hyperreal interface. Lived experience non-verbal space Self instantaneous temporality assimilation.
 
 
 
-# Science
-
-## Science preserves both
+# Science preserves both
 
 Dialectic Baudrillard transcend mundane domestic objects Symbolist appropriating urbanism fallacious Walter Benjamin. Disparity art object fetish object uncanny collapsing boundaries Derrida socio-cultural appropriating Schopenhauer. Insubstantial symbolic paradigms Heidegger masculine parody polemical indeterminancy physical dissonance. Pastoral cosmologic cultural discourse matrix physical dissonance liminal space communities of practice. Universalizing discourse artifice theoretical.
 

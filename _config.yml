@@ -3,6 +3,8 @@ defaults:
       path: index
     values:
       layout: default
+kramdown:
+  auto_ids: false
 livereload: true
 sass:
   implementation: sass-embedded

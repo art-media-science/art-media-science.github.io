@@ -1,6 +1,6 @@
 <footer data-colophon>
 	<section>
-		<p>&copy; {{ site.time | date: "%Y" }} {{ page.copyright }}</p>
+		{{ page.copyright | markdownify }}
 	</section>
 	<section>
 		{{ colophon }}

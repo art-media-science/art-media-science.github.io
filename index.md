@@ -12,7 +12,7 @@ links:
     url:  https://medium.com/@chris_mcglinchey
   - name: CV
     url:
-copyright: Art Media Science, LLC
+copyright: © 2022 Art Media Science, LLC
 ---
 
 

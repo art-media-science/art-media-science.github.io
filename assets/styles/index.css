@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 *:where(:not(audio, canvas, iframe, img, svg, video):not(svg *, symbol *)) {
 	all: unset;
 	display: revert;
@@ -45,6 +47,217 @@ textarea {
 details ::marker,
 details ::-webkit-details-marker {
 	display: none;
+}
+
+:root {
+	/* Our base size is 10/16, so that 1rem = 10px. Easy maths. */
+	font-size: 62.5%;
+}
+
+:root * {
+	/* Type rendering. */
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-size-adjust: none;
+	font-feature-settings: "liga", "kern";
+	font-kerning: normal;
+	text-rendering: optimizeLegibility;
+}
+
+em,
+em em em {
+	font-style: italic;
+}
+
+em em {
+	font-style: normal;
+}
+
+del {
+	font-style: line-through;
+}
+
+nobr,
+.nowrap {
+	white-space: nowrap;
+}
+
+body > main > section:first-of-type ul > li,
+body > main > section:last-of-type > section ul > li,
+body > footer > section ul > li,
+body > footer > footer > section:last-child ul > li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	--typography--tracking--override: var(--typography--tracking);
+	--typography--letter-spacing: calc(var(--typography--tracking--override, var(--typography--tracking, 0)) * 1em);
+	--typography--margin--left: calc(var(--typography--inset--left) * 1em);
+	--typography--margin--right: calc(var(--typography--inset--right) * 1em);
+	font-weight: var(--typography--weight);
+	letter-spacing: var(--typography--letter-spacing);
+	--typography--font-size: calc(var(--typography--scale, 1) * var(--typography--size--override, var(--typography--size)));
+	--typography--line-height: calc(var(--typography--leading) * var(--typography--size--override, var(--typography--size)));
+	--typography--leading--remainder: calc((var(--typography--leading) - 1) / 2);
+	--typography--shift: calc((var(--typography--shoulder) + var(--typography--shoulder--top)) * (1 - var(--typography--scale, 1)));
+	--typography--leading--bottom: calc(var(--typography--shoulder--bottom) + var(--typography--leading--remainder) + var(--typography--shift, 0));
+	--typography--leading--top: calc(var(--typography--shoulder--top) + var(--typography--leading--remainder) - var(--typography--shift, 0));
+	--typography--margin--bottom: calc(-1 * var(--typography--leading--bottom) * var(--typography--size--override, var(--typography--size)));
+	--typography--margin--top: calc(-1 * var(--typography--leading--top) * var(--typography--size--override, var(--typography--size)));
+	color: var(--color);
+	display: block;
+	font-size: var(--typography--font-size);
+	line-height: var(--typography--line-height);
+	margin-left: var(--typography--margin--left);
+	margin-right: var(--typography--margin--right);
+	max-width: calc(100% - var(--typography--margin--left) - var(--typography--margin--right) + 1px);
+	overflow-wrap: break-word;
+}
+
+@supports (display: flow-root) {
+
+	body > main > section:first-of-type ul > li,
+	body > main > section:last-of-type > section ul > li,
+	body > footer > section ul > li,
+	body > footer > footer > section:last-child ul > li,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p {
+		display: flow-root;
+	}
+}
+
+body > main > section:first-of-type ul > li:before,
+body > main > section:last-of-type > section ul > li:before,
+body > footer > section ul > li:before,
+body > footer > footer > section:last-child ul > li:before,
+body > main > section:first-of-type ul > li:after,
+body > main > section:last-of-type > section ul > li:after,
+body > footer > section ul > li:after,
+body > footer > footer > section:last-child ul > li:after,
+h1:before,
+h1:after,
+h2:before,
+h2:after,
+h3:before,
+h3:after,
+h4:before,
+h4:after,
+h5:before,
+h5:after,
+h6:before,
+h6:after,
+p:before,
+p:after {
+	content: "";
+	display: block;
+	visibility: hidden;
+}
+
+body > main > section:first-of-type ul > li:before,
+body > main > section:last-of-type > section ul > li:before,
+body > footer > section ul > li:before,
+body > footer > footer > section:last-child ul > li:before,
+h1:before,
+h2:before,
+h3:before,
+h4:before,
+h5:before,
+h6:before,
+p:before {
+	margin-top: calc(var(--typography--margin--top) - var(--typography--margin--top--shift, 0) * var(--typography--size--override, var(--typography--size)));
+}
+
+body > main > section:first-of-type ul > li:after,
+body > main > section:last-of-type > section ul > li:after,
+body > footer > section ul > li:after,
+body > footer > footer > section:last-child ul > li:after,
+h1:after,
+h2:after,
+h3:after,
+h4:after,
+h5:after,
+h6:after,
+p:after {
+	margin-bottom: var(--typography--margin--bottom);
+}
+
+h1 + h1,
+h1 + h2,
+h1 + h3,
+h1 + h4,
+h1 + h5,
+h1 + h6,
+h1 + p,
+h2 + h1,
+h2 + h2,
+h2 + h3,
+h2 + h4,
+h2 + h5,
+h2 + h6,
+h2 + p,
+h3 + h1,
+h3 + h2,
+h3 + h3,
+h3 + h4,
+h3 + h5,
+h3 + h6,
+h3 + p,
+h4 + h1,
+h4 + h2,
+h4 + h3,
+h4 + h4,
+h4 + h5,
+h4 + h6,
+h4 + p,
+h5 + h1,
+h5 + h2,
+h5 + h3,
+h5 + h4,
+h5 + h5,
+h5 + h6,
+h5 + p,
+h6 + h1,
+h6 + h2,
+h6 + h3,
+h6 + h4,
+h6 + h5,
+h6 + h6,
+h6 + p,
+p + h1,
+p + h2,
+p + h3,
+p + h4,
+p + h5,
+p + h6,
+p + p {
+	--layout--typography--font-size: var(--layout--typography--size, var(--typography--size--override, var(--typography--size)));
+	--layout--typography--line-height: var(--layout--typography--leading, var(--typography--leading)) * var(--layout--typography--font-size);
+	--layout--typography--extra-lines: var(--layout--typography--line-height) * var(--typography--extra-lines, 0);
+	--layout--typography--leading--between: var(--layout--typography--font-size) * (var(--layout--typography--leading, var(--typography--leading)) - 1);
+	--layout--typography--shoulder: var(--layout--typography--font-size) * var(--typography--shoulder);
+	--layout--typography--leading-shoulder: calc(var(--layout--typography--extra-lines) + var(--layout--typography--leading--between) + var(--layout--typography--shoulder));
+	margin-top: var(--layout--typography--leading-shoulder);
+}
+
+body > footer > aside > ul,
+body > main > section:first-of-type ul,
+body > main > section:last-of-type > section ul,
+body > footer > section ul,
+body > footer > footer > section:last-child ul {
+	--typography--font-size: calc(var(--typography--scale, 1) * var(--typography--size--override, var(--typography--size)));
+	--typography--line-height: calc(var(--typography--leading) * var(--typography--size--override, var(--typography--size)));
+	--typography--cap: calc(var(--typography--cap-height) * 1em);
+	--typography--between: calc(var(--typography--font-size) * (var(--typography--leading) + var(--typography--shoulder) - 1));
+	line-height: var(--typography--line-height);
+	font-size: var(--typography--font-size);
 }
 
 .focus body > main > section:first-of-type a:not(:disabled):focus,
@@ -421,11 +634,48 @@ body > footer > footer > section:last-child blockquote {
 	font-style: italic;
 }
 
-body > main > section:first-of-type > ul > li + li,
-body > main > section:last-of-type > section > ul > li + li,
-body > footer > section > ul > li + li,
-body > footer > footer > section:last-child > ul > li + li {
-	margin-top: var(--margin);
+body > main > section:first-of-type ul,
+body > main > section:last-of-type > section ul,
+body > footer > section ul,
+body > footer > footer > section:last-child ul {
+	margin-left: var(--margin);
+}
+
+body > main > section:first-of-type ul > li,
+body > main > section:last-of-type > section ul > li,
+body > footer > section ul > li,
+body > footer > footer > section:last-child ul > li {
+	position: relative;
+}
+
+body > main > section:first-of-type ul > li strong,
+body > main > section:last-of-type > section ul > li strong,
+body > footer > section ul > li strong,
+body > footer > footer > section:last-child ul > li strong {
+	font-style: italic;
+}
+
+body > main > section:first-of-type ul > li:first-child,
+body > main > section:last-of-type > section ul > li:first-child,
+body > footer > section ul > li:first-child {
+	margin-top: var(--typography--margin--top);
+}
+
+body > main > section:first-of-type ul > li:not(:first-child),
+body > main > section:last-of-type > section ul > li:not(:first-child),
+body > footer > section ul > li:not(:first-child) {
+	margin-top: calc(var(--margin) + var(--typography--margin--top));
+}
+
+body > main > section:first-of-type ul > li:before,
+body > main > section:last-of-type > section ul > li:before,
+body > footer > section ul > li:before,
+body > footer > footer > section:last-child ul > li:before {
+	content: "•";
+	left: calc(-1 * var(--margin));
+	position: absolute;
+	top: calc(-1 * var(--typography--margin--top));
+	visibility: visible;
 }
 
 body > main > section:first-of-type a,
@@ -499,189 +749,6 @@ body > footer > footer > section:last-child a {
 			transition-property: text-decoration-color, text-shadow;
 		}
 	}
-}
-
-:root {
-	/* Our base size is 10/16, so that 1rem = 10px. Easy maths. */
-	font-size: 62.5%;
-}
-
-:root * {
-	/* Type rendering. */
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-font-smoothing: antialiased;
-	-webkit-text-size-adjust: none;
-	font-feature-settings: "liga", "kern";
-	font-kerning: normal;
-	text-rendering: optimizeLegibility;
-}
-
-em,
-em em em {
-	font-style: italic;
-}
-
-em em {
-	font-style: normal;
-}
-
-del {
-	font-style: line-through;
-}
-
-nobr,
-.nowrap {
-	white-space: nowrap;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-	--typography--tracking--override: var(--typography--tracking);
-	--typography--letter-spacing: calc(var(--typography--tracking--override, var(--typography--tracking, 0)) * 1em);
-	--typography--margin--left: calc(var(--typography--inset--left) * 1em);
-	--typography--margin--right: calc(var(--typography--inset--right) * 1em);
-	font-weight: var(--typography--weight);
-	letter-spacing: var(--typography--letter-spacing);
-	--typography--font-size: calc(var(--typography--scale, 1) * var(--typography--size--override, var(--typography--size)));
-	--typography--line-height: calc(var(--typography--leading) * var(--typography--size--override, var(--typography--size)));
-	--typography--leading--remainder: calc((var(--typography--leading) - 1) / 2);
-	--typography--shift: calc((var(--typography--shoulder) + var(--typography--shoulder--top)) * (1 - var(--typography--scale, 1)));
-	--typography--leading--bottom: calc(var(--typography--shoulder--bottom) + var(--typography--leading--remainder) + var(--typography--shift, 0));
-	--typography--leading--top: calc(var(--typography--shoulder--top) + var(--typography--leading--remainder) - var(--typography--shift, 0));
-	--typography--margin--bottom: calc(-1 * var(--typography--leading--bottom) * var(--typography--size--override, var(--typography--size)));
-	--typography--margin--top: calc(-1 * var(--typography--leading--top) * var(--typography--size--override, var(--typography--size)));
-	color: var(--color);
-	display: block;
-	font-size: var(--typography--font-size);
-	line-height: var(--typography--line-height);
-	margin-left: var(--typography--margin--left);
-	margin-right: var(--typography--margin--right);
-	max-width: calc(100% - var(--typography--margin--left) - var(--typography--margin--right) + 1px);
-	overflow-wrap: break-word;
-}
-
-@supports (display: flow-root) {
-
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6,
-	p {
-		display: flow-root;
-	}
-}
-
-h1:before,
-h1:after,
-h2:before,
-h2:after,
-h3:before,
-h3:after,
-h4:before,
-h4:after,
-h5:before,
-h5:after,
-h6:before,
-h6:after,
-p:before,
-p:after {
-	content: "";
-	display: block;
-	visibility: hidden;
-}
-
-h1:before,
-h2:before,
-h3:before,
-h4:before,
-h5:before,
-h6:before,
-p:before {
-	margin-top: calc(var(--typography--margin--top) - var(--typography--margin--top--shift, 0) * var(--typography--size--override, var(--typography--size)));
-}
-
-h1:after,
-h2:after,
-h3:after,
-h4:after,
-h5:after,
-h6:after,
-p:after {
-	margin-bottom: var(--typography--margin--bottom);
-}
-
-h1 + h1,
-h1 + h2,
-h1 + h3,
-h1 + h4,
-h1 + h5,
-h1 + h6,
-h1 + p,
-h2 + h1,
-h2 + h2,
-h2 + h3,
-h2 + h4,
-h2 + h5,
-h2 + h6,
-h2 + p,
-h3 + h1,
-h3 + h2,
-h3 + h3,
-h3 + h4,
-h3 + h5,
-h3 + h6,
-h3 + p,
-h4 + h1,
-h4 + h2,
-h4 + h3,
-h4 + h4,
-h4 + h5,
-h4 + h6,
-h4 + p,
-h5 + h1,
-h5 + h2,
-h5 + h3,
-h5 + h4,
-h5 + h5,
-h5 + h6,
-h5 + p,
-h6 + h1,
-h6 + h2,
-h6 + h3,
-h6 + h4,
-h6 + h5,
-h6 + h6,
-h6 + p,
-p + h1,
-p + h2,
-p + h3,
-p + h4,
-p + h5,
-p + h6,
-p + p {
-	--layout--typography--font-size: var(--layout--typography--size, var(--typography--size--override, var(--typography--size)));
-	--layout--typography--line-height: var(--layout--typography--leading, var(--typography--leading)) * var(--layout--typography--font-size);
-	--layout--typography--extra-lines: var(--layout--typography--line-height) * var(--typography--extra-lines, 0);
-	--layout--typography--leading--between: var(--layout--typography--font-size) * (var(--layout--typography--leading, var(--typography--leading)) - 1);
-	--layout--typography--shoulder: var(--layout--typography--font-size) * var(--typography--shoulder);
-	--layout--typography--leading-shoulder: calc(var(--layout--typography--extra-lines) + var(--layout--typography--leading--between) + var(--layout--typography--shoulder));
-	margin-top: var(--layout--typography--leading-shoulder);
-}
-
-body > footer > aside > ul {
-	--typography--font-size: calc(var(--typography--scale, 1) * var(--typography--size--override, var(--typography--size)));
-	--typography--line-height: calc(var(--typography--leading) * var(--typography--size--override, var(--typography--size)));
-	--typography--cap: calc(var(--typography--cap-height) * 1em);
-	--typography--between: calc(var(--typography--font-size) * (var(--typography--leading) + var(--typography--shoulder) - 1));
-	line-height: var(--typography--line-height);
-	font-size: var(--typography--font-size);
 }
 
 :root {

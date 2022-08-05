@@ -171,10 +171,18 @@
 		}
 	}
 
-	> p {
-		+ p {
+	> p,
+	> blockquote,
+	> ul {
+		+ p,
+		+ blockquote,
+		+ ul {
 			margin-top: var(--margin);
 		}
+	}
+
+	> ul > li + li {
+		margin-top: var(--margin); // Make this type-derived.
 	}
 
 	a {

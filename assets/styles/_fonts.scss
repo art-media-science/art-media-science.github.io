@@ -1,4 +1,5 @@
 @use "utilities" as *;
+@use 'typography';
 @use 'links';
 
 
@@ -205,8 +206,36 @@
 		font-style: italic;
 	}
 
-	> ul > li + li {
-		margin-top: var(--margin); // Make this type-derived.
+	ul {
+		@extend %type--layout;
+
+		margin-left: var(--margin);
+
+		> li {
+			@extend %typography;
+
+			position: relative;
+
+			strong {
+				font-style: italic; // “Where we’re going, we don’t need bolds.”
+			}
+
+			&:first-child {
+				margin-top: var(--typography--margin--top);
+			}
+
+			&:not(:first-child) {
+				margin-top: calc(var(--margin) + var(--typography--margin--top)); // Since we use the pseudo for the bullet.
+			}
+
+			&:before {
+				content:    '•';
+				left:       calc(-1 * var(--margin));
+				position:   absolute;
+				top:        calc(-1 * var(--typography--margin--top));
+				visibility: visible; // Override typography.
+			}
+		}
 	}
 
 	a {

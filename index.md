@@ -15,7 +15,7 @@ copyright: © 2022 Art Media Science, LLC
 
 
 
-Scientific consulting for art and spaces for art. For those that make it, collect it, care for it, and curate it.
+### Scientific consulting for art and spaces for art. For those that make it, collect it, care for it, and curate it.
 
 
 
@@ -40,8 +40,6 @@ I employ an approach that recognizes while media is fundamental, the procedures 
 Scientific methods can advance the understanding of an artwork at the molecular or elemental level and this in turn informs how best to preserve what we appreciate as a visual aesthetic. When expertly interpreted, such technical information can help clients, collectors, conservators, and curators better understand what a particular artwork originally looked like, how it might change if exhibited or stored a certain way, and what the parameters might be for the safest and most effective treatment.
 
 > Throughout my career I have applied or coordinated a wide variety of scientific methods depending upon the nature of the investigation. These methods include essentially every form of optical microscopy, scanning electron microscopy, atomic force microscopy; and analytical methods such as fourier transform infrared spectroscopy, Raman spectroscopy, x-ray diffraction, x-ray fluorescence, synchrotron based small and wide angle x-ray scatter, gas chromatography - mass spectrometry; mechanical testing methods such as differential scanning calorimetry, dynamic mechanical analysis, tensile testing; and accelerated aging methods such as xenon arc light-testing, microfading, heat and humidity aging methods.
-
-If it’s art to you, I can help if you are curious about it and want to know how best to preserve it.
 
 
 
@@ -72,6 +70,10 @@ Art, Media, Science provides a wide range of consulting services, working as you
 * Artwork lending or donation contracts. Are you lending or donating art to a museum? We can help provide object-oriented aspects of negotiating with museums for loans and gifts.
 
 * Guidance on materials. Do you have an ambitious commission or complicated treatment? We provide guidance on materials, both in traditional and emerging technologies, for artists  and conservators.
+
+
+
+### If it’s art to you, I can help if you are curious about it and want to know how best to preserve it.
 
 
 

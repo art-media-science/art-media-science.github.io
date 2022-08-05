@@ -171,6 +171,24 @@
 		}
 	}
 
+	h3 {
+		@extend %font--calibre--light;
+		@extend %font--weight-adjust;
+
+		--typography--leading: var(--typography--leading--tagline);
+		--typography--size:    var(--typography--size--intro);
+
+		--typography--weight-adjust: 0.0075em; // Ballpark weight of tagline/h2.
+
+		&:not(:only-child):not(:first-child) {
+			margin-top: var(--section--spacing);
+		}
+
+		&:not(:only-child):not(:last-child) {
+			margin-bottom: var(--section--spacing);
+		}
+	}
+
 	p,
 	blockquote,
 	ul {

@@ -1,5 +1,7 @@
 // The intro blurb.
 > section:first-of-type {
+	@extend %font--markdown;
+
 	margin-top:        calc(var(--header--scroll));
 	min-height:        var(--section--height);
 	scroll-margin-top: var(--anchor--offset--section);
@@ -7,16 +9,6 @@
 	@include landscape {
 		grid-row:   2; // After the header.
 		margin-top: initial;
-	}
-
-	> p {
-		@extend %font--calibre--light;
-		@extend %font--weight-adjust;
-
-		--typography--leading: var(--typography--leading--tagline);
-		--typography--size:    var(--typography--size--intro);
-
-		--typography--weight-adjust: 0.0075em; // Ballpark weight of tagline.
 	}
 }
 

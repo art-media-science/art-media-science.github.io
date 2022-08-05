@@ -65,16 +65,9 @@
 		--footer--spacing: calc(var(--inner-height, 100vh) - var(--tagline--height) - var(--colophon--height) - var(--margin) - var(--page--inset--bottom));
 	}
 
-
 	@include breakpoint(768) {
-		--footer--spacing: calc(var(--inner-height, 100vh) - var(--header--height--scrolled--footer) - var(--colophon--height));
-	}
+		--scroll--offset: calc(var(--tagline--height) + var(--margin--vertical) + var(--links--height));
 
-	@include tall {
-		--footer--spacing: calc(var(--section--spacing) * 2);
-
-		@include breakpoint(1772) {
-			--footer--spacing: var(--section--spacing);
-		}
+		--footer--spacing: calc(var(--inner-height, 100vh) - var(--colophon--height) - var(--margin--vertical) - var(--outro--height, var(--scroll--offset)));
 	}
 }

@@ -14,6 +14,7 @@ const mainHeightVar =     '--main--height'
 const logoHeightVar =     '--logo--height'
 const taglineHeightVar =  '--tagline--height'
 const linksHeightVar =    '--links--height'
+const outroHeightVar =    '--outro--height'
 const colophonHeightVar = '--colophon--height'
 const scrollVar =         '--logo--scroll'
 const bounceVar =         '--logo--bounce'
@@ -52,6 +53,8 @@ const isLandscape = () => (window.innerWidth > window.innerHeight || window.inne
 
 
 const getHeights = (main, logo, tagline, links, colophon) => {
+	const outro = about.querySelector('h3:last-child') // Since it is “optional”.
+
 	const setHeightVar = (element, variable) => document.body.style.setProperty(variable, ` ${element.offsetHeight / 10}rem`)
 
 	const updateVars = () => {
@@ -59,6 +62,8 @@ const getHeights = (main, logo, tagline, links, colophon) => {
 		setHeightVar(tagline, taglineHeightVar)
 		setHeightVar(links, linksHeightVar)
 		setHeightVar(colophon, colophonHeightVar)
+
+		if (outro) setHeightVar(outro, outroHeightVar)
 
 		setTimeout(() => setHeightVar(main, mainHeightVar), 10) // Since it depends on the other heights.
 	}
@@ -286,6 +291,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const tagline =  document.querySelector('[data-tagline]')
 	const content =  document.querySelector('[data-content]')
 	const links =    document.querySelector('[data-links]')
+	const about =    document.querySelector('[data-about]')
 	const colophon = document.querySelector('[data-colophon]')
 	const favicon =  document.querySelector('[data-favicon]')
 

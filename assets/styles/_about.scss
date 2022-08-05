@@ -8,11 +8,21 @@
 		margin-top: calc(-1 * var(--section--overlap));
 	}
 
-
-
 	&,
-	h2,
-	h3 {
+	h2 {
 		scroll-margin-top: var(--anchor--offset--about);
+	}
+
+	> h3:last-child {
+		margin-bottom:       calc(-1 * var(--footer--spacing) / 2); // Don’t need the huge gap if you end with a blurb.
+		min-height:          calc(var(--inner-height, 100vh) - var(--header--height--scrolled--footer) - var(--colophon--height) - var(--footer--spacing) / 2 - var(--margin));
+		transition-duration: 200ms;
+		transition-property: min-height;
+		will-change:         min-height;
+
+		@include landscape {
+			margin-bottom: initial;
+			min-height:    initial;
+		}
 	}
 }

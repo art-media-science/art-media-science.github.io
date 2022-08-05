@@ -55,11 +55,15 @@
 	// The “top” arrow holder.
 	> section {
 		@include landscape {
-			align-items:     end;
-			display:         flex;
-			height:          calc(var(--links--height) + var(--footer--spacing) + var(--colophon--height) - var(--margin--vertical));
-			justify-content: center;
-			margin-bottom:   calc(-1 * var(--footer--spacing) - var(--colophon--height) + var(--margin--vertical));
+			align-items:         end;
+			display:             flex;
+			height:              calc(var(--links--height) + var(--footer--spacing) + var(--colophon--height) - var(--margin--vertical));
+			justify-content:     center;
+			margin-bottom:       calc(-1 * var(--footer--spacing) - var(--colophon--height) + var(--margin--vertical));
+			transition-duration: calc(var(--color--transition) / 2);
+			transition-property: height, margin-bottom;
+			will-change:         height, margin-bottom;
+
 
 			> nav {
 				bottom:   var(--margin--vertical);

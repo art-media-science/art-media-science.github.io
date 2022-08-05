@@ -1,12 +1,11 @@
 > footer {
-	grid-template-columns:      1fr;
-	margin-top:                 var(--footer--spacing);
-	row-gap:                    var(--margin);
-	transition-duration:        400ms;
-	transition-property:        margin;
-	transition-timing-function: ease-in-out;
-	will-change:                margin;
-	pointer-events:             none; // Allow tapping on the “top” icon.
+	grid-template-columns: 1fr;
+	margin-top:            var(--footer--spacing);
+	row-gap:               var(--margin);
+	transition-duration:   calc(var(--color--transition) / 2);
+	transition-property:   margin-top;
+	will-change:           margin-top;
+	pointer-events:        none; // Allow tapping on the “top” icon.
 
 	@include landscape {
 		grid-template-columns: var(--column--ratio);

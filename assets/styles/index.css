@@ -1503,7 +1503,7 @@ body > footer > aside > ul > li > a > p > svg {
 }
 
 body > footer > section {
-	margin-top: var(--section--spacing);
+	margin-top: calc(var(--margin--vertical) * 2);
 }
 
 @media (orientation: landscape),

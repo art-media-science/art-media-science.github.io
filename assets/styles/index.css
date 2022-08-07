@@ -1176,14 +1176,7 @@ body > footer > footer {
 body > main {
 	position: sticky;
 	top: calc(-1 * var(--main--height) + var(--tagline--height) + var(--margin--vertical) * 2 - 0.1rem);
-}
-
-@media (orientation: landscape),
-(min-width: 35.5em) and (min-height: 30em),
-(min-width: 58.125em) {
-	body > main {
-		z-index: 1;
-	}
+	z-index: 1;
 }
 
 body > main > header > menu,

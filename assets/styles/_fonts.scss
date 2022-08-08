@@ -224,6 +224,7 @@
 				flex-shrink:      0;
 				height:           var(--pagination--size--scaled);
 				width:            var(--pagination--size--scaled);
+				margin-top:       calc(var(--typography--size) / 8);
 			}
 
 			> p {

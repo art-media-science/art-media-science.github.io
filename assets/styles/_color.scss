@@ -126,6 +126,8 @@
 		&.media [href="#media"],
 		&.science [href="#science"] {
 			--color: var(--color--accent);
+
+			--link--hover--opacity: 1; // No hover on current.
 		}
 
 		[href="#art"],

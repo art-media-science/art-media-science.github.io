@@ -259,6 +259,9 @@ body > footer > aside > ul > li > a,
 body nav > a {
 	-webkit-tap-highlight-color: var(--link--highlight);
 	cursor: pointer;
+	transition-duration: var(--link--hover--transition);
+	transition-property: opacity;
+	transition-timing-function: linear;
 }
 
 body > main > header > section:first-of-type > h1 > a:active,
@@ -289,6 +292,23 @@ body > footer > aside > ul > li > a:focus,
 body nav > a:focus {
 	outline: none;
 	z-index: 1;
+}
+
+@media (any-hover: hover) {
+
+	body > main > header > section:first-of-type > h1 > a:hover,
+	body > main > section:first-of-type p > a:hover,
+	body > main > section:last-of-type > section p > a:hover,
+	body > footer > section p > a:hover,
+	body > main > section:first-of-type blockquote > a:hover,
+	body > main > section:last-of-type > section blockquote > a:hover,
+	body > footer > section blockquote > a:hover,
+	body > main > header > section:last-of-type > a:hover,
+	body > main > header > menu > li > a:hover,
+	body > footer > aside > ul > li > a:hover,
+	body nav > a:hover {
+		opacity: var(--link--hover--opacity);
+	}
 }
 
 body > main > header > section:last-of-type > a,
@@ -785,9 +805,13 @@ body > footer > footer > section:last-child blockquote > a {
 	--color--transition--curve--tight: cubic-bezier(0.83, 0, 0.17, 1);
 	--color--link: hsl(0, 0%, 0%, 3.333%);
 	--color--link--reverse: hsl(0, 0%, 100%, 6.666%);
+	--color--hover: 0.7;
+	--color--hover--reverse: 0.75;
 	--link--enlargement: 0.4rem;
 	--link--highlight: var(--color--link--reverse);
 	--link--outline: 0.2rem;
+	--link--hover--opacity: var(--color--hover--reverse);
+	--link--hover--transition: 100ms;
 	scroll-behavior: smooth;
 }
 
@@ -909,7 +933,7 @@ body {
 	--header--scroll: calc((var(--vh--initial, 100vh) - var(--header--height)) / 2);
 	--anchor--offset: var(--margin--vertical);
 	--anchor--offset--section: calc(var(--anchor--offset) + var(--header--height--scrolled));
-	--anchor--offset--about: calc(var(--anchor--offset) + var(--header--height--scrolled--footer));
+	--anchor--offset--about: calc(var(--anchor--offset) + var(--header--height--scrolled--footer) - 0.2rem);
 	--section--spacing: calc(var(--margin--vertical) * 4);
 	--section--overlap: 1.2rem;
 	--section--height: calc(var(--vh--initial, 100vh) - var(--header--height--scrolled) - var(--section--spacing) - var(--anchor--offset) - var(--section--overlap));
@@ -921,7 +945,7 @@ body {
 (min-width: 58.125em) {
 	body {
 		--anchor--offset--section: var(--margin--vertical);
-		--anchor--offset--about: calc(var(--margin--vertical) - 0.1rem);
+		--anchor--offset--about: calc(var(--margin--vertical) - 0.2rem);
 		--section--overlap: calc(var(--tagline--height) + var(--margin--vertical));
 		--section--height: calc(var(--vh--initial, 100vh) - var(--section--spacing) - var(--anchor--offset) - var(--section--overlap));
 		--footer--spacing: calc(var(--inner-height, 100vh) - var(--tagline--height) - var(--colophon--height) - var(--margin) - var(--page--inset--bottom));
@@ -968,18 +992,18 @@ body h2,
 body h3,
 body p {
 	color: var(--color);
-	transition-duration: 0ms, var(--color--transition);
-	transition-property: background-color, color;
-	transition-timing-function: var(--color--transition--curve--tight);
+	transition-duration: 0ms, var(--color--transition), var(--link--hover--transition);
+	transition-property: background-color, color, opacity;
+	transition-timing-function: var(--color--transition--curve--tight), var(--color--transition--curve--tight), linear;
 }
 
 body menu [href="#art"]:before,
 body menu [href="#media"]:before,
 body menu [href="#science"]:before {
 	background-color: var(--color);
-	transition-duration: var(--color--transition);
-	transition-property: background-color;
-	transition-timing-function: var(--color--transition--curve--tight);
+	transition-duration: var(--color--transition), var(--link--hover--transition);
+	transition-property: background-color, opacity;
+	transition-timing-function: var(--color--transition--curve--tight), linear;
 }
 
 body svg {
@@ -995,7 +1019,7 @@ body nav [href="#top"] {
 	opacity: 0;
 	transition-duration: var(--color--transition);
 	transition-property: opacity, visibility;
-	transition-timing-function: var(--color--transition--curve);
+	transition-timing-function: linear;
 	visibility: hidden;
 }
 
@@ -1033,6 +1057,7 @@ body.main {
 	--color: black;
 	--color--background: white;
 	--link--highlight: var(--color--link);
+	--link--hover--opacity: var(--color--hover);
 }
 
 body.main,
@@ -1050,6 +1075,7 @@ body.main.art [href="#art"],
 body.main.media [href="#media"],
 body.main.science [href="#science"] {
 	--color: var(--color--accent);
+	--link--hover--opacity: 1;
 }
 
 body.main [href="#art"],
@@ -1198,9 +1224,9 @@ body > main > header > section:first-of-type > h1 [href="#media"],
 body > main > header > menu [href="#science"],
 body > main > header > section:first-of-type > h1 [href="#science"] {
 	--scroll--bounce: -8%;
-	transition-duration: 0ms, var(--color--transition), var(--scroll--scale--duration);
-	transition-property: background-color, color, transform;
-	transition-timing-function: var(--color--transition--curve--tight), var(--color--transition--curve--tight), linear;
+	transition-duration: 0ms, var(--color--transition), var(--scroll--scale--duration), var(--link--hover--transition);
+	transition-property: background-color, color, transform, opacity;
+	transition-timing-function: var(--color--transition--curve--tight), var(--color--transition--curve--tight), linear, linear;
 	will-change: transform;
 }
 
@@ -1595,6 +1621,9 @@ body nav > a {
 body nav > a > svg {
 	height: calc(var(--typography--size--tagline) * 1.333);
 	transform: translate(var(--icon--shift--x, 0rem), var(--icon--shift--y, 0rem)) rotate(var(--icon--rotation, 0deg));
+	transition-duration: var(--link--hover--transition);
+	transition-property: opacity;
+	transition-timing-function: linear;
 	width: calc(var(--typography--size--tagline) * 1.333);
 	--icon--shift--x: 0.05em;
 	--icon--shift--y: 0.0333em;
@@ -1610,6 +1639,12 @@ body nav > a > svg {
 @media (-webkit-min-device-pixel-ratio: 3) {
 	body nav > a > svg {
 		--icon--shift--x: 0.0166em;
+	}
+}
+
+@media (any-hover: hover) {
+	body nav > a:hover > svg {
+		opacity: var(--link--hover--opacity);
 	}
 }
 

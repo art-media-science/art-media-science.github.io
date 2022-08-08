@@ -68,6 +68,6 @@
 	@include breakpoint(768) {
 		--scroll--offset: calc(var(--tagline--height) + var(--margin--vertical) + var(--links--height));
 
-		--footer--spacing: calc(var(--inner-height, 100vh) - var(--colophon--height) - var(--margin--vertical) - var(--outro--height, var(--scroll--offset)));
+		--footer--spacing: calc(var(--inner-height, 100vh) - var(--colophon--height) - var(--margin--vertical) - var(--page--inset--bottom) - var(--outro--height, var(--scroll--offset)));
 	}
 }

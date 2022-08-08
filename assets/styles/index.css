@@ -1633,6 +1633,10 @@ body > footer > footer p {
 	--typography--weight-adjust: 0.01em;
 }
 
+.windows body > footer > footer p {
+	--typography--weight-adjust: 0;
+}
+
 body > footer > footer > section {
 	pointer-events: auto;
 }

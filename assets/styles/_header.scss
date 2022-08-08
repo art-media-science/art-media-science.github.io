@@ -11,9 +11,9 @@
 		--scroll--bounce: -8%;
 
 		// Combine with color transitions, oy, CSS.
-		transition-duration:        0ms, var(--color--transition), var(--scroll--scale--duration);
-		transition-property:        background-color, color, transform;
-		transition-timing-function: var(--color--transition--curve--tight), var(--color--transition--curve--tight), linear;
+		transition-duration:        0ms, var(--color--transition), var(--scroll--scale--duration), var(--link--hover--transition);
+		transition-property:        background-color, color, transform, opacity;
+		transition-timing-function: var(--color--transition--curve--tight), var(--color--transition--curve--tight), linear, linear;
 		will-change:                transform;
 	}
 

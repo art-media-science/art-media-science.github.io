@@ -6,11 +6,19 @@
 
 %--focus {
 	-webkit-tap-highlight-color: var(--link--highlight);
-	cursor: pointer;
+	cursor:                     pointer;
+	transition-duration:        var(--link--hover--transition);
+	transition-property:        opacity;
+	transition-timing-function: linear;
+
 
 	&:active {
 		background-color: var(--link--highlight);
 		border-radius:    calc(var(--link--enlargement) / 2);
+	}
+
+	&:hover {
+		opacity: var(--link--hover--opacity);
 	}
 
 	&:focus {

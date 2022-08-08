@@ -37,9 +37,9 @@
 	h3,
 	p {
 		color:                      var(--color);
-		transition-duration:        0ms, var(--color--transition);
-		transition-property:        background-color, color;
-		transition-timing-function: var(--color--transition--curve--tight);
+		transition-duration:        0ms, var(--color--transition), var(--link--hover--transition);
+		transition-property:        background-color, color, opacity; // Opacity is for hovers.
+		transition-timing-function: var(--color--transition--curve--tight), var(--color--transition--curve--tight), linear;
 	}
 
 	menu [href="#art"],
@@ -47,9 +47,9 @@
 	menu [href="#science"] {
 		&:before {
 			background-color:           var(--color);
-			transition-duration:        var(--color--transition);
-			transition-property:        background-color;
-			transition-timing-function: var(--color--transition--curve--tight);
+			transition-duration:        var(--color--transition), var(--link--hover--transition);
+			transition-property:        background-color, opacity;
+			transition-timing-function: var(--color--transition--curve--tight), linear;
 		}
 	}
 
@@ -68,7 +68,7 @@
 		opacity:                    0;
 		transition-duration:        var(--color--transition);
 		transition-property:        opacity, visibility;
-		transition-timing-function: var(--color--transition--curve);
+		transition-timing-function: linear;
 		visibility:                 hidden;
 	}
 
@@ -104,7 +104,9 @@
 		--color:             black;
 		--color--background: white;
 
-		--link--highlight: var(--color--link);
+		--link--highlight:      var(--color--link);
+		--link--hover--opacity: var(--color--hover);
+
 
 		&,
 		> main > header,

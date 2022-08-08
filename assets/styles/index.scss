@@ -59,9 +59,15 @@
 	--color--link:          hsl(0, 0%, 0%, 3.333%);
 	--color--link--reverse: hsl(0, 0%, 100%, 6.666%);
 
-	--link--enlargement:    0.4rem;
-	--link--highlight:      var(--color--link--reverse);
-	--link--outline:        0.2rem;
+	--color--hover:          0.666;
+	--color--hover--reverse: 0.75;
+
+	--link--enlargement: 0.4rem;
+	--link--highlight:   var(--color--link--reverse);
+	--link--outline:     0.2rem;
+
+	--link--hover--opacity:    var(--color--hover--reverse);
+	--link--hover--transition: 100ms;
 
 	scroll-behavior: smooth;
 
@@ -270,9 +276,12 @@ body {
 			position: absolute;
 
 			> svg {
-				height:    calc(var(--typography--size--tagline) * 1.333);
-				transform: translate(var(--icon--shift--x, 0rem), var(--icon--shift--y, 0rem)) rotate(var(--icon--rotation, 0deg));
-				width:     calc(var(--typography--size--tagline) * 1.333);
+				height:                     calc(var(--typography--size--tagline) * 1.333);
+				transform:                  translate(var(--icon--shift--x, 0rem), var(--icon--shift--y, 0rem)) rotate(var(--icon--rotation, 0deg));
+				transition-duration:        var(--link--hover--transition); // Duped from links, easier than dealing with the timings, below.
+				transition-property:        opacity;
+				transition-timing-function: linear;
+				width:                      calc(var(--typography--size--tagline) * 1.333);
 
 				--icon--shift--x: 0.05em;
 				--icon--shift--y: 0.0333em;
@@ -284,6 +293,12 @@ body {
 
 				@include retina(3) {
 					--icon--shift--x: 0.0166em;
+				}
+			}
+
+			&:hover {
+				> svg {
+					opacity: var(--link--hover--opacity);
 				}
 			}
 

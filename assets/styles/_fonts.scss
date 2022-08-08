@@ -151,10 +151,32 @@
 			-webkit-text-stroke:        initial; // Clear overrides, below.
 			paint-order:                initial;
 			text-decoration-skip-ink:   auto;
+			transition-duration:        var(--color--transition), var(--color--transition), 0ms; // Safari glitches on the filter (opacity) fade.
 			transition-timing-function: var(--color--transition--curve--tight); // No background colors.
 
 			&:after {
 				opacity: 0.333; // Prevent the tap-highlight from tripling up.
+			}
+
+			@include hover {
+				&:after {
+					opacity: 1; // Hover and the active, keep it “full” since the filter affects it.
+				}
+
+				filter: // Since we use opacity filters for hovers, a custom one here.
+					opacity(0.075)
+					drop-shadow(var(--typography--weight-shift) 0 0 var(--color))
+					drop-shadow(0 0 0 var(--color))
+					drop-shadow(0 var(--typography--weight-shift) 0 var(--color))
+					;
+
+					@include retina {
+						filter: // Still need the opacity, here.
+							opacity(0.075)
+							drop-shadow(var(--typography--weight-shift) 0 0 var(--color))
+							drop-shadow(0 var(--typography--weight-shift) 0 var(--color))
+							;
+					}
 			}
 		}
 	}

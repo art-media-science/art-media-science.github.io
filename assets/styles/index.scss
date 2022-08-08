@@ -60,7 +60,7 @@
 	--color--link--reverse: hsl(0, 0%, 100%, 6.666%);
 
 	--color--hover:          0.7;
-	--color--hover--reverse: 0.75;
+	--color--hover--reverse: 0.666;
 
 	--link--enlargement: 0.4rem;
 	--link--highlight:   var(--color--link--reverse);
@@ -70,6 +70,11 @@
 	--link--hover--transition: 100ms;
 
 	scroll-behavior: smooth;
+
+	@include hover {
+		--color--link:          hsl(0, 0%, 0%, 4.761%); // Denser to offset hover opacity.
+		--color--link--reverse: hsl(0, 0%, 100%, 10%);
+	}
 
 	@include breakpoint(320) { --typography--size: calc((20/375) * 100vw); } // Scale it all down from 20 @ 375.
 

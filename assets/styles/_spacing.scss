@@ -30,7 +30,7 @@
 	--anchor--offset: var(--margin--vertical);
 
 	--anchor--offset--section: calc(var(--anchor--offset) + var(--header--height--scrolled));
-	--anchor--offset--about:   calc(var(--anchor--offset) + var(--header--height--scrolled--footer));
+	--anchor--offset--about:   calc(var(--anchor--offset) + var(--header--height--scrolled--footer) - 0.2rem); // Hide overshoots.
 
 
 
@@ -51,7 +51,7 @@
 
 	@include landscape {
 		--anchor--offset--section: var(--margin--vertical);
-		--anchor--offset--about:   calc(var(--margin--vertical) - 0.1rem); // Hide overshoots.
+		--anchor--offset--about:   calc(var(--margin--vertical) - 0.2rem); // Hide overshoots.
 
 		--section--overlap: calc(var(--tagline--height) + var(--margin--vertical)); // Tagline stuck to bottom.
 

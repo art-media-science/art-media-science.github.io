@@ -235,8 +235,8 @@
 		}
 	}
 
-	p > a,
-	blockquote > a {
+	> p > a,
+	> blockquote > a {
 		@extend %link--text;
 
 		--typography--decoration-thickness: calc(var(--typography--underline) * 1em);

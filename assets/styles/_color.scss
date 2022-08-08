@@ -149,7 +149,7 @@
 		}
 
 		// Markdown links, too.
-		p a {
+		p > a {
 			transition-duration: var(--color--transition), var(--color--transition--cycle), var(--link--hover--transition);
 		}
 	}

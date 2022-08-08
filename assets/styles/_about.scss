@@ -1,4 +1,4 @@
-> section {
+> section:only-of-type { // This prevents over-extending, for some reason.
 	@extend %font--markdown;
 
 	margin-top: calc(var(--margin--vertical) * 2);

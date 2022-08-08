@@ -144,9 +144,13 @@
 		&,
 		&:before,
 		> main > header,
-		> footer > aside,
-		p a { // Markdown links, too.
+		> footer > aside {
 			transition-duration: var(--color--transition--cycle);
+		}
+
+		// Markdown links, too.
+		p a {
+			transition-duration: var(--color--transition), var(--color--transition--cycle), var(--link--hover--transition);
 		}
 	}
 

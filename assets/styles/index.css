@@ -649,6 +649,7 @@ body > footer > footer > section:last-child > ul > li:before {
 	flex-shrink: 0;
 	height: var(--pagination--size--scaled);
 	width: var(--pagination--size--scaled);
+	margin-top: calc(var(--typography--size) / 8);
 }
 
 body > main > section:first-of-type > ul > li > p strong,

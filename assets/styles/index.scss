@@ -296,7 +296,7 @@ body {
 				}
 			}
 
-			&:hover {
+			@include hover {
 				> svg {
 					opacity: var(--link--hover--opacity);
 				}

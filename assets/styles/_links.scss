@@ -1,3 +1,7 @@
+@use "utilities" as *;
+
+
+
 %--outline {
 	outline-color:  var(--color);
 	outline-style:  solid;
@@ -17,13 +21,13 @@
 		border-radius:    calc(var(--link--enlargement) / 2);
 	}
 
-	&:hover {
-		opacity: var(--link--hover--opacity);
-	}
-
 	&:focus {
 		outline: none;
 		z-index: 1;
+	}
+
+	@include hover {
+		opacity: var(--link--hover--opacity);
 	}
 
 	@at-root {

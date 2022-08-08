@@ -17,6 +17,12 @@
 		--typography--size: var(--typography--size--footer);
 
 		--typography--weight-adjust: 0.01em; // Adjust to body copy.
+
+		@at-root {
+			.windows & {
+				--typography--weight-adjust: 0; // Windows type rendering already bulks it up some.
+			}
+		}
 	}
 
 	//Both.

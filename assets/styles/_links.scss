@@ -18,8 +18,10 @@
 		z-index: 1;
 	}
 
-	.focus &:not(:disabled):focus {
-		@extend %--outline;
+	@at-root {
+		.focus &:not(:disabled):focus {
+			@extend %--outline;
+		}
 	}
 }
 

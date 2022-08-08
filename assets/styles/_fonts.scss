@@ -162,7 +162,7 @@
 
 // Main markdown.
 %font--markdown {
-	h2 {
+	> h2 {
 		--typography--size: var(--typography--size--tagline);
 
 		margin-bottom: var(--margin);
@@ -172,7 +172,7 @@
 		}
 	}
 
-	h3 {
+	> h3 {
 		@extend %font--calibre--light;
 		@extend %font--weight-adjust;
 
@@ -190,9 +190,9 @@
 		}
 	}
 
-	p,
-	blockquote,
-	ul {
+	> p,
+	> blockquote,
+	> ul {
 		+ p,
 		+ blockquote,
 		+ ul {
@@ -200,13 +200,13 @@
 		}
 	}
 
-	blockquote {
+	> blockquote {
 		--typography--scale: 0.9; // Slightly down, same baseline.
 
 		font-style: italic;
 	}
 
-	ul {
+	> ul {
 		> li {
 			align-items: start;
 			display:     flex;
@@ -234,7 +234,8 @@
 		}
 	}
 
-	a {
+	p > a,
+	blockquote > a {
 		@extend %link--text;
 
 		--typography--decoration-thickness: calc(var(--typography--underline) * 1em);

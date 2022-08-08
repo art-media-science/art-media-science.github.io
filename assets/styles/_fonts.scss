@@ -259,7 +259,7 @@
 			-webkit-text-stroke-width: calc(var(--typography--decoration-thickness) * 2);
 			paint-order:               stroke fill; // Fill on top!
 			text-decoration-skip-ink:  none;
-			transition-property:       text-decoration-color, -webkit-text-stroke-color, opacity;
+			transition-property:       text-decoration-color, -webkit-text-stroke-color, filter;
 		}
 
 		@include browser-specific(chrome, firefox) { // Chrome doesn’t support `paint-order`, so use a shadow.
@@ -273,7 +273,7 @@
 				var(--color--background) 0 calc(-1 * var(--typography--text-shadow) / 2), // “North”
 				var(--color--background) var(--typography--text-shadow) calc(-1 * var(--typography--text-shadow) / 2) // “Northeast”
 				;
-			transition-property: text-decoration-color, text-shadow, opacity;
+			transition-property: text-decoration-color, text-shadow, filter;
 		}
 	}
 }

@@ -38,7 +38,7 @@
 	p {
 		color:                      var(--color);
 		transition-duration:        0ms, var(--color--transition), var(--link--hover--transition);
-		transition-property:        background-color, color, opacity; // Opacity is for hovers.
+		transition-property:        background-color, color, filter; // Background is `active`; filter is for `hover`.
 		transition-timing-function: var(--color--transition--curve--tight), var(--color--transition--curve--tight), linear;
 	}
 
@@ -48,7 +48,7 @@
 		&:before {
 			background-color:           var(--color);
 			transition-duration:        var(--color--transition), var(--link--hover--transition);
-			transition-property:        background-color, opacity;
+			transition-property:        background-color, filter;
 			transition-timing-function: var(--color--transition--curve--tight), linear;
 		}
 	}
@@ -66,8 +66,8 @@
 	nav [href="#top"] {
 		color:                      var(--color);
 		opacity:                    0;
-		transition-duration:        var(--color--transition);
-		transition-property:        opacity, visibility;
+		transition-duration:        var(--color--transition), var(--color--transition), var(--link--hover--transition);
+		transition-property:        opacity, visibility, filter;
 		transition-timing-function: linear;
 		visibility:                 hidden;
 	}
@@ -80,15 +80,15 @@
 	nav [href="#about"] {
 		--color: black;
 
-		transition-delay: calc(var(--color--transition) / 2); // After background is halfway.
+		transition-delay: calc(var(--color--transition) / 2), calc(var(--color--transition) / 2), 0ms; // After background is halfway.
 	}
 
 	nav [href="#intro"] {
-		transition-delay: var(--color--transition);
+		transition-delay: var(--color--transition), var(--color--transition), 0ms;
 	}
 
 	nav [href="#top"] {
-		transition-delay: calc(var(--color--transition) * 2);
+		transition-delay: calc(var(--color--transition) * 2), calc(var(--color--transition) * 2), 0ms;
 	}
 
 
@@ -127,15 +127,9 @@
 		&.science [href="#science"] {
 			--color: var(--color--accent);
 
-			--link--hover--opacity: 1; // No hover on current.
+			filter: opacity(1) brightness(1.1); // No hover on current, boost colors on white.
 		}
 
-		[href="#art"],
-		[href="#media"],
-		[href="#science"],
-		&:before {
-			filter: brightness(1.1); // Boost them a bit on white.
-		}
 	}
 
 
@@ -166,7 +160,7 @@
 	&.header:not(.top) {
 		nav [href="#intro"] {
 			transition-delay:    0ms;
-			transition-duration: var(--color--transition);
+			transition-duration: var(--color--transition), var(--color--transition), var(--link--hover--transition);
 		}
 	}
 
@@ -181,14 +175,14 @@
 	&.footer {
 		nav [href="#about"] {
 			transition-delay:    0ms;
-			transition-duration: calc(var(--color--transition) / 2); // No color change, go quicker.
+			transition-duration: calc(var(--color--transition) / 2), calc(var(--color--transition) / 2), var(--link--hover--transition); // No color change, go quicker.
 		}
 	}
 
 	&.bottom {
 		nav [href="#top"] {
 			opacity:          1;
-			transition-delay: var(--color--transition);
+			transition-delay: var(--color--transition), var(--color--transition), 0ms;
 			visibility:       visible;
 		}
 	}

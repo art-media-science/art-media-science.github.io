@@ -13,7 +13,7 @@
 
 		// Combine with color transitions, oy, CSS.
 		transition-duration:        0ms, var(--color--transition), var(--scroll--scale--duration), var(--link--hover--transition);
-		transition-property:        background-color, color, transform, opacity;
+		transition-property:        background-color, color, transform, filter; // Filter is for hovers.
 		transition-timing-function: var(--color--transition--curve--tight), var(--color--transition--curve--tight), linear, linear;
 		will-change:                transform;
 	}

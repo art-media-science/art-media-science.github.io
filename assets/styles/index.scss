@@ -276,12 +276,9 @@ body {
 			position: absolute;
 
 			> svg {
-				height:                     calc(var(--typography--size--tagline) * 1.333);
-				transform:                  translate(var(--icon--shift--x, 0rem), var(--icon--shift--y, 0rem)) rotate(var(--icon--rotation, 0deg));
-				transition-duration:        var(--link--hover--transition); // Duped from links, easier than dealing with the timings, below.
-				transition-property:        opacity;
-				transition-timing-function: linear;
-				width:                      calc(var(--typography--size--tagline) * 1.333);
+				height:    calc(var(--typography--size--tagline) * 1.333);
+				transform: translate(var(--icon--shift--x, 0rem), var(--icon--shift--y, 0rem)) rotate(var(--icon--rotation, 0deg));
+				width:     calc(var(--typography--size--tagline) * 1.333);
 
 				--icon--shift--x: 0.05em;
 				--icon--shift--y: 0.0333em;
@@ -293,12 +290,6 @@ body {
 
 				@include retina(3) {
 					--icon--shift--x: 0.0166em;
-				}
-			}
-
-			@include hover {
-				> svg {
-					opacity: var(--link--hover--opacity);
 				}
 			}
 

@@ -247,8 +247,8 @@
 		text-decoration-line:       underline;
 		text-decoration-thickness:  var(--typography--decoration-thickness);
 		text-underline-offset:      calc(-1 * var(--typography--underline-offset) + var(--typography--decoration-thickness) + var(--typography--underline-offset--extra, 0em));
-		transition-duration:        var(--color--transition);
-		transition-timing-function: var(--color--transition--curve--tight), var(--color--transition--curve);
+		transition-duration:        var(--color--transition), var(--color--transition), var(--link--hover--transition);
+		transition-timing-function: var(--color--transition--curve--tight), var(--color--transition--curve), linear;
 
 		@include browser-specific(firefox, safari) {
 			--typography--underline-offset--extra: calc(var(--typography--decoration-thickness) / 2);
@@ -259,7 +259,7 @@
 			-webkit-text-stroke-width: calc(var(--typography--decoration-thickness) * 2);
 			paint-order:               stroke fill; // Fill on top!
 			text-decoration-skip-ink:  none;
-			transition-property:       text-decoration-color, -webkit-text-stroke-color;
+			transition-property:       text-decoration-color, -webkit-text-stroke-color, opacity;
 		}
 
 		@include browser-specific(chrome, firefox) { // Chrome doesn’t support `paint-order`, so use a shadow.
@@ -273,7 +273,7 @@
 				var(--color--background) 0 calc(-1 * var(--typography--text-shadow) / 2), // “North”
 				var(--color--background) var(--typography--text-shadow) calc(-1 * var(--typography--text-shadow) / 2) // “Northeast”
 				;
-			transition-property: text-decoration-color, text-shadow;
+			transition-property: text-decoration-color, text-shadow, opacity;
 		}
 	}
 }

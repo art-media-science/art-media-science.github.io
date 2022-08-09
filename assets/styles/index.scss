@@ -38,6 +38,8 @@
 
 	--stroke--width: calc(var(--typography--size--tagline) * 0.0666);
 
+	--icon--size: calc(var(--typography--size--tagline) * 4 / 3);
+
 	--page--width: 100vw;
 
 	--page--inset--right:  0.6rem; // Optical inset.
@@ -281,9 +283,9 @@ body {
 			position: absolute;
 
 			> svg {
-				height:    calc(var(--typography--size--tagline) * 1.333);
+				height:    var(--icon--size);
 				transform: translate(var(--icon--shift--x, 0rem), var(--icon--shift--y, 0rem)) rotate(var(--icon--rotation, 0deg));
-				width:     calc(var(--typography--size--tagline) * 1.333);
+				width:     var(--icon--size);
 
 				--icon--shift--x: 0.05em;
 				--icon--shift--y: 0.0333em;

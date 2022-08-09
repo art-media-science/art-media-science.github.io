@@ -44,7 +44,8 @@
 
 	menu [href="#art"],
 	menu [href="#media"],
-	menu [href="#science"] {
+	menu [href="#science"],
+	ul > li {
 		&:before {
 			background-color:           var(--color);
 			transition-duration:        var(--color--transition), var(--link--hover--transition);

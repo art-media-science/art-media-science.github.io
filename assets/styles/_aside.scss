@@ -55,25 +55,34 @@
 
 	// The “top” arrow holder.
 	> section {
+		> nav {
+			height: calc(var(--icon--size) - var(--link--enlargement));
+
+			> a {
+				transform: translateY(calc(var(--link--enlargement) / 2)); // Optical shift.
+			}
+		}
+
 		@include landscape {
+			--scroll--offset: calc(var(--footer--spacing) + var(--colophon--height) - var(--margin--vertical));
+
 			align-items:         end;
 			display:             flex;
-			height:              calc(var(--links--height) + var(--footer--spacing) + var(--colophon--height) - var(--margin--vertical));
+			height:              calc(var(--links--height) + var(--scroll--offset));
 			justify-content:     center;
-			margin-bottom:       calc(-1 * var(--footer--spacing) - var(--colophon--height) + var(--margin--vertical));
+			margin-bottom:       calc(-1 * var(--scroll--offset));
 			transition-duration: calc(var(--color--transition) / 2);
 			transition-property: height, margin-bottom;
 			will-change:         height, margin-bottom;
 
-
 			> nav {
 				bottom:   var(--margin--vertical);
 				position: sticky;
-
-				> a {
-					transform: translateY(var(--link--enlargement)); // Optical shift.
-				}
 			}
+		}
+
+		@include breakpoint(768) {
+			--scroll--offset: calc(var(--inner-height, 100vh) - var(--header--height--scrolled--footer));
 		}
 	}
 }

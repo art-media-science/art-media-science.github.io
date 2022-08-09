@@ -1522,6 +1522,7 @@ body > footer > aside {
 		bottom: var(--margin--vertical);
 		grid-row: 1;
 		margin-bottom: initial;
+		margin-top: 0.2rem;
 		padding-bottom: initial;
 		top: initial;
 	}

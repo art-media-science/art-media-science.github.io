@@ -827,6 +827,7 @@ body > footer > footer > section:last-child > blockquote > a {
 	--pagination--size--scaled: calc(var(--pagination--size) * var(--logo--scale));
 	--pagination--gutter: calc(var(--pagination--size--scaled) + var(--margin));
 	--stroke--width: calc(var(--typography--size--tagline) * 0.0666);
+	--icon--size: calc(var(--typography--size--tagline) * 4 / 3);
 	--page--width: 100vw;
 	--page--inset--right: 0.6rem;
 	--page--inset--bottom: calc(env(safe-area-inset-bottom) * 13 / 34);
@@ -991,7 +992,7 @@ body {
 		--anchor--offset--about: calc(var(--margin--vertical) - 0.2rem);
 		--section--overlap: calc(var(--tagline--height) + var(--margin--vertical));
 		--section--height: calc(var(--vh--initial, 100vh) - var(--section--spacing) - var(--anchor--offset) - var(--section--overlap));
-		--footer--spacing: calc(var(--inner-height, 100vh) - var(--tagline--height) - var(--colophon--height) - var(--margin) - var(--page--inset--bottom));
+		--footer--spacing: calc(var(--inner-height, 100vh) - var(--tagline--height) - var(--colophon--height) - var(--margin) - var(--page--inset--bottom, 0rem));
 	}
 }
 
@@ -999,7 +1000,7 @@ body {
 (min-width: 58.125em) {
 	body {
 		--scroll--offset: calc(var(--tagline--height) + var(--margin--vertical) + var(--links--height));
-		--footer--spacing: calc(var(--inner-height, 100vh) - var(--colophon--height) - var(--margin--vertical) - var(--page--inset--bottom) - var(--outro--height, var(--scroll--offset)));
+		--footer--spacing: calc(var(--inner-height, 100vh) - var(--colophon--height) - var(--margin--vertical) - var(--page--inset--bottom, 0rem) - var(--outro--height, var(--scroll--offset)));
 	}
 }
 
@@ -1042,7 +1043,8 @@ body p {
 
 body menu [href="#art"]:before,
 body menu [href="#media"]:before,
-body menu [href="#science"]:before {
+body menu [href="#science"]:before,
+body ul > li:before {
 	background-color: var(--color);
 	transition-duration: var(--color--transition), var(--link--hover--transition);
 	transition-property: background-color, filter;
@@ -1551,15 +1553,24 @@ body > footer > aside > ul > li > a > p > svg {
 	margin-bottom: calc(var(--icon--shift) * -1);
 }
 
+body > footer > aside > section > nav {
+	height: calc(var(--icon--size) - var(--link--enlargement));
+}
+
+body > footer > aside > section > nav > a {
+	transform: translateY(calc(var(--link--enlargement) / 2));
+}
+
 @media (orientation: landscape),
 (min-width: 35.5em) and (min-height: 30em),
 (min-width: 58.125em) {
 	body > footer > aside > section {
+		--scroll--offset: calc(var(--footer--spacing) + var(--colophon--height) - var(--margin--vertical));
 		align-items: end;
 		display: flex;
-		height: calc(var(--links--height) + var(--footer--spacing) + var(--colophon--height) - var(--margin--vertical));
+		height: calc(var(--links--height) + var(--scroll--offset));
 		justify-content: center;
-		margin-bottom: calc(-1 * var(--footer--spacing) - var(--colophon--height) + var(--margin--vertical));
+		margin-bottom: calc(-1 * var(--scroll--offset));
 		transition-duration: calc(var(--color--transition) / 2);
 		transition-property: height, margin-bottom;
 		will-change: height, margin-bottom;
@@ -1569,9 +1580,12 @@ body > footer > aside > ul > li > a > p > svg {
 		bottom: var(--margin--vertical);
 		position: sticky;
 	}
+}
 
-	body > footer > aside > section > nav > a {
-		transform: translateY(var(--link--enlargement));
+@media (min-width: 48em) and (min-height: 30em),
+(min-width: 58.125em) {
+	body > footer > aside > section {
+		--scroll--offset: calc(var(--inner-height, 100vh) - var(--header--height--scrolled--footer));
 	}
 }
 
@@ -1666,9 +1680,9 @@ body nav > a {
 }
 
 body nav > a > svg {
-	height: calc(var(--typography--size--tagline) * 1.333);
+	height: var(--icon--size);
 	transform: translate(var(--icon--shift--x, 0rem), var(--icon--shift--y, 0rem)) rotate(var(--icon--rotation, 0deg));
-	width: calc(var(--typography--size--tagline) * 1.333);
+	width: var(--icon--size);
 	--icon--shift--x: 0.05em;
 	--icon--shift--y: 0.0333em;
 }

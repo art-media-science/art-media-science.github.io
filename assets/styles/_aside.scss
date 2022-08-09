@@ -10,6 +10,7 @@
 		bottom:         var(--margin--vertical);
 		grid-row:       1; // Force overlap with About content.
 		margin-bottom:  initial;
+		margin-top:     0.2rem; // Don’t clip overshoots.
 		padding-bottom: initial;
 		top:            initial;
 	}

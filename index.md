@@ -1,4 +1,4 @@
-------
+---
 title: Art, Media, Science.
 subtitle: |
   Chris McGlinchey,

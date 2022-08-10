@@ -16,7 +16,7 @@ The source files live on the [`main`](../../tree/main) branch; they are compiled
 
 <br>
 
-> [![GitHub Pages](http://github.com/art-media-science/art-media-science.github.io/actions/workflows/github-pages.yml/badge.svg?branch=main)](https://github.com/art-media-science/art-media-science.github.io/actions/workflows/github-pages.yml)<br>
+> [![GitHub Pages](https://github.com/art-media-science/art-media-science.github.io/actions/workflows/github-pages.yml/badge.svg)](https://github.com/art-media-science/art-media-science.github.io/actions/workflows/github-pages.yml)<br>
 > *This should be green!*
 
 

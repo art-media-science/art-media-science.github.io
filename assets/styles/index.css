@@ -1410,7 +1410,6 @@ body > main > header > section:last-of-type > a > p {
 
 body > main > header > menu {
 	--optical--shift: calc(var(--pagination--size) / 3);
-	align-items: center;
 	display: flex;
 	flex-direction: column;
 	gap: calc(var(--pagination--size) * 1.25);
@@ -1432,13 +1431,14 @@ body > main > header > menu {
 }
 
 body > main > header > menu:before {
-	-webkit-mask-image: linear-gradient(black 66%, transparent);
+	-webkit-mask-image: linear-gradient(black 75%, transparent);
 	content: "";
 	display: block;
 	height: calc(var(--pagination--size) * 5.5 + var(--optical--shift) + 2 * var(--margin--vertical) / var(--logo--scale));
 	position: absolute;
+	right: calc(-1 * var(--margin));
 	top: calc(-1 * var(--margin--vertical) / var(--logo--scale) - var(--optical--shift));
-	width: calc(2 * var(--margin) / var(--logo--scale) + var(--pagination--size));
+	width: calc(2 * var(--margin) + var(--pagination--size));
 }
 
 body > main > header > menu > li {

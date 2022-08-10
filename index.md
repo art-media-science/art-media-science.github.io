@@ -10,7 +10,7 @@ links:
     url:  https://www.linkedin.com/in/chris-mcglinchey-93896b20a/
   - name: Medium
     url:  https://medium.com/@chris_mcglinchey
-copyright: © 2023 Art Media Science, LLC
+copyright: © 2022 Art Media Science, LLC
 ---
 
 

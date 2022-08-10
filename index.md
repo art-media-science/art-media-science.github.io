@@ -61,15 +61,15 @@ My knowledge is derived from my Masters studies in polymer science with an empha
 
 Art, Media, Science provides a wide range of consulting services, working as your partner to navigate and make decisions relating to conservation.
 
-* **Exhibition planning.** How do you establish environmental conditions in which artwork can be safely exhibited while staying true to the work’s original intentions.
+- **Exhibition planning.** How do you establish environmental conditions in which artwork can be safely exhibited while staying true to the work’s original intentions.
 
-* **Preservation and storage.** Guidelines for best practice of exhibition and storage for all forms of artistic media.
+- **Preservation and storage.** Guidelines for best practice of exhibition and storage for all forms of artistic media.
 
-* **Conservation treatment bid evaluation.** Not sure which bid for conservation treatment is the best? We can provide an expert assessment of these proposals.
+- **Conservation treatment bid evaluation.** Not sure which bid for conservation treatment is the best? We can provide an expert assessment of these proposals.
 
-* **Artwork lending or donation contracts.** Are you lending or donating art to a museum? We can help provide object-oriented aspects of negotiating with museums for loans and gifts.
+- **Artwork lending or donation contracts.** Are you lending or donating art to a museum? We can help provide object-oriented aspects of negotiating with museums for loans and gifts.
 
-* **Guidance on materials.** Do you have an ambitious commission or complicated treatment?
+- **Guidance on materials.** Do you have an ambitious commission or complicated treatment?
 
 
 

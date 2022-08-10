@@ -69,7 +69,7 @@ Art, Media, Science provides a wide range of consulting services, working as you
 
 * **Artwork lending or donation contracts.** Are you lending or donating art to a museum? We can help provide object-oriented aspects of negotiating with museums for loans and gifts.
 
-* **Guidance on materials.** Do you have an ambitious commission or complicated treatment? We provide guidance on materials, both in traditional and emerging technologies, for artists  and conservators.
+* **Guidance on materials.** Do you have an ambitious commission or complicated treatment?
 
 
 

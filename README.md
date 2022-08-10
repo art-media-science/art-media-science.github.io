@@ -12,6 +12,9 @@ The site is built with stock [Jekyll *(4.2.2)*](https://jekyllrb.com) , with the
 
 The source files live on the [`main`](../../tree/main) branch; they are compiled automatically to the root of [`public`](../../tree/public) on any commit [via a custom GitHub Action](.github/workflows/github-pages.yml). (They are also [beautified](https://github.com/beautify-web/js-beautify).) This is what [GitHub Pages serves](../../settings/pages) at the custom domain, [artmediascience.com](https://https://artmediascience.com), which is managed over at [GoDaddy](https://dcc.godaddy.com/control/artmediascience.com/settings) (with the [`CNAME`](CNAME) here).
 
+> [![GitHub Pages](.github/workflows/github-pages.yml/badge.svg?branch=main)](.github/workflows/github-pages.yml)<br>
+> *This should be green!*
+
 
 
 <br>

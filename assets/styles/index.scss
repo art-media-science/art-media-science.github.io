@@ -126,8 +126,14 @@
 	}
 
 	@include browser-specific(safari--mobile) {
+		--color--media: hsl(40, 71%, 45%); // To keep the time/status icons white, tweaked down.
+
 		--color--link:          hsl(0, 0%, 0%, 10%);
 		--color--link--reverse: hsl(0, 0%, 100%, 20%);
+
+		[href="#media"] {
+			--color--accent: hsl(42, 88%, 48%); // The original, for the logo/pagination.
+		}
 	}
 
 

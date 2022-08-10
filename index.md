@@ -10,7 +10,7 @@ links:
     url:  https://www.linkedin.com/in/chris-mcglinchey-93896b20a/
   - name: Medium
     url:  https://medium.com/@chris_mcglinchey
-copyright: © 2022 Art Media Science, LLC
+copyright: © 2023 Art Media Science, LLC
 ---
 
 
@@ -43,7 +43,7 @@ Scientific methods can advance the understanding of an artwork at the molecular 
 
 
 
----
+----------------
 
 
 
@@ -53,7 +53,7 @@ I established Art, Media, Science to provide scientific support to those seeking
 
 My knowledge of the early aging properties of traditional artist’s materials and the novel aging properties of some modern materials is information that is highly valuable to know from a variety of perspectives depending upon whether you make, collect, conserve, or invest in art.
 
-My knowledge is derived from my Masters studies in polymer science with an emphasis on coating technology and nearly four decades of work first at the Metropolitan Museum of Art and then more than twenty years at the Museum of Modern Art where I set up the science section of the conservation department and later had my position endowed. In addition, while simultaneously working at both institutions I taught conservation science to students in the conservation training program at the New York University Institute of Fine Arts. My experience in photographic processes, metals, alloys, glasses, and ceramics stems from my development of handheld x-ray fluorescence applied to these art forms which began more than twenty years ago. I have led workshops for the American Institute for Conservation and have lectured and organized workshops in Mexico and China. In 2009, I was a recipient of the College Art Association and the Heritage Preservation Award for Distinction in Scholarship and Conservation.
+My knowledge is derived from my Masters studies in polymer science with an emphasis on coating technology and nearly four decades of work first at the Metropolitan Museum of Art and then more than twenty years at [The Museum of Modern Art](moma.org) where I set up the science section of the conservation department and later had my position endowed. In addition, while simultaneously working at both institutions I taught conservation science to students in the conservation training program at the New York University Institute of Fine Arts. My experience in photographic processes, metals, alloys, glasses, and ceramics stems from my development of handheld x-ray fluorescence applied to these art forms which began more than twenty years ago. I have led workshops for the American Institute for Conservation and have lectured and organized workshops in Mexico and China. In 2009, I was a recipient of the College Art Association and the Heritage Preservation Award for Distinction in Scholarship and Conservation.
 
 
 

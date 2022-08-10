@@ -914,8 +914,13 @@ body > footer > footer > section:last-child > blockquote > a {
 
 @supports (-webkit-hyphens: none) and (-webkit-touch-callout: none) {
 	:root {
+		--color--media: hsl(40, 71%, 45%);
 		--color--link: hsl(0, 0%, 0%, 10%);
 		--color--link--reverse: hsl(0, 0%, 100%, 20%);
+	}
+
+	:root [href="#media"] {
+		--color--accent: hsl(42, 88%, 48%);
 	}
 }
 

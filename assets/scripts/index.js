@@ -150,7 +150,7 @@ const updateHash = (hash) => {
 }
 
 const isLandscape = () => (window.innerWidth > window.innerHeight || window.innerWidth >= 768)
-
+const getHex = (rgb) => `#${rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/).slice(1).map(n => parseInt(n, 10).toString(16).padStart(2, '0')).join('')}`
 
 
 
@@ -312,8 +312,6 @@ watchTaglineTop = (tagline) => {
 
 
 const saveCycleState = () => {
-	const getHex = (rgb) => `#${rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/).slice(1).map(n => parseInt(n, 10).toString(16).padStart(2, '0')).join('')}`
-
 	const background = getHex(getComputedStyle(document.body).backgroundColor)
 
 	if (background != '#ffffff') document.body.style.setProperty(colorVar, ` ${background}`)
@@ -370,6 +368,18 @@ const fixMobileSafariFlicker = (...elements) => {
 
 
 
+const cycleThemeColor = (theme) => {
+	// Only iPhones.
+	if (navigator.platform.includes('iPhone')) {
+		const updateThemeColor = () => {
+			let background = getHex(getComputedStyle(document.body).backgroundColor)
+			theme.setAttribute('content', background)
+		}
+
+		setInterval(() => updateThemeColor(), 1 / 60)
+	}
+}
+
 const cycleFavicon = (favicon) => {
 	// Only works in Chrome and Firefox.
 	if (navigator.userAgent.includes('Chrome') || navigator.userAgent.includes('Firefox')) {
@@ -396,6 +406,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const about = document.querySelector('[data-about]')
 	const colophon = document.querySelector('[data-colophon]')
 	const favicon = document.querySelector('[data-favicon]')
+	const theme = document.querySelector('[data-theme]')
 
 	getHeights(main, logo, tagline, links, colophon)
 	getScrollDistance(logo)
@@ -405,7 +416,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	watchTaglineTop(tagline)
 	cycleRandomNoun()
 	fixMobileSafariFlicker(logo, tagline)
-	setInterval(() => cycleFavicon(favicon), 150) // Reduce the flash in.
+	cycleThemeColor(theme)
+	setTimeout(() => cycleFavicon(favicon), 150) // Reduce the flash in.
 })
 
 window.addEventListener('load', () => {

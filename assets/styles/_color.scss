@@ -18,6 +18,7 @@
 	&,
 	&:before,
 	> main > header,
+	> main > header > menu:before,
 	> footer > aside {
 		background-color:           var(--color--background);
 		transition-duration:        var(--color--transition);
@@ -111,6 +112,7 @@
 
 		&,
 		> main > header,
+		> main > header > menu:before,
 		> footer > aside {
 			transition-duration: var(--color--transition);
 		}
@@ -139,6 +141,7 @@
 		&,
 		&:before,
 		> main > header,
+		> main > header > menu:before,
 		> footer > aside {
 			transition-duration: var(--color--transition--cycle);
 		}

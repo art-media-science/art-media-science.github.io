@@ -312,7 +312,7 @@ window.addEventListener('load', () => {
 			document.querySelector(window.location.hash).scrollIntoView()
 			setTimeout(() => document.documentElement.classList.remove(loadingClass), 10) // Scroll is set to auto (instant).
 			hashReady = true
-		}, 100) // After the layout slosh, presumably.
+		}, 800) // After the layout slosh, presumably.
 
 	} else {
 		hashReady = true

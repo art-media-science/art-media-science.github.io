@@ -1064,12 +1064,24 @@ body.art {
 	--color--accent: var(--color--art);
 }
 
+body.art #art h2 {
+	--color: var(--color--accent);
+}
+
 body.media {
 	--color--accent: var(--color--media);
 }
 
+body.media #media h2 {
+	--color: var(--color--accent);
+}
+
 body.science {
 	--color--accent: var(--color--science);
+}
+
+body.science #science h2 {
+	--color: var(--color--accent);
 }
 
 body.main {

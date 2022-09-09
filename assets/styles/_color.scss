@@ -96,10 +96,23 @@
 
 
 	// States.
-	&.art { --color--accent: var(--color--art); }
-	&.media { --color--accent: var(--color--media); }
-	&.science { --color--accent: var(--color--science); }
+	&.art {
+		--color--accent: var(--color--art);
 
+		#art h2 { --color: var(--color--accent) }
+	}
+
+	&.media {
+		--color--accent: var(--color--media);
+
+		#media h2 { --color: var(--color--accent) }
+	}
+
+	&.science {
+		--color--accent: var(--color--science);
+
+		#science h2 { --color: var(--color--accent) }
+	}
 
 
 	&.main {

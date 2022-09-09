@@ -222,10 +222,10 @@ body > footer > aside > ul {
 .focus body > main > section:last-of-type > section > p > a:not(:disabled):focus,
 .focus body > footer > section:only-of-type > p > a:not(:disabled):focus,
 .focus body > footer > footer > section:last-child > p > a:not(:disabled):focus,
-.focus body > main > section:first-of-type > blockquote > a:not(:disabled):focus,
-.focus body > main > section:last-of-type > section > blockquote > a:not(:disabled):focus,
-.focus body > footer > section:only-of-type > blockquote > a:not(:disabled):focus,
-.focus body > footer > footer > section:last-child > blockquote > a:not(:disabled):focus,
+.focus body > main > section:first-of-type > blockquote > p > a:not(:disabled):focus,
+.focus body > main > section:last-of-type > section > blockquote > p > a:not(:disabled):focus,
+.focus body > footer > section:only-of-type > blockquote > p > a:not(:disabled):focus,
+.focus body > footer > footer > section:last-child > blockquote > p > a:not(:disabled):focus,
 .focus body > main > header > section:last-of-type > a:not(:disabled):focus,
 .focus body > main > header > menu > li > a:not(:disabled):focus,
 .focus body > footer > aside > ul > li > a:not(:disabled):focus,
@@ -241,10 +241,10 @@ body > main > section:first-of-type > p > a,
 body > main > section:last-of-type > section > p > a,
 body > footer > section:only-of-type > p > a,
 body > footer > footer > section:last-child > p > a,
-body > main > section:first-of-type > blockquote > a,
-body > main > section:last-of-type > section > blockquote > a,
-body > footer > section:only-of-type > blockquote > a,
-body > footer > footer > section:last-child > blockquote > a,
+body > main > section:first-of-type > blockquote > p > a,
+body > main > section:last-of-type > section > blockquote > p > a,
+body > footer > section:only-of-type > blockquote > p > a,
+body > footer > footer > section:last-child > blockquote > p > a,
 body > main > header > section:last-of-type > a,
 body > main > header > menu > li > a,
 body > footer > aside > ul > li > a,
@@ -261,10 +261,10 @@ body > main > section:first-of-type > p > a:active,
 body > main > section:last-of-type > section > p > a:active,
 body > footer > section:only-of-type > p > a:active,
 body > footer > footer > section:last-child > p > a:active,
-body > main > section:first-of-type > blockquote > a:active,
-body > main > section:last-of-type > section > blockquote > a:active,
-body > footer > section:only-of-type > blockquote > a:active,
-body > footer > footer > section:last-child > blockquote > a:active,
+body > main > section:first-of-type > blockquote > p > a:active,
+body > main > section:last-of-type > section > blockquote > p > a:active,
+body > footer > section:only-of-type > blockquote > p > a:active,
+body > footer > footer > section:last-child > blockquote > p > a:active,
 body > main > header > section:last-of-type > a:active,
 body > main > header > menu > li > a:active,
 body > footer > aside > ul > li > a:active,
@@ -278,10 +278,10 @@ body > main > section:first-of-type > p > a:focus,
 body > main > section:last-of-type > section > p > a:focus,
 body > footer > section:only-of-type > p > a:focus,
 body > footer > footer > section:last-child > p > a:focus,
-body > main > section:first-of-type > blockquote > a:focus,
-body > main > section:last-of-type > section > blockquote > a:focus,
-body > footer > section:only-of-type > blockquote > a:focus,
-body > footer > footer > section:last-child > blockquote > a:focus,
+body > main > section:first-of-type > blockquote > p > a:focus,
+body > main > section:last-of-type > section > blockquote > p > a:focus,
+body > footer > section:only-of-type > blockquote > p > a:focus,
+body > footer > footer > section:last-child > blockquote > p > a:focus,
 body > main > header > section:last-of-type > a:focus,
 body > main > header > menu > li > a:focus,
 body > footer > aside > ul > li > a:focus,
@@ -297,10 +297,10 @@ body nav > a:focus {
 	body > main > section:last-of-type > section > p > a:hover,
 	body > footer > section:only-of-type > p > a:hover,
 	body > footer > footer > section:last-child > p > a:hover,
-	body > main > section:first-of-type > blockquote > a:hover,
-	body > main > section:last-of-type > section > blockquote > a:hover,
-	body > footer > section:only-of-type > blockquote > a:hover,
-	body > footer > footer > section:last-child > blockquote > a:hover,
+	body > main > section:first-of-type > blockquote > p > a:hover,
+	body > main > section:last-of-type > section > blockquote > p > a:hover,
+	body > footer > section:only-of-type > blockquote > p > a:hover,
+	body > footer > footer > section:last-child > blockquote > p > a:hover,
 	body > main > header > section:last-of-type > a:hover,
 	body > main > header > menu > li > a:hover,
 	body > footer > aside > ul > li > a:hover,
@@ -331,10 +331,10 @@ body > main > section:first-of-type > p > a,
 body > main > section:last-of-type > section > p > a,
 body > footer > section:only-of-type > p > a,
 body > footer > footer > section:last-child > p > a,
-body > main > section:first-of-type > blockquote > a,
-body > main > section:last-of-type > section > blockquote > a,
-body > footer > section:only-of-type > blockquote > a,
-body > footer > footer > section:last-child > blockquote > a {
+body > main > section:first-of-type > blockquote > p > a,
+body > main > section:last-of-type > section > blockquote > p > a,
+body > footer > section:only-of-type > blockquote > p > a,
+body > footer > footer > section:last-child > blockquote > p > a {
 	border-color: transparent;
 	border-left-width: var(--link--enlargement);
 	border-right-width: var(--link--enlargement);
@@ -351,10 +351,10 @@ body > main > section:first-of-type > p > a:active,
 body > main > section:last-of-type > section > p > a:active,
 body > footer > section:only-of-type > p > a:active,
 body > footer > footer > section:last-child > p > a:active,
-body > main > section:first-of-type > blockquote > a:active,
-body > main > section:last-of-type > section > blockquote > a:active,
-body > footer > section:only-of-type > blockquote > a:active,
-body > footer > footer > section:last-child > blockquote > a:active {
+body > main > section:first-of-type > blockquote > p > a:active,
+body > main > section:last-of-type > section > blockquote > p > a:active,
+body > footer > section:only-of-type > blockquote > p > a:active,
+body > footer > footer > section:last-child > blockquote > p > a:active {
 	--color--active: var(--link--highlight);
 	background-color: initial;
 	border-radius: initial;
@@ -365,10 +365,10 @@ body > main > section:first-of-type > p > a:after,
 body > main > section:last-of-type > section > p > a:after,
 body > footer > section:only-of-type > p > a:after,
 body > footer > footer > section:last-child > p > a:after,
-body > main > section:first-of-type > blockquote > a:after,
-body > main > section:last-of-type > section > blockquote > a:after,
-body > footer > section:only-of-type > blockquote > a:after,
-body > footer > footer > section:last-child > blockquote > a:after {
+body > main > section:first-of-type > blockquote > p > a:after,
+body > main > section:last-of-type > section > blockquote > p > a:after,
+body > footer > section:only-of-type > blockquote > p > a:after,
+body > footer > footer > section:last-child > blockquote > p > a:after {
 	background-color: var(--color--active);
 	border-radius: calc(var(--link--enlargement) / 2);
 	bottom: calc(var(--link--enlargement) / -2);
@@ -615,6 +615,7 @@ body > footer > footer > section:last-child > h3 {
 	--typography--leading: var(--typography--leading--tagline);
 	--typography--size: var(--typography--size--intro);
 	--typography--weight-adjust: 0.0075em;
+	max-width: 24ch;
 }
 
 body > main > section:first-of-type > h3:not(:only-child):not(:first-child),
@@ -719,10 +720,10 @@ body > main > section:first-of-type > p > a,
 body > main > section:last-of-type > section > p > a,
 body > footer > section:only-of-type > p > a,
 body > footer > footer > section:last-child > p > a,
-body > main > section:first-of-type > blockquote > a,
-body > main > section:last-of-type > section > blockquote > a,
-body > footer > section:only-of-type > blockquote > a,
-body > footer > footer > section:last-child > blockquote > a {
+body > main > section:first-of-type > blockquote > p > a,
+body > main > section:last-of-type > section > blockquote > p > a,
+body > footer > section:only-of-type > blockquote > p > a,
+body > footer > footer > section:last-child > blockquote > p > a {
 	--typography--decoration-thickness: calc(var(--typography--underline) * 1em);
 	--typography--text-shadow: calc(var(--typography--underline--skip) * 1em);
 	--typography--underline-offset: calc(var(--typography--underline--shift) * 1em);
@@ -740,10 +741,10 @@ body > footer > footer > section:last-child > blockquote > a {
 	body > main > section:last-of-type > section > p > a,
 	body > footer > section:only-of-type > p > a,
 	body > footer > footer > section:last-child > p > a,
-	body > main > section:first-of-type > blockquote > a,
-	body > main > section:last-of-type > section > blockquote > a,
-	body > footer > section:only-of-type > blockquote > a,
-	body > footer > footer > section:last-child > blockquote > a {
+	body > main > section:first-of-type > blockquote > p > a,
+	body > main > section:last-of-type > section > blockquote > p > a,
+	body > footer > section:only-of-type > blockquote > p > a,
+	body > footer > footer > section:last-child > blockquote > p > a {
 		--typography--underline-offset--extra: calc(var(--typography--decoration-thickness) / 2);
 	}
 }
@@ -754,10 +755,10 @@ body > footer > footer > section:last-child > blockquote > a {
 	body > main > section:last-of-type > section > p > a,
 	body > footer > section:only-of-type > p > a,
 	body > footer > footer > section:last-child > p > a,
-	body > main > section:first-of-type > blockquote > a,
-	body > main > section:last-of-type > section > blockquote > a,
-	body > footer > section:only-of-type > blockquote > a,
-	body > footer > footer > section:last-child > blockquote > a {
+	body > main > section:first-of-type > blockquote > p > a,
+	body > main > section:last-of-type > section > blockquote > p > a,
+	body > footer > section:only-of-type > blockquote > p > a,
+	body > footer > footer > section:last-child > blockquote > p > a {
 		--typography--underline-offset--extra: calc(var(--typography--decoration-thickness) / 2);
 	}
 }
@@ -768,10 +769,10 @@ body > footer > footer > section:last-child > blockquote > a {
 	body > main > section:last-of-type > section > p > a,
 	body > footer > section:only-of-type > p > a,
 	body > footer > footer > section:last-child > p > a,
-	body > main > section:first-of-type > blockquote > a,
-	body > main > section:last-of-type > section > blockquote > a,
-	body > footer > section:only-of-type > blockquote > a,
-	body > footer > footer > section:last-child > blockquote > a {
+	body > main > section:first-of-type > blockquote > p > a,
+	body > main > section:last-of-type > section > blockquote > p > a,
+	body > footer > section:only-of-type > blockquote > p > a,
+	body > footer > footer > section:last-child > blockquote > p > a {
 		-webkit-text-stroke-color: var(--color--background);
 		-webkit-text-stroke-width: calc(var(--typography--decoration-thickness) * 2);
 		paint-order: stroke fill;
@@ -786,10 +787,10 @@ body > footer > footer > section:last-child > blockquote > a {
 	body > main > section:last-of-type > section > p > a,
 	body > footer > section:only-of-type > p > a,
 	body > footer > footer > section:last-child > p > a,
-	body > main > section:first-of-type > blockquote > a,
-	body > main > section:last-of-type > section > blockquote > a,
-	body > footer > section:only-of-type > blockquote > a,
-	body > footer > footer > section:last-child > blockquote > a {
+	body > main > section:first-of-type > blockquote > p > a,
+	body > main > section:last-of-type > section > blockquote > p > a,
+	body > footer > section:only-of-type > blockquote > p > a,
+	body > footer > footer > section:last-child > blockquote > p > a {
 		text-shadow: var(--color--background) var(--typography--text-shadow) 0, var(--color--background) var(--typography--text-shadow) calc(var(--typography--text-shadow) / 2), var(--color--background) 0 calc(var(--typography--text-shadow) / 2), var(--color--background) calc(-1 * var(--typography--text-shadow)) calc(var(--typography--text-shadow) / 2), var(--color--background) calc(-1 * var(--typography--text-shadow)) 0, var(--color--background) calc(-1 * var(--typography--text-shadow)) calc(-1 * var(--typography--text-shadow) / 2), var(--color--background) 0 calc(-1 * var(--typography--text-shadow) / 2), var(--color--background) var(--typography--text-shadow) calc(-1 * var(--typography--text-shadow) / 2);
 		transition-property: text-decoration-color, text-shadow, filter;
 	}
@@ -802,10 +803,10 @@ body > footer > footer > section:last-child > blockquote > a {
 		body > main > section:last-of-type > section > p > a,
 		body > footer > section:only-of-type > p > a,
 		body > footer > footer > section:last-child > p > a,
-		body > main > section:first-of-type > blockquote > a,
-		body > main > section:last-of-type > section > blockquote > a,
-		body > footer > section:only-of-type > blockquote > a,
-		body > footer > footer > section:last-child > blockquote > a {
+		body > main > section:first-of-type > blockquote > p > a,
+		body > main > section:last-of-type > section > blockquote > p > a,
+		body > footer > section:only-of-type > blockquote > p > a,
+		body > footer > footer > section:last-child > blockquote > p > a {
 			text-shadow: var(--color--background) var(--typography--text-shadow) 0, var(--color--background) var(--typography--text-shadow) calc(var(--typography--text-shadow) / 2), var(--color--background) 0 calc(var(--typography--text-shadow) / 2), var(--color--background) calc(-1 * var(--typography--text-shadow)) calc(var(--typography--text-shadow) / 2), var(--color--background) calc(-1 * var(--typography--text-shadow)) 0, var(--color--background) calc(-1 * var(--typography--text-shadow)) calc(-1 * var(--typography--text-shadow) / 2), var(--color--background) 0 calc(-1 * var(--typography--text-shadow) / 2), var(--color--background) var(--typography--text-shadow) calc(-1 * var(--typography--text-shadow) / 2);
 			transition-property: text-decoration-color, text-shadow, filter;
 		}

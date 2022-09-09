@@ -5,7 +5,9 @@ subtitle: |
   Conservation Scientist
 links:
   - name: Email
-    url:  mailto:cwmcglinchey@gmail.com
+    url:  mailto:cwm@artmediascience.com
+  - name: CV
+    url:  assets/ams_mcglinchey_cv_9_2022.pdf
   - name: LinkedIn
     url:  https://www.linkedin.com/in/chris-mcglinchey-93896b20a/
   - name: Medium

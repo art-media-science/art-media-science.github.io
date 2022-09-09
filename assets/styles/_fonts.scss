@@ -203,6 +203,8 @@
 
 		--typography--weight-adjust: 0.0075em; // Ballpark weight of tagline/h2.
 
+		max-width: 24ch;
+
 		&:not(:only-child):not(:first-child) {
 			margin-top: var(--section--spacing);
 		}

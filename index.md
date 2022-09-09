@@ -6,12 +6,12 @@ subtitle: |
 links:
   - name: Email
     url:  mailto:cwm@artmediascience.com
-  - name: CV
-    url:  assets/ams_mcglinchey_cv_9_2022.pdf
   - name: LinkedIn
     url:  https://www.linkedin.com/in/chris-mcglinchey-93896b20a/
   - name: Medium
     url:  https://medium.com/@chris_mcglinchey
+  - name: CV
+    url:  assets/ams_mcglinchey_cv_9_2022.pdf
 copyright: © 2022 Art Media Science, LLC
 ---
 

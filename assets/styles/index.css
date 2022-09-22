@@ -459,105 +459,18 @@ body > footer > footer > section:last-child > h3 {
 	body > main > section:last-of-type > section > h3,
 	body > footer > section:only-of-type > h3,
 	body > footer > footer > section:last-child > h3 {
-		--typography--weight-shift: calc(-1 * var(--typography--weight-adjust));
-		-webkit-text-stroke: initial;
-		filter: opacity(0.333) drop-shadow(var(--typography--weight-shift) 0 0 var(--color)) drop-shadow(0 0 0 var(--color)) drop-shadow(0 var(--typography--weight-shift) 0 var(--color));
-		transition-duration: var(--color--transition);
-		transition-property: color, filter;
-		transition-timing-function: var(--color--transition--curve--tight);
-	}
-
-	@media (-webkit-min-device-pixel-ratio: 2) {
-
-		body > footer > footer p,
-		body > main > section:first-of-type > h3,
-		body > main > section:last-of-type > section > h3,
-		body > footer > section:only-of-type > h3,
-		body > footer > footer > section:last-child > h3 {
-			filter: drop-shadow(var(--typography--weight-shift) 0 0 var(--color)) drop-shadow(0 var(--typography--weight-shift) 0 var(--color));
-		}
+		filter: opacity(0.999);
 	}
 }
 
-@supports (-moz-appearance: meterbar) {
-
-	body > footer > footer p a:not(._):not(._),
-	body > main > section:first-of-type > h3 a:not(._):not(._),
-	body > main > section:last-of-type > section > h3 a:not(._):not(._),
-	body > footer > section:only-of-type > h3 a:not(._):not(._),
-	body > footer > footer > section:last-child > h3 a:not(._):not(._) {
-		--typography--decoration-thickness: calc(var(--typography--underline) * 1em + var(--typography--weight-adjust, 0em));
-		--typography--text-shadow: calc(var(--typography--underline--skip) * 1em + var(--typography--weight-adjust, 0em) / 2);
-		--typography--underline-offset: calc(var(--typography--underline--shift) * 1em + var(--typography--weight-adjust, 0em) * 2);
-	}
-}
-
-@media (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
-	@supports not (-moz-appearance: meterbar) {
-
-		body > footer > footer p a:not(._):not(._),
-		body > main > section:first-of-type > h3 a:not(._):not(._),
-		body > main > section:last-of-type > section > h3 a:not(._):not(._),
-		body > footer > section:only-of-type > h3 a:not(._):not(._),
-		body > footer > footer > section:last-child > h3 a:not(._):not(._) {
-			--typography--decoration-thickness: calc(var(--typography--underline) * 1em + var(--typography--weight-adjust, 0em));
-			--typography--text-shadow: calc(var(--typography--underline--skip) * 1em + var(--typography--weight-adjust, 0em) / 2);
-			--typography--underline-offset: calc(var(--typography--underline--shift) * 1em + var(--typography--weight-adjust, 0em) * 2);
-		}
-	}
-}
-
-@supports (-webkit-hyphens: none) {
-
-	body > footer > footer p a:not(._):not(._),
-	body > main > section:first-of-type > h3 a:not(._):not(._),
-	body > main > section:last-of-type > section > h3 a:not(._):not(._),
-	body > footer > section:only-of-type > h3 a:not(._):not(._),
-	body > footer > footer > section:last-child > h3 a:not(._):not(._) {
-		-webkit-text-stroke: initial;
-		paint-order: initial;
-		text-decoration-skip-ink: auto;
-		transition-duration: var(--color--transition), var(--color--transition), 0ms;
-		transition-timing-function: var(--color--transition--curve--tight);
-	}
-
-	body > footer > footer p a:not(._):not(._):after,
-	body > main > section:first-of-type > h3 a:not(._):not(._):after,
-	body > main > section:last-of-type > section > h3 a:not(._):not(._):after,
-	body > footer > section:only-of-type > h3 a:not(._):not(._):after,
-	body > footer > footer > section:last-child > h3 a:not(._):not(._):after {
-		opacity: 0.333;
-	}
-
-	@media (any-hover: hover) {
-
-		body > footer > footer p a:not(._):not(._):hover,
-		body > main > section:first-of-type > h3 a:not(._):not(._):hover,
-		body > main > section:last-of-type > section > h3 a:not(._):not(._):hover,
-		body > footer > section:only-of-type > h3 a:not(._):not(._):hover,
-		body > footer > footer > section:last-child > h3 a:not(._):not(._):hover {
-			filter: opacity(0.075) drop-shadow(var(--typography--weight-shift) 0 0 var(--color)) drop-shadow(0 0 0 var(--color)) drop-shadow(0 var(--typography--weight-shift) 0 var(--color));
-		}
-
-		body > footer > footer p a:not(._):not(._):hover:after,
-		body > main > section:first-of-type > h3 a:not(._):not(._):hover:after,
-		body > main > section:last-of-type > section > h3 a:not(._):not(._):hover:after,
-		body > footer > section:only-of-type > h3 a:not(._):not(._):hover:after,
-		body > footer > footer > section:last-child > h3 a:not(._):not(._):hover:after {
-			opacity: 1;
-		}
-	}
-
-	@media (any-hover: hover) and (-webkit-min-device-pixel-ratio: 2) {
-
-		body > footer > footer p a:not(._):not(._):hover,
-		body > main > section:first-of-type > h3 a:not(._):not(._):hover,
-		body > main > section:last-of-type > section > h3 a:not(._):not(._):hover,
-		body > footer > section:only-of-type > h3 a:not(._):not(._):hover,
-		body > footer > footer > section:last-child > h3 a:not(._):not(._):hover {
-			filter: opacity(0.075) drop-shadow(var(--typography--weight-shift) 0 0 var(--color)) drop-shadow(0 var(--typography--weight-shift) 0 var(--color));
-		}
-	}
+body > footer > footer p a:not(._):not(._),
+body > main > section:first-of-type > h3 a:not(._):not(._),
+body > main > section:last-of-type > section > h3 a:not(._):not(._),
+body > footer > section:only-of-type > h3 a:not(._):not(._),
+body > footer > footer > section:last-child > h3 a:not(._):not(._) {
+	--typography--decoration-thickness: calc(var(--typography--underline) * 1em + var(--typography--weight-adjust, 0em));
+	--typography--text-shadow: calc(var(--typography--underline--skip) * 1em + var(--typography--weight-adjust, 0em) / 2);
+	--typography--underline-offset: calc(var(--typography--underline--shift) * 1em + var(--typography--weight-adjust, 0em) * 2);
 }
 
 body > main > section:first-of-type > h2,
@@ -699,7 +612,9 @@ body > footer > footer > section:last-child > blockquote > p > a {
 	text-decoration-thickness: var(--typography--decoration-thickness);
 	text-underline-offset: calc(-1 * var(--typography--underline-offset) + var(--typography--decoration-thickness) + var(--typography--underline-offset--extra, 0em));
 	transition-duration: var(--color--transition), var(--color--transition), var(--link--hover--transition);
+	transition-property: text-decoration-color, text-shadow, filter;
 	transition-timing-function: var(--color--transition--curve--tight), var(--color--transition--curve), linear;
+	text-shadow: var(--color--background) var(--typography--text-shadow) 0, var(--color--background) var(--typography--text-shadow) calc(var(--typography--text-shadow) / 2), var(--color--background) 0 calc(var(--typography--text-shadow) / 2), var(--color--background) calc(-1 * var(--typography--text-shadow)) calc(var(--typography--text-shadow) / 2), var(--color--background) calc(-1 * var(--typography--text-shadow)) 0, var(--color--background) calc(-1 * var(--typography--text-shadow)) calc(-1 * var(--typography--text-shadow) / 2), var(--color--background) 0 calc(-1 * var(--typography--text-shadow) / 2), var(--color--background) var(--typography--text-shadow) calc(-1 * var(--typography--text-shadow) / 2);
 }
 
 @supports (-moz-appearance: meterbar) {
@@ -727,56 +642,6 @@ body > footer > footer > section:last-child > blockquote > p > a {
 	body > footer > section:only-of-type > blockquote > p > a,
 	body > footer > footer > section:last-child > blockquote > p > a {
 		--typography--underline-offset--extra: calc(var(--typography--decoration-thickness) / 2);
-	}
-}
-
-@supports (-webkit-hyphens: none) {
-
-	body > main > section:first-of-type > p > a,
-	body > main > section:last-of-type > section > p > a,
-	body > footer > section:only-of-type > p > a,
-	body > footer > footer > section:last-child > p > a,
-	body > main > section:first-of-type > blockquote > p > a,
-	body > main > section:last-of-type > section > blockquote > p > a,
-	body > footer > section:only-of-type > blockquote > p > a,
-	body > footer > footer > section:last-child > blockquote > p > a {
-		-webkit-text-stroke-color: var(--color--background);
-		-webkit-text-stroke-width: calc(var(--typography--decoration-thickness) * 2);
-		paint-order: stroke fill;
-		text-decoration-skip-ink: none;
-		transition-property: text-decoration-color, -webkit-text-stroke-color, filter;
-	}
-}
-
-@supports (-moz-appearance: meterbar) {
-
-	body > main > section:first-of-type > p > a,
-	body > main > section:last-of-type > section > p > a,
-	body > footer > section:only-of-type > p > a,
-	body > footer > footer > section:last-child > p > a,
-	body > main > section:first-of-type > blockquote > p > a,
-	body > main > section:last-of-type > section > blockquote > p > a,
-	body > footer > section:only-of-type > blockquote > p > a,
-	body > footer > footer > section:last-child > blockquote > p > a {
-		text-shadow: var(--color--background) var(--typography--text-shadow) 0, var(--color--background) var(--typography--text-shadow) calc(var(--typography--text-shadow) / 2), var(--color--background) 0 calc(var(--typography--text-shadow) / 2), var(--color--background) calc(-1 * var(--typography--text-shadow)) calc(var(--typography--text-shadow) / 2), var(--color--background) calc(-1 * var(--typography--text-shadow)) 0, var(--color--background) calc(-1 * var(--typography--text-shadow)) calc(-1 * var(--typography--text-shadow) / 2), var(--color--background) 0 calc(-1 * var(--typography--text-shadow) / 2), var(--color--background) var(--typography--text-shadow) calc(-1 * var(--typography--text-shadow) / 2);
-		transition-property: text-decoration-color, text-shadow, filter;
-	}
-}
-
-@media (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
-	@supports not (-moz-appearance: meterbar) {
-
-		body > main > section:first-of-type > p > a,
-		body > main > section:last-of-type > section > p > a,
-		body > footer > section:only-of-type > p > a,
-		body > footer > footer > section:last-child > p > a,
-		body > main > section:first-of-type > blockquote > p > a,
-		body > main > section:last-of-type > section > blockquote > p > a,
-		body > footer > section:only-of-type > blockquote > p > a,
-		body > footer > footer > section:last-child > blockquote > p > a {
-			text-shadow: var(--color--background) var(--typography--text-shadow) 0, var(--color--background) var(--typography--text-shadow) calc(var(--typography--text-shadow) / 2), var(--color--background) 0 calc(var(--typography--text-shadow) / 2), var(--color--background) calc(-1 * var(--typography--text-shadow)) calc(var(--typography--text-shadow) / 2), var(--color--background) calc(-1 * var(--typography--text-shadow)) 0, var(--color--background) calc(-1 * var(--typography--text-shadow)) calc(-1 * var(--typography--text-shadow) / 2), var(--color--background) 0 calc(-1 * var(--typography--text-shadow) / 2), var(--color--background) var(--typography--text-shadow) calc(-1 * var(--typography--text-shadow) / 2);
-			transition-property: text-decoration-color, text-shadow, filter;
-		}
 	}
 }
 
